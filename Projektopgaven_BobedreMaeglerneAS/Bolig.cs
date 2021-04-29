@@ -10,6 +10,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 {
     class Bolig
     {
+        //HI IM ALESSIA AND I WANT THE PEACE IN THE WORLD
         private int BoligID;
         private string Vej;
         private int Postnummer;
