@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btn_bolig = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btn_bolig
+            // 
+            this.btn_bolig.Location = new System.Drawing.Point(713, 12);
+            this.btn_bolig.Name = "btn_bolig";
+            this.btn_bolig.Size = new System.Drawing.Size(75, 23);
+            this.btn_bolig.TabIndex = 0;
+            this.btn_bolig.Text = "Bolig";
+            this.btn_bolig.UseVisualStyleBackColor = true;
+            this.btn_bolig.Click += new System.EventHandler(this.btn_bolig_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_bolig);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btn_bolig;
     }
 }
 
