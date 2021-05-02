@@ -10,7 +10,6 @@ namespace Projektopgaven_BobedreMæglerneAS
 {
     class Ejendomsmægler
     {
-        
         //Connection string
         string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
         //SqlConnection conn = new SqlConnection(strconn);
@@ -38,7 +37,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         private void OpretEjendomsmægler(Ejendomsmægler ejendomsmægler, SqlConnection conn)
         {
-            //Connection string
+            //Connection string - 
             //string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
             //SqlConnection conn = new SqlConnection(strconn);
 
