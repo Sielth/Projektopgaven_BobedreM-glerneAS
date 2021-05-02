@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using Projektopgaven_BobedreMæglerneAS;
+
 namespace Projektopgaven_BobedreMæglerneAS
 {
     class Ejendomsmægler
     {
+        
         //Connection string
         string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
         //SqlConnection conn = new SqlConnection(strconn);
@@ -31,12 +34,13 @@ namespace Projektopgaven_BobedreMæglerneAS
             this.Vej = vej;
             this.Postnummer = postnummer;
         }
+        
 
-        private void OpretEjendomsmægler(Ejendomsmægler ejendomsmægler)
+        private void OpretEjendomsmægler(Ejendomsmægler ejendomsmægler, SqlConnection conn)
         {
             //Connection string
             //string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            //SqlConnection conn = new SqlConnection(strconn);
 
             string sqlCommandEjendomsmægler = $"INSERT INTO Ejendomsmægler VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer)";
             
