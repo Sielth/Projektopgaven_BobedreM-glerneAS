@@ -159,6 +159,17 @@
             this.boligEtager_tbar.Name = "boligEtager_tbar";
             this.boligEtager_tbar.Value = 1;
             this.boligEtager_tbar.Scroll += new System.EventHandler(this.boligEtager_tbar_Scroll);
+            this.boligVærelser_tbar.Location = new System.Drawing.Point(12, 117);
+            this.boligVærelser_tbar.Name = "boligVærelser_tbar";
+            this.boligVærelser_tbar.Size = new System.Drawing.Size(100, 45);
+            this.boligVærelser_tbar.TabIndex = 13;
+            // 
+            // boligEtager_tbar
+            // 
+            this.boligEtager_tbar.Location = new System.Drawing.Point(12, 168);
+            this.boligEtager_tbar.Name = "boligEtager_tbar";
+            this.boligEtager_tbar.Size = new System.Drawing.Size(100, 45);
+            this.boligEtager_tbar.TabIndex = 14;
             // 
             // boligHave_ckBox
             // 
@@ -266,6 +277,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
+            this.boligRenoveringsÅr_dtp.Size = new System.Drawing.Size(100, 20);
+            this.boligRenoveringsÅr_dtp.TabIndex = 18;
             // 
             // BoligUI
             // 
@@ -286,6 +299,7 @@
             this.Controls.Add(this.boligPostnr_lbl);
             this.Controls.Add(this.boligVej_lbl);
             this.Controls.Add(this.boligID_lbl);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.boligRenoveringsÅr_dtp);
             this.Controls.Add(this.boligRenoveret_ckbox);
             this.Controls.Add(this.boligBygningsÅr_dtp);
