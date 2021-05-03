@@ -188,5 +188,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return false;
         }
         #endregion
+
+        private void boligEtager_tbar_Scroll(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(boligEtager_tbar, boligEtager_tbar.Value.ToString());
+        }
+
+        private void boligVærelser_tbar_Scroll(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(boligVærelser_tbar, boligVærelser_tbar.Value.ToString());
+        }
     }
 }
