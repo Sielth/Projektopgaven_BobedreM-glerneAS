@@ -43,18 +43,19 @@
             this.boligBygningsÅr_dtp = new System.Windows.Forms.DateTimePicker();
             this.boligRenoveret_ckbox = new System.Windows.Forms.CheckBox();
             this.boligRenoveringsÅr_dtp = new System.Windows.Forms.DateTimePicker();
-            this.boligID_lbl = new System.Windows.Forms.Label();
-            this.boligVej_lbl = new System.Windows.Forms.Label();
-            this.boligPostnr_lbl = new System.Windows.Forms.Label();
-            this.boligType_lbl = new System.Windows.Forms.Label();
-            this.boligVærelser_lbl = new System.Windows.Forms.Label();
-            this.boligEtager_lbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.btn_HentBolig = new System.Windows.Forms.Button();
-            this.btn_OpdaterBolig = new System.Windows.Forms.Button();
-            this.btn_SletBolig = new System.Windows.Forms.Button();
+            this.btn_UpdateBolig = new System.Windows.Forms.Button();
+            this.btn_DeteleBolig = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -145,17 +146,11 @@
             this.boligEtager_tbar.Size = new System.Drawing.Size(100, 45);
             this.boligEtager_tbar.TabIndex = 14;
             resources.ApplyResources(this.boligVærelser_tbar, "boligVærelser_tbar");
-            this.boligVærelser_tbar.Maximum = 5;
-            this.boligVærelser_tbar.Minimum = 1;
             this.boligVærelser_tbar.Name = "boligVærelser_tbar";
-            this.boligVærelser_tbar.Value = 1;
-            this.boligVærelser_tbar.Scroll += new System.EventHandler(this.boligVærelser_tbar_Scroll);
             // 
             // boligEtager_tbar
             // 
             resources.ApplyResources(this.boligEtager_tbar, "boligEtager_tbar");
-            this.boligEtager_tbar.Maximum = 5;
-            this.boligEtager_tbar.Minimum = 1;
             this.boligEtager_tbar.Name = "boligEtager_tbar";
             this.boligEtager_tbar.Value = 1;
             this.boligEtager_tbar.Scroll += new System.EventHandler(this.boligEtager_tbar_Scroll);
@@ -209,35 +204,35 @@
             this.boligRenoveringsÅr_dtp.Size = new System.Drawing.Size(100, 20);
             this.boligRenoveringsÅr_dtp.TabIndex = 18;
             // 
-            // boligID_lbl
+            // label1
             // 
-            resources.ApplyResources(this.boligID_lbl, "boligID_lbl");
-            this.boligID_lbl.Name = "boligID_lbl";
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
-            // boligVej_lbl
+            // label2
             // 
-            resources.ApplyResources(this.boligVej_lbl, "boligVej_lbl");
-            this.boligVej_lbl.Name = "boligVej_lbl";
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
             // 
-            // boligPostnr_lbl
+            // label3
             // 
-            resources.ApplyResources(this.boligPostnr_lbl, "boligPostnr_lbl");
-            this.boligPostnr_lbl.Name = "boligPostnr_lbl";
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
             // 
-            // boligType_lbl
+            // label4
             // 
-            resources.ApplyResources(this.boligType_lbl, "boligType_lbl");
-            this.boligType_lbl.Name = "boligType_lbl";
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
             // 
-            // boligVærelser_lbl
+            // label5
             // 
-            resources.ApplyResources(this.boligVærelser_lbl, "boligVærelser_lbl");
-            this.boligVærelser_lbl.Name = "boligVærelser_lbl";
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
             // 
-            // boligEtager_lbl
+            // label6
             // 
-            resources.ApplyResources(this.boligEtager_lbl, "boligEtager_lbl");
-            this.boligEtager_lbl.Name = "boligEtager_lbl";
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
             // 
             // label7
             // 
@@ -254,23 +249,28 @@
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
             // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
             // btn_HentBolig
             // 
             resources.ApplyResources(this.btn_HentBolig, "btn_HentBolig");
             this.btn_HentBolig.Name = "btn_HentBolig";
             this.btn_HentBolig.UseVisualStyleBackColor = true;
             // 
-            // btn_OpdaterBolig
+            // btn_UpdateBolig
             // 
-            resources.ApplyResources(this.btn_OpdaterBolig, "btn_OpdaterBolig");
-            this.btn_OpdaterBolig.Name = "btn_OpdaterBolig";
-            this.btn_OpdaterBolig.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btn_UpdateBolig, "btn_UpdateBolig");
+            this.btn_UpdateBolig.Name = "btn_UpdateBolig";
+            this.btn_UpdateBolig.UseVisualStyleBackColor = true;
             // 
-            // btn_SletBolig
+            // btn_DeteleBolig
             // 
-            resources.ApplyResources(this.btn_SletBolig, "btn_SletBolig");
-            this.btn_SletBolig.Name = "btn_SletBolig";
-            this.btn_SletBolig.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btn_DeteleBolig, "btn_DeteleBolig");
+            this.btn_DeteleBolig.Name = "btn_DeteleBolig";
+            this.btn_DeteleBolig.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -287,9 +287,10 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btn_SletBolig);
-            this.Controls.Add(this.btn_OpdaterBolig);
+            this.Controls.Add(this.btn_DeteleBolig);
+            this.Controls.Add(this.btn_UpdateBolig);
             this.Controls.Add(this.btn_HentBolig);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -300,6 +301,12 @@
             this.Controls.Add(this.boligVej_lbl);
             this.Controls.Add(this.boligID_lbl);
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.boligRenoveringsÅr_dtp);
             this.Controls.Add(this.boligRenoveret_ckbox);
             this.Controls.Add(this.boligBygningsÅr_dtp);
@@ -339,20 +346,20 @@
         private System.Windows.Forms.DateTimePicker boligRenoveringsÅr_dtp;
         private System.Windows.Forms.CheckBox boligRenoveret_ckbox;
         private System.Windows.Forms.DateTimePicker boligBygningsÅr_dtp;
-        private System.Windows.Forms.Button btn_SletBolig;
-        private System.Windows.Forms.Button btn_OpdaterBolig;
+        private System.Windows.Forms.Button btn_DeteleBolig;
+        private System.Windows.Forms.Button btn_UpdateBolig;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label boligEtager_lbl;
-        private System.Windows.Forms.Label boligVærelser_lbl;
-        private System.Windows.Forms.Label boligType_lbl;
-        private System.Windows.Forms.Label boligPostnr_lbl;
-        private System.Windows.Forms.Label boligVej_lbl;
-        private System.Windows.Forms.Label boligID_lbl;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btn_HentBolig;
         public System.Windows.Forms.Button btn_OpretBolig;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
