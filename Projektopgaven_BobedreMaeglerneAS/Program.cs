@@ -11,6 +11,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// Main reupload... Hej
         [STAThread]
         static void Main()
         {
