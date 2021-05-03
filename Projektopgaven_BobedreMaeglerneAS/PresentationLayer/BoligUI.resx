@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="boligID_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 12</value>
+    <value>130, 12</value>
   </data>
   <data name="boligID_txt.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -138,10 +138,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligID_txt.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>25</value>
   </data>
   <data name="boligVej_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 38</value>
+    <value>130, 38</value>
   </data>
   <data name="boligVej_txt.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -159,10 +159,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligVej_txt.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>24</value>
   </data>
   <data name="boligPostnr_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 64</value>
+    <value>130, 64</value>
   </data>
   <data name="boligPostnr_txt.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -180,10 +180,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligPostnr_txt.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>23</value>
   </data>
   <data name="boligKvm_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 15</value>
+    <value>390, 12</value>
   </data>
   <data name="boligKvm_txt.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -201,10 +201,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligKvm_txt.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>22</value>
   </data>
   <data name="boligUdbudspris_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 41</value>
+    <value>390, 93</value>
   </data>
   <data name="boligUdbudspris_txt.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -222,7 +222,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligUdbudspris_txt.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>21</value>
   </data>
   <data name="btn_OpretBolig.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 415</value>
@@ -246,7 +246,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_OpretBolig.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>20</value>
   </data>
   <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -261,10 +261,10 @@
     <value>800, 450</value>
   </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 219</value>
+    <value>12, 219</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>770, 190</value>
+    <value>776, 190</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -281,52 +281,52 @@
   <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btn_DeteleBolig.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_SletBolig.Location" type="System.Drawing.Point, System.Drawing">
     <value>255, 415</value>
   </data>
-  <data name="btn_DeteleBolig.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_SletBolig.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="btn_DeteleBolig.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_SletBolig.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
-  <data name="btn_DeteleBolig.Text" xml:space="preserve">
-    <value>Delete</value>
+  <data name="btn_SletBolig.Text" xml:space="preserve">
+    <value>Slet Bolig</value>
   </data>
-  <data name="&gt;&gt;btn_DeteleBolig.Name" xml:space="preserve">
-    <value>btn_DeteleBolig</value>
+  <data name="&gt;&gt;btn_SletBolig.Name" xml:space="preserve">
+    <value>btn_SletBolig</value>
   </data>
-  <data name="&gt;&gt;btn_DeteleBolig.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_SletBolig.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_DeteleBolig.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_SletBolig.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btn_DeteleBolig.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btn_SletBolig.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btn_UpdateBolig.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_OpdaterBolig.Location" type="System.Drawing.Point, System.Drawing">
     <value>174, 415</value>
   </data>
-  <data name="btn_UpdateBolig.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_OpdaterBolig.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="btn_UpdateBolig.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_OpdaterBolig.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
-  <data name="btn_UpdateBolig.Text" xml:space="preserve">
-    <value>Update Bolig</value>
+  <data name="btn_OpdaterBolig.Text" xml:space="preserve">
+    <value>Opdater Bolig</value>
   </data>
-  <data name="&gt;&gt;btn_UpdateBolig.Name" xml:space="preserve">
-    <value>btn_UpdateBolig</value>
+  <data name="&gt;&gt;btn_OpdaterBolig.Name" xml:space="preserve">
+    <value>btn_OpdaterBolig</value>
   </data>
-  <data name="&gt;&gt;btn_UpdateBolig.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_OpdaterBolig.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_UpdateBolig.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_OpdaterBolig.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btn_UpdateBolig.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btn_OpdaterBolig.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="btn_HentBolig.Location" type="System.Drawing.Point, System.Drawing">
@@ -353,38 +353,11 @@
   <data name="&gt;&gt;btn_HentBolig.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>353, 149</value>
-  </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 13</value>
-  </data>
-  <data name="label10.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>renoveringsår</value>
-  </data>
-  <data name="&gt;&gt;label10.Name" xml:space="preserve">
-    <value>label10</value>
-  </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>353, 96</value>
+    <value>496, 41</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 13</value>
@@ -405,13 +378,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 48</value>
+    <value>496, 96</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 13</value>
@@ -432,13 +405,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 15</value>
+    <value>496, 15</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 13</value>
@@ -459,175 +432,179 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+  <data name="boligEtager_lbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 185</value>
+  <data name="boligEtager_lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 67</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 13</value>
+  <data name="boligEtager_lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
   </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+  <data name="boligEtager_lbl.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>etager</value>
+  <data name="boligEtager_lbl.Text" xml:space="preserve">
+    <value>Etager</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="&gt;&gt;boligEtager_lbl.Name" xml:space="preserve">
+    <value>boligEtager_lbl</value>
   </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+  <data name="&gt;&gt;boligEtager_lbl.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;boligEtager_lbl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;boligEtager_lbl.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+  <data name="boligVærelser_lbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 128</value>
+  <data name="boligVærelser_lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>285, 15</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 13</value>
+  <data name="boligVærelser_lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 13</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+  <data name="boligVærelser_lbl.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>værelser</value>
+  <data name="boligVærelser_lbl.Text" xml:space="preserve">
+    <value>Værelser</value>
   </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
+  <data name="&gt;&gt;boligVærelser_lbl.Name" xml:space="preserve">
+    <value>boligVærelser_lbl</value>
   </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+  <data name="&gt;&gt;boligVærelser_lbl.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;boligVærelser_lbl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="&gt;&gt;boligVærelser_lbl.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="boligType_lbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 98</value>
+  <data name="boligType_lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>67, 93</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 13</value>
+  <data name="boligType_lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+  <data name="boligType_lbl.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>type</value>
+  <data name="boligType_lbl.Text" xml:space="preserve">
+    <value>Bolig Type</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="&gt;&gt;boligType_lbl.Name" xml:space="preserve">
+    <value>boligType_lbl</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+  <data name="&gt;&gt;boligType_lbl.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;boligType_lbl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;boligType_lbl.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+  <data name="boligPostnr_lbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 71</value>
+  <data name="boligPostnr_lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 67</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
+  <data name="boligPostnr_lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 13</value>
   </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+  <data name="boligPostnr_lbl.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>postnr</value>
+  <data name="boligPostnr_lbl.Text" xml:space="preserve">
+    <value>Postnummer</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="&gt;&gt;boligPostnr_lbl.Name" xml:space="preserve">
+    <value>boligPostnr_lbl</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+  <data name="&gt;&gt;boligPostnr_lbl.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;boligPostnr_lbl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="&gt;&gt;boligPostnr_lbl.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="boligVej_lbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 45</value>
+  <data name="boligVej_lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 41</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 13</value>
+  <data name="boligVej_lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+  <data name="boligVej_lbl.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>vej</value>
+  <data name="boligVej_lbl.Text" xml:space="preserve">
+    <value>Adresse</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;boligVej_lbl.Name" xml:space="preserve">
+    <value>boligVej_lbl</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+  <data name="&gt;&gt;boligVej_lbl.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;boligVej_lbl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="&gt;&gt;boligVej_lbl.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="boligID_lbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 15</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="boligID_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 13</value>
+  <data name="boligID_lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 15</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+  <data name="boligID_lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 13</value>
+  </data>
+  <data name="boligID_lbl.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>ID</value>
+  <data name="boligID_lbl.Text" xml:space="preserve">
+    <value>Bolig ID</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="&gt;&gt;boligID_lbl.Name" xml:space="preserve">
+    <value>boligID_lbl</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+  <data name="&gt;&gt;boligID_lbl.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;boligID_lbl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="&gt;&gt;boligID_lbl.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="boligRenoveringsÅr_dtp.CustomFormat" xml:space="preserve">
     <value>yyyy</value>
   </data>
   <data name="boligRenoveringsÅr_dtp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 142</value>
+    <value>390, 67</value>
   </data>
   <data name="boligRenoveringsÅr_dtp.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -645,13 +622,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligRenoveringsÅr_dtp.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="boligRenoveret_ckbox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="boligRenoveret_ckbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 119</value>
+    <value>496, 69</value>
   </data>
   <data name="boligRenoveret_ckbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 17</value>
@@ -672,13 +649,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligRenoveret_ckbox.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="boligBygningsÅr_dtp.CustomFormat" xml:space="preserve">
     <value>yyyy</value>
   </data>
   <data name="boligBygningsÅr_dtp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 90</value>
+    <value>390, 38</value>
   </data>
   <data name="boligBygningsÅr_dtp.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -696,13 +673,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligBygningsÅr_dtp.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <data name="boligHave_ckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="boligHave_ckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 67</value>
+    <value>665, 40</value>
   </data>
   <data name="boligHave_ckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 17</value>
@@ -723,10 +700,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligHave_ckBox.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>16</value>
   </data>
   <data name="boligEtager_tbar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 168</value>
+    <value>260, 83</value>
   </data>
   <data name="boligEtager_tbar.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 45</value>
@@ -744,10 +721,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligEtager_tbar.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>17</value>
   </data>
   <data name="boligVærelser_tbar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 117</value>
+    <value>260, 31</value>
   </data>
   <data name="boligVærelser_tbar.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 45</value>
@@ -765,7 +742,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligVærelser_tbar.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>18</value>
   </data>
   <data name="boligType_cbox.Items" xml:space="preserve">
     <value>Villa</value>
@@ -777,7 +754,7 @@
     <value>Rækkehus</value>
   </data>
   <data name="boligType_cbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 90</value>
+    <value>130, 90</value>
   </data>
   <data name="boligType_cbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 21</value>
@@ -795,7 +772,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;boligType_cbox.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>19</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>BoligUI</value>
@@ -806,10 +783,19 @@
   <data name="&gt;&gt;errorProvider1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
+    <value>toolTip1</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>BoligUI</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>147, 17</value>
+  </metadata>
 </root>
