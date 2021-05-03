@@ -46,9 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessLayer\BoligDAL.cs" />
     <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
-    <Compile Include="DataAccessLayer\BoligDAL.cs" />
     <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
     <Compile Include="PresentationLayer\BoligUI.cs">
       <SubType>Form</SubType>
