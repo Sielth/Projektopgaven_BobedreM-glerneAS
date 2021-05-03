@@ -46,15 +46,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
+    <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
+    <Compile Include="DataAccessLayer\BoligDAL.cs" />
+    <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
+    <Compile Include="PresentationLayer\BoligUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="PresentationLayer\BoligUI.Designer.cs">
+      <DependentUpon>BoligUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Køber.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PresentationLayer\BoligUI.aa-DJ.resx">
+      <DependentUpon>BoligUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\BoligUI.en-DK.resx">
+      <DependentUpon>BoligUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\BoligUI.resx">
+      <DependentUpon>BoligUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
