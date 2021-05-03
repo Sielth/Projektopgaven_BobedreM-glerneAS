@@ -11,14 +11,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         //Connection string
         string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
         //SqlConnection conn = new SqlConnection(strconn);
-        public int MæglerID { get; private set; }
-        public int CPR { get; private set; }
-        public int Telefon { get; private set; }
-        public string Email { get; private set; }
-        public string Fnavn { get; private set; }
-        public string Enavn { get; private set; }
-        public string Vej { get; private set; }
-        public int Postnummer { get; private set; }
+        private int MæglerID { get; set; }
+        private int CPR { get; set; }
+        private int Telefon { get; set; }
+        private string Email { get; set; }
+        private string Fnavn { get; set; }
+        private string Enavn { get; set; }
+        private string Vej { get; set; }
+        private int Postnummer { get; set; }
 
         public EjendomsmæglerBLL(int mæglerID, int cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer)
         {

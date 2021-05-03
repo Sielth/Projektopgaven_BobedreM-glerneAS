@@ -4,13 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using Projektopgaven_BobedreMæglerneAS;
+using System.Text.RegularExpressions;
 
-namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
+namespace Projektopgaven_BobedreMæglerneAS
 {
-    class BoligDAL
+    class Bolig
     {
-        public void OpretBolig(BoligBLL bolig, SqlConnection conn)
+        private int BoligID;
+        private string Vej;
+        private int Postnummer;
+        private string Type;
+        private int Værelser;
+        private int Etager;
+        private int Kvadratmeter;
+        private int Udbudspris;
+        private bool Have;
+        private int Bygningsår;
+        private int RenoveringsÅr;
+
+        public Bolig(int boligid, string vej, int postnummer, string type, int værelser, int etager, int kvadratmeter, bool have, int bygningsår, int renoveringsår)
+        {
+            this.BoligID = boligid;
+            this.Vej = vej;
+            this.Postnummer = postnummer;
+            this.Type = type;
+            this.Værelser = værelser;
+            this.Etager = etager;
+            this.Kvadratmeter = kvadratmeter;
+            this.Udbudspris = CalculateUdbudsPris();
+            this.Have = have;
+            this.Bygningsår = bygningsår;
+            this.RenoveringsÅr = renoveringsår;
+        }
+
+        public void OpretBolig(Bolig bolig, SqlConnection conn)
         {
             string sqlCommandBolig = "INSERT INTO Bolig VALUES (@Vej, @Postnummer, @Type, @Værelser, @Etager, @Kvadratmeter, @Udbudspris, @HaveFlag, @Bygningsår, @RenoveringsÅr)";
 
@@ -27,7 +54,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdBolig.Parameters.AddWithValue("@RenoveringsÅr", bolig.RenoveringsÅr);
         }
 
-        public void HentBolig(BoligBLL bolig, SqlConnection conn)
+        public void HentBolig(Bolig bolig, SqlConnection conn)
         {
             string sqlCommanBolig = "SELECT * FROM Bolig WHERE BoligID = @BoligID";
 
@@ -35,7 +62,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdBolig.Parameters.AddWithValue("@BoligID", bolig.BoligID);
         }
 
-        public void OpdaterBolig(BoligBLL bolig, SqlConnection conn)
+        public void OpdaterBolig(Bolig bolig, SqlConnection conn)
         {
             string sqlCommandBolig = "UPDATE Bolig SET" +
                 "Vej = IsNull(NullIf(@Vej, ''), Vej)," +
@@ -64,11 +91,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdBolig.Parameters.AddWithValue("@BoligID", bolig.BoligID);
         }
 
-        public void SletBolig(BoligBLL bolig, SqlConnection conn)
+        public void SletBolig(Bolig bolig, SqlConnection conn)
         {
             string sqlCommandBolig = "DELETE FROM Bolig WHERE BoligID = @BoligID";
 
             SqlCommand cmdBolig = new SqlCommand(sqlCommandBolig, conn);
+        }
+
+        private int CalculateUdbudsPris()
+        {
+            return 0;
         }
     }
 }
