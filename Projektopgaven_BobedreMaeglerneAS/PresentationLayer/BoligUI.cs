@@ -188,5 +188,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return false;
         }
         #endregion
+
     }
 }
