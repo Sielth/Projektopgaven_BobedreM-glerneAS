@@ -26,28 +26,5 @@ namespace Projektopgaven_BobedreMaeglerneAS
             // Show the settings form
             boligUI.Show();
         }
-
-        private void createToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            // Create a new instance of the BoligUI class
-            BoligUI boligUI = new BoligUI();
-
-            // Show the settings form
-            boligUI.Show();
-
-            boligUI.btn_HentBolig.Visible = false;
-            
-        }
-
-        private void readToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            // Create a new instance of the BoligUI class
-            BoligUI boligUI = new BoligUI();
-
-            // Show the settings form
-            boligUI.Show();
-
-            boligUI.btn_OpretBolig.Visible = false;
-        }
     }
 }

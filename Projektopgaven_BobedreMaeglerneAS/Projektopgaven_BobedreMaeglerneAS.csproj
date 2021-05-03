@@ -65,12 +65,6 @@
     <Compile Include="Køber.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PresentationLayer\BoligUI.aa-DJ.resx">
-      <DependentUpon>BoligUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\BoligUI.en-DK.resx">
-      <DependentUpon>BoligUI.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\BoligUI.resx">
       <DependentUpon>BoligUI.cs</DependentUpon>
     </EmbeddedResource>
