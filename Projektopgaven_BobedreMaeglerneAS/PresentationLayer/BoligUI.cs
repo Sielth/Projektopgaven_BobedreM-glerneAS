@@ -49,7 +49,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         //Method to check whether BoligID is valid or not
         public bool ValidBoligId(string boligid, out string errorMsg)
         {
-            if (int.TryParse(boligid, out int result) || string.IsNullOrEmpty(boligid))
+            if (int.TryParse(boligid, out int result) || boligid == null)
             {
                 errorMsg = "";
                 return true;
