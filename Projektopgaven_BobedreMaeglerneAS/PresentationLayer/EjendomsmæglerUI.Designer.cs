@@ -287,6 +287,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_OpretEjendomsmægler.TabIndex = 62;
             this.btn_OpretEjendomsmægler.Text = "Opret Ejendomsmægler";
             this.btn_OpretEjendomsmægler.UseVisualStyleBackColor = true;
+            this.btn_OpretEjendomsmægler.Click += new System.EventHandler(this.btn_OpretEjendomsmægler_Click);
             // 
             // menuStrip1
             // 
@@ -317,7 +318,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // uyhgfToolStripMenuItem
             // 
             this.uyhgfToolStripMenuItem.Name = "uyhgfToolStripMenuItem";
-            this.uyhgfToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.uyhgfToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.uyhgfToolStripMenuItem.Text = "Create";
             // 
             // readToolStripMenuItem
