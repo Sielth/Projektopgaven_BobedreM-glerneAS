@@ -1,4 +1,4 @@
-﻿namespace Projektopgaven_BobedreMaeglerneAS
+namespace Projektopgaven_BobedreMaeglerneAS
 {
     partial class Form1
     {
@@ -28,206 +28,199 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_bolig = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ejendomsmæglerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sælgereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.køberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.boligToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opretNyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opdaterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opretNyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.hentToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.opdaterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sletToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.opretNyToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.hentToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.opdaterToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sletToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bolig_opretNyToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bolig_hentToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bolig_opdaterToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bolig_sletToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.uyhgfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.køberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sælgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.readToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.boligToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.createToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.readToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_bolig
-            // 
-            this.btn_bolig.Location = new System.Drawing.Point(713, 415);
-            this.btn_bolig.Name = "btn_bolig";
-            this.btn_bolig.Size = new System.Drawing.Size(75, 23);
-            this.btn_bolig.TabIndex = 0;
-            this.btn_bolig.Text = "Bolig";
-            this.btn_bolig.UseVisualStyleBackColor = true;
-            this.btn_bolig.Click += new System.EventHandler(this.btn_bolig_Click);
-            // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ejendomsmæglerToolStripMenuItem,
-            this.sælgereToolStripMenuItem,
+            this.boligToolStripMenuItem,
             this.køberToolStripMenuItem,
-            this.boligToolStripMenuItem});
+            this.sælgerToolStripMenuItem,
+            this.boligToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // ejendomsmæglerToolStripMenuItem
-            // 
-            this.ejendomsmæglerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opretNyToolStripMenuItem,
-            this.hentToolStripMenuItem,
-            this.opdaterToolStripMenuItem,
-            this.sletToolStripMenuItem});
-            this.ejendomsmæglerToolStripMenuItem.Name = "ejendomsmæglerToolStripMenuItem";
-            this.ejendomsmæglerToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.ejendomsmæglerToolStripMenuItem.Text = "Ejendomsmægler";
-            // 
-            // sælgereToolStripMenuItem
-            // 
-            this.sælgereToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opretNyToolStripMenuItem1,
-            this.hentToolStripMenuItem1,
-            this.opdaterToolStripMenuItem1,
-            this.sletToolStripMenuItem1});
-            this.sælgereToolStripMenuItem.Name = "sælgereToolStripMenuItem";
-            this.sælgereToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.sælgereToolStripMenuItem.Text = "Sælger";
-            // 
-            // køberToolStripMenuItem
-            // 
-            this.køberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opretNyToolStripMenuItem2,
-            this.hentToolStripMenuItem2,
-            this.opdaterToolStripMenuItem2,
-            this.sletToolStripMenuItem2});
-            this.køberToolStripMenuItem.Name = "køberToolStripMenuItem";
-            this.køberToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.køberToolStripMenuItem.Text = "Køber";
             // 
             // boligToolStripMenuItem
             // 
             this.boligToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bolig_opretNyToolStripMenuItem3,
-            this.bolig_hentToolStripMenuItem3,
-            this.bolig_opdaterToolStripMenuItem3,
-            this.bolig_sletToolStripMenuItem3});
+            this.uyhgfToolStripMenuItem,
+            this.readToolStripMenuItem,
+            this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem});
             this.boligToolStripMenuItem.Name = "boligToolStripMenuItem";
-            this.boligToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.boligToolStripMenuItem.Text = "Bolig";
+            this.boligToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.boligToolStripMenuItem.Text = "Ejendomsmægler";
             // 
-            // opretNyToolStripMenuItem
+            // uyhgfToolStripMenuItem
             // 
-            this.opretNyToolStripMenuItem.Name = "opretNyToolStripMenuItem";
-            this.opretNyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.opretNyToolStripMenuItem.Text = "Opret ny";
+            this.uyhgfToolStripMenuItem.Name = "uyhgfToolStripMenuItem";
+            this.uyhgfToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.uyhgfToolStripMenuItem.Text = "Create";
+            this.uyhgfToolStripMenuItem.Click += new System.EventHandler(this.uyhgfToolStripMenuItem_Click);
             // 
-            // hentToolStripMenuItem
+            // readToolStripMenuItem
             // 
-            this.hentToolStripMenuItem.Name = "hentToolStripMenuItem";
-            this.hentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.hentToolStripMenuItem.Text = "Hent";
+            this.readToolStripMenuItem.Name = "readToolStripMenuItem";
+            this.readToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.readToolStripMenuItem.Text = "Read";
+            this.readToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
             // 
-            // opdaterToolStripMenuItem
+            // updateToolStripMenuItem
             // 
-            this.opdaterToolStripMenuItem.Name = "opdaterToolStripMenuItem";
-            this.opdaterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.opdaterToolStripMenuItem.Text = "Opdater";
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
-            // sletToolStripMenuItem
+            // deleteToolStripMenuItem
             // 
-            this.sletToolStripMenuItem.Name = "sletToolStripMenuItem";
-            this.sletToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sletToolStripMenuItem.Text = "Slet";
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // opretNyToolStripMenuItem1
+            // køberToolStripMenuItem
             // 
-            this.opretNyToolStripMenuItem1.Name = "opretNyToolStripMenuItem1";
-            this.opretNyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.opretNyToolStripMenuItem1.Text = "Opret ny";
+            this.køberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createToolStripMenuItem,
+            this.readToolStripMenuItem1,
+            this.updateToolStripMenuItem1,
+            this.deleteToolStripMenuItem1});
+            this.køberToolStripMenuItem.Name = "køberToolStripMenuItem";
+            this.køberToolStripMenuItem.Size = new System.Drawing.Size(75, 29);
+            this.køberToolStripMenuItem.Text = "Køber";
             // 
-            // hentToolStripMenuItem1
+            // createToolStripMenuItem
             // 
-            this.hentToolStripMenuItem1.Name = "hentToolStripMenuItem1";
-            this.hentToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.hentToolStripMenuItem1.Text = "Hent";
+            this.createToolStripMenuItem.Name = "createToolStripMenuItem";
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.createToolStripMenuItem.Text = "Create";
             // 
-            // opdaterToolStripMenuItem1
+            // readToolStripMenuItem1
             // 
-            this.opdaterToolStripMenuItem1.Name = "opdaterToolStripMenuItem1";
-            this.opdaterToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.opdaterToolStripMenuItem1.Text = "Opdater";
+            this.readToolStripMenuItem1.Name = "readToolStripMenuItem1";
+            this.readToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.readToolStripMenuItem1.Text = "Read";
             // 
-            // sletToolStripMenuItem1
+            // updateToolStripMenuItem1
             // 
-            this.sletToolStripMenuItem1.Name = "sletToolStripMenuItem1";
-            this.sletToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.sletToolStripMenuItem1.Text = "Slet";
+            this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
+            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.updateToolStripMenuItem1.Text = "Update";
             // 
-            // opretNyToolStripMenuItem2
+            // deleteToolStripMenuItem1
             // 
-            this.opretNyToolStripMenuItem2.Name = "opretNyToolStripMenuItem2";
-            this.opretNyToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.opretNyToolStripMenuItem2.Text = "Opret ny";
+            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.deleteToolStripMenuItem1.Text = "Delete";
             // 
-            // hentToolStripMenuItem2
+            // sælgerToolStripMenuItem
             // 
-            this.hentToolStripMenuItem2.Name = "hentToolStripMenuItem2";
-            this.hentToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.hentToolStripMenuItem2.Text = "Hent";
+            this.sælgerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createToolStripMenuItem1,
+            this.readToolStripMenuItem2,
+            this.updateToolStripMenuItem2,
+            this.deleteToolStripMenuItem2});
+            this.sælgerToolStripMenuItem.Name = "sælgerToolStripMenuItem";
+            this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(83, 29);
+            this.sælgerToolStripMenuItem.Text = "Sælger";
             // 
-            // opdaterToolStripMenuItem2
+            // createToolStripMenuItem1
             // 
-            this.opdaterToolStripMenuItem2.Name = "opdaterToolStripMenuItem2";
-            this.opdaterToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.opdaterToolStripMenuItem2.Text = "Opdater";
+            this.createToolStripMenuItem1.Name = "createToolStripMenuItem1";
+            this.createToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.createToolStripMenuItem1.Text = "Create";
             // 
-            // sletToolStripMenuItem2
+            // readToolStripMenuItem2
             // 
-            this.sletToolStripMenuItem2.Name = "sletToolStripMenuItem2";
-            this.sletToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.sletToolStripMenuItem2.Text = "Slet";
+            this.readToolStripMenuItem2.Name = "readToolStripMenuItem2";
+            this.readToolStripMenuItem2.Size = new System.Drawing.Size(172, 34);
+            this.readToolStripMenuItem2.Text = "Read";
             // 
-            // bolig_opretNyToolStripMenuItem3
+            // updateToolStripMenuItem2
             // 
-            this.bolig_opretNyToolStripMenuItem3.Name = "bolig_opretNyToolStripMenuItem3";
-            this.bolig_opretNyToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.bolig_opretNyToolStripMenuItem3.Text = "Opret ny";
-            this.bolig_opretNyToolStripMenuItem3.Click += new System.EventHandler(this.opretNyToolStripMenuItem3_Click);
+            this.updateToolStripMenuItem2.Name = "updateToolStripMenuItem2";
+            this.updateToolStripMenuItem2.Size = new System.Drawing.Size(172, 34);
+            this.updateToolStripMenuItem2.Text = "Update";
             // 
-            // bolig_hentToolStripMenuItem3
+            // deleteToolStripMenuItem2
             // 
-            this.bolig_hentToolStripMenuItem3.Name = "bolig_hentToolStripMenuItem3";
-            this.bolig_hentToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.bolig_hentToolStripMenuItem3.Text = "Hent";
-            this.bolig_hentToolStripMenuItem3.Click += new System.EventHandler(this.bolig_hentToolStripMenuItem3_Click);
+            this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(172, 34);
+            this.deleteToolStripMenuItem2.Text = "Delete";
             // 
-            // bolig_opdaterToolStripMenuItem3
+            // boligToolStripMenuItem1
             // 
-            this.bolig_opdaterToolStripMenuItem3.Name = "bolig_opdaterToolStripMenuItem3";
-            this.bolig_opdaterToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.bolig_opdaterToolStripMenuItem3.Text = "Opdater";
-            this.bolig_opdaterToolStripMenuItem3.Click += new System.EventHandler(this.bolig_opdaterToolStripMenuItem3_Click);
+            this.boligToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createToolStripMenuItem2,
+            this.readToolStripMenuItem3,
+            this.updateToolStripMenuItem3,
+            this.deleteToolStripMenuItem3});
+            this.boligToolStripMenuItem1.Name = "boligToolStripMenuItem1";
+            this.boligToolStripMenuItem1.Size = new System.Drawing.Size(68, 29);
+            this.boligToolStripMenuItem1.Text = "Bolig";
             // 
-            // bolig_sletToolStripMenuItem3
+            // createToolStripMenuItem2
             // 
-            this.bolig_sletToolStripMenuItem3.Name = "bolig_sletToolStripMenuItem3";
-            this.bolig_sletToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.bolig_sletToolStripMenuItem3.Text = "Slet";
-            this.bolig_sletToolStripMenuItem3.Click += new System.EventHandler(this.bolig_sletToolStripMenuItem3_Click);
+            this.createToolStripMenuItem2.Name = "createToolStripMenuItem2";
+            this.createToolStripMenuItem2.Size = new System.Drawing.Size(172, 34);
+            this.createToolStripMenuItem2.Text = "Create";
+            this.createToolStripMenuItem2.Click += new System.EventHandler(this.createToolStripMenuItem2_Click);
+            // 
+            // readToolStripMenuItem3
+            // 
+            this.readToolStripMenuItem3.Name = "readToolStripMenuItem3";
+            this.readToolStripMenuItem3.Size = new System.Drawing.Size(172, 34);
+            this.readToolStripMenuItem3.Text = "Read";
+            this.readToolStripMenuItem3.Click += new System.EventHandler(this.readToolStripMenuItem3_Click);
+            // 
+            // updateToolStripMenuItem3
+            // 
+            this.updateToolStripMenuItem3.Name = "updateToolStripMenuItem3";
+            this.updateToolStripMenuItem3.Size = new System.Drawing.Size(172, 34);
+            this.updateToolStripMenuItem3.Text = "Update";
+            // 
+            // deleteToolStripMenuItem3
+            // 
+            this.deleteToolStripMenuItem3.Name = "deleteToolStripMenuItem3";
+            this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(172, 34);
+            this.deleteToolStripMenuItem3.Text = "Delete";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_bolig);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
@@ -238,29 +231,27 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_bolig;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ejendomsmæglerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem opretNyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem opdaterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sletToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sælgereToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem opretNyToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem hentToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem opdaterToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem sletToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem køberToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem opretNyToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem hentToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem opdaterToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem sletToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem boligToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bolig_opretNyToolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem bolig_hentToolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem bolig_opdaterToolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem bolig_sletToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem uyhgfToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem køberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sælgerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem boligToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem3;
     }
 }
 
