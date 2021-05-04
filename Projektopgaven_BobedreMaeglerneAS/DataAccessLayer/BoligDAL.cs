@@ -10,6 +10,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
     class BoligDAL
     {
+        private BoligBLL BoligBLL;
+
+        public BoligDAL(BoligBLL boligBLL)
+        {
+            this.BoligBLL = boligBLL;
+        }
+
         public void OpretBolig(BoligBLL bolig, SqlConnection conn)
         {
             string sqlCommandBolig = "INSERT INTO Bolig VALUES (@Vej, @Postnummer, @Type, @Værelser, @Etager, @Kvadratmeter, @Udbudspris, @HaveFlag, @Bygningsår, @RenoveringsÅr)";

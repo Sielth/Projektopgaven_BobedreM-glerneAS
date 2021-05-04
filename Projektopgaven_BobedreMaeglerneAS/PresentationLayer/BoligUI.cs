@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -35,20 +37,49 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void boligRenoveret_ckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (boligRenoveret_ckbox.Checked)
-                GetBoligRenoveringsÅrDateTimePicker().Enabled = true;
+                boligBygningsÅr_dtp.Enabled = true;
             else
-                GetBoligRenoveringsÅrDateTimePicker().Enabled = false;
+                boligRenoveringsÅr_dtp.Enabled = false;
         }
 
+        #region Opret Bolig
         private void btn_OpretBolig_Click(object sender, EventArgs e)
         {
-            BoligBLL bolig = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
-            //Make a new house
-            //Click on the button "Opret"
-            //Return bolig id in the id textbox 
-            //add a clear button 
-            //clear button = id disappears
+            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
+            BoligDAL boligDAL = new BoligDAL(boligBLL);
+
+            //boligDAL.OpretBolig(boligDAL, SqlConnection conn);
+            //boligDAL.HentBolig(boligDAL, SqlConnection conn); //kun id
+
+            DisableAll();
         }
+
+        private void btn_Clear_OpretBolig_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+            EnableAll();
+            boligID_txt.Enabled = false;
+            boligRenoveringsÅr_dtp.Enabled = false;
+        }
+        #endregion
+
+        #region Hent Bolig
+        private void btn_HentBolig_Click(object sender, EventArgs e)
+        {
+            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
+            BoligDAL boligDAL = new BoligDAL(boligBLL);
+
+            //boligDAL.OpretBolig(boligDAL, SqlConnection conn);
+            //boligDAL.HentBolig(boligDAL, SqlConnection conn); //kun id
+
+            DisableAll();
+        }
+
+        private void btn_Clear_HentBolig_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
 
         #region Validating BoligID
         private void boligID_txt_Validating(object sender, CancelEventArgs e)
@@ -307,20 +338,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return boligkvm;
         }
 
-        public string BoligBygningsÅr()
+        public int BoligBygningsÅr()
         {
-            return boligBygningsÅr_dtp.ToString();
+            return (int)boligBygningsÅr_dtp.Value.Year;
         }
 
-        public string BoligRenoveringsÅr()
+        public int BoligRenoveringsÅr()
         {
             if (boligRenoveret_ckbox.Checked)
             {
-                return boligRenoveringsÅr_dtp.ToString();
+                return (int)boligRenoveringsÅr_dtp.Value.Year;
             }
 
             else
-                return null;
+                return 0;
         }
 
         public bool BoligHave()
