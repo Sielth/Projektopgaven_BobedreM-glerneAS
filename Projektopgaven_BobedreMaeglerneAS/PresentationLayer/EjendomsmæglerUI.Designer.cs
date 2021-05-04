@@ -265,6 +265,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_OpretEjendomsmægler.TabIndex = 62;
             this.btn_OpretEjendomsmægler.Text = "Opret Ejendomsmægler";
             this.btn_OpretEjendomsmægler.UseVisualStyleBackColor = true;
+            this.btn_OpretEjendomsmægler.Click += new System.EventHandler(this.btn_OpretEjendomsmægler_Click);
             // 
             // EjendomsmæglerUI
             // 
