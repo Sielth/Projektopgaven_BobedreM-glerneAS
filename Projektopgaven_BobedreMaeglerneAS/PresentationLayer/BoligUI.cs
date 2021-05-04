@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -42,8 +44,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_OpretBolig_Click(object sender, EventArgs e)
         {
-            //Make a new house
-            //Click on the button "Opret"
+            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
+            BoligDAL boligDAL = new BoligDAL(boligBLL);
+
+            boligDAL.OpretBolig(boligDAL, SqlConnection conn);
             //Return bolig id in the id textbox 
             //add a clear button 
             //clear button = id disappears
@@ -306,16 +310,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return boligkvm;
         }
 
-        public string BoligBygningsÅr()
+        public int BoligBygningsÅr()
         {
-            return boligBygningsÅr_dtp.ToString();
+            return (int)boligBygningsÅr_dtp.Value.Year;
         }
 
-        public string BoligRenoveringsÅr()
+        public int BoligRenoveringsÅr()
         {
             if (boligRenoveret_ckbox.Checked)
             {
-                return boligRenoveringsÅr_dtp.ToString();
+                return (int)boligRenoveringsÅr_dtp.Value.Year;
             }
 
             else
