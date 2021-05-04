@@ -52,12 +52,6 @@
     <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
     <Compile Include="Ejendomsmægler.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Køber.cs" />
     <Compile Include="PresentationLayer\BoligUI.cs">
       <SubType>Form</SubType>
