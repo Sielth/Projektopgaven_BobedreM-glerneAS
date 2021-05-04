@@ -192,14 +192,12 @@ namespace Projektopgaven_BobedreMaeglerneAS
             this.createToolStripMenuItem2.Name = "createToolStripMenuItem2";
             this.createToolStripMenuItem2.Size = new System.Drawing.Size(172, 34);
             this.createToolStripMenuItem2.Text = "Create";
-            this.createToolStripMenuItem2.Click += new System.EventHandler(this.createToolStripMenuItem2_Click);
             // 
             // readToolStripMenuItem3
             // 
             this.readToolStripMenuItem3.Name = "readToolStripMenuItem3";
             this.readToolStripMenuItem3.Size = new System.Drawing.Size(172, 34);
             this.readToolStripMenuItem3.Text = "Read";
-            this.readToolStripMenuItem3.Click += new System.EventHandler(this.readToolStripMenuItem3_Click);
             // 
             // updateToolStripMenuItem3
             // 
