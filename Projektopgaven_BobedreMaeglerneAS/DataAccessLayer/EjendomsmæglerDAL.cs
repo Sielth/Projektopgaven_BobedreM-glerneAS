@@ -11,7 +11,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 {
     class EjendomsmæglerDAL
     {
-        private void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
         {
             //Connection string - 
             //string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
@@ -30,7 +30,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             commandEjendomsmægler.Parameters.AddWithValue("@Postnummer", ejendomsmægler.Postnummer);
         }
 
-        private void FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
         {
             string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
 
@@ -39,7 +39,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
         }
 
-        private void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
         {
             string sqlCommandEjendomsmægler = "UPDATE Ejendomsmægler SET" +
                 "CPR = IsNull(NullIf(@CPR, ''), CPR)," +
@@ -63,7 +63,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
         }
 
-        private void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
         {
             string sqlCommandEjendomsmægler = $"DELETE FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
 
