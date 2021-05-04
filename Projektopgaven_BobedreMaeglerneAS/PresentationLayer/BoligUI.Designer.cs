@@ -1,4 +1,6 @@
-﻿namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
+﻿using System.Collections.Generic;
+
+namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     partial class BoligUI
     {
@@ -59,6 +61,8 @@
             this.boligUdbudspris_lbl = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btn_SælgBolig = new System.Windows.Forms.Button();
+            this.btn_Clear_OpretBolig = new System.Windows.Forms.Button();
+            this.btn_Clear_HentBolig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).BeginInit();
@@ -169,6 +173,7 @@
             resources.ApplyResources(this.btn_HentBolig, "btn_HentBolig");
             this.btn_HentBolig.Name = "btn_HentBolig";
             this.btn_HentBolig.UseVisualStyleBackColor = true;
+            this.btn_HentBolig.Click += new System.EventHandler(this.btn_HentBolig_Click);
             // 
             // btn_OpdaterBolig
             // 
@@ -239,11 +244,27 @@
             this.btn_SælgBolig.Name = "btn_SælgBolig";
             this.btn_SælgBolig.UseVisualStyleBackColor = true;
             // 
+            // btn_Clear_OpretBolig
+            // 
+            resources.ApplyResources(this.btn_Clear_OpretBolig, "btn_Clear_OpretBolig");
+            this.btn_Clear_OpretBolig.Name = "btn_Clear_OpretBolig";
+            this.btn_Clear_OpretBolig.UseVisualStyleBackColor = true;
+            this.btn_Clear_OpretBolig.Click += new System.EventHandler(this.btn_Clear_OpretBolig_Click);
+            // 
+            // btn_Clear_HentBolig
+            // 
+            resources.ApplyResources(this.btn_Clear_HentBolig, "btn_Clear_HentBolig");
+            this.btn_Clear_HentBolig.Name = "btn_Clear_HentBolig";
+            this.btn_Clear_HentBolig.UseVisualStyleBackColor = true;
+            this.btn_Clear_HentBolig.Click += new System.EventHandler(this.btn_Clear_HentBolig_Click);
+            // 
             // BoligUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Controls.Add(this.btn_Clear_HentBolig);
+            this.Controls.Add(this.btn_Clear_OpretBolig);
             this.Controls.Add(this.btn_SælgBolig);
             this.Controls.Add(this.boligUdbudspris_lbl);
             this.Controls.Add(this.boligBygningsår_lbl);
@@ -312,7 +333,8 @@
         private System.Windows.Forms.Button btn_SletBolig;
         private System.Windows.Forms.Button btn_OpdaterBolig;
         private System.Windows.Forms.Button btn_SælgBolig;
-
+        private System.Windows.Forms.Button btn_Clear_OpretBolig;
+        private System.Windows.Forms.Button btn_Clear_HentBolig;
 
         /// <summary>
         /// Method to call a Button or a TextBox etc. from another class without making it public (also called Getters) _Alessia
@@ -355,6 +377,55 @@
         public System.Windows.Forms.CheckBox GetBoligRenoveretCheckBox()
         {
             return boligRenoveret_ckbox;
+        }
+
+        public void DisableAll()
+        {
+            boligID_txt.Enabled = false;
+            boligVej_txt.Enabled = false;
+            boligPostnr_txt.Enabled = false;
+            boligType_cbox.Enabled = false;
+            boligVærelser_tbar.Enabled = false;
+            boligEtager_tbar.Enabled = false;
+            boligKvm_txt.Enabled = false;
+            boligBygningsÅr_dtp.Enabled = false;
+            boligRenoveret_ckbox.Enabled = false;
+            boligRenoveringsÅr_dtp.Enabled = false;
+            boligHave_ckBox.Enabled = false;
+            boligUdbudspris_txt.Enabled = false;
+        }
+
+        public void EnableAll()
+        {
+            boligID_txt.Enabled = true;
+            boligVej_txt.Enabled = true;
+            boligPostnr_txt.Enabled = true;
+            boligType_cbox.Enabled = true;
+            boligVærelser_tbar.Enabled = true;
+            boligEtager_tbar.Enabled = true;
+            boligKvm_txt.Enabled = true;
+            boligBygningsÅr_dtp.Enabled = true;
+            boligRenoveret_ckbox.Enabled = true;
+            boligRenoveringsÅr_dtp.Enabled = true;
+            boligHave_ckBox.Enabled = true;
+            boligUdbudspris_txt.Enabled = true;
+        }
+
+        public void ClearAll()
+        {
+            boligID_txt.Clear();
+            boligVej_txt.Clear();
+            boligPostnr_txt.Clear();
+            boligType_cbox.Items.Clear();
+            boligVærelser_tbar.Value = boligVærelser_tbar.Minimum;
+            boligEtager_tbar.Value = boligEtager_tbar.Minimum;
+            boligKvm_txt.Clear();
+            boligBygningsÅr_dtp.Value = System.DateTime.Now;
+            boligRenoveret_ckbox.Checked = false;
+            boligRenoveringsÅr_dtp.Value = System.DateTime.Now;
+            boligHave_ckBox.Checked = false;
+            boligUdbudspris_txt.Clear();
+
         }
     }
 }

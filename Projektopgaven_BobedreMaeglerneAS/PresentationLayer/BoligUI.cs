@@ -37,21 +37,49 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void boligRenoveret_ckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (boligRenoveret_ckbox.Checked)
-                GetBoligRenoveringsÅrDateTimePicker().Enabled = true;
+                boligBygningsÅr_dtp.Enabled = true;
             else
-                GetBoligRenoveringsÅrDateTimePicker().Enabled = false;
+                boligRenoveringsÅr_dtp.Enabled = false;
         }
 
+        #region Opret Bolig
         private void btn_OpretBolig_Click(object sender, EventArgs e)
         {
             BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
-            boligDAL.OpretBolig(boligDAL, SqlConnection conn);
-            //Return bolig id in the id textbox 
-            //add a clear button 
-            //clear button = id disappears
+            //boligDAL.OpretBolig(boligDAL, SqlConnection conn);
+            //boligDAL.HentBolig(boligDAL, SqlConnection conn); //kun id
+
+            DisableAll();
         }
+
+        private void btn_Clear_OpretBolig_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+            EnableAll();
+            boligID_txt.Enabled = false;
+            boligRenoveringsÅr_dtp.Enabled = false;
+        }
+        #endregion
+
+        #region Hent Bolig
+        private void btn_HentBolig_Click(object sender, EventArgs e)
+        {
+            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
+            BoligDAL boligDAL = new BoligDAL(boligBLL);
+
+            //boligDAL.OpretBolig(boligDAL, SqlConnection conn);
+            //boligDAL.HentBolig(boligDAL, SqlConnection conn); //kun id
+
+            DisableAll();
+        }
+
+        private void btn_Clear_HentBolig_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
 
         #region Validating BoligID
         private void boligID_txt_Validating(object sender, CancelEventArgs e)
@@ -323,7 +351,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             else
-                return null;
+                return 0;
         }
 
         public bool BoligHave()
