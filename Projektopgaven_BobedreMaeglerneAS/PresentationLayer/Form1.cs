@@ -96,7 +96,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             boligUI.GetSælgBoligButton().Visible = false;
         }
 
-        private void uyhgfToolStripMenuItem_Click(object sender, EventArgs e)
+        private void uyhgfToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - C(RUD)
         {
             // Create a new instance of the BoligUI class
             EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
@@ -109,7 +109,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
         }
 
-        private void readToolStripMenuItem_Click(object sender, EventArgs e)
+        private void readToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - (C)R(UD)
         {
             // Create a new instance of the BoligUI class
             EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
@@ -122,7 +122,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - (CR)U(D)
         {
             // Create a new instance of the BoligUI class
             EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
@@ -135,7 +135,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - (CRU)D
         {
             // Create a new instance of the BoligUI class
             EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
