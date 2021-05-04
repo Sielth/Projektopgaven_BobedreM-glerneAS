@@ -236,7 +236,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // btn_OpdaterEjendomsmægler
             // 
             this.btn_OpdaterEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(269, 601);
+            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(497, 601);
             this.btn_OpdaterEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpdaterEjendomsmægler.Name = "btn_OpdaterEjendomsmægler";
             this.btn_OpdaterEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -247,7 +247,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // btn_HentEjendomsmægler
             // 
             this.btn_HentEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_HentEjendomsmægler.Location = new System.Drawing.Point(497, 601);
+            this.btn_HentEjendomsmægler.Location = new System.Drawing.Point(269, 601);
             this.btn_HentEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_HentEjendomsmægler.Name = "btn_HentEjendomsmægler";
             this.btn_HentEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -320,9 +320,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.TextBox Postnummer_txt;
         private System.Windows.Forms.TextBox Efternavn_txt;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btn_SletEjendomsmægler;
-        private System.Windows.Forms.Button btn_OpdaterEjendomsmægler;
         public System.Windows.Forms.Button btn_HentEjendomsmægler;
         public System.Windows.Forms.Button btn_OpretEjendomsmægler;
+        public System.Windows.Forms.Button btn_SletEjendomsmægler;
+        public System.Windows.Forms.Button btn_OpdaterEjendomsmægler;
     }
 }
