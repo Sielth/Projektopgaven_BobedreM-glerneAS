@@ -24,7 +24,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public BoligBLL(int boligid, string vej, int postnummer, string type, int værelser, int etager, int kvadratmeter, bool have, int bygningsår, int renoveringsår)
         {
-            this.BoligID = boligid;            
+            this.BoligID = boligid;
             this.Vej = vej;
             this.Postnummer = postnummer;
             this.Type = type;

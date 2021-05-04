@@ -1,4 +1,4 @@
-﻿namespace Projektopgaven_BobedreMaeglerneAS
+namespace Projektopgaven_BobedreMaeglerneAS
 {
     partial class Form1
     {

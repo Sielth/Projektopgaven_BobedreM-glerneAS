@@ -19,9 +19,35 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             InitializeComponent();
         }
 
+        // Method to show the number of rooms as a ToolTip on the TrackBar 
+        private void boligVærelser_tbar_Scroll(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(boligVærelser_tbar, boligVærelser_tbar.Value.ToString());
+        }
+
+        // Method to show the number of floor as a ToolTip on the TrackBar 
+        private void boligEtager_tbar_Scroll(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(boligEtager_tbar, boligEtager_tbar.Value.ToString());
+        }
+
+        // Method enable or disable DateTimePicker for BoligRenoveringsÅr through the boligRenoveret Checkbox
+        private void boligRenoveret_ckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (boligRenoveret_ckbox.Checked)
+                GetBoligRenoveringsÅrDateTimePicker().Enabled = true;
+            else
+                GetBoligRenoveringsÅrDateTimePicker().Enabled = false;
+        }
+
         private void btn_OpretBolig_Click(object sender, EventArgs e)
         {
-
+            BoligBLL bolig = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
+            //Make a new house
+            //Click on the button "Opret"
+            //Return bolig id in the id textbox 
+            //add a clear button 
+            //clear button = id disappears
         }
 
         #region Validating BoligID
@@ -47,15 +73,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
         //Method to check whether BoligID is valid or not
+        //It must be only numbers
+        //It CAN be empty (be careful when casting to int)
+        //CANNOT be bigger than 4
         public bool ValidBoligId(string boligid, out string errorMsg)
         {
+            if (boligid.Length > 4)
+            {
+                errorMsg = "Indtast en Bolig ID mellem 1-999";
+                return false;
+            }
+
             if (int.TryParse(boligid, out int result) || string.IsNullOrEmpty(boligid))
             {
                 errorMsg = "";
                 return true;
             }
 
-            errorMsg = "id must be numbers";
+            errorMsg = "Bolig ID kan kun indeholde numre";
             return false;
         }
         #endregion
@@ -82,21 +117,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             errorProvider1.SetError(boligVej_txt, "");
         }
 
+        //Method to check whether BoligVej is valid or not
+        //It must be only characters
+        //It CAN be empty
+        //CANNOT be bigger than 30
         public bool ValidBoligVej(string boligvej, out string errorMsg)
         {
-            if (!Regex.IsMatch(boligvej, "^[-a-zA-ZæÆåÅøØ0-9., ]+$"))
+            if (!Regex.IsMatch(boligvej, "^(?:[-a-zA-ZæÆåÅøØ0-9., ]|)+$"))
             {
-                errorMsg = "contains non valid charachters";
+                errorMsg = "De karakter indtastet er ikke gyldig";
                 return false;
             }
 
-            if (boligvej.Length < 30)
+            if (boligvej.Length < 30 || string.IsNullOrEmpty(boligvej))
             {
                 errorMsg = "";
                 return true;
             }
 
-            errorMsg = "vej must be shorter than 30";
+            errorMsg = "Adresse kan kun indeholde 30 karakter";
             return false;
         }
         #endregion
@@ -123,21 +162,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             errorProvider1.SetError(boligPostnr_txt, "");
         }
 
-        private bool ValidBoligPostnr(string boligvej, out string errorMsg)
+        //Method to check whether BoligPostnr is valid or not
+        //It must be only numbers
+        //It CAN be empty (be careful when casting to int)
+        //CANNOT be bigger than 4
+        private bool ValidBoligPostnr(string boligpostnr, out string errorMsg)
         {
-            if (boligvej.Length > 4)
+            if (boligpostnr.Length > 4)
             {
-                errorMsg = "postnr is max 4 numbers";
+                errorMsg = "Det indtastet postnummer er ikke gyldig i DK";
                 return false;
             }
 
-            if (int.TryParse(boligvej, out int result))
+            if (int.TryParse(boligpostnr, out int result) || string.IsNullOrEmpty(boligpostnr))
             {
                 errorMsg = "";
                 return true;
             }
 
-            errorMsg = "id must be numbers";
+            errorMsg = "Postnummer kan kun indeholde numre";
             return false;
         }
         #endregion
@@ -164,30 +207,135 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             errorProvider1.SetError(boligKvm_txt, "");
         }
 
+        //Method to check whether BoligKvm is valid or not
+        //It must be only numbers
+        //It CAN be empty (be careful when casting to int)
+        //CANNOT be bigger than 3
         private bool ValidBoligKvm(string boligkvm, out string errorMsg)
         {
             if (boligkvm.Length > 3)
             {
-                errorMsg = "1wrong kvm";
+                errorMsg = "Indtast antal kvadratmeter mellem 1-999";
                 return false;
             }
 
-            if (int.TryParse(boligkvm, out int result))
-            {
-                errorMsg = "";
-                return true;
-            }
-            else if (string.IsNullOrEmpty(boligkvm))
+            if (int.TryParse(boligkvm, out int result) || string.IsNullOrEmpty(boligkvm))
             {
                 errorMsg = "";
                 return true;
             }
 
-
-            errorMsg = "kvm must be numbers";
+            errorMsg = "Kvadratmeter kan kun indeholde numre";
             return false;
         }
         #endregion
 
+        #region Validating Bolig Udbudspris
+        private void boligUdbudspris_txt_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+
+            if (!ValidBoligId(boligUdbudspris_txt.Text, out errorMsg))
+            {
+                //Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                boligUdbudspris_txt.Select(0, boligUdbudspris_txt.Text.Length);
+
+                //Set the ErrorProvider error with the text to display. 
+                this.errorProvider1.SetError(boligUdbudspris_txt, errorMsg);
+            }
+        }
+
+        private void boligUdbudspris_txt_Validated(object sender, EventArgs e)
+        {
+            //If all conditions have been met, clear the ErrorProvider of errors.
+            errorProvider1.SetError(boligUdbudspris_txt, "");
+        }
+
+        //Method to check whether BoligID is valid or not
+        //It must be only numbers
+        //It CAN be empty (be careful when casting to int)
+        public bool ValidBoligUdbudspris(string boligid, out string errorMsg)
+        {
+            if (int.TryParse(boligid, out int result) || string.IsNullOrEmpty(boligid))
+            {
+                errorMsg = "";
+                return true;
+            }
+
+            errorMsg = "Udbudspris kan kun indeholde numre";
+            return false;
+        }
+        #endregion
+
+        #region Convert Textboxes
+        public int BoligID()
+        {
+            int.TryParse(boligID_txt.Text, out int boligid);
+            return boligid;
+        }
+
+        public string BoligVej()
+        {
+            return boligVej_txt.Text;
+        }
+
+        public int BoligPostnr()
+        {
+            int.TryParse(boligPostnr_txt.Text, out int boligpostnr);
+            return boligpostnr;
+        }
+
+        public string BoligType()
+        {
+            return boligType_cbox.Items.ToString();
+        }
+
+        public int BoligVærelser()
+        {
+            return boligVærelser_tbar.Value;
+        }
+
+        public int BoligEtager()
+        {
+            return boligEtager_tbar.Value;
+        }
+
+        public int BoligKvm()
+        {
+            int.TryParse(boligKvm_txt.Text, out int boligkvm);
+            return boligkvm;
+        }
+
+        public string BoligBygningsÅr()
+        {
+            return boligBygningsÅr_dtp.ToString();
+        }
+
+        public string BoligRenoveringsÅr()
+        {
+            if (boligRenoveret_ckbox.Checked)
+            {
+                return boligRenoveringsÅr_dtp.ToString();
+            }
+
+            else
+                return null;
+        }
+
+        public bool BoligHave()
+        {
+            if (boligHave_ckBox.Checked)
+                return true;
+            else
+                return false;
+        }
+
+        public int BoligUdbudspris()
+        {
+            int.TryParse(boligUdbudspris_txt.Text, out int boligudbudspris);
+            return boligudbudspris;
+        }
+        #endregion
     }
 }
