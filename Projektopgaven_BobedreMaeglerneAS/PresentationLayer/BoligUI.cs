@@ -42,6 +42,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_OpretBolig_Click(object sender, EventArgs e)
         {
+            BoligBLL bolig = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             //Make a new house
             //Click on the button "Opret"
             //Return bolig id in the id textbox 
