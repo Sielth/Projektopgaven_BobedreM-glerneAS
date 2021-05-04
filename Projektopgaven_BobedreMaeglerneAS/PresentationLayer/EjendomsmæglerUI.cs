@@ -51,6 +51,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return Email_txt.Text;
         }
 
+        public string MæglerFnavn()
+        {
+            return Fornavn_txt.Text;
+        }
+
+        public string MæglerEnavn()
+        {
+            return Efternavn_txt.Text;
+        }
+
+        public string MæglerVej()
+        {
+            return Vej_txt.Text;
+        }
+
+        public int MæglerPostnummer()
+        {
+            int.TryParse(Postnummer_txt.Text, out int mæglerpostnummer);
+            return mæglerpostnummer;
+        }
+
         #endregion
 
 
