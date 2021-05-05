@@ -59,15 +59,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             SqlConnection conn = new SqlConnection(connstr);
 
             string sqlCommanBolig = "SELECT * FROM Bolig WHERE " +
-                "BoligID LIKE @BoligID AND " +
-                "Vej Like @Vej AND " +
-                "Postnummer LIKE @Postnummer AND " +
-                "Type LIKE @Type AND " +
-                "Værelser LIKE @Værelser AND " +
-                "Etager LIKE @Etager AND " +
-                "Kvadratmeter LIKE @Kvadratmeter AND " +
-                "Udbudspris <= @Udbudspris AND " +
-                "HaveFlag LIKE @HaveFlag AND " +
+                "BoligID LIKE @BoligID OR " +
+                "Vej Like @Vej OR " +
+                "Postnummer LIKE @Postnummer OR " +
+                "Type LIKE @Type OR " +
+                "Værelser LIKE @Værelser OR " +
+                "Etager LIKE @Etager OR " +
+                "Kvadratmeter LIKE @Kvadratmeter OR " +
+                "Udbudspris <= @Udbudspris OR " +
+                "HaveFlag LIKE @HaveFlag OR " +
                 "Bygningsår LIKE @Bygningsår OR " +
                 "RenoveringsÅr LIKE @RenoveringsÅr ";
 

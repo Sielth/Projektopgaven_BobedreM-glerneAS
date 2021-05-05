@@ -48,25 +48,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
-            try
-            {
-                boligDAL.OpretBolig(boligBLL);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            boligDAL.OpretBolig(boligBLL);
 
-            try
-            {
-                BoligBLL matchingbolig = boligDAL.HentBolig(boligBLL);
+            BoligBLL matchingbolig = boligDAL.HentBolig(boligBLL);
+            matchingbolig = boligDAL.HentBolig(boligBLL);
 
-                boligID_txt.Text = matchingbolig.BoligID.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            boligID_txt.Text = matchingbolig.BoligID.ToString();
 
             BoligUI_Load(sender, e);
             DisableAll();
@@ -88,7 +75,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
-
+            boligDAL.HentBolig(boligBLL);
 
 
             DisableAll();
@@ -391,9 +378,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void BoligUI_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'bobedredbDataSet_Bolig.Bolig' table. You can move, or remove it, as needed.
-            this.boligTableAdapter.Fill(this.bobedredbDataSet_Bolig.Bolig);
-
+            // TODO: This line of code loads data into the 'bobedredbDataSet.Bolig' table. You can move, or remove it, as needed.
+            this.boligTableAdapter.Fill(this.bobedredbDataSet.Bolig);
         }
+
     }
 }
