@@ -73,9 +73,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.readToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bobedredbDataSet = new Projektopgaven_BobedreMaeglerneAS.bobedredbDataSet();
-            this.ejendomsmæglerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ejendomsmæglerTableAdapter = new Projektopgaven_BobedreMaeglerneAS.bobedredbDataSetTableAdapters.EjendomsmæglerTableAdapter();
             this.mæglerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,8 +84,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bobedredbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ejendomsmæglerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -260,7 +255,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.enavnDataGridViewTextBoxColumn,
             this.vejDataGridViewTextBoxColumn,
             this.postnummerDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.ejendomsmæglerBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(55, 263);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
@@ -468,21 +462,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.deleteToolStripMenuItem3.Name = "deleteToolStripMenuItem3";
             this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(172, 34);
             this.deleteToolStripMenuItem3.Text = "Delete";
-            // 
-            // bobedredbDataSet
-            // 
-            this.bobedredbDataSet.DataSetName = "bobedredbDataSet";
-            this.bobedredbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ejendomsmæglerBindingSource
-            // 
-            this.ejendomsmæglerBindingSource.DataMember = "Ejendomsmægler";
-            this.ejendomsmæglerBindingSource.DataSource = this.bobedredbDataSet;
-            // 
-            // ejendomsmæglerTableAdapter
-            // 
-            this.ejendomsmæglerTableAdapter.ClearBeforeFill = true;
-            // 
+            //
             // mæglerIDDataGridViewTextBoxColumn
             // 
             this.mæglerIDDataGridViewTextBoxColumn.DataPropertyName = "MæglerID";
@@ -582,8 +562,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bobedredbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ejendomsmæglerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -633,9 +611,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem3;
-        private bobedredbDataSet bobedredbDataSet;
-        private System.Windows.Forms.BindingSource ejendomsmæglerBindingSource;
-        private bobedredbDataSetTableAdapters.EjendomsmæglerTableAdapter ejendomsmæglerTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn mæglerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPRDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
