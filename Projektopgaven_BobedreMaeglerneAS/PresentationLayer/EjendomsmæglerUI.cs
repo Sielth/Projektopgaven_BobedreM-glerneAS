@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 using Projektopgaven_BobedreMæglerneAS;
+using System.Data.SqlClient;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -20,10 +21,42 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             InitializeComponent();
         }
 
-        private void btn_OpretEjendomsmægler_Click(object sender, EventArgs e)
+        private void btn_OpretEjendomsmægler_Click(object sender, EventArgs e) //NOT WORKING YET
         {
-            //EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), Ejendomsmælgercpr(), telefon(), email(), fnavn(), enavn(), vej(), postnummer());
-            //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
+            //Connection string - 
+            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(strconn);
+
+            EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
+
+            ejendomsmæglerDAL.OpretEjendomsmægler(ejendomsmæglerBLL);
+
+
+        }
+
+        private void btn_HentEjendomsmægler_Click(object sender, EventArgs e)
+        {
+            //Connection string - 
+            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(strconn);
+
+            EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
+
+
+            //EjendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerDAL, SqlConnection conn);
+
+        }
+
+        private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_SletEjendomsmægler_Click(object sender, EventArgs e)
+        {
+
         }
 
 
@@ -73,7 +106,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
         #endregion
-
-
     }
 }
