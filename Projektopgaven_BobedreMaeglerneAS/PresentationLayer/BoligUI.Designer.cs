@@ -189,7 +189,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
             // 
@@ -335,7 +334,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Button btn_SælgBolig;
         private System.Windows.Forms.Button btn_Clear_OpretBolig;
         private System.Windows.Forms.Button btn_Clear_HentBolig;
-
         /// <summary>
         /// Method to call a Button or a TextBox etc. from another class without making it public (also called Getters) _Alessia
         /// </summary>
@@ -367,6 +365,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         public System.Windows.Forms.TextBox GetBoligIDTextbox() 
         {
             return boligID_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetBoligUdbudsprisTextbox()
+        {
+            return boligUdbudspris_txt;
         }
 
         public System.Windows.Forms.DateTimePicker GetBoligRenoveringsÅrDateTimePicker()

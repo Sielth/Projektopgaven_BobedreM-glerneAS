@@ -17,8 +17,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.BoligBLL = boligBLL;
         }
 
-        public void OpretBolig(BoligBLL bolig, SqlConnection conn)
+        public void OpretBolig(BoligBLL bolig)
         {
+            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(connstr);
+
             string sqlCommandBolig = "INSERT INTO Bolig VALUES (@Vej, @Postnummer, @Type, @Værelser, @Etager, @Kvadratmeter, @Udbudspris, @HaveFlag, @Bygningsår, @RenoveringsÅr)";
 
             SqlCommand cmdBolig = new SqlCommand(sqlCommandBolig, conn);
@@ -32,14 +35,88 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdBolig.Parameters.AddWithValue("@HaveFlag", bolig.Have);
             cmdBolig.Parameters.AddWithValue("@Bygningsår", bolig.Bygningsår);
             cmdBolig.Parameters.AddWithValue("@RenoveringsÅr", bolig.RenoveringsÅr);
+
+            try
+            {
+                conn.Open();
+                cmdBolig.ExecuteNonQuery();
+
+                HentBolig(bolig);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        public void HentBolig(BoligBLL bolig, SqlConnection conn)
+        public BoligBLL HentBolig(BoligBLL bolig)
         {
-            string sqlCommanBolig = "SELECT * FROM Bolig WHERE BoligID = @BoligID";
+            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(connstr);
+
+            string sqlCommanBolig = "SELECT * FROM Bolig WHERE " +
+                "BoligID LIKE @BoligID OR " +
+                "Vej Like @Vej OR " +
+                "Postnummer LIKE @Postnummer OR " +
+                "Type LIKE @Type OR " +
+                "Værelser LIKE @Værelser OR " +
+                "Etager LIKE @Etager OR " +
+                "Kvadratmeter LIKE @Kvadratmeter OR " +
+                "Udbudspris <= @Udbudspris OR " +
+                "HaveFlag LIKE @HaveFlag OR " +
+                "Bygningsår LIKE @Bygningsår OR " +
+                "RenoveringsÅr LIKE @RenoveringsÅr ";
 
             SqlCommand cmdBolig = new SqlCommand(sqlCommanBolig, conn);
             cmdBolig.Parameters.AddWithValue("@BoligID", bolig.BoligID);
+            cmdBolig.Parameters.AddWithValue("@Vej", bolig.Vej);
+            cmdBolig.Parameters.AddWithValue("@Postnummer", bolig.Postnummer);
+            cmdBolig.Parameters.AddWithValue("@Type", bolig.Type);
+            cmdBolig.Parameters.AddWithValue("@Værelser", bolig.Værelser);
+            cmdBolig.Parameters.AddWithValue("@Etager", bolig.Etager);
+            cmdBolig.Parameters.AddWithValue("@Kvadratmeter", bolig.Kvadratmeter);
+            cmdBolig.Parameters.AddWithValue("@Udbudspris", bolig.Udbudspris);
+            cmdBolig.Parameters.AddWithValue("@HaveFlag", bolig.Have);
+            cmdBolig.Parameters.AddWithValue("@Bygningsår", bolig.Bygningsår);
+            cmdBolig.Parameters.AddWithValue("@RenoveringsÅr", bolig.RenoveringsÅr);
+
+            try
+            {
+                conn.Open();
+
+                using (SqlDataReader reader = cmdBolig.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        BoligBLL matchingbolig = new BoligBLL((int)reader["BoligID"],
+                            reader["Vej"].ToString(),
+                            (int)reader["Postnummer"],
+                            reader["Type"].ToString(),
+                            (int)reader["Værelser"],
+                            (int)reader["Etager"],
+                            (int)reader["Kvadratmeter"],
+                            (int)reader["HaveFlag"],
+                            (int)reader["Bygningsår"],
+                            (int)reader["RenoveringsÅr"]);
+
+                        return matchingbolig;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return null;
         }
 
         public void OpdaterBolig(BoligBLL bolig, SqlConnection conn)
