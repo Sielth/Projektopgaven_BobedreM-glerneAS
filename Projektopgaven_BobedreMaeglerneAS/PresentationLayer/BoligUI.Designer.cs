@@ -61,8 +61,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.haveFlagDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bygningsårDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.renoveringsÅrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boligBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bobedredbDataSet = new Projektopgaven_BobedreMaeglerneAS.bobedredbDataSet();
             this.boligID_lbl = new System.Windows.Forms.Label();
             this.boligVej_lbl = new System.Windows.Forms.Label();
             this.boligPostnr_lbl = new System.Windows.Forms.Label();
@@ -76,13 +74,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_SælgBolig = new System.Windows.Forms.Button();
             this.btn_Clear_OpretBolig = new System.Windows.Forms.Button();
             this.btn_Clear_HentBolig = new System.Windows.Forms.Button();
-            this.boligTableAdapter = new Projektopgaven_BobedreMaeglerneAS.bobedredbDataSetTableAdapters.BoligTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bobedredbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // boligID_txt
@@ -219,7 +214,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.haveFlagDataGridViewCheckBoxColumn,
             this.bygningsårDataGridViewTextBoxColumn,
             this.renoveringsÅrDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.boligBindingSource;
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
             // 
@@ -292,13 +286,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // boligBindingSource
             // 
-            this.boligBindingSource.DataMember = "Bolig";
-            this.boligBindingSource.DataSource = this.bobedredbDataSet;
+
             // 
             // bobedredbDataSet
             // 
-            this.bobedredbDataSet.DataSetName = "bobedredbDataSet";
-            this.bobedredbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+         
             // 
             // boligID_lbl
             // 
@@ -367,7 +359,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // boligTableAdapter
             // 
-            this.boligTableAdapter.ClearBeforeFill = true;
+
             // 
             // BoligUI
             // 
@@ -409,8 +401,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bobedredbDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,10 +439,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Button btn_SælgBolig;
         private System.Windows.Forms.Button btn_Clear_OpretBolig;
         private System.Windows.Forms.Button btn_Clear_HentBolig;
-
-        private bobedredbDataSet bobedredbDataSet;
-        private System.Windows.Forms.BindingSource boligBindingSource;
-        private bobedredbDataSetTableAdapters.BoligTableAdapter boligTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn boligIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
