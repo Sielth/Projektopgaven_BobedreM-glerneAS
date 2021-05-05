@@ -63,6 +63,22 @@ namespace Projektopgaven_BobedreMæglerneAS
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
 
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
+
+            try
+            {
+                conn.Open();
+                commandEjendomsmægler.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
@@ -87,6 +103,22 @@ namespace Projektopgaven_BobedreMæglerneAS
             commandEjendomsmægler.Parameters.AddWithValue("@Vej", ejendomsmægler.Vej);
             commandEjendomsmægler.Parameters.AddWithValue("@Postnummer", ejendomsmægler.Postnummer);
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
+
+            try
+            {
+                conn.Open();
+                commandEjendomsmægler.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
@@ -96,6 +128,22 @@ namespace Projektopgaven_BobedreMæglerneAS
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
 
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
+
+            try
+            {
+                conn.Open();
+                commandEjendomsmægler.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

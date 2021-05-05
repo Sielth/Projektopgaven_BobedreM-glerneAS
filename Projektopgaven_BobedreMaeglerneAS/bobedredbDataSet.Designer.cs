@@ -24,7 +24,11 @@ namespace Projektopgaven_BobedreMaeglerneAS {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class bobedredbDataSet : global::System.Data.DataSet {
         
+
+        private EjendomsmæglerDataTable tableEjendomsmægler;
+
         private BoligDataTable tableBolig;
+
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +58,13 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+
+                if ((ds.Tables["Ejendomsmægler"] != null)) {
+                    base.Tables.Add(new EjendomsmæglerDataTable(ds.Tables["Ejendomsmægler"]));
+
                 if ((ds.Tables["Bolig"] != null)) {
                     base.Tables.Add(new BoligDataTable(ds.Tables["Bolig"]));
+
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +88,15 @@ namespace Projektopgaven_BobedreMaeglerneAS {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+
+        public EjendomsmæglerDataTable Ejendomsmægler {
+            get {
+                return this.tableEjendomsmægler;
+
         public BoligDataTable Bolig {
             get {
                 return this.tableBolig;
+
             }
         }
         
@@ -152,8 +167,13 @@ namespace Projektopgaven_BobedreMaeglerneAS {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
+
+                if ((ds.Tables["Ejendomsmægler"] != null)) {
+                    base.Tables.Add(new EjendomsmæglerDataTable(ds.Tables["Ejendomsmægler"]));
+
                 if ((ds.Tables["Bolig"] != null)) {
                     base.Tables.Add(new BoligDataTable(ds.Tables["Bolig"]));
+
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +208,17 @@ namespace Projektopgaven_BobedreMaeglerneAS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
+
+            this.tableEjendomsmægler = ((EjendomsmæglerDataTable)(base.Tables["Ejendomsmægler"]));
+            if ((initTable == true)) {
+                if ((this.tableEjendomsmægler != null)) {
+                    this.tableEjendomsmægler.InitVars();
+
             this.tableBolig = ((BoligDataTable)(base.Tables["Bolig"]));
             if ((initTable == true)) {
                 if ((this.tableBolig != null)) {
                     this.tableBolig.InitVars();
+
                 }
             }
         }
@@ -204,13 +231,22 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             this.Namespace = "http://tempuri.org/bobedredbDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+
+            this.tableEjendomsmægler = new EjendomsmæglerDataTable();
+            base.Tables.Add(this.tableEjendomsmægler);
+
             this.tableBolig = new BoligDataTable();
             base.Tables.Add(this.tableBolig);
+
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+
+        private bool ShouldSerializeEjendomsmægler() {
+
         private bool ShouldSerializeBolig() {
+
             return false;
         }
         
@@ -270,13 +306,39 @@ namespace Projektopgaven_BobedreMaeglerneAS {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+
+        public delegate void EjendomsmæglerRowChangeEventHandler(object sender, EjendomsmæglerRowChangeEvent e);
+
         public delegate void BoligRowChangeEventHandler(object sender, BoligRowChangeEvent e);
+
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class EjendomsmæglerDataTable : global::System.Data.TypedTableBase<EjendomsmæglerRow> {
+            
+            private global::System.Data.DataColumn columnMæglerID;
+            
+            private global::System.Data.DataColumn columnCPR;
+            
+            private global::System.Data.DataColumn columnTelefon;
+            
+            private global::System.Data.DataColumn columnEmail;
+            
+            private global::System.Data.DataColumn columnFnavn;
+            
+            private global::System.Data.DataColumn columnEnavn;
+            
+            private global::System.Data.DataColumn columnVej;
+            
+            private global::System.Data.DataColumn columnPostnummer;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EjendomsmæglerDataTable() {
+                this.TableName = "Ejendomsmægler";
         public partial class BoligDataTable : global::System.Data.TypedTableBase<BoligRow> {
             
             private global::System.Data.DataColumn columnBoligID;
@@ -312,6 +374,8 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal EjendomsmæglerDataTable(global::System.Data.DataTable table) {
+
             internal BoligDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
@@ -329,6 +393,8 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected EjendomsmæglerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+
             protected BoligDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
@@ -336,6 +402,10 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MæglerIDColumn {
+                get {
+                    return this.columnMæglerID;
+
             public global::System.Data.DataColumn BoligIDColumn {
                 get {
                     return this.columnBoligID;
@@ -344,6 +414,10 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CPRColumn {
+                get {
+                    return this.columnCPR;
+
             public global::System.Data.DataColumn VejColumn {
                 get {
                     return this.columnVej;
@@ -352,6 +426,9 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TelefonColumn {
+                get {
+                    return this.columnTelefon;
             public global::System.Data.DataColumn PostnummerColumn {
                 get {
                     return this.columnPostnummer;
@@ -360,6 +437,9 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EmailColumn {
+                get {
+                    return this.columnEmail;
             public global::System.Data.DataColumn TypeColumn {
                 get {
                     return this.columnType;
@@ -368,6 +448,9 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FnavnColumn {
+                get {
+                    return this.columnFnavn;
             public global::System.Data.DataColumn VærelserColumn {
                 get {
                     return this.columnVærelser;
@@ -376,6 +459,9 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EnavnColumn {
+                get {
+                    return this.columnEnavn;
             public global::System.Data.DataColumn EtagerColumn {
                 get {
                     return this.columnEtager;
@@ -384,6 +470,9 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VejColumn {
+                get {
+                    return this.columnVej;
             public global::System.Data.DataColumn KvadratmeterColumn {
                 get {
                     return this.columnKvadratmeter;
@@ -392,6 +481,9 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PostnummerColumn {
+                get {
+                    return this.columnPostnummer;
             public global::System.Data.DataColumn UdbudsprisColumn {
                 get {
                     return this.columnUdbudspris;
@@ -433,6 +525,9 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EjendomsmæglerRow this[int index] {
+                get {
+                    return ((EjendomsmæglerRow)(this.Rows[index]));
             public BoligRow this[int index] {
                 get {
                     return ((BoligRow)(this.Rows[index]));
@@ -440,6 +535,20 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EjendomsmæglerRowChangeEventHandler EjendomsmæglerRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EjendomsmæglerRowChangeEventHandler EjendomsmæglerRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EjendomsmæglerRowChangeEventHandler EjendomsmæglerRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EjendomsmæglerRowChangeEventHandler EjendomsmæglerRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddEjendomsmæglerRow(EjendomsmæglerRow row) {
             public event BoligRowChangeEventHandler BoligRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -459,6 +568,20 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EjendomsmæglerRow AddEjendomsmæglerRow(int CPR, int Telefon, string Email, string Fnavn, string Enavn, string Vej, int Postnummer) {
+                EjendomsmæglerRow rowEjendomsmæglerRow = ((EjendomsmæglerRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        CPR,
+                        Telefon,
+                        Email,
+                        Fnavn,
+                        Enavn,
+                        Vej,
+                        Postnummer};
+                rowEjendomsmæglerRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEjendomsmæglerRow);
+                return rowEjendomsmæglerRow;
             public BoligRow AddBoligRow(string Vej, int Postnummer, string Type, int Værelser, int Etager, int Kvadratmeter, int Udbudspris, bool HaveFlag, int Bygningsår, int RenoveringsÅr) {
                 BoligRow rowBoligRow = ((BoligRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -480,6 +603,9 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EjendomsmæglerRow FindByMæglerID(int MæglerID) {
+                return ((EjendomsmæglerRow)(this.Rows.Find(new object[] {
+                            MæglerID})));
             public BoligRow FindByBoligID(int BoligID) {
                 return ((BoligRow)(this.Rows.Find(new object[] {
                             BoligID})));
@@ -488,6 +614,7 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
+                EjendomsmæglerDataTable cln = ((EjendomsmæglerDataTable)(base.Clone()));
                 BoligDataTable cln = ((BoligDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
@@ -496,12 +623,21 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
+                return new EjendomsmæglerDataTable();
                 return new BoligDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
+                this.columnMæglerID = base.Columns["MæglerID"];
+                this.columnCPR = base.Columns["CPR"];
+                this.columnTelefon = base.Columns["Telefon"];
+                this.columnEmail = base.Columns["Email"];
+                this.columnFnavn = base.Columns["Fnavn"];
+                this.columnEnavn = base.Columns["Enavn"];
+                this.columnVej = base.Columns["Vej"];
+                this.columnPostnummer = base.Columns["Postnummer"];
                 this.columnBoligID = base.Columns["BoligID"];
                 this.columnVej = base.Columns["Vej"];
                 this.columnPostnummer = base.Columns["Postnummer"];
@@ -518,12 +654,40 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
+                this.columnMæglerID = new global::System.Data.DataColumn("MæglerID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMæglerID);
+                this.columnCPR = new global::System.Data.DataColumn("CPR", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCPR);
+                this.columnTelefon = new global::System.Data.DataColumn("Telefon", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTelefon);
+                this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmail);
+                this.columnFnavn = new global::System.Data.DataColumn("Fnavn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFnavn);
+                this.columnEnavn = new global::System.Data.DataColumn("Enavn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnavn);
                 this.columnBoligID = new global::System.Data.DataColumn("BoligID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBoligID);
                 this.columnVej = new global::System.Data.DataColumn("Vej", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVej);
                 this.columnPostnummer = new global::System.Data.DataColumn("Postnummer", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPostnummer);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnMæglerID}, true));
+                this.columnMæglerID.AutoIncrement = true;
+                this.columnMæglerID.AutoIncrementSeed = -1;
+                this.columnMæglerID.AutoIncrementStep = -1;
+                this.columnMæglerID.AllowDBNull = false;
+                this.columnMæglerID.ReadOnly = true;
+                this.columnMæglerID.Unique = true;
+                this.columnCPR.AllowDBNull = false;
+                this.columnTelefon.AllowDBNull = false;
+                this.columnEmail.AllowDBNull = false;
+                this.columnEmail.MaxLength = 30;
+                this.columnFnavn.MaxLength = 15;
+                this.columnEnavn.MaxLength = 15;
+                this.columnVej.MaxLength = 30;
+                this.columnPostnummer.AllowDBNull = false;
                 this.columnType = new global::System.Data.DataColumn("Type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnType);
                 this.columnVærelser = new global::System.Data.DataColumn("Værelser", typeof(int), null, global::System.Data.MappingType.Element);
@@ -558,6 +722,8 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EjendomsmæglerRow NewEjendomsmæglerRow() {
+                return ((EjendomsmæglerRow)(this.NewRow()));
             public BoligRow NewBoligRow() {
                 return ((BoligRow)(this.NewRow()));
             }
@@ -565,12 +731,14 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new EjendomsmæglerRow(builder);
                 return new BoligRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
+                return typeof(EjendomsmæglerRow);
                 return typeof(BoligRow);
             }
             
@@ -578,6 +746,8 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
+                if ((this.EjendomsmæglerRowChanged != null)) {
+                    this.EjendomsmæglerRowChanged(this, new EjendomsmæglerRowChangeEvent(((EjendomsmæglerRow)(e.Row)), e.Action));
                 if ((this.BoligRowChanged != null)) {
                     this.BoligRowChanged(this, new BoligRowChangeEvent(((BoligRow)(e.Row)), e.Action));
                 }
@@ -587,6 +757,8 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
+                if ((this.EjendomsmæglerRowChanging != null)) {
+                    this.EjendomsmæglerRowChanging(this, new EjendomsmæglerRowChangeEvent(((EjendomsmæglerRow)(e.Row)), e.Action));
                 if ((this.BoligRowChanging != null)) {
                     this.BoligRowChanging(this, new BoligRowChangeEvent(((BoligRow)(e.Row)), e.Action));
                 }
@@ -596,6 +768,8 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
+                if ((this.EjendomsmæglerRowDeleted != null)) {
+                    this.EjendomsmæglerRowDeleted(this, new EjendomsmæglerRowChangeEvent(((EjendomsmæglerRow)(e.Row)), e.Action));
                 if ((this.BoligRowDeleted != null)) {
                     this.BoligRowDeleted(this, new BoligRowChangeEvent(((BoligRow)(e.Row)), e.Action));
                 }
@@ -605,6 +779,8 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
+                if ((this.EjendomsmæglerRowDeleting != null)) {
+                    this.EjendomsmæglerRowDeleting(this, new EjendomsmæglerRowChangeEvent(((EjendomsmæglerRow)(e.Row)), e.Action));
                 if ((this.BoligRowDeleting != null)) {
                     this.BoligRowDeleting(this, new BoligRowChangeEvent(((BoligRow)(e.Row)), e.Action));
                 }
@@ -612,6 +788,7 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveEjendomsmæglerRow(EjendomsmæglerRow row) {
             public void RemoveBoligRow(BoligRow row) {
                 this.Rows.Remove(row);
             }
@@ -639,6 +816,7 @@ namespace Projektopgaven_BobedreMaeglerneAS {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "EjendomsmæglerDataTable";
                 attribute2.FixedValue = "BoligDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
@@ -683,6 +861,15 @@ namespace Projektopgaven_BobedreMaeglerneAS {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class EjendomsmæglerRow : global::System.Data.DataRow {
+            
+            private EjendomsmæglerDataTable tableEjendomsmægler;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal EjendomsmæglerRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableEjendomsmægler = ((EjendomsmæglerDataTable)(this.Table));
         public partial class BoligRow : global::System.Data.DataRow {
             
             private BoligDataTable tableBolig;
@@ -729,6 +916,12 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int MæglerID {
+                get {
+                    return ((int)(this[this.tableEjendomsmægler.MæglerIDColumn]));
+                }
+                set {
+                    this[this.tableEjendomsmægler.MæglerIDColumn] = value;
             public string Type {
                 get {
                     try {
@@ -745,6 +938,12 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int CPR {
+                get {
+                    return ((int)(this[this.tableEjendomsmægler.CPRColumn]));
+                }
+                set {
+                    this[this.tableEjendomsmægler.CPRColumn] = value;
             public int Værelser {
                 get {
                     try {
@@ -761,6 +960,12 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Telefon {
+                get {
+                    return ((int)(this[this.tableEjendomsmægler.TelefonColumn]));
+                }
+                set {
+                    this[this.tableEjendomsmægler.TelefonColumn] = value;
             public int Etager {
                 get {
                     try {
@@ -777,6 +982,12 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Email {
+                get {
+                    return ((string)(this[this.tableEjendomsmægler.EmailColumn]));
+                }
+                set {
+                    this[this.tableEjendomsmægler.EmailColumn] = value;
             public int Kvadratmeter {
                 get {
                     return ((int)(this[this.tableBolig.KvadratmeterColumn]));
@@ -788,6 +999,17 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Fnavn {
+                get {
+                    try {
+                        return ((string)(this[this.tableEjendomsmægler.FnavnColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Fnavn\' in table \'Ejendomsmægler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEjendomsmægler.FnavnColumn] = value;
             public int Udbudspris {
                 get {
                     try {
@@ -804,6 +1026,17 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Enavn {
+                get {
+                    try {
+                        return ((string)(this[this.tableEjendomsmægler.EnavnColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Enavn\' in table \'Ejendomsmægler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEjendomsmægler.EnavnColumn] = value;
             public bool HaveFlag {
                 get {
                     try {
@@ -820,6 +1053,17 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Vej {
+                get {
+                    try {
+                        return ((string)(this[this.tableEjendomsmægler.VejColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Vej\' in table \'Ejendomsmægler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEjendomsmægler.VejColumn] = value;
             public int Bygningsår {
                 get {
                     try {
@@ -836,6 +1080,12 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Postnummer {
+                get {
+                    return ((int)(this[this.tableEjendomsmægler.PostnummerColumn]));
+                }
+                set {
+                    this[this.tableEjendomsmægler.PostnummerColumn] = value;
             public int RenoveringsÅr {
                 get {
                     return ((int)(this[this.tableBolig.RenoveringsÅrColumn]));
@@ -847,6 +1097,8 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFnavnNull() {
+                return this.IsNull(this.tableEjendomsmægler.FnavnColumn);
             public bool IsTypeNull() {
                 return this.IsNull(this.tableBolig.TypeColumn);
             }
@@ -889,30 +1141,40 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFnavnNull() {
+                this[this.tableEjendomsmægler.FnavnColumn] = global::System.Convert.DBNull;
             public void SetUdbudsprisNull() {
                 this[this.tableBolig.UdbudsprisColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEnavnNull() {
+                return this.IsNull(this.tableEjendomsmægler.EnavnColumn);
             public bool IsHaveFlagNull() {
                 return this.IsNull(this.tableBolig.HaveFlagColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEnavnNull() {
+                this[this.tableEjendomsmægler.EnavnColumn] = global::System.Convert.DBNull;
             public void SetHaveFlagNull() {
                 this[this.tableBolig.HaveFlagColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVejNull() {
+                return this.IsNull(this.tableEjendomsmægler.VejColumn);
             public bool IsBygningsårNull() {
                 return this.IsNull(this.tableBolig.BygningsårColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVejNull() {
+                this[this.tableEjendomsmægler.VejColumn] = global::System.Convert.DBNull;
             public void SetBygningsårNull() {
                 this[this.tableBolig.BygningsårColumn] = global::System.Convert.DBNull;
             }
@@ -922,6 +1184,9 @@ namespace Projektopgaven_BobedreMaeglerneAS {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class EjendomsmæglerRowChangeEvent : global::System.EventArgs {
+            
+            private EjendomsmæglerRow eventRow;
         public class BoligRowChangeEvent : global::System.EventArgs {
             
             private BoligRow eventRow;
@@ -930,6 +1195,7 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EjendomsmæglerRowChangeEvent(EjendomsmæglerRow row, global::System.Data.DataRowAction action) {
             public BoligRowChangeEvent(BoligRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
@@ -937,6 +1203,7 @@ namespace Projektopgaven_BobedreMaeglerneAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EjendomsmæglerRow Row {
             public BoligRow Row {
                 get {
                     return this.eventRow;
@@ -965,6 +1232,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.bobedredbDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class EjendomsmæglerTableAdapter : global::System.ComponentModel.Component {
     public partial class BoligTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -979,6 +1247,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.bobedredbDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public EjendomsmæglerTableAdapter() {
         public BoligTableAdapter() {
             this.ClearBeforeFill = true;
         }
@@ -1076,6 +1345,67 @@ namespace Projektopgaven_BobedreMaeglerneAS.bobedredbDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Ejendomsmægler";
+            tableMapping.ColumnMappings.Add("MæglerID", "MæglerID");
+            tableMapping.ColumnMappings.Add("CPR", "CPR");
+            tableMapping.ColumnMappings.Add("Telefon", "Telefon");
+            tableMapping.ColumnMappings.Add("Email", "Email");
+            tableMapping.ColumnMappings.Add("Fnavn", "Fnavn");
+            tableMapping.ColumnMappings.Add("Enavn", "Enavn");
+            tableMapping.ColumnMappings.Add("Vej", "Vej");
+            tableMapping.ColumnMappings.Add("Postnummer", "Postnummer");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Ejendomsmægler] WHERE (([MæglerID] = @Original_MæglerID) AND ([CPR] = @Original_CPR) AND ([Telefon] = @Original_Telefon) AND ([Email] = @Original_Email) AND ((@IsNull_Fnavn = 1 AND [Fnavn] IS NULL) OR ([Fnavn] = @Original_Fnavn)) AND ((@IsNull_Enavn = 1 AND [Enavn] IS NULL) OR ([Enavn] = @Original_Enavn)) AND ((@IsNull_Vej = 1 AND [Vej] IS NULL) OR ([Vej] = @Original_Vej)) AND ([Postnummer] = @Original_Postnummer))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MæglerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MæglerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telefon", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telefon", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fnavn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fnavn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fnavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fnavn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Enavn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enavn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enavn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Vej", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vej", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Vej", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vej", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Postnummer", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Postnummer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Ejendomsmægler] ([CPR], [Telefon], [Email], [Fnavn], [Enavn], [Vej], [Postnummer]) VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer);
+SELECT MæglerID, CPR, Telefon, Email, Fnavn, Enavn, Vej, Postnummer FROM Ejendomsmægler WHERE (MæglerID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telefon", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telefon", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fnavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fnavn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enavn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vej", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vej", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Postnummer", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Postnummer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Ejendomsmægler] SET [CPR] = @CPR, [Telefon] = @Telefon, [Email] = @Email, [Fnavn] = @Fnavn, [Enavn] = @Enavn, [Vej] = @Vej, [Postnummer] = @Postnummer WHERE (([MæglerID] = @Original_MæglerID) AND ([CPR] = @Original_CPR) AND ([Telefon] = @Original_Telefon) AND ([Email] = @Original_Email) AND ((@IsNull_Fnavn = 1 AND [Fnavn] IS NULL) OR ([Fnavn] = @Original_Fnavn)) AND ((@IsNull_Enavn = 1 AND [Enavn] IS NULL) OR ([Enavn] = @Original_Enavn)) AND ((@IsNull_Vej = 1 AND [Vej] IS NULL) OR ([Vej] = @Original_Vej)) AND ([Postnummer] = @Original_Postnummer));
+SELECT MæglerID, CPR, Telefon, Email, Fnavn, Enavn, Vej, Postnummer FROM Ejendomsmægler WHERE (MæglerID = @MæglerID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telefon", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telefon", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fnavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fnavn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enavn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vej", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vej", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Postnummer", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Postnummer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MæglerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MæglerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telefon", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telefon", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fnavn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fnavn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fnavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fnavn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Enavn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enavn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enavn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Vej", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vej", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Vej", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vej", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Postnummer", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Postnummer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MæglerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MæglerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             tableMapping.DataSetTable = "Bolig";
             tableMapping.ColumnMappings.Add("BoligID", "BoligID");
             tableMapping.ColumnMappings.Add("Vej", "Vej");
@@ -1173,6 +1503,8 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT MæglerID, CPR, Telefon, Email, Fnavn, Enavn, Vej, Postnummer FROM dbo.Ejen" +
+                "domsmægler";
             this._commandCollection[0].CommandText = "SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspris" +
                 ", HaveFlag, Bygningsår, RenoveringsÅr FROM dbo.Bolig";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
@@ -1182,6 +1514,7 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(bobedredbDataSet.EjendomsmæglerDataTable dataTable) {
         public virtual int Fill(bobedredbDataSet.BoligDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
@@ -1195,6 +1528,9 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual bobedredbDataSet.EjendomsmæglerDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            bobedredbDataSet.EjendomsmæglerDataTable dataTable = new bobedredbDataSet.EjendomsmæglerDataTable();
         public virtual bobedredbDataSet.BoligDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             bobedredbDataSet.BoligDataTable dataTable = new bobedredbDataSet.BoligDataTable();
@@ -1205,6 +1541,7 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(bobedredbDataSet.EjendomsmæglerDataTable dataTable) {
         public virtual int Update(bobedredbDataSet.BoligDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -1213,6 +1550,7 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(bobedredbDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Ejendomsmægler");
             return this.Adapter.Update(dataSet, "Bolig");
         }
         
@@ -1235,6 +1573,41 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_MæglerID, int Original_CPR, int Original_Telefon, string Original_Email, string Original_Fnavn, string Original_Enavn, string Original_Vej, int Original_Postnummer) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MæglerID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_CPR));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Telefon));
+            if ((Original_Email == null)) {
+                throw new global::System.ArgumentNullException("Original_Email");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Email));
+            }
+            if ((Original_Fnavn == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Fnavn));
+            }
+            if ((Original_Enavn == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Enavn));
+            }
+            if ((Original_Vej == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Vej));
+            }
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_Postnummer));
         public virtual int Delete(int Original_BoligID, string Original_Vej, int Original_Postnummer, string Original_Type, global::System.Nullable<int> Original_Værelser, global::System.Nullable<int> Original_Etager, int Original_Kvadratmeter, global::System.Nullable<int> Original_Udbudspris, global::System.Nullable<bool> Original_HaveFlag, global::System.Nullable<int> Original_Bygningsår, int Original_RenoveringsÅr) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_BoligID));
             if ((Original_Vej == null)) {
@@ -1314,6 +1687,34 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int CPR, int Telefon, string Email, string Fnavn, string Enavn, string Vej, int Postnummer) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CPR));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Telefon));
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Email));
+            }
+            if ((Fnavn == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Fnavn));
+            }
+            if ((Enavn == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Enavn));
+            }
+            if ((Vej == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Vej));
+            }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Postnummer));
         public virtual int Insert(string Vej, int Postnummer, string Type, global::System.Nullable<int> Værelser, global::System.Nullable<int> Etager, int Kvadratmeter, global::System.Nullable<int> Udbudspris, global::System.Nullable<bool> HaveFlag, global::System.Nullable<int> Bygningsår, int RenoveringsÅr) {
             if ((Vej == null)) {
                 throw new global::System.ArgumentNullException("Vej");
@@ -1381,6 +1782,67 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
+                    int CPR, 
+                    int Telefon, 
+                    string Email, 
+                    string Fnavn, 
+                    string Enavn, 
+                    string Vej, 
+                    int Postnummer, 
+                    int Original_MæglerID, 
+                    int Original_CPR, 
+                    int Original_Telefon, 
+                    string Original_Email, 
+                    string Original_Fnavn, 
+                    string Original_Enavn, 
+                    string Original_Vej, 
+                    int Original_Postnummer, 
+                    int MæglerID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CPR));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Telefon));
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Email));
+            }
+            if ((Fnavn == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Fnavn));
+            }
+            if ((Enavn == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Enavn));
+            }
+            if ((Vej == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Vej));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Postnummer));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_MæglerID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_CPR));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Telefon));
+            if ((Original_Email == null)) {
+                throw new global::System.ArgumentNullException("Original_Email");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Email));
+            }
+            if ((Original_Fnavn == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Fnavn));
+            }
+            if ((Original_Enavn == null)) {
                     string Vej, 
                     int Postnummer, 
                     string Type, 
@@ -1462,6 +1924,18 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Enavn));
+            }
+            if ((Original_Vej == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Vej));
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Postnummer));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(MæglerID));
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Type));
             }
             if ((Original_Værelser.HasValue == true)) {
@@ -1527,6 +2001,8 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int CPR, int Telefon, string Email, string Fnavn, string Enavn, string Vej, int Postnummer, int Original_MæglerID, int Original_CPR, int Original_Telefon, string Original_Email, string Original_Fnavn, string Original_Enavn, string Original_Vej, int Original_Postnummer) {
+            return this.Update(CPR, Telefon, Email, Fnavn, Enavn, Vej, Postnummer, Original_MæglerID, Original_CPR, Original_Telefon, Original_Email, Original_Fnavn, Original_Enavn, Original_Vej, Original_Postnummer, Original_MæglerID);
         public virtual int Update(
                     string Vej, 
                     int Postnummer, 
@@ -1565,6 +2041,7 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         
         private UpdateOrderOption _updateOrder;
         
+        private EjendomsmæglerTableAdapter _ejendomsmæglerTableAdapter;
         private BoligTableAdapter _boligTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
@@ -1587,6 +2064,12 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
+        public EjendomsmæglerTableAdapter EjendomsmæglerTableAdapter {
+            get {
+                return this._ejendomsmæglerTableAdapter;
+            }
+            set {
+                this._ejendomsmæglerTableAdapter = value;
         public BoligTableAdapter BoligTableAdapter {
             get {
                 return this._boligTableAdapter;
@@ -1615,6 +2098,9 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
                 if ((this._connection != null)) {
                     return this._connection;
                 }
+                if (((this._ejendomsmæglerTableAdapter != null) 
+                            && (this._ejendomsmæglerTableAdapter.Connection != null))) {
+                    return this._ejendomsmæglerTableAdapter.Connection;
                 if (((this._boligTableAdapter != null) 
                             && (this._boligTableAdapter.Connection != null))) {
                     return this._boligTableAdapter.Connection;
@@ -1632,6 +2118,7 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
+                if ((this._ejendomsmæglerTableAdapter != null)) {
                 if ((this._boligTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -1646,6 +2133,12 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(bobedredbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._ejendomsmæglerTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Ejendomsmægler.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._ejendomsmæglerTableAdapter.Update(updatedRows));
             if ((this._boligTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Bolig.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -1665,6 +2158,11 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(bobedredbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._ejendomsmæglerTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Ejendomsmægler.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._ejendomsmæglerTableAdapter.Update(addedRows));
             if ((this._boligTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Bolig.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -1683,6 +2181,11 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(bobedredbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._ejendomsmæglerTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Ejendomsmægler.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._ejendomsmæglerTableAdapter.Update(deletedRows));
             if ((this._boligTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Bolig.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -1730,6 +2233,8 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
+            if (((this._ejendomsmæglerTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._ejendomsmæglerTableAdapter.Connection) == false))) {
             if (((this._boligTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._boligTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -1767,6 +2272,13 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
             try {
                 // ---- Prepare for update -----------
                 //
+                if ((this._ejendomsmæglerTableAdapter != null)) {
+                    revertConnections.Add(this._ejendomsmæglerTableAdapter, this._ejendomsmæglerTableAdapter.Connection);
+                    this._ejendomsmæglerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._ejendomsmæglerTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._ejendomsmæglerTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._ejendomsmæglerTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._ejendomsmæglerTableAdapter.Adapter);
                 if ((this._boligTableAdapter != null)) {
                     revertConnections.Add(this._boligTableAdapter, this._boligTableAdapter.Connection);
                     this._boligTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -1834,6 +2346,9 @@ SELECT BoligID, Vej, Postnummer, Type, Værelser, Etager, Kvadratmeter, Udbudspr
                 if (workConnOpened) {
                     workConnection.Close();
                 }
+                if ((this._ejendomsmæglerTableAdapter != null)) {
+                    this._ejendomsmæglerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._ejendomsmæglerTableAdapter]));
+                    this._ejendomsmæglerTableAdapter.Transaction = null;
                 if ((this._boligTableAdapter != null)) {
                     this._boligTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._boligTableAdapter]));
                     this._boligTableAdapter.Transaction = null;
