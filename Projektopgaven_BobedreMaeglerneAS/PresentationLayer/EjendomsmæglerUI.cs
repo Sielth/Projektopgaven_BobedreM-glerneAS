@@ -33,7 +33,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Kalder metoden: OpretEjendomsmægler
             ejendomsmæglerDAL.OpretEjendomsmægler(ejendomsmæglerBLL);
 
-            //Loader data fra databasen ind i datagridview
+            //Loader data fra databasen ind i datagridview -
             EjendomsmæglerUI_Load(sender, e);
         }
 
