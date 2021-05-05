@@ -219,7 +219,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Vej_txt.TabIndex = 61;
             // 
             // dataGridView1
-            // 
+            //
             this.dataGridView1.Location = new System.Drawing.Point(101, 232);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";

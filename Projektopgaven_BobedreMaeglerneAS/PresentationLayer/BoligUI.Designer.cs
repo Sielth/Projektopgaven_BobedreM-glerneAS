@@ -334,7 +334,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Button btn_SælgBolig;
         private System.Windows.Forms.Button btn_Clear_OpretBolig;
         private System.Windows.Forms.Button btn_Clear_HentBolig;
-
         /// <summary>
         /// Method to call a Button or a TextBox etc. from another class without making it public (also called Getters) _Alessia
         /// </summary>
