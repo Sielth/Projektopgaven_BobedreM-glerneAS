@@ -143,28 +143,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.createToolStripMenuItem.Text = "Create";
             this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // readToolStripMenuItem1
             // 
             this.readToolStripMenuItem1.Name = "readToolStripMenuItem1";
-            this.readToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.readToolStripMenuItem1.Size = new System.Drawing.Size(141, 26);
             this.readToolStripMenuItem1.Text = "Read";
             this.readToolStripMenuItem1.Click += new System.EventHandler(this.readToolStripMenuItem1_Click);
             // 
             // updateToolStripMenuItem1
             // 
             this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
-            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(141, 26);
             this.updateToolStripMenuItem1.Text = "Update";
             this.updateToolStripMenuItem1.Click += new System.EventHandler(this.updateToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(141, 26);
             this.deleteToolStripMenuItem1.Text = "Delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
             // 
@@ -182,28 +182,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // createToolStripMenuItem1
             // 
             this.createToolStripMenuItem1.Name = "createToolStripMenuItem1";
-            this.createToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.createToolStripMenuItem1.Size = new System.Drawing.Size(141, 26);
             this.createToolStripMenuItem1.Text = "Create";
             this.createToolStripMenuItem1.Click += new System.EventHandler(this.createToolStripMenuItem1_Click);
             // 
             // readToolStripMenuItem2
             // 
             this.readToolStripMenuItem2.Name = "readToolStripMenuItem2";
-            this.readToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+            this.readToolStripMenuItem2.Size = new System.Drawing.Size(141, 26);
             this.readToolStripMenuItem2.Text = "Read";
             this.readToolStripMenuItem2.Click += new System.EventHandler(this.readToolStripMenuItem2_Click);
             // 
             // updateToolStripMenuItem2
             // 
             this.updateToolStripMenuItem2.Name = "updateToolStripMenuItem2";
-            this.updateToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+            this.updateToolStripMenuItem2.Size = new System.Drawing.Size(141, 26);
             this.updateToolStripMenuItem2.Text = "Update";
             this.updateToolStripMenuItem2.Click += new System.EventHandler(this.updateToolStripMenuItem2_Click);
             // 
             // deleteToolStripMenuItem2
             // 
             this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
-            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(141, 26);
             this.deleteToolStripMenuItem2.Text = "Delete";
             this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.deleteToolStripMenuItem2_Click);
             // 
@@ -221,28 +221,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // createToolStripMenuItem2
             // 
             this.createToolStripMenuItem2.Name = "createToolStripMenuItem2";
-            this.createToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+            this.createToolStripMenuItem2.Size = new System.Drawing.Size(141, 26);
             this.createToolStripMenuItem2.Text = "Create";
             this.createToolStripMenuItem2.Click += new System.EventHandler(this.createToolStripMenuItem2_Click);
             // 
             // readToolStripMenuItem3
             // 
             this.readToolStripMenuItem3.Name = "readToolStripMenuItem3";
-            this.readToolStripMenuItem3.Size = new System.Drawing.Size(224, 26);
+            this.readToolStripMenuItem3.Size = new System.Drawing.Size(141, 26);
             this.readToolStripMenuItem3.Text = "Read";
             this.readToolStripMenuItem3.Click += new System.EventHandler(this.readToolStripMenuItem3_Click);
             // 
             // updateToolStripMenuItem3
             // 
             this.updateToolStripMenuItem3.Name = "updateToolStripMenuItem3";
-            this.updateToolStripMenuItem3.Size = new System.Drawing.Size(224, 26);
+            this.updateToolStripMenuItem3.Size = new System.Drawing.Size(141, 26);
             this.updateToolStripMenuItem3.Text = "Update";
             this.updateToolStripMenuItem3.Click += new System.EventHandler(this.updateToolStripMenuItem3_Click);
             // 
             // deleteToolStripMenuItem3
             // 
             this.deleteToolStripMenuItem3.Name = "deleteToolStripMenuItem3";
-            this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(224, 26);
+            this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(141, 26);
             this.deleteToolStripMenuItem3.Text = "Delete";
             this.deleteToolStripMenuItem3.Click += new System.EventHandler(this.deleteToolStripMenuItem3_Click);
             // 
@@ -324,6 +324,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.KøberID_txt.Name = "KøberID_txt";
             this.KøberID_txt.Size = new System.Drawing.Size(100, 22);
             this.KøberID_txt.TabIndex = 11;
+            this.KøberID_txt.TextChanged += new System.EventHandler(this.KøberID_txt_TextChanged);
             // 
             // KøberCPR_txt
             // 
@@ -488,18 +489,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox KøberID_txt;
-        private System.Windows.Forms.TextBox KøberCPR_txt;
-        private System.Windows.Forms.TextBox KøberFornavn_txt;
-        private System.Windows.Forms.TextBox KøberEfternavn_txt;
-        private System.Windows.Forms.TextBox KøberEmail_txt;
-        private System.Windows.Forms.TextBox KøberTelefon_txt;
-        private System.Windows.Forms.TextBox KøberVej_txt;
-        private System.Windows.Forms.TextBox KøberPostnummer_txt;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button OpretKøber_knap;
-        private System.Windows.Forms.Button FindKøber_knap;
-        private System.Windows.Forms.Button OpdaterKøber_knap;
-        private System.Windows.Forms.Button SletKøber_knap;
+        internal System.Windows.Forms.TextBox KøberID_txt;
+        internal System.Windows.Forms.TextBox KøberCPR_txt;
+        internal System.Windows.Forms.TextBox KøberFornavn_txt;
+        internal System.Windows.Forms.TextBox KøberEfternavn_txt;
+        internal System.Windows.Forms.TextBox KøberEmail_txt;
+        internal System.Windows.Forms.TextBox KøberTelefon_txt;
+        internal System.Windows.Forms.TextBox KøberVej_txt;
+        internal System.Windows.Forms.TextBox KøberPostnummer_txt;
+        internal System.Windows.Forms.Button OpretKøber_knap;
+        internal System.Windows.Forms.Button FindKøber_knap;
+        internal System.Windows.Forms.Button OpdaterKøber_knap;
+        internal System.Windows.Forms.Button SletKøber_knap;
     }
 }

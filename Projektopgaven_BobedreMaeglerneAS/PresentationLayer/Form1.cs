@@ -16,6 +16,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
         public Form1()
         {
             InitializeComponent();
+            KøberUI køberUI = new KøberUI();
         }
 
         private void btn_bolig_Click(object sender, EventArgs e)
@@ -146,6 +147,16 @@ namespace Projektopgaven_BobedreMaeglerneAS
             ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
             ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
             ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
+        }
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.KøberCreate();
+        }
+
+        private void readToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.KøberRead();
         }
     }
 }
