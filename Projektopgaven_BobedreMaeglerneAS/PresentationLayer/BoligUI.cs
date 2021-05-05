@@ -49,7 +49,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
             boligDAL.OpretBolig(boligBLL);
-            //boligDAL.HentBolig(boligDAL, SqlConnection conn); //kun id
+
+            BoligBLL matchingbolig = boligDAL.HentBolig(boligBLL);
+            matchingbolig = boligDAL.HentBolig(boligBLL);
+
+            boligID_txt.Text = matchingbolig.BoligID.ToString();
 
             BoligUI_Load(sender, e);
             DisableAll();
@@ -71,7 +75,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
-            //boligDAL.HentBolig(boligDAL, SqlConnection conn); //fra textbox
+            boligDAL.HentBolig(boligBLL);
+
 
             DisableAll();
         }
