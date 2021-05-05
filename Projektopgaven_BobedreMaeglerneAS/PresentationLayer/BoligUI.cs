@@ -89,7 +89,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
 
-
+            //Updatedversion
 
             DisableAll();
         }
