@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bobedredbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bobedredbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Bolig.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
     <Compile Include="DataAccessLayer\BoligDAL.cs" />
@@ -100,6 +105,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bobedredbDataSet.xsc">
+      <DependentUpon>bobedredbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bobedredbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bobedredbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bobedredbDataSet.xss">
+      <DependentUpon>bobedredbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
