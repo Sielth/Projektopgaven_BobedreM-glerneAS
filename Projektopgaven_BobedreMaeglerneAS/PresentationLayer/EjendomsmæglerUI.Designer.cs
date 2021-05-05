@@ -637,7 +637,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem3;
         private bobedredbDataSet bobedredbDataSet;
         private System.Windows.Forms.BindingSource ejendomsmæglerBindingSource;
-        private bobedredbDataSetTableAdapters.EjendomsmæglerTableAdapter ejendomsmæglerTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn mæglerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPRDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
