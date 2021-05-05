@@ -157,6 +157,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
         private void readToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.KøberRead();
+        }
         //Bolig*********************************************************************'
         private void createToolStripMenuItem2_Click(object sender, EventArgs e)
         {
