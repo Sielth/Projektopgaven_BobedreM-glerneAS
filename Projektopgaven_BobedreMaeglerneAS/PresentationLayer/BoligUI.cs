@@ -51,7 +51,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             boligDAL.OpretBolig(boligBLL);
             //boligDAL.HentBolig(boligDAL, SqlConnection conn); //kun id
 
-            BoligUI_Load(sender, e);
+            //BoligUI_Load(sender, e);
             DisableAll();
         }
 
@@ -370,12 +370,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return boligudbudspris;
         }
         #endregion
-
-        private void BoligUI_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'bobedredbDataSet.Bolig' table. You can move, or remove it, as needed.
-            this.boligTableAdapter.Fill(this.bobedredbDataSet.Bolig);
-        }
 
     }
 }
