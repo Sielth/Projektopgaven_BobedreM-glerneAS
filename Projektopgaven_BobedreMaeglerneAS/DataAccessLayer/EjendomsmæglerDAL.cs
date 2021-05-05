@@ -56,8 +56,12 @@ namespace Projektopgaven_BobedreMæglerneAS
             }
         }
 
-        public void FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
+            //Connection string
+            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(strconn);
+
             string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
 
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
@@ -81,8 +85,12 @@ namespace Projektopgaven_BobedreMæglerneAS
             }
         }
 
-        public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
+            //Connection string
+            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(strconn);
+
             string sqlCommandEjendomsmægler = "UPDATE Ejendomsmægler SET" +
                 "CPR = IsNull(NullIf(@CPR, ''), CPR)," +
                 "Telefon = IsNull(NullIf(@Telefon, ''), Telefon)," +
@@ -121,8 +129,12 @@ namespace Projektopgaven_BobedreMæglerneAS
             }
         }
 
-        public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
+            //Connection string
+            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(strconn);
+
             string sqlCommandEjendomsmægler = $"DELETE FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
 
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
