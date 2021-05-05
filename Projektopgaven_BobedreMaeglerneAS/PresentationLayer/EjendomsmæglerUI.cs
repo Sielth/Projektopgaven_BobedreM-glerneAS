@@ -49,8 +49,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //Kalder metoden: FindEjendomsmægler
             ejendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerBLL);
+
+            //Loader data fra databasen ind i datagridview
+            EjendomsmæglerUI_Load(sender, e);
         }
 
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e) //NOT WORKING YET
         {
             //Connection string - 
@@ -62,6 +66,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //Kalder metoden: OpdaterEjendomsmægler
             ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmæglerBLL);
+
+            //Loader data fra databasen ind i datagridview
+            EjendomsmæglerUI_Load(sender, e);
         }
 
         private void btn_SletEjendomsmægler_Click(object sender, EventArgs e)
