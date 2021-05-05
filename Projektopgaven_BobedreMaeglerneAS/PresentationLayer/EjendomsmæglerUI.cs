@@ -30,9 +30,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
+            //Kalder metoden: OpretEjendomsmægler
             ejendomsmæglerDAL.OpretEjendomsmægler(ejendomsmæglerBLL);
 
-
+            //Loader data fra databasen ind i datagridview
+            EjendomsmæglerUI_Load(sender, e);
         }
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -45,6 +47,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
+            //Kalder metoden: FindEjendomsmægler
             ejendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerBLL);
         }
 
@@ -57,6 +60,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
+            //Kalder metoden: OpdaterEjendomsmægler
             ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmæglerBLL);
         }
 
@@ -69,7 +73,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
+            //Kalder metoden: SletEjendomsmægler
             ejendomsmæglerDAL.SletEjendomsmægler(ejendomsmæglerBLL);
+
+            //Loader data fra databasen ind i datagridview
+            EjendomsmæglerUI_Load(sender, e);
         }
 
 
