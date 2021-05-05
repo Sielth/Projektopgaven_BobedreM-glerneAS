@@ -254,6 +254,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_SletEjendomsmægler.TabIndex = 65;
             this.btn_SletEjendomsmægler.Text = "Slet Ejendomsmægler";
             this.btn_SletEjendomsmægler.UseVisualStyleBackColor = true;
+            this.btn_SletEjendomsmægler.Click += new System.EventHandler(this.btn_SletEjendomsmægler_Click);
             // 
             // btn_OpdaterEjendomsmægler
             // 
@@ -265,6 +266,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_OpdaterEjendomsmægler.TabIndex = 64;
             this.btn_OpdaterEjendomsmægler.Text = "Opdater Ejendomsmægler";
             this.btn_OpdaterEjendomsmægler.UseVisualStyleBackColor = true;
+            this.btn_OpdaterEjendomsmægler.Click += new System.EventHandler(this.btn_OpdaterEjendomsmægler_Click);
             // 
             // btn_HentEjendomsmægler
             // 
@@ -276,6 +278,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_HentEjendomsmægler.TabIndex = 63;
             this.btn_HentEjendomsmægler.Text = "Hent Ejendomsmægler";
             this.btn_HentEjendomsmægler.UseVisualStyleBackColor = true;
+            this.btn_HentEjendomsmægler.Click += new System.EventHandler(this.btn_HentEjendomsmægler_Click);
             // 
             // btn_OpretEjendomsmægler
             // 
@@ -318,7 +321,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // uyhgfToolStripMenuItem
             // 
             this.uyhgfToolStripMenuItem.Name = "uyhgfToolStripMenuItem";
-            this.uyhgfToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.uyhgfToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
             this.uyhgfToolStripMenuItem.Text = "Create";
             // 
             // readToolStripMenuItem
