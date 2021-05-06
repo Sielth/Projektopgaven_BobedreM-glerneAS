@@ -11,145 +11,14 @@ using Projektopgaven_BobedreMaeglerneAS.PresentationLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS
 {
-    public partial class Form1 : Form
+    public partial class Homepage : Form
     {
-        public Form1()
+        public Homepage()
         {
             InitializeComponent();
         }
 
-        private void btn_bolig_Click(object sender, EventArgs e)
-        {
-            // Create a new instance of the BoligUI class
-            BoligUI boligUI = new BoligUI();
-
-            // Show the settings form
-            boligUI.Show();
-        }
-
-        // Initialize new Window when Opret Ny Bolig is selected from Form1 menu
-        //private void opretNyToolStripMenuItem3_Click(object sender, EventArgs e)
-        //{
-        //    // Create a new instance of the BoligUI class
-        //    BoligUI boligUI = new BoligUI();
-
-        //    // Show the settings form
-        //    boligUI.Show();
-
-        //    // Disable not needed buttons
-        //    boligUI.GetHentBoligButton().Visible = false;
-        //    boligUI.GetOpdaterBoligButton().Visible = false;
-        //    boligUI.GetSletBoligButton().Visible = false;
-
-        //    // Disable not needed textboxes
-        //    boligUI.GetBoligIDTextbox().Enabled = false;
-        //    boligUI.GetBoligRenoveringsÅrDateTimePicker().Enabled = false;
-        //}
-
-        // Initialize new Window when Hent Bolig is selected from Form1 menu
-        //private void bolig_hentToolStripMenuItem3_Click(object sender, EventArgs e)
-        //{
-        //    // Create a new instance of the BoligUI class
-        //    BoligUI boligUI = new BoligUI();
-
-        //    // Show the settings form
-        //    boligUI.Show();
-
-        //    // Disable not needed buttons
-        //    boligUI.GetOpretBoligButton().Visible = false;
-        //    boligUI.GetOpdaterBoligButton().Visible = false;
-        //    boligUI.GetSælgBoligButton().Visible = false;
-        //    boligUI.GetSletBoligButton().Visible = false;
-        //}
-
-        // Initialize new Window when Opdater Bolig is selected from Form1 menu
-        //private void bolig_opdaterToolStripMenuItem3_Click(object sender, EventArgs e)
-        //{
-        //    // Create a new instance of the BoligUI class
-        //    BoligUI boligUI = new BoligUI();
-
-        //    // Show the settings form
-        //    boligUI.Show();
-
-        //    // Disable not needed buttons
-        //    boligUI.GetOpretBoligButton().Visible = false;
-        //    boligUI.GetHentBoligButton().Visible = false;
-        //    boligUI.GetSletBoligButton().Visible = false;
-
-        //    // Disable not needed TextBoxes
-        //    boligUI.GetBoligIDTextbox().Enabled = false;
-        //}
-
-        //// Initialize new Window when Slet Bolig is selected from Form1 menu
-        //private void bolig_sletToolStripMenuItem3_Click(object sender, EventArgs e)
-        //{
-        //    // Create a new instance of the BoligUI class
-        //    BoligUI boligUI = new BoligUI();
-
-        //    // Show the settings form
-        //    boligUI.Show();
-
-        //    // Disable not needed buttons
-        //    boligUI.GetOpretBoligButton().Visible = false;
-        //    boligUI.GetHentBoligButton().Visible = false;
-        //    boligUI.GetOpdaterBoligButton().Visible = false;
-        //    boligUI.GetSælgBoligButton().Visible = false;
-        //}
-
-        private void uyhgfToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - C(RUD)
-        {
-            // Create a new instance of the BoligUI class
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
-
-            // Show the settings form
-            ejendomsmæglerUI.Show();
-
-            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
-        }
-
-        private void readToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - (C)R(UD)
-        {
-            // Create a new instance of the BoligUI class
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
-
-            // Show the settings form
-            ejendomsmæglerUI.Show();
-
-            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
-        }
-
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - (CR)U(D)
-        {
-            // Create a new instance of the BoligUI class
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
-
-            // Show the settings form
-            ejendomsmæglerUI.Show();
-
-            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
-        }
-
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - (CRU)D
-        {
-            // Create a new instance of the BoligUI class
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
-
-            // Show the settings form
-            ejendomsmæglerUI.Show();
-
-            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
-        }
-
-        //Bolig*********************************************************************'
-        private void createToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void bolig_createToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             // Create a new instance of the BoligUI class
             BoligUI boligUI = new BoligUI();
@@ -168,7 +37,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             boligUI.GetBoligUdbudsprisTextbox().Enabled = false;
         }
 
-        private void readToolStripMenuItem3_Click(object sender, EventArgs e)
+        private void bolig_readToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             // Create a new instance of the BoligUI class
             BoligUI boligUI = new BoligUI();
@@ -186,7 +55,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             boligUI.GetBoligIDTextbox().Enabled = true;
         }
 
-        private void updateToolStripMenuItem3_Click(object sender, EventArgs e)
+        private void bolig_updateToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             // Create a new instance of the BoligUI class
             BoligUI boligUI = new BoligUI();
@@ -203,7 +72,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             boligUI.GetBoligIDTextbox().Enabled = false;
         }
 
-        private void deleteToolStripMenuItem3_Click(object sender, EventArgs e)
+        private void bolig_deleteToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             // Create a new instance of the BoligUI class
             BoligUI boligUI = new BoligUI();
@@ -216,6 +85,69 @@ namespace Projektopgaven_BobedreMaeglerneAS
             boligUI.GetHentBoligButton().Visible = false;
             boligUI.GetOpdaterBoligButton().Visible = false;
             boligUI.GetSælgBoligButton().Visible = false;
+        }
+
+        //EJENDOMSMÆGLER
+        private void ejendomsmægler_createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the BoligUI class
+            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+
+            // Show the settings form
+            ejendomsmæglerUI.Show();
+
+            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+        }
+
+        private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the BoligUI class
+            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+
+            // Show the settings form
+            ejendomsmæglerUI.Show();
+
+            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+        }
+
+        private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the BoligUI class
+            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+
+            // Show the settings form
+            ejendomsmæglerUI.Show();
+
+            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+        }
+
+        private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the BoligUI class
+            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+
+            // Show the settings form
+            ejendomsmæglerUI.Show();
+
+            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
+        }
+
+        //KØBER
+        private void køber_createToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the KøberUI class
+            KøberUI køberUI = new KøberUI();
+
+            // Show the settings form
+            køberUI.Show();
         }
     }
 }

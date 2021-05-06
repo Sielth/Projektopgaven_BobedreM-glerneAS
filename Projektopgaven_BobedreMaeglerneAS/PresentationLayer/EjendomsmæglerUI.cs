@@ -21,7 +21,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             InitializeComponent();
         }
 
-        private void btn_OpretEjendomsmægler_Click(object sender, EventArgs e) 
+        private void btn_OpretEjendomsmægler_Click(object sender, EventArgs e)
         {
             //Connection string - 
             string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
@@ -34,7 +34,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerDAL.OpretEjendomsmægler(ejendomsmæglerBLL);
 
             //Loader data fra databasen ind i datagridview -
-            EjendomsmæglerUI_Load(sender, e);
+            //EjendomsmæglerUI_Load(sender, e);
         }
 
 
@@ -69,11 +69,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //ejendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerBLL);
 
             //Loader data fra databasen ind i datagridview
-            EjendomsmæglerUI_Load(sender, e);
+            //EjendomsmæglerUI_Load(sender, e);
         }
 
-        
-        private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e) 
+
+        private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e)
         {
             //Connection string - 
             string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
@@ -86,7 +86,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmæglerBLL);
 
             //Loader data fra databasen ind i datagridview
-            EjendomsmæglerUI_Load(sender, e);
+            //EjendomsmæglerUI_Load(sender, e);
         }
 
 
@@ -103,7 +103,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerDAL.SletEjendomsmægler(ejendomsmæglerBLL);
 
             //Loader data fra databasen ind i datagridview
-            EjendomsmæglerUI_Load(sender, e);
+            //EjendomsmæglerUI_Load(sender, e);
         }
 
 
@@ -151,14 +151,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             int.TryParse(Postnummer_txt.Text, out int mæglerpostnummer);
             return mæglerpostnummer;
         }
-
-
         #endregion
 
         private void EjendomsmæglerUI_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'bobedredbDataSet.Ejendomsmægler' table. You can move, or remove it, as needed.
-            //this.ejendomsmæglerTableAdapter.Fill(this.bobedredbDataSet.Ejendomsmægler);
+            // TODO: This line of code loads data into the 'ejendomsmægler_bobedredbDataSet.Ejendomsmægler' table. You can move, or remove it, as needed.
+            this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
 
         }
     }

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0385606F-DB26-4951-B274-5D97CF0E862F}</ProjectGuid>
+    <ProjectGuid>{8B0E3399-70E1-4C60-A9BC-C32AE13F1587}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Projektopgaven_BobedreMaeglerneAS</RootNamespace>
     <AssemblyName>Projektopgaven_BobedreMaeglerneAS</AssemblyName>
@@ -46,18 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bolig_bobedredbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
     <Compile Include="BusinessLogicLayer\KøberBLL.cs" />
     <Compile Include="DataAccessLayer\BoligDAL.cs" />
-    <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
     <Compile Include="DataAccessLayer\KøberDAL.cs" />
-    <Compile Include="DataSet1.Designer.cs">
+    <Compile Include="ejendomsmægler_bobedredbDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Køber.cs" />
+    <Compile Include="køber_bobedredbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\BoligUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +96,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PresentationLayer\BoligUI.resx">
       <DependentUpon>BoligUI.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\EjendomsmæglerUI.resx">
       <DependentUpon>EjendomsmæglerUI.cs</DependentUpon>
@@ -107,6 +115,39 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bolig_bobedredbDataSet.xsc">
+      <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bolig_bobedredbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bolig_bobedredbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bolig_bobedredbDataSet.xss">
+      <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ejendomsmægler_bobedredbDataSet1.xsc">
+      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ejendomsmægler_bobedredbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ejendomsmægler_bobedredbDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ejendomsmægler_bobedredbDataSet1.xss">
+      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="køber_bobedredbDataSet.xsc">
+      <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="køber_bobedredbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>køber_bobedredbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="køber_bobedredbDataSet.xss">
+      <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,5 +161,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

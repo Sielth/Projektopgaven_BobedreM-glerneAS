@@ -8,10 +8,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
     class EjendomsmæglerBLL
     {
-        //Halløj
-        //Connection string
-        string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-        //SqlConnection conn = new SqlConnection(strconn);
         public int MæglerID { get; private set; }
         public int CPR { get; private set; }
         public int Telefon { get; private set; }

@@ -11,13 +11,12 @@ namespace Projektopgaven_BobedreMaeglerneAS
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        /// Main reupload... Hej
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Homepage());
         }
     }
 }

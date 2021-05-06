@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,12 +19,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         public BoligUI()
         {
             InitializeComponent();
-        }
-
-        private void BoligUI_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'bobedredbDataSet_Bolig.Bolig' table. You can move, or remove it, as needed.
-            //this.boligTableAdapter.Fill(this.bobedredbDataSet_Bolig.Bolig);
         }
 
         // Method to show the number of rooms as a ToolTip on the TrackBar 
@@ -74,7 +68,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show(ex.Message);
             }
 
-            BoligUI_Load(sender, e);
+            //BoligUI_Load(sender, e);
             DisableAll();
         }
 
@@ -137,7 +131,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show(ex.Message);
             }
 
-            BoligUI_Load(sender, e);
+            //BoligUI_Load(sender, e);
             DisableAll();
             boligID_txt.Enabled = true;
         }
@@ -168,7 +162,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 //    break;
                 //case "Kvadratmeter":
                 //    this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    //break;
+                //break;
                 case "Bygningsår":
                     break;
                 case "Renoveringsår":
@@ -203,7 +197,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show(ex.Message);
             }
 
-            BoligUI_Load(sender, e);
+            //BoligUI_Load(sender, e);
             DisableAll();
             boligID_txt.Enabled = true;
         }
@@ -389,44 +383,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
-        #region Validating Bolig Udbudspris
-        private void boligUdbudspris_txt_Validating(object sender, CancelEventArgs e)
-        {
-            string errorMsg;
-
-            if (!ValidBoligId(boligUdbudspris_txt.Text, out errorMsg))
-            {
-                //Cancel the event and select the text to be corrected by the user.
-                e.Cancel = true;
-                boligUdbudspris_txt.Select(0, boligUdbudspris_txt.Text.Length);
-
-                //Set the ErrorProvider error with the text to display. 
-                this.errorProvider1.SetError(boligUdbudspris_txt, errorMsg);
-            }
-        }
-
-        private void boligUdbudspris_txt_Validated(object sender, EventArgs e)
-        {
-            //If all conditions have been met, clear the ErrorProvider of errors.
-            errorProvider1.SetError(boligUdbudspris_txt, "");
-        }
-
-        //Method to check whether BoligID is valid or not
-        //It must be only numbers
-        //It CAN be empty (be careful when casting to int)
-        public bool ValidBoligUdbudspris(string boligid, out string errorMsg)
-        {
-            if (int.TryParse(boligid, out int result) || string.IsNullOrEmpty(boligid))
-            {
-                errorMsg = "";
-                return true;
-            }
-
-            errorMsg = "Udbudspris kan kun indeholde numre";
-            return false;
-        }
-        #endregion
-
         #region Convert Textboxes
         public int BoligID()
         {
@@ -499,5 +455,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return boligudbudspris;
         }
         #endregion
+
+        private void BoligUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'bolig_bobedredbDataSet.Bolig' table. You can move, or remove it, as needed.
+            this.boligTableAdapter.Fill(this.bolig_bobedredbDataSet.Bolig);
+
+        }
     }
 }

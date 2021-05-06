@@ -2,20 +2,13 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Projektopgaven_BobedreMaeglerneAS.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="KøberConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=den1.mssql7.gear.host;Persist Security Info=True;User ID=bobedredb&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=den1.mssql7.gear.host;Persist Security Info=True;User ID=bobedredb</Value>
     <Setting Name="bobedredbConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=den1.mssql7.gear.host;Initial Catalog=bobedredb;Persist Security Info=True;User ID=bobedredb&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=den1.mssql7.gear.host;Initial Catalog=bobedredb;User ID=bobedredb&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=den1.mssql7.gear.host;Initial Catalog=bobedredb;Persist Security Info=True;User ID=bobedredb</Value>
+      <Value Profile="(Default)">Data Source=den1.mssql7.gear.host;Initial Catalog=bobedredb;User ID=bobedredb</Value>
     </Setting>
   </Settings>
 </SettingsFile>

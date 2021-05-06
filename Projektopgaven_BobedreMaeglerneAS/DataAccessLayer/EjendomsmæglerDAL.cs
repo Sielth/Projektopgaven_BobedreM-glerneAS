@@ -11,7 +11,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 {
     class EjendomsmæglerDAL
     {
-        
+
         private EjendomsmæglerBLL EjendomsmæglerBLL;
 
         public EjendomsmæglerDAL(EjendomsmæglerBLL ejendomsmæglerBLL)
@@ -45,7 +45,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                 commandEjendomsmægler.ExecuteNonQuery();
             }
 
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }

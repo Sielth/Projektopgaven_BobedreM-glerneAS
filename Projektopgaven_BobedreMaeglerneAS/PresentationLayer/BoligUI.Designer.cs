@@ -1,6 +1,4 @@
-using System.Collections.Generic;
-
-namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
+﻿namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     partial class BoligUI
     {
@@ -31,25 +29,47 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BoligUI));
-            this.boligID_txt = new System.Windows.Forms.TextBox();
-            this.boligVej_txt = new System.Windows.Forms.TextBox();
-            this.boligPostnr_txt = new System.Windows.Forms.TextBox();
-            this.boligKvm_txt = new System.Windows.Forms.TextBox();
-            this.boligUdbudspris_txt = new System.Windows.Forms.TextBox();
-            this.btn_OpretBolig = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.boligType_cbox = new System.Windows.Forms.ComboBox();
-            this.boligVærelser_tbar = new System.Windows.Forms.TrackBar();
-            this.boligEtager_tbar = new System.Windows.Forms.TrackBar();
-            this.boligHave_ckBox = new System.Windows.Forms.CheckBox();
-            this.boligBygningsÅr_dtp = new System.Windows.Forms.DateTimePicker();
-            this.boligRenoveret_ckbox = new System.Windows.Forms.CheckBox();
-            this.boligRenoveringsÅr_dtp = new System.Windows.Forms.DateTimePicker();
-            this.btn_HentBolig = new System.Windows.Forms.Button();
-            this.btn_OpdaterBolig = new System.Windows.Forms.Button();
-            this.btn_SletBolig = new System.Windows.Forms.Button();
+            this.saveChanges_btn = new System.Windows.Forms.Button();
+            this.allowRedigering_btn = new System.Windows.Forms.Button();
+            this.search_txt = new System.Windows.Forms.TextBox();
+            this.search_lbl = new System.Windows.Forms.Label();
+            this.filterCriteria_cbox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.find_lbl = new System.Windows.Forms.Label();
+            this.btn_Clear_HentBolig = new System.Windows.Forms.Button();
+            this.btn_Clear_OpretBolig = new System.Windows.Forms.Button();
+            this.btn_SælgBolig = new System.Windows.Forms.Button();
+            this.boligUdbudspris_lbl = new System.Windows.Forms.Label();
+            this.boligBygningsår_lbl = new System.Windows.Forms.Label();
+            this.boligKvm_lbl = new System.Windows.Forms.Label();
+            this.boligEtager_lbl = new System.Windows.Forms.Label();
+            this.boligVærelser_lbl = new System.Windows.Forms.Label();
+            this.boligType_lbl = new System.Windows.Forms.Label();
+            this.boligPostnr_lbl = new System.Windows.Forms.Label();
+            this.boligVej_lbl = new System.Windows.Forms.Label();
+            this.boligID_lbl = new System.Windows.Forms.Label();
             this.bolig_DataGridView = new System.Windows.Forms.DataGridView();
+            this.btn_SletBolig = new System.Windows.Forms.Button();
+            this.btn_OpdaterBolig = new System.Windows.Forms.Button();
+            this.btn_HentBolig = new System.Windows.Forms.Button();
+            this.boligRenoveringsÅr_dtp = new System.Windows.Forms.DateTimePicker();
+            this.boligRenoveret_ckbox = new System.Windows.Forms.CheckBox();
+            this.boligBygningsÅr_dtp = new System.Windows.Forms.DateTimePicker();
+            this.boligHave_ckBox = new System.Windows.Forms.CheckBox();
+            this.boligEtager_tbar = new System.Windows.Forms.TrackBar();
+            this.boligVærelser_tbar = new System.Windows.Forms.TrackBar();
+            this.boligType_cbox = new System.Windows.Forms.ComboBox();
+            this.btn_OpretBolig = new System.Windows.Forms.Button();
+            this.boligUdbudspris_txt = new System.Windows.Forms.TextBox();
+            this.boligKvm_txt = new System.Windows.Forms.TextBox();
+            this.boligPostnr_txt = new System.Windows.Forms.TextBox();
+            this.boligVej_txt = new System.Windows.Forms.TextBox();
+            this.boligID_txt = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.bolig_bobedredbDataSet = new Projektopgaven_BobedreMaeglerneAS.bolig_bobedredbDataSet();
+            this.boligBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boligTableAdapter = new Projektopgaven_BobedreMaeglerneAS.bolig_bobedredbDataSetTableAdapters.BoligTableAdapter();
             this.boligIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vejDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,150 +81,215 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.haveFlagDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bygningsårDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.renoveringsÅrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boligID_lbl = new System.Windows.Forms.Label();
-            this.boligVej_lbl = new System.Windows.Forms.Label();
-            this.boligPostnr_lbl = new System.Windows.Forms.Label();
-            this.boligType_lbl = new System.Windows.Forms.Label();
-            this.boligVærelser_lbl = new System.Windows.Forms.Label();
-            this.boligEtager_lbl = new System.Windows.Forms.Label();
-            this.boligKvm_lbl = new System.Windows.Forms.Label();
-            this.boligBygningsår_lbl = new System.Windows.Forms.Label();
-            this.boligUdbudspris_lbl = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btn_SælgBolig = new System.Windows.Forms.Button();
-            this.btn_Clear_OpretBolig = new System.Windows.Forms.Button();
-            this.btn_Clear_HentBolig = new System.Windows.Forms.Button();
-            this.find_lbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.filterCriteria_cbox = new System.Windows.Forms.ComboBox();
-            this.search_lbl = new System.Windows.Forms.Label();
-            this.search_txt = new System.Windows.Forms.TextBox();
-            this.allowRedigering_btn = new System.Windows.Forms.Button();
-            this.saveChanges_btn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bolig_DataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bolig_bobedredbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boligBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // boligID_txt
+            // saveChanges_btn
             // 
-            resources.ApplyResources(this.boligID_txt, "boligID_txt");
-            this.boligID_txt.Name = "boligID_txt";
-            this.boligID_txt.Validating += new System.ComponentModel.CancelEventHandler(this.boligID_txt_Validating);
-            this.boligID_txt.Validated += new System.EventHandler(this.boligID_txt_Validated);
+            this.saveChanges_btn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.saveChanges_btn.Location = new System.Drawing.Point(634, 184);
+            this.saveChanges_btn.Name = "saveChanges_btn";
+            this.saveChanges_btn.Size = new System.Drawing.Size(95, 25);
+            this.saveChanges_btn.TabIndex = 90;
+            this.saveChanges_btn.Text = "Save changes";
+            this.saveChanges_btn.UseVisualStyleBackColor = true;
+            this.saveChanges_btn.Click += new System.EventHandler(this.saveChanges_btn_Click);
             // 
-            // boligVej_txt
+            // allowRedigering_btn
             // 
-            resources.ApplyResources(this.boligVej_txt, "boligVej_txt");
-            this.boligVej_txt.Name = "boligVej_txt";
-            this.boligVej_txt.Validating += new System.ComponentModel.CancelEventHandler(this.boligVej_txt_Validating);
-            this.boligVej_txt.Validated += new System.EventHandler(this.boligVej_txt_Validated);
+            this.allowRedigering_btn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.allowRedigering_btn.Location = new System.Drawing.Point(634, 150);
+            this.allowRedigering_btn.Name = "allowRedigering_btn";
+            this.allowRedigering_btn.Size = new System.Drawing.Size(95, 25);
+            this.allowRedigering_btn.TabIndex = 89;
+            this.allowRedigering_btn.Text = "Allow redigering";
+            this.allowRedigering_btn.UseVisualStyleBackColor = true;
+            this.allowRedigering_btn.Click += new System.EventHandler(this.allowRedigering_btn_Click);
             // 
-            // boligPostnr_txt
+            // search_txt
             // 
-            resources.ApplyResources(this.boligPostnr_txt, "boligPostnr_txt");
-            this.boligPostnr_txt.Name = "boligPostnr_txt";
-            this.boligPostnr_txt.Validating += new System.ComponentModel.CancelEventHandler(this.boligPostnr_txt_Validating);
-            this.boligPostnr_txt.Validated += new System.EventHandler(this.boligPostnr_txt_Validated);
+            this.search_txt.Location = new System.Drawing.Point(350, 189);
+            this.search_txt.Name = "search_txt";
+            this.search_txt.Size = new System.Drawing.Size(236, 20);
+            this.search_txt.TabIndex = 88;
+            this.search_txt.TextChanged += new System.EventHandler(this.search_txt_TextChanged);
             // 
-            // boligKvm_txt
+            // search_lbl
             // 
-            resources.ApplyResources(this.boligKvm_txt, "boligKvm_txt");
-            this.boligKvm_txt.Name = "boligKvm_txt";
-            this.boligKvm_txt.Validating += new System.ComponentModel.CancelEventHandler(this.boligKvm_txt_Validating);
-            this.boligKvm_txt.Validated += new System.EventHandler(this.boligKvm_txt_Validated);
+            this.search_lbl.AutoSize = true;
+            this.search_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.search_lbl.Location = new System.Drawing.Point(303, 192);
+            this.search_lbl.Name = "search_lbl";
+            this.search_lbl.Size = new System.Drawing.Size(41, 13);
+            this.search_lbl.TabIndex = 87;
+            this.search_lbl.Text = "Search";
             // 
-            // boligUdbudspris_txt
+            // filterCriteria_cbox
             // 
-            resources.ApplyResources(this.boligUdbudspris_txt, "boligUdbudspris_txt");
-            this.boligUdbudspris_txt.Name = "boligUdbudspris_txt";
-            this.boligUdbudspris_txt.Validating += new System.ComponentModel.CancelEventHandler(this.boligUdbudspris_txt_Validating);
-            this.boligUdbudspris_txt.Validated += new System.EventHandler(this.boligUdbudspris_txt_Validated);
+            this.filterCriteria_cbox.FormattingEnabled = true;
+            this.filterCriteria_cbox.Items.AddRange(new object[] {
+            "Bolig ID",
+            "Adresse",
+            "Postnummer",
+            "Bolig Type",
+            "Værelser",
+            "Etager",
+            "Kvadratmeter",
+            "Bygningsår",
+            "Renoveringsår",
+            "Udbudspris (lower than)",
+            "Udbudspris (higher than)"});
+            this.filterCriteria_cbox.Location = new System.Drawing.Point(85, 189);
+            this.filterCriteria_cbox.Name = "filterCriteria_cbox";
+            this.filterCriteria_cbox.Size = new System.Drawing.Size(212, 21);
+            this.filterCriteria_cbox.TabIndex = 86;
             // 
-            // btn_OpretBolig
+            // label1
             // 
-            resources.ApplyResources(this.btn_OpretBolig, "btn_OpretBolig");
-            this.btn_OpretBolig.Name = "btn_OpretBolig";
-            this.btn_OpretBolig.UseVisualStyleBackColor = true;
-            this.btn_OpretBolig.Click += new System.EventHandler(this.btn_OpretBolig_Click);
+            this.label1.AutoSize = true;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(11, 192);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 85;
+            this.label1.Text = "Search criteria";
             // 
-            // errorProvider1
+            // find_lbl
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.find_lbl.AutoSize = true;
+            this.find_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.find_lbl.Location = new System.Drawing.Point(11, 173);
+            this.find_lbl.Name = "find_lbl";
+            this.find_lbl.Size = new System.Drawing.Size(173, 13);
+            this.find_lbl.TabIndex = 84;
+            this.find_lbl.Text = "Not finding what you\'re looking for?";
             // 
-            // boligType_cbox
+            // btn_Clear_HentBolig
             // 
-            this.boligType_cbox.FormattingEnabled = true;
-            this.boligType_cbox.Items.AddRange(new object[] {
-            resources.GetString("boligType_cbox.Items"),
-            resources.GetString("boligType_cbox.Items1"),
-            resources.GetString("boligType_cbox.Items2")});
-            resources.ApplyResources(this.boligType_cbox, "boligType_cbox");
-            this.boligType_cbox.Name = "boligType_cbox";
+            this.btn_Clear_HentBolig.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_Clear_HentBolig.Location = new System.Drawing.Point(634, 235);
+            this.btn_Clear_HentBolig.Name = "btn_Clear_HentBolig";
+            this.btn_Clear_HentBolig.Size = new System.Drawing.Size(95, 25);
+            this.btn_Clear_HentBolig.TabIndex = 82;
+            this.btn_Clear_HentBolig.Text = "Clear";
+            this.btn_Clear_HentBolig.UseVisualStyleBackColor = true;
+            this.btn_Clear_HentBolig.Click += new System.EventHandler(this.btn_Clear_HentBolig_Click);
             // 
-            // boligVærelser_tbar
+            // btn_Clear_OpretBolig
             // 
-            resources.ApplyResources(this.boligVærelser_tbar, "boligVærelser_tbar");
-            this.boligVærelser_tbar.Maximum = 5;
-            this.boligVærelser_tbar.Minimum = 1;
-            this.boligVærelser_tbar.Name = "boligVærelser_tbar";
-            this.boligVærelser_tbar.Value = 1;
-            this.boligVærelser_tbar.Scroll += new System.EventHandler(this.boligVærelser_tbar_Scroll);
+            this.btn_Clear_OpretBolig.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_Clear_OpretBolig.Location = new System.Drawing.Point(533, 235);
+            this.btn_Clear_OpretBolig.Name = "btn_Clear_OpretBolig";
+            this.btn_Clear_OpretBolig.Size = new System.Drawing.Size(95, 25);
+            this.btn_Clear_OpretBolig.TabIndex = 81;
+            this.btn_Clear_OpretBolig.Text = "Clear";
+            this.btn_Clear_OpretBolig.UseVisualStyleBackColor = true;
+            this.btn_Clear_OpretBolig.Click += new System.EventHandler(this.btn_Clear_OpretBolig_Click);
             // 
-            // boligEtager_tbar
+            // btn_SælgBolig
             // 
-            resources.ApplyResources(this.boligEtager_tbar, "boligEtager_tbar");
-            this.boligEtager_tbar.Maximum = 5;
-            this.boligEtager_tbar.Minimum = 1;
-            this.boligEtager_tbar.Name = "boligEtager_tbar";
-            this.boligEtager_tbar.Value = 1;
-            this.boligEtager_tbar.Scroll += new System.EventHandler(this.boligEtager_tbar_Scroll);
+            this.btn_SælgBolig.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_SælgBolig.Location = new System.Drawing.Point(327, 235);
+            this.btn_SælgBolig.Name = "btn_SælgBolig";
+            this.btn_SælgBolig.Size = new System.Drawing.Size(95, 25);
+            this.btn_SælgBolig.TabIndex = 80;
+            this.btn_SælgBolig.Text = "Mark as SOLD";
+            this.btn_SælgBolig.UseVisualStyleBackColor = true;
             // 
-            // boligHave_ckBox
+            // boligUdbudspris_lbl
             // 
-            resources.ApplyResources(this.boligHave_ckBox, "boligHave_ckBox");
-            this.boligHave_ckBox.Name = "boligHave_ckBox";
-            this.boligHave_ckBox.UseVisualStyleBackColor = true;
+            this.boligUdbudspris_lbl.AutoSize = true;
+            this.boligUdbudspris_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligUdbudspris_lbl.Location = new System.Drawing.Point(457, 112);
+            this.boligUdbudspris_lbl.Name = "boligUdbudspris_lbl";
+            this.boligUdbudspris_lbl.Size = new System.Drawing.Size(60, 13);
+            this.boligUdbudspris_lbl.TabIndex = 79;
+            this.boligUdbudspris_lbl.Text = "Udbudspris";
             // 
-            // boligBygningsÅr_dtp
+            // boligBygningsår_lbl
             // 
-            resources.ApplyResources(this.boligBygningsÅr_dtp, "boligBygningsÅr_dtp");
-            this.boligBygningsÅr_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.boligBygningsÅr_dtp.Name = "boligBygningsÅr_dtp";
+            this.boligBygningsår_lbl.AutoSize = true;
+            this.boligBygningsår_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligBygningsår_lbl.Location = new System.Drawing.Point(457, 48);
+            this.boligBygningsår_lbl.Name = "boligBygningsår_lbl";
+            this.boligBygningsår_lbl.Size = new System.Drawing.Size(59, 13);
+            this.boligBygningsår_lbl.TabIndex = 78;
+            this.boligBygningsår_lbl.Text = "Bygningsår";
             // 
-            // boligRenoveret_ckbox
+            // boligKvm_lbl
             // 
-            resources.ApplyResources(this.boligRenoveret_ckbox, "boligRenoveret_ckbox");
-            this.boligRenoveret_ckbox.Name = "boligRenoveret_ckbox";
-            this.boligRenoveret_ckbox.UseVisualStyleBackColor = true;
-            this.boligRenoveret_ckbox.CheckedChanged += new System.EventHandler(this.boligRenoveret_ckbox_CheckedChanged);
+            this.boligKvm_lbl.AutoSize = true;
+            this.boligKvm_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligKvm_lbl.Location = new System.Drawing.Point(457, 15);
+            this.boligKvm_lbl.Name = "boligKvm_lbl";
+            this.boligKvm_lbl.Size = new System.Drawing.Size(70, 13);
+            this.boligKvm_lbl.TabIndex = 77;
+            this.boligKvm_lbl.Text = "Kvadratmeter";
             // 
-            // boligRenoveringsÅr_dtp
+            // boligEtager_lbl
             // 
-            resources.ApplyResources(this.boligRenoveringsÅr_dtp, "boligRenoveringsÅr_dtp");
-            this.boligRenoveringsÅr_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.boligRenoveringsÅr_dtp.Name = "boligRenoveringsÅr_dtp";
+            this.boligEtager_lbl.AutoSize = true;
+            this.boligEtager_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligEtager_lbl.Location = new System.Drawing.Point(252, 67);
+            this.boligEtager_lbl.Name = "boligEtager_lbl";
+            this.boligEtager_lbl.Size = new System.Drawing.Size(38, 13);
+            this.boligEtager_lbl.TabIndex = 76;
+            this.boligEtager_lbl.Text = "Etager";
             // 
-            // btn_HentBolig
+            // boligVærelser_lbl
             // 
-            resources.ApplyResources(this.btn_HentBolig, "btn_HentBolig");
-            this.btn_HentBolig.Name = "btn_HentBolig";
-            this.btn_HentBolig.UseVisualStyleBackColor = true;
-            this.btn_HentBolig.Click += new System.EventHandler(this.btn_HentBolig_Click);
+            this.boligVærelser_lbl.AutoSize = true;
+            this.boligVærelser_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligVærelser_lbl.Location = new System.Drawing.Point(248, 15);
+            this.boligVærelser_lbl.Name = "boligVærelser_lbl";
+            this.boligVærelser_lbl.Size = new System.Drawing.Size(49, 13);
+            this.boligVærelser_lbl.TabIndex = 75;
+            this.boligVærelser_lbl.Text = "Værelser";
             // 
-            // btn_OpdaterBolig
+            // boligType_lbl
             // 
-            resources.ApplyResources(this.btn_OpdaterBolig, "btn_OpdaterBolig");
-            this.btn_OpdaterBolig.Name = "btn_OpdaterBolig";
-            this.btn_OpdaterBolig.UseVisualStyleBackColor = true;
+            this.boligType_lbl.AutoSize = true;
+            this.boligType_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligType_lbl.Location = new System.Drawing.Point(28, 111);
+            this.boligType_lbl.Name = "boligType_lbl";
+            this.boligType_lbl.Size = new System.Drawing.Size(57, 13);
+            this.boligType_lbl.TabIndex = 74;
+            this.boligType_lbl.Text = "Bolig Type";
             // 
-            // btn_SletBolig
+            // boligPostnr_lbl
             // 
-            resources.ApplyResources(this.btn_SletBolig, "btn_SletBolig");
-            this.btn_SletBolig.Name = "btn_SletBolig";
-            this.btn_SletBolig.UseVisualStyleBackColor = true;
-            this.btn_SletBolig.Click += new System.EventHandler(this.btn_SletBolig_Click);
+            this.boligPostnr_lbl.AutoSize = true;
+            this.boligPostnr_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligPostnr_lbl.Location = new System.Drawing.Point(20, 79);
+            this.boligPostnr_lbl.Name = "boligPostnr_lbl";
+            this.boligPostnr_lbl.Size = new System.Drawing.Size(65, 13);
+            this.boligPostnr_lbl.TabIndex = 73;
+            this.boligPostnr_lbl.Text = "Postnummer";
+            // 
+            // boligVej_lbl
+            // 
+            this.boligVej_lbl.AutoSize = true;
+            this.boligVej_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligVej_lbl.Location = new System.Drawing.Point(40, 48);
+            this.boligVej_lbl.Name = "boligVej_lbl";
+            this.boligVej_lbl.Size = new System.Drawing.Size(45, 13);
+            this.boligVej_lbl.TabIndex = 72;
+            this.boligVej_lbl.Text = "Adresse";
+            // 
+            // boligID_lbl
+            // 
+            this.boligID_lbl.AutoSize = true;
+            this.boligID_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligID_lbl.Location = new System.Drawing.Point(41, 15);
+            this.boligID_lbl.Name = "boligID_lbl";
+            this.boligID_lbl.Size = new System.Drawing.Size(44, 13);
+            this.boligID_lbl.TabIndex = 71;
+            this.boligID_lbl.Text = "Bolig ID";
             // 
             // bolig_DataGridView
             // 
@@ -221,199 +306,266 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.haveFlagDataGridViewTextBoxColumn,
             this.bygningsårDataGridViewTextBoxColumn,
             this.renoveringsÅrDataGridViewTextBoxColumn});
-            resources.ApplyResources(this.bolig_DataGridView, "bolig_DataGridView");
+            this.bolig_DataGridView.DataSource = this.boligBindingSource;
+            this.bolig_DataGridView.Location = new System.Drawing.Point(14, 266);
             this.bolig_DataGridView.Name = "bolig_DataGridView";
+            this.bolig_DataGridView.Size = new System.Drawing.Size(776, 172);
+            this.bolig_DataGridView.TabIndex = 83;
+            // 
+            // btn_SletBolig
+            // 
+            this.btn_SletBolig.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_SletBolig.Location = new System.Drawing.Point(432, 235);
+            this.btn_SletBolig.Name = "btn_SletBolig";
+            this.btn_SletBolig.Size = new System.Drawing.Size(95, 25);
+            this.btn_SletBolig.TabIndex = 69;
+            this.btn_SletBolig.Text = "Slet Bolig";
+            this.btn_SletBolig.UseVisualStyleBackColor = true;
+            this.btn_SletBolig.Click += new System.EventHandler(this.btn_SletBolig_Click);
+            // 
+            // btn_OpdaterBolig
+            // 
+            this.btn_OpdaterBolig.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_OpdaterBolig.Location = new System.Drawing.Point(226, 235);
+            this.btn_OpdaterBolig.Name = "btn_OpdaterBolig";
+            this.btn_OpdaterBolig.Size = new System.Drawing.Size(95, 25);
+            this.btn_OpdaterBolig.TabIndex = 70;
+            this.btn_OpdaterBolig.Text = "Opdater Bolig";
+            this.btn_OpdaterBolig.UseVisualStyleBackColor = true;
+            // 
+            // btn_HentBolig
+            // 
+            this.btn_HentBolig.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_HentBolig.Location = new System.Drawing.Point(125, 235);
+            this.btn_HentBolig.Name = "btn_HentBolig";
+            this.btn_HentBolig.Size = new System.Drawing.Size(95, 25);
+            this.btn_HentBolig.TabIndex = 68;
+            this.btn_HentBolig.Text = "Hent Bolig";
+            this.btn_HentBolig.UseVisualStyleBackColor = true;
+            this.btn_HentBolig.Click += new System.EventHandler(this.btn_HentBolig_Click);
+            // 
+            // boligRenoveringsÅr_dtp
+            // 
+            this.boligRenoveringsÅr_dtp.CustomFormat = "yyyy";
+            this.boligRenoveringsÅr_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.boligRenoveringsÅr_dtp.Location = new System.Drawing.Point(351, 76);
+            this.boligRenoveringsÅr_dtp.Name = "boligRenoveringsÅr_dtp";
+            this.boligRenoveringsÅr_dtp.Size = new System.Drawing.Size(100, 20);
+            this.boligRenoveringsÅr_dtp.TabIndex = 67;
+            // 
+            // boligRenoveret_ckbox
+            // 
+            this.boligRenoveret_ckbox.AutoSize = true;
+            this.boligRenoveret_ckbox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligRenoveret_ckbox.Location = new System.Drawing.Point(460, 78);
+            this.boligRenoveret_ckbox.Name = "boligRenoveret_ckbox";
+            this.boligRenoveret_ckbox.Size = new System.Drawing.Size(76, 17);
+            this.boligRenoveret_ckbox.TabIndex = 66;
+            this.boligRenoveret_ckbox.Text = "Renoveret";
+            this.boligRenoveret_ckbox.UseVisualStyleBackColor = true;
+            this.boligRenoveret_ckbox.CheckedChanged += new System.EventHandler(this.boligRenoveret_ckbox_CheckedChanged);
+            // 
+            // boligBygningsÅr_dtp
+            // 
+            this.boligBygningsÅr_dtp.CustomFormat = "yyyy";
+            this.boligBygningsÅr_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.boligBygningsÅr_dtp.Location = new System.Drawing.Point(351, 44);
+            this.boligBygningsÅr_dtp.Name = "boligBygningsÅr_dtp";
+            this.boligBygningsÅr_dtp.Size = new System.Drawing.Size(100, 20);
+            this.boligBygningsÅr_dtp.TabIndex = 65;
+            // 
+            // boligHave_ckBox
+            // 
+            this.boligHave_ckBox.AutoSize = true;
+            this.boligHave_ckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligHave_ckBox.Location = new System.Drawing.Point(548, 78);
+            this.boligHave_ckBox.Name = "boligHave_ckBox";
+            this.boligHave_ckBox.Size = new System.Drawing.Size(52, 17);
+            this.boligHave_ckBox.TabIndex = 64;
+            this.boligHave_ckBox.Text = "Have";
+            this.boligHave_ckBox.UseVisualStyleBackColor = true;
+            // 
+            // boligEtager_tbar
+            // 
+            this.boligEtager_tbar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligEtager_tbar.Location = new System.Drawing.Point(221, 83);
+            this.boligEtager_tbar.Maximum = 5;
+            this.boligEtager_tbar.Minimum = 1;
+            this.boligEtager_tbar.Name = "boligEtager_tbar";
+            this.boligEtager_tbar.Size = new System.Drawing.Size(100, 45);
+            this.boligEtager_tbar.TabIndex = 63;
+            this.boligEtager_tbar.Value = 1;
+            this.boligEtager_tbar.Scroll += new System.EventHandler(this.boligEtager_tbar_Scroll);
+            // 
+            // boligVærelser_tbar
+            // 
+            this.boligVærelser_tbar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.boligVærelser_tbar.Location = new System.Drawing.Point(221, 31);
+            this.boligVærelser_tbar.Maximum = 5;
+            this.boligVærelser_tbar.Minimum = 1;
+            this.boligVærelser_tbar.Name = "boligVærelser_tbar";
+            this.boligVærelser_tbar.Size = new System.Drawing.Size(100, 45);
+            this.boligVærelser_tbar.TabIndex = 62;
+            this.boligVærelser_tbar.Value = 1;
+            this.boligVærelser_tbar.Scroll += new System.EventHandler(this.boligVærelser_tbar_Scroll);
+            // 
+            // boligType_cbox
+            // 
+            this.boligType_cbox.FormattingEnabled = true;
+            this.boligType_cbox.Items.AddRange(new object[] {
+            "Villa",
+            "Lejlighed",
+            "Rækkehus"});
+            this.boligType_cbox.Location = new System.Drawing.Point(91, 108);
+            this.boligType_cbox.Name = "boligType_cbox";
+            this.boligType_cbox.Size = new System.Drawing.Size(100, 21);
+            this.boligType_cbox.TabIndex = 61;
+            // 
+            // btn_OpretBolig
+            // 
+            this.btn_OpretBolig.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_OpretBolig.Location = new System.Drawing.Point(24, 235);
+            this.btn_OpretBolig.Name = "btn_OpretBolig";
+            this.btn_OpretBolig.Size = new System.Drawing.Size(95, 25);
+            this.btn_OpretBolig.TabIndex = 60;
+            this.btn_OpretBolig.Text = "Opret Bolig";
+            this.btn_OpretBolig.UseVisualStyleBackColor = true;
+            this.btn_OpretBolig.Click += new System.EventHandler(this.btn_OpretBolig_Click);
+            // 
+            // boligUdbudspris_txt
+            // 
+            this.boligUdbudspris_txt.Location = new System.Drawing.Point(351, 109);
+            this.boligUdbudspris_txt.Name = "boligUdbudspris_txt";
+            this.boligUdbudspris_txt.Size = new System.Drawing.Size(100, 20);
+            this.boligUdbudspris_txt.TabIndex = 59;
+            // 
+            // boligKvm_txt
+            // 
+            this.boligKvm_txt.Location = new System.Drawing.Point(351, 12);
+            this.boligKvm_txt.Name = "boligKvm_txt";
+            this.boligKvm_txt.Size = new System.Drawing.Size(100, 20);
+            this.boligKvm_txt.TabIndex = 58;
+            this.boligKvm_txt.Validating += new System.ComponentModel.CancelEventHandler(this.boligKvm_txt_Validating);
+            this.boligKvm_txt.Validated += new System.EventHandler(this.boligKvm_txt_Validated);
+            // 
+            // boligPostnr_txt
+            // 
+            this.boligPostnr_txt.Location = new System.Drawing.Point(91, 76);
+            this.boligPostnr_txt.Name = "boligPostnr_txt";
+            this.boligPostnr_txt.Size = new System.Drawing.Size(100, 20);
+            this.boligPostnr_txt.TabIndex = 57;
+            this.boligPostnr_txt.Validating += new System.ComponentModel.CancelEventHandler(this.boligPostnr_txt_Validating);
+            this.boligPostnr_txt.Validated += new System.EventHandler(this.boligPostnr_txt_Validated);
+            // 
+            // boligVej_txt
+            // 
+            this.boligVej_txt.Location = new System.Drawing.Point(91, 44);
+            this.boligVej_txt.Name = "boligVej_txt";
+            this.boligVej_txt.Size = new System.Drawing.Size(100, 20);
+            this.boligVej_txt.TabIndex = 56;
+            this.boligVej_txt.Validating += new System.ComponentModel.CancelEventHandler(this.boligVej_txt_Validating);
+            this.boligVej_txt.Validated += new System.EventHandler(this.boligVej_txt_Validated);
+            // 
+            // boligID_txt
+            // 
+            this.boligID_txt.Location = new System.Drawing.Point(91, 12);
+            this.boligID_txt.Name = "boligID_txt";
+            this.boligID_txt.Size = new System.Drawing.Size(100, 20);
+            this.boligID_txt.TabIndex = 55;
+            this.boligID_txt.Validating += new System.ComponentModel.CancelEventHandler(this.boligID_txt_Validating);
+            this.boligID_txt.Validated += new System.EventHandler(this.boligID_txt_Validated);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // bolig_bobedredbDataSet
+            // 
+            this.bolig_bobedredbDataSet.DataSetName = "bolig_bobedredbDataSet";
+            this.bolig_bobedredbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // boligBindingSource
+            // 
+            this.boligBindingSource.DataMember = "Bolig";
+            this.boligBindingSource.DataSource = this.bolig_bobedredbDataSet;
+            // 
+            // boligTableAdapter
+            // 
+            this.boligTableAdapter.ClearBeforeFill = true;
             // 
             // boligIDDataGridViewTextBoxColumn
             // 
             this.boligIDDataGridViewTextBoxColumn.DataPropertyName = "BoligID";
-            resources.ApplyResources(this.boligIDDataGridViewTextBoxColumn, "boligIDDataGridViewTextBoxColumn");
+            this.boligIDDataGridViewTextBoxColumn.HeaderText = "BoligID";
             this.boligIDDataGridViewTextBoxColumn.Name = "boligIDDataGridViewTextBoxColumn";
             this.boligIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // vejDataGridViewTextBoxColumn
             // 
             this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
-            resources.ApplyResources(this.vejDataGridViewTextBoxColumn, "vejDataGridViewTextBoxColumn");
+            this.vejDataGridViewTextBoxColumn.HeaderText = "Vej";
             this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
             // 
             // postnummerDataGridViewTextBoxColumn
             // 
             this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
-            resources.ApplyResources(this.postnummerDataGridViewTextBoxColumn, "postnummerDataGridViewTextBoxColumn");
+            this.postnummerDataGridViewTextBoxColumn.HeaderText = "Postnummer";
             this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
             // 
             // typeDataGridViewTextBoxColumn
             // 
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            resources.ApplyResources(this.typeDataGridViewTextBoxColumn, "typeDataGridViewTextBoxColumn");
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
             // værelserDataGridViewTextBoxColumn
             // 
             this.værelserDataGridViewTextBoxColumn.DataPropertyName = "Værelser";
-            resources.ApplyResources(this.værelserDataGridViewTextBoxColumn, "værelserDataGridViewTextBoxColumn");
+            this.værelserDataGridViewTextBoxColumn.HeaderText = "Værelser";
             this.værelserDataGridViewTextBoxColumn.Name = "værelserDataGridViewTextBoxColumn";
             // 
             // etagerDataGridViewTextBoxColumn
             // 
             this.etagerDataGridViewTextBoxColumn.DataPropertyName = "Etager";
-            resources.ApplyResources(this.etagerDataGridViewTextBoxColumn, "etagerDataGridViewTextBoxColumn");
+            this.etagerDataGridViewTextBoxColumn.HeaderText = "Etager";
             this.etagerDataGridViewTextBoxColumn.Name = "etagerDataGridViewTextBoxColumn";
             // 
             // kvadratmeterDataGridViewTextBoxColumn
             // 
             this.kvadratmeterDataGridViewTextBoxColumn.DataPropertyName = "Kvadratmeter";
-            resources.ApplyResources(this.kvadratmeterDataGridViewTextBoxColumn, "kvadratmeterDataGridViewTextBoxColumn");
+            this.kvadratmeterDataGridViewTextBoxColumn.HeaderText = "Kvadratmeter";
             this.kvadratmeterDataGridViewTextBoxColumn.Name = "kvadratmeterDataGridViewTextBoxColumn";
             // 
             // udbudsprisDataGridViewTextBoxColumn
             // 
             this.udbudsprisDataGridViewTextBoxColumn.DataPropertyName = "Udbudspris";
-            resources.ApplyResources(this.udbudsprisDataGridViewTextBoxColumn, "udbudsprisDataGridViewTextBoxColumn");
+            this.udbudsprisDataGridViewTextBoxColumn.HeaderText = "Udbudspris";
             this.udbudsprisDataGridViewTextBoxColumn.Name = "udbudsprisDataGridViewTextBoxColumn";
             // 
             // haveFlagDataGridViewTextBoxColumn
             // 
             this.haveFlagDataGridViewTextBoxColumn.DataPropertyName = "HaveFlag";
-            resources.ApplyResources(this.haveFlagDataGridViewTextBoxColumn, "haveFlagDataGridViewTextBoxColumn");
+            this.haveFlagDataGridViewTextBoxColumn.HeaderText = "HaveFlag";
             this.haveFlagDataGridViewTextBoxColumn.Name = "haveFlagDataGridViewTextBoxColumn";
             // 
             // bygningsårDataGridViewTextBoxColumn
             // 
             this.bygningsårDataGridViewTextBoxColumn.DataPropertyName = "Bygningsår";
-            resources.ApplyResources(this.bygningsårDataGridViewTextBoxColumn, "bygningsårDataGridViewTextBoxColumn");
+            this.bygningsårDataGridViewTextBoxColumn.HeaderText = "Bygningsår";
             this.bygningsårDataGridViewTextBoxColumn.Name = "bygningsårDataGridViewTextBoxColumn";
             // 
             // renoveringsÅrDataGridViewTextBoxColumn
             // 
             this.renoveringsÅrDataGridViewTextBoxColumn.DataPropertyName = "RenoveringsÅr";
-            resources.ApplyResources(this.renoveringsÅrDataGridViewTextBoxColumn, "renoveringsÅrDataGridViewTextBoxColumn");
+            this.renoveringsÅrDataGridViewTextBoxColumn.HeaderText = "RenoveringsÅr";
             this.renoveringsÅrDataGridViewTextBoxColumn.Name = "renoveringsÅrDataGridViewTextBoxColumn";
-            // 
-            // boligID_lbl
-            // 
-            resources.ApplyResources(this.boligID_lbl, "boligID_lbl");
-            this.boligID_lbl.Name = "boligID_lbl";
-            // 
-            // boligVej_lbl
-            // 
-            resources.ApplyResources(this.boligVej_lbl, "boligVej_lbl");
-            this.boligVej_lbl.Name = "boligVej_lbl";
-            // 
-            // boligPostnr_lbl
-            // 
-            resources.ApplyResources(this.boligPostnr_lbl, "boligPostnr_lbl");
-            this.boligPostnr_lbl.Name = "boligPostnr_lbl";
-            // 
-            // boligType_lbl
-            // 
-            resources.ApplyResources(this.boligType_lbl, "boligType_lbl");
-            this.boligType_lbl.Name = "boligType_lbl";
-            // 
-            // boligVærelser_lbl
-            // 
-            resources.ApplyResources(this.boligVærelser_lbl, "boligVærelser_lbl");
-            this.boligVærelser_lbl.Name = "boligVærelser_lbl";
-            // 
-            // boligEtager_lbl
-            // 
-            resources.ApplyResources(this.boligEtager_lbl, "boligEtager_lbl");
-            this.boligEtager_lbl.Name = "boligEtager_lbl";
-            // 
-            // boligKvm_lbl
-            // 
-            resources.ApplyResources(this.boligKvm_lbl, "boligKvm_lbl");
-            this.boligKvm_lbl.Name = "boligKvm_lbl";
-            // 
-            // boligBygningsår_lbl
-            // 
-            resources.ApplyResources(this.boligBygningsår_lbl, "boligBygningsår_lbl");
-            this.boligBygningsår_lbl.Name = "boligBygningsår_lbl";
-            // 
-            // boligUdbudspris_lbl
-            // 
-            resources.ApplyResources(this.boligUdbudspris_lbl, "boligUdbudspris_lbl");
-            this.boligUdbudspris_lbl.Name = "boligUdbudspris_lbl";
-            // 
-            // btn_SælgBolig
-            // 
-            resources.ApplyResources(this.btn_SælgBolig, "btn_SælgBolig");
-            this.btn_SælgBolig.Name = "btn_SælgBolig";
-            this.btn_SælgBolig.UseVisualStyleBackColor = true;
-            // 
-            // btn_Clear_OpretBolig
-            // 
-            resources.ApplyResources(this.btn_Clear_OpretBolig, "btn_Clear_OpretBolig");
-            this.btn_Clear_OpretBolig.Name = "btn_Clear_OpretBolig";
-            this.btn_Clear_OpretBolig.UseVisualStyleBackColor = true;
-            this.btn_Clear_OpretBolig.Click += new System.EventHandler(this.btn_Clear_OpretBolig_Click);
-            // 
-            // btn_Clear_HentBolig
-            // 
-            resources.ApplyResources(this.btn_Clear_HentBolig, "btn_Clear_HentBolig");
-            this.btn_Clear_HentBolig.Name = "btn_Clear_HentBolig";
-            this.btn_Clear_HentBolig.UseVisualStyleBackColor = true;
-            this.btn_Clear_HentBolig.Click += new System.EventHandler(this.btn_Clear_HentBolig_Click);
-            // 
-            // find_lbl
-            // 
-            resources.ApplyResources(this.find_lbl, "find_lbl");
-            this.find_lbl.Name = "find_lbl";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // filterCriteria_cbox
-            // 
-            this.filterCriteria_cbox.FormattingEnabled = true;
-            this.filterCriteria_cbox.Items.AddRange(new object[] {
-            resources.GetString("filterCriteria_cbox.Items"),
-            resources.GetString("filterCriteria_cbox.Items1"),
-            resources.GetString("filterCriteria_cbox.Items2"),
-            resources.GetString("filterCriteria_cbox.Items3"),
-            resources.GetString("filterCriteria_cbox.Items4"),
-            resources.GetString("filterCriteria_cbox.Items5"),
-            resources.GetString("filterCriteria_cbox.Items6"),
-            resources.GetString("filterCriteria_cbox.Items7"),
-            resources.GetString("filterCriteria_cbox.Items8"),
-            resources.GetString("filterCriteria_cbox.Items9"),
-            resources.GetString("filterCriteria_cbox.Items10")});
-            resources.ApplyResources(this.filterCriteria_cbox, "filterCriteria_cbox");
-            this.filterCriteria_cbox.Name = "filterCriteria_cbox";
-            // 
-            // search_lbl
-            // 
-            resources.ApplyResources(this.search_lbl, "search_lbl");
-            this.search_lbl.Name = "search_lbl";
-            // 
-            // search_txt
-            // 
-            resources.ApplyResources(this.search_txt, "search_txt");
-            this.search_txt.Name = "search_txt";
-            this.search_txt.TextChanged += new System.EventHandler(this.search_txt_TextChanged);
-            // 
-            // allowRedigering_btn
-            // 
-            resources.ApplyResources(this.allowRedigering_btn, "allowRedigering_btn");
-            this.allowRedigering_btn.Name = "allowRedigering_btn";
-            this.allowRedigering_btn.UseVisualStyleBackColor = true;
-            this.allowRedigering_btn.Click += new System.EventHandler(this.allowRedigering_btn_Click);
-            // 
-            // saveChanges_btn
-            // 
-            resources.ApplyResources(this.saveChanges_btn, "saveChanges_btn");
-            this.saveChanges_btn.Name = "saveChanges_btn";
-            this.saveChanges_btn.UseVisualStyleBackColor = true;
-            this.saveChanges_btn.Click += new System.EventHandler(this.saveChanges_btn_Click);
             // 
             // BoligUI
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.saveChanges_btn);
             this.Controls.Add(this.allowRedigering_btn);
             this.Controls.Add(this.search_txt);
@@ -451,11 +603,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.boligVej_txt);
             this.Controls.Add(this.boligID_txt);
             this.Name = "BoligUI";
+            this.Text = "BoligUI";
             this.Load += new System.EventHandler(this.BoligUI_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bolig_DataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bolig_bobedredbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boligBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,22 +618,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         #endregion
 
-        private System.Windows.Forms.TextBox boligID_txt;
-        private System.Windows.Forms.TextBox boligVej_txt;
-        private System.Windows.Forms.TextBox boligPostnr_txt;
-        private System.Windows.Forms.TextBox boligKvm_txt;
-        private System.Windows.Forms.TextBox boligUdbudspris_txt;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.CheckBox boligHave_ckBox;
-        private System.Windows.Forms.TrackBar boligEtager_tbar;
-        private System.Windows.Forms.TrackBar boligVærelser_tbar;
-        private System.Windows.Forms.ComboBox boligType_cbox;
-        private System.Windows.Forms.DateTimePicker boligRenoveringsÅr_dtp;
-        private System.Windows.Forms.CheckBox boligRenoveret_ckbox;
-        private System.Windows.Forms.DateTimePicker boligBygningsÅr_dtp;
-        private System.Windows.Forms.Button btn_HentBolig;
-        private System.Windows.Forms.Button btn_OpretBolig;
-        private System.Windows.Forms.DataGridView bolig_DataGridView;
+        private System.Windows.Forms.Button saveChanges_btn;
+        private System.Windows.Forms.Button allowRedigering_btn;
+        private System.Windows.Forms.TextBox search_txt;
+        private System.Windows.Forms.Label search_lbl;
+        private System.Windows.Forms.ComboBox filterCriteria_cbox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label find_lbl;
+        private System.Windows.Forms.Button btn_Clear_HentBolig;
+        private System.Windows.Forms.Button btn_Clear_OpretBolig;
+        private System.Windows.Forms.Button btn_SælgBolig;
         private System.Windows.Forms.Label boligUdbudspris_lbl;
         private System.Windows.Forms.Label boligBygningsår_lbl;
         private System.Windows.Forms.Label boligKvm_lbl;
@@ -488,12 +637,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Label boligPostnr_lbl;
         private System.Windows.Forms.Label boligVej_lbl;
         private System.Windows.Forms.Label boligID_lbl;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DataGridView bolig_DataGridView;
         private System.Windows.Forms.Button btn_SletBolig;
         private System.Windows.Forms.Button btn_OpdaterBolig;
-        private System.Windows.Forms.Button btn_SælgBolig;
-        private System.Windows.Forms.Button btn_Clear_OpretBolig;
-        private System.Windows.Forms.Button btn_Clear_HentBolig;
+        private System.Windows.Forms.Button btn_HentBolig;
+        private System.Windows.Forms.DateTimePicker boligRenoveringsÅr_dtp;
+        private System.Windows.Forms.CheckBox boligRenoveret_ckbox;
+        private System.Windows.Forms.DateTimePicker boligBygningsÅr_dtp;
+        private System.Windows.Forms.CheckBox boligHave_ckBox;
+        private System.Windows.Forms.TrackBar boligEtager_tbar;
+        private System.Windows.Forms.TrackBar boligVærelser_tbar;
+        private System.Windows.Forms.ComboBox boligType_cbox;
+        private System.Windows.Forms.Button btn_OpretBolig;
+        private System.Windows.Forms.TextBox boligUdbudspris_txt;
+        private System.Windows.Forms.TextBox boligKvm_txt;
+        private System.Windows.Forms.TextBox boligPostnr_txt;
+        private System.Windows.Forms.TextBox boligVej_txt;
+        private System.Windows.Forms.TextBox boligID_txt;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
 
         /// <summary>
         /// Method to call a Button or a TextBox etc. from another class without making it public (also called Getters) _Alessia
@@ -592,6 +754,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         }
 
+        private bolig_bobedredbDataSet bolig_bobedredbDataSet;
+        private System.Windows.Forms.BindingSource boligBindingSource;
+        private bolig_bobedredbDataSetTableAdapters.BoligTableAdapter boligTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn boligIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
@@ -603,12 +768,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn haveFlagDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bygningsårDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn renoveringsÅrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox search_txt;
-        private System.Windows.Forms.Label search_lbl;
-        private System.Windows.Forms.ComboBox filterCriteria_cbox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label find_lbl;
-        private System.Windows.Forms.Button saveChanges_btn;
-        private System.Windows.Forms.Button allowRedigering_btn;
     }
 }
