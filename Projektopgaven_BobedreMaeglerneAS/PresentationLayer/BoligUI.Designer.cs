@@ -49,7 +49,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_HentBolig = new System.Windows.Forms.Button();
             this.btn_OpdaterBolig = new System.Windows.Forms.Button();
             this.btn_SletBolig = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bolig_DataGridView = new System.Windows.Forms.DataGridView();
             this.boligID_lbl = new System.Windows.Forms.Label();
             this.boligVej_lbl = new System.Windows.Forms.Label();
             this.boligPostnr_lbl = new System.Windows.Forms.Label();
@@ -63,10 +63,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_SælgBolig = new System.Windows.Forms.Button();
             this.btn_Clear_OpretBolig = new System.Windows.Forms.Button();
             this.btn_Clear_HentBolig = new System.Windows.Forms.Button();
+            this.find_lbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.filterCriteria_cbox = new System.Windows.Forms.ComboBox();
+            this.search_lbl = new System.Windows.Forms.Label();
+            this.search_txt = new System.Windows.Forms.TextBox();
+            this.allowRedigering_btn = new System.Windows.Forms.Button();
+            this.saveChanges_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bolig_DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // boligID_txt
@@ -186,11 +193,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             resources.ApplyResources(this.btn_SletBolig, "btn_SletBolig");
             this.btn_SletBolig.Name = "btn_SletBolig";
             this.btn_SletBolig.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.Name = "dataGridView1";
+            this.btn_SletBolig.Click += new System.EventHandler(this.btn_SletBolig_Click);
             // 
             // boligID_lbl
             // 
@@ -257,11 +260,71 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_Clear_HentBolig.UseVisualStyleBackColor = true;
             this.btn_Clear_HentBolig.Click += new System.EventHandler(this.btn_Clear_HentBolig_Click);
             // 
+            // find_lbl
+            // 
+            resources.ApplyResources(this.find_lbl, "find_lbl");
+            this.find_lbl.Name = "find_lbl";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // filterCriteria_cbox
+            // 
+            this.filterCriteria_cbox.FormattingEnabled = true;
+            this.filterCriteria_cbox.Items.AddRange(new object[] {
+            resources.GetString("filterCriteria_cbox.Items"),
+            resources.GetString("filterCriteria_cbox.Items1"),
+            resources.GetString("filterCriteria_cbox.Items2"),
+            resources.GetString("filterCriteria_cbox.Items3"),
+            resources.GetString("filterCriteria_cbox.Items4"),
+            resources.GetString("filterCriteria_cbox.Items5"),
+            resources.GetString("filterCriteria_cbox.Items6"),
+            resources.GetString("filterCriteria_cbox.Items7"),
+            resources.GetString("filterCriteria_cbox.Items8"),
+            resources.GetString("filterCriteria_cbox.Items9"),
+            resources.GetString("filterCriteria_cbox.Items10")});
+            resources.ApplyResources(this.filterCriteria_cbox, "filterCriteria_cbox");
+            this.filterCriteria_cbox.Name = "filterCriteria_cbox";
+            // 
+            // search_lbl
+            // 
+            resources.ApplyResources(this.search_lbl, "search_lbl");
+            this.search_lbl.Name = "search_lbl";
+            // 
+            // search_txt
+            // 
+            resources.ApplyResources(this.search_txt, "search_txt");
+            this.search_txt.Name = "search_txt";
+            this.search_txt.TextChanged += new System.EventHandler(this.search_txt_TextChanged);
+            // 
+            // allowRedigering_btn
+            // 
+            resources.ApplyResources(this.allowRedigering_btn, "allowRedigering_btn");
+            this.allowRedigering_btn.Name = "allowRedigering_btn";
+            this.allowRedigering_btn.UseVisualStyleBackColor = true;
+            this.allowRedigering_btn.Click += new System.EventHandler(this.allowRedigering_btn_Click);
+            // 
+            // saveChanges_btn
+            // 
+            resources.ApplyResources(this.saveChanges_btn, "saveChanges_btn");
+            this.saveChanges_btn.Name = "saveChanges_btn";
+            this.saveChanges_btn.UseVisualStyleBackColor = true;
+            this.saveChanges_btn.Click += new System.EventHandler(this.saveChanges_btn_Click);
+            // 
             // BoligUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Controls.Add(this.saveChanges_btn);
+            this.Controls.Add(this.allowRedigering_btn);
+            this.Controls.Add(this.search_txt);
+            this.Controls.Add(this.search_lbl);
+            this.Controls.Add(this.filterCriteria_cbox);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.find_lbl);
             this.Controls.Add(this.btn_Clear_HentBolig);
             this.Controls.Add(this.btn_Clear_OpretBolig);
             this.Controls.Add(this.btn_SælgBolig);
@@ -274,7 +337,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.boligPostnr_lbl);
             this.Controls.Add(this.boligVej_lbl);
             this.Controls.Add(this.boligID_lbl);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.bolig_DataGridView);
             this.Controls.Add(this.btn_SletBolig);
             this.Controls.Add(this.btn_OpdaterBolig);
             this.Controls.Add(this.btn_HentBolig);
@@ -292,10 +355,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.boligVej_txt);
             this.Controls.Add(this.boligID_txt);
             this.Name = "BoligUI";
+            this.Load += new System.EventHandler(this.BoligUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bolig_DataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,7 +382,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.DateTimePicker boligBygningsÅr_dtp;
         private System.Windows.Forms.Button btn_HentBolig;
         private System.Windows.Forms.Button btn_OpretBolig;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView bolig_DataGridView;
         private System.Windows.Forms.Label boligUdbudspris_lbl;
         private System.Windows.Forms.Label boligBygningsår_lbl;
         private System.Windows.Forms.Label boligKvm_lbl;
@@ -334,6 +398,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Button btn_SælgBolig;
         private System.Windows.Forms.Button btn_Clear_OpretBolig;
         private System.Windows.Forms.Button btn_Clear_HentBolig;
+        private System.Windows.Forms.TextBox search_txt;
+        private System.Windows.Forms.Label search_lbl;
+        private System.Windows.Forms.ComboBox filterCriteria_cbox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label find_lbl;
+        private System.Windows.Forms.Button saveChanges_btn;
+        private System.Windows.Forms.Button allowRedigering_btn;
+
         /// <summary>
         /// Method to call a Button or a TextBox etc. from another class without making it public (also called Getters) _Alessia
         /// </summary>

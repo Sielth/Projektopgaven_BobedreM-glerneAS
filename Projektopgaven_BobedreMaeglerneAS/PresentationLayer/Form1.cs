@@ -200,6 +200,9 @@ namespace Projektopgaven_BobedreMaeglerneAS
             boligUI.GetOpdaterBoligButton().Visible = false;
             boligUI.GetSælgBoligButton().Visible = false;
             boligUI.GetSletBoligButton().Visible = false;
+
+            boligUI.DisableAll();
+            boligUI.GetBoligIDTextbox().Enabled = true;
         }
 
         private void updateToolStripMenuItem3_Click(object sender, EventArgs e)
