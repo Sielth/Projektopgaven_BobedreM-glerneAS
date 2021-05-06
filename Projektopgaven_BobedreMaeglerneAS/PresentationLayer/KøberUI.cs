@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -99,5 +100,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         }
         #endregion
+
+        private void KøberUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dataSet1.Køber' table. You can move, or remove it, as needed.
+            this.køberTableAdapter.Fill(this.dataSet1.Køber);
+
+        }
+
+        private void OpretKøber_knap_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Conn.open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
     }
 }
