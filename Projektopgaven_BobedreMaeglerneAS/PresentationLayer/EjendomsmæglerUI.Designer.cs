@@ -620,48 +620,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
 
-        #region Get tekstbokse //Henter tekstboxene - for at kunne kalde dem
+        #region Get tekstbokse
         public System.Windows.Forms.TextBox GetMæglerIDTeksboks()
         {
             return MæglerID_txt;
         }
-
-        public System.Windows.Forms.TextBox GetCPRTekstboks()
-        {
-            return CPR_txt;
-        }
-
-        public System.Windows.Forms.TextBox GetTelefonTekstboks()
-        {
-            return Telefon_txt;
-        }
-
-        public System.Windows.Forms.TextBox GetEmailTekstboks()
-        {
-            return Email_txt;
-        }
-
-        public System.Windows.Forms.TextBox GetFnavnTekstboks()
-        {
-            return Fornavn_txt;
-        }
-
-        public System.Windows.Forms.TextBox GetEnavnTekstboks()
-        {
-            return Efternavn_txt;
-        }
-
-        public System.Windows.Forms.TextBox GetVejTekstboks()
-        {
-            return Vej_txt;
-        }
-
-        public System.Windows.Forms.TextBox GetPostnummerTekstboks()
-        {
-            return Postnummer_txt;
-        }
         #endregion
-
 
 
     }

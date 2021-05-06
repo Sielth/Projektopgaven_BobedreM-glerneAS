@@ -77,7 +77,14 @@ namespace Projektopgaven_BobedreMæglerneAS
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
 
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
-
+            /*commandEjendomsmægler.Parameters.AddWithValue("@CPR", ejendomsmægler.CPR);
+            commandEjendomsmægler.Parameters.AddWithValue("@Telefon", ejendomsmægler.Telefon);
+            commandEjendomsmægler.Parameters.AddWithValue("@Email", ejendomsmægler.Email);
+            commandEjendomsmægler.Parameters.AddWithValue("@Fnavn", ejendomsmægler.Fnavn);
+            commandEjendomsmægler.Parameters.AddWithValue("@Enavn", ejendomsmægler.Enavn);
+            commandEjendomsmægler.Parameters.AddWithValue("@Vej", ejendomsmægler.Vej);
+            commandEjendomsmægler.Parameters.AddWithValue("@Postnummer", ejendomsmægler.Postnummer);
+            */
             try
             {
                 conn.Open();
