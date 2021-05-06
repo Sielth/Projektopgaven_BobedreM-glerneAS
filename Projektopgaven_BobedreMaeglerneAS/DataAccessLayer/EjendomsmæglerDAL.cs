@@ -56,22 +56,56 @@ namespace Projektopgaven_BobedreMæglerneAS
             }
         }
 
-        public void FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        public EjendomsmæglerBLL FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
             //Connection string
             string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
             SqlConnection conn = new SqlConnection(strconn);
 
-            string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
+            //string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
+
+            string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE " +
+                "MæglerID LIKE @MæglerID OR " +
+                "CPR LIKE @CPR OR " +
+                "Telefon LIKE @Telefon OR " +
+                "Email LIKE @Email OR " +
+                "Fnavn LIKE @Fnavn OR " +
+                "Enavn LIKE @Enavn OR " +
+                "Vej LIKE @Vej OR " +
+                "Postnummer LIKE @Postnummer ";
 
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
 
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
+            commandEjendomsmægler.Parameters.AddWithValue("@CPR", ejendomsmægler.CPR);
+            commandEjendomsmægler.Parameters.AddWithValue("@Telefon", ejendomsmægler.Telefon);
+            commandEjendomsmægler.Parameters.AddWithValue("@Email", ejendomsmægler.Email);
+            commandEjendomsmægler.Parameters.AddWithValue("@Fnavn", ejendomsmægler.Fnavn);
+            commandEjendomsmægler.Parameters.AddWithValue("@Enavn", ejendomsmægler.Enavn);
+            commandEjendomsmægler.Parameters.AddWithValue("@Vej", ejendomsmægler.Vej);
+            commandEjendomsmægler.Parameters.AddWithValue("@Postnummer", ejendomsmægler.Postnummer);
 
             try
             {
                 conn.Open();
-                commandEjendomsmægler.ExecuteNonQuery();
+
+                using (SqlDataReader reader = commandEjendomsmægler.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        EjendomsmæglerBLL matchingejendomsmægler = new EjendomsmæglerBLL((int)reader["MæglerID"],
+                            (int)reader["CPR"],
+                            (int)reader["Telefon"],
+                            reader["Email"].ToString(),
+                            reader["Fnavn"].ToString(),
+                            reader["enavn"].ToString(),
+                            reader["Vej"].ToString(),
+                            (int)reader["Postnummer"]);
+
+                        return matchingejendomsmægler;
+                    }
+                }
+
             }
 
             catch (SqlException ex)
@@ -83,6 +117,8 @@ namespace Projektopgaven_BobedreMæglerneAS
             {
                 conn.Close();
             }
+
+            return null;
         }
 
         public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
