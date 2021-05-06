@@ -1,4 +1,4 @@
-﻿
+
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     partial class KøberUI
