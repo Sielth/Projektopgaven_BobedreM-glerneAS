@@ -49,11 +49,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_HentBolig = new System.Windows.Forms.Button();
             this.btn_OpdaterBolig = new System.Windows.Forms.Button();
             this.btn_SletBolig = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-            this.bolig_DataGridView = new System.Windows.Forms.DataGridView();
-=======
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
->>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
             this.boligID_lbl = new System.Windows.Forms.Label();
             this.boligVej_lbl = new System.Windows.Forms.Label();
             this.boligPostnr_lbl = new System.Windows.Forms.Label();
@@ -67,40 +62,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_SælgBolig = new System.Windows.Forms.Button();
             this.btn_Clear_OpretBolig = new System.Windows.Forms.Button();
             this.btn_Clear_HentBolig = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-            this.find_lbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.filterCriteria_cbox = new System.Windows.Forms.ComboBox();
-            this.search_lbl = new System.Windows.Forms.Label();
-            this.search_txt = new System.Windows.Forms.TextBox();
-            this.allowRedigering_btn = new System.Windows.Forms.Button();
-            this.saveChanges_btn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bolig_DataGridView)).BeginInit();
-=======
-            this.bobedredbDataSet_Bolig = new Projektopgaven_BobedreMaeglerneAS.bobedredbDataSet_Bolig();
-            this.boligBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.boligTableAdapter = new Projektopgaven_BobedreMaeglerneAS.bobedredbDataSet_BoligTableAdapters.BoligTableAdapter();
-            this.boligIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vejDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.værelserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etagerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kvadratmeterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.udbudsprisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.haveFlagDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bygningsårDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.renoveringsÅrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bobedredbDataSet_Bolig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligBindingSource)).BeginInit();
->>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
             this.SuspendLayout();
             // 
             // boligID_txt
@@ -221,28 +187,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_SletBolig.Name = "btn_SletBolig";
             this.btn_SletBolig.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
-=======
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.boligIDDataGridViewTextBoxColumn,
-            this.vejDataGridViewTextBoxColumn,
-            this.postnummerDataGridViewTextBoxColumn,
-            this.typeDataGridViewTextBoxColumn,
-            this.værelserDataGridViewTextBoxColumn,
-            this.etagerDataGridViewTextBoxColumn,
-            this.kvadratmeterDataGridViewTextBoxColumn,
-            this.udbudsprisDataGridViewTextBoxColumn,
-            this.haveFlagDataGridViewTextBoxColumn,
-            this.bygningsårDataGridViewTextBoxColumn,
-            this.renoveringsÅrDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.boligBindingSource;
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.Name = "dataGridView1";
-            // 
->>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
             // boligID_lbl
             // 
             resources.ApplyResources(this.boligID_lbl, "boligID_lbl");
@@ -308,96 +252,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_Clear_HentBolig.UseVisualStyleBackColor = true;
             this.btn_Clear_HentBolig.Click += new System.EventHandler(this.btn_Clear_HentBolig_Click);
             // 
-<<<<<<< HEAD
-            // find_lbl
-=======
-            // bobedredbDataSet_Bolig
+            // dataGridView1
             // 
-            this.bobedredbDataSet_Bolig.DataSetName = "bobedredbDataSet_Bolig";
-            this.bobedredbDataSet_Bolig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // boligBindingSource
-            // 
-            this.boligBindingSource.DataMember = "Bolig";
-            this.boligBindingSource.DataSource = this.bobedredbDataSet_Bolig;
-            // 
-            // boligTableAdapter
-            // 
-            this.boligTableAdapter.ClearBeforeFill = true;
-            // 
-            // boligIDDataGridViewTextBoxColumn
->>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
-            // 
-            this.boligIDDataGridViewTextBoxColumn.DataPropertyName = "BoligID";
-            resources.ApplyResources(this.boligIDDataGridViewTextBoxColumn, "boligIDDataGridViewTextBoxColumn");
-            this.boligIDDataGridViewTextBoxColumn.Name = "boligIDDataGridViewTextBoxColumn";
-            this.boligIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vejDataGridViewTextBoxColumn
-            // 
-            this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
-            resources.ApplyResources(this.vejDataGridViewTextBoxColumn, "vejDataGridViewTextBoxColumn");
-            this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
-            // 
-            // postnummerDataGridViewTextBoxColumn
-            // 
-            this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
-            resources.ApplyResources(this.postnummerDataGridViewTextBoxColumn, "postnummerDataGridViewTextBoxColumn");
-            this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            resources.ApplyResources(this.typeDataGridViewTextBoxColumn, "typeDataGridViewTextBoxColumn");
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            // 
-            // værelserDataGridViewTextBoxColumn
-            // 
-            this.værelserDataGridViewTextBoxColumn.DataPropertyName = "Værelser";
-            resources.ApplyResources(this.værelserDataGridViewTextBoxColumn, "værelserDataGridViewTextBoxColumn");
-            this.værelserDataGridViewTextBoxColumn.Name = "værelserDataGridViewTextBoxColumn";
-            // 
-            // etagerDataGridViewTextBoxColumn
-            // 
-            this.etagerDataGridViewTextBoxColumn.DataPropertyName = "Etager";
-            resources.ApplyResources(this.etagerDataGridViewTextBoxColumn, "etagerDataGridViewTextBoxColumn");
-            this.etagerDataGridViewTextBoxColumn.Name = "etagerDataGridViewTextBoxColumn";
-            // 
-            // kvadratmeterDataGridViewTextBoxColumn
-            // 
-            this.kvadratmeterDataGridViewTextBoxColumn.DataPropertyName = "Kvadratmeter";
-            resources.ApplyResources(this.kvadratmeterDataGridViewTextBoxColumn, "kvadratmeterDataGridViewTextBoxColumn");
-            this.kvadratmeterDataGridViewTextBoxColumn.Name = "kvadratmeterDataGridViewTextBoxColumn";
-            // 
-            // udbudsprisDataGridViewTextBoxColumn
-            // 
-            this.udbudsprisDataGridViewTextBoxColumn.DataPropertyName = "Udbudspris";
-            resources.ApplyResources(this.udbudsprisDataGridViewTextBoxColumn, "udbudsprisDataGridViewTextBoxColumn");
-            this.udbudsprisDataGridViewTextBoxColumn.Name = "udbudsprisDataGridViewTextBoxColumn";
-            // 
-            // haveFlagDataGridViewTextBoxColumn
-            // 
-            this.haveFlagDataGridViewTextBoxColumn.DataPropertyName = "HaveFlag";
-            resources.ApplyResources(this.haveFlagDataGridViewTextBoxColumn, "haveFlagDataGridViewTextBoxColumn");
-            this.haveFlagDataGridViewTextBoxColumn.Name = "haveFlagDataGridViewTextBoxColumn";
-            // 
-            // bygningsårDataGridViewTextBoxColumn
-            // 
-            this.bygningsårDataGridViewTextBoxColumn.DataPropertyName = "Bygningsår";
-            resources.ApplyResources(this.bygningsårDataGridViewTextBoxColumn, "bygningsårDataGridViewTextBoxColumn");
-            this.bygningsårDataGridViewTextBoxColumn.Name = "bygningsårDataGridViewTextBoxColumn";
-            // 
-            // renoveringsÅrDataGridViewTextBoxColumn
-            // 
-            this.renoveringsÅrDataGridViewTextBoxColumn.DataPropertyName = "RenoveringsÅr";
-            resources.ApplyResources(this.renoveringsÅrDataGridViewTextBoxColumn, "renoveringsÅrDataGridViewTextBoxColumn");
-            this.renoveringsÅrDataGridViewTextBoxColumn.Name = "renoveringsÅrDataGridViewTextBoxColumn";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
+            this.dataGridView1.Name = "dataGridView1";
             // 
             // BoligUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_Clear_HentBolig);
             this.Controls.Add(this.btn_Clear_OpretBolig);
             this.Controls.Add(this.btn_SælgBolig);
@@ -410,7 +276,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.boligPostnr_lbl);
             this.Controls.Add(this.boligVej_lbl);
             this.Controls.Add(this.boligID_lbl);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_SletBolig);
             this.Controls.Add(this.btn_OpdaterBolig);
             this.Controls.Add(this.btn_HentBolig);
@@ -432,13 +297,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).EndInit();
-<<<<<<< HEAD
-            ((System.ComponentModel.ISupportInitialize)(this.bolig_DataGridView)).EndInit();
-=======
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bobedredbDataSet_Bolig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boligBindingSource)).EndInit();
->>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,7 +320,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.DateTimePicker boligBygningsÅr_dtp;
         private System.Windows.Forms.Button btn_HentBolig;
         private System.Windows.Forms.Button btn_OpretBolig;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label boligUdbudspris_lbl;
         private System.Windows.Forms.Label boligBygningsår_lbl;
         private System.Windows.Forms.Label boligKvm_lbl;
@@ -477,13 +335,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Button btn_SælgBolig;
         private System.Windows.Forms.Button btn_Clear_OpretBolig;
         private System.Windows.Forms.Button btn_Clear_HentBolig;
-        private System.Windows.Forms.TextBox search_txt;
-        private System.Windows.Forms.Label search_lbl;
-        private System.Windows.Forms.ComboBox filterCriteria_cbox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label find_lbl;
-        private System.Windows.Forms.Button saveChanges_btn;
-        private System.Windows.Forms.Button allowRedigering_btn;
+        private System.Windows.Forms.DataGridView dataGridView1;
 
         /// <summary>
         /// Method to call a Button or a TextBox etc. from another class without making it public (also called Getters) _Alessia
@@ -581,23 +433,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             boligUdbudspris_txt.Clear();
 
         }
-<<<<<<< HEAD
-=======
-
-        private bobedredbDataSet_Bolig bobedredbDataSet_Bolig;
-        private System.Windows.Forms.BindingSource boligBindingSource;
-        private bobedredbDataSet_BoligTableAdapters.BoligTableAdapter boligTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn boligIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn værelserDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn etagerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kvadratmeterDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn udbudsprisDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn haveFlagDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bygningsårDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn renoveringsÅrDataGridViewTextBoxColumn;
->>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
     }
 }

@@ -26,10 +26,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.KøberTelefon_txt.Enabled = true;
             køberUI.KøberVej_txt.Enabled = true;
             køberUI.KøberPostnummer_txt.Enabled = true;
-            køberUI.OpretKøber_knap.Visible = true;
-            køberUI.SletKøber_knap.Visible = false;
-            køberUI.OpdaterKøber_knap.Visible = false;
-            køberUI.FindKøber_knap.Visible = false;
+            køberUI.GetOpretKøberKnap().Visible = true;
+            køberUI.GetSletKøberKnap().Visible = false;
+            køberUI.GetOpdaterKøberKnap().Visible = false;
+            køberUI.GetFindKøberKnap().Visible = false;
         }
         public static void KøberRead()
         {
@@ -43,10 +43,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.KøberTelefon_txt.Enabled = true;
             køberUI.KøberVej_txt.Enabled = true;
             køberUI.KøberPostnummer_txt.Enabled = true;
-            køberUI.OpretKøber_knap.Visible = false;
-            køberUI.SletKøber_knap.Visible = false;
-            køberUI.OpdaterKøber_knap.Visible = false;
-            køberUI.FindKøber_knap.Visible = true;
+            køberUI.GetOpretKøberKnap().Visible = false;
+            køberUI.GetSletKøberKnap().Visible = false;
+            køberUI.GetOpdaterKøberKnap().Visible = false;
+            køberUI.GetFindKøberKnap().Visible = true;
         }
         public static void KøberDelete()
         {
@@ -60,10 +60,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.KøberTelefon_txt.Enabled = true;
             køberUI.KøberVej_txt.Enabled = true;
             køberUI.KøberPostnummer_txt.Enabled = true;
-            køberUI.OpretKøber_knap.Visible = false;
-            køberUI.SletKøber_knap.Visible = true;
-            køberUI.OpdaterKøber_knap.Visible = false;
-            køberUI.FindKøber_knap.Visible = false;
+            køberUI.GetOpretKøberKnap().Visible = false;
+            køberUI.GetSletKøberKnap().Visible = true;
+            køberUI.GetOpdaterKøberKnap().Visible = false;
+            køberUI.GetFindKøberKnap().Visible = false;
         }
         public static void KøberUpdate()
         {
@@ -77,10 +77,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.KøberTelefon_txt.Enabled = true;
             køberUI.KøberVej_txt.Enabled = true;
             køberUI.KøberPostnummer_txt.Enabled = true;
-            køberUI.OpretKøber_knap.Visible = false;
-            køberUI.SletKøber_knap.Visible = false;
-            køberUI.OpdaterKøber_knap.Visible = true;
-            køberUI.FindKøber_knap.Visible = false;
+            køberUI.GetOpretKøberKnap().Visible = false;
+            køberUI.GetSletKøberKnap().Visible = false;
+            køberUI.GetOpdaterKøberKnap().Visible = true;
+            køberUI.GetFindKøberKnap().Visible = false;
         }
     }
 }
