@@ -62,11 +62,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_SælgBolig = new System.Windows.Forms.Button();
             this.btn_Clear_OpretBolig = new System.Windows.Forms.Button();
             this.btn_Clear_HentBolig = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // boligID_txt
@@ -300,7 +298,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
