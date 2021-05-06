@@ -53,13 +53,59 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
         }
 
+        public BoligBLL HentBoligViaID(BoligBLL bolig)
+        {
+            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(connstr);
+
+            string sqlCommanBolig = "SELECT * FROM Bolig WHERE " +
+                "BoligID = @BoligID";
+
+            SqlCommand cmdBolig = new SqlCommand(sqlCommanBolig, conn);
+            cmdBolig.Parameters.AddWithValue("@BoligID", bolig.BoligID);
+
+            try
+            {
+                conn.Open();
+
+                using (SqlDataReader reader = cmdBolig.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        BoligBLL matchingbolig = new BoligBLL((int)reader["BoligID"],
+                            reader["Vej"].ToString(),
+                            (int)reader["Postnummer"],
+                            reader["Type"].ToString(),
+                            (int)reader["Værelser"],
+                            (int)reader["Etager"],
+                            (int)reader["Kvadratmeter"],
+                            (int)reader["HaveFlag"],
+                            (int)reader["Bygningsår"],
+                            (int)reader["RenoveringsÅr"]);
+
+                        return matchingbolig;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return null;
+        }
+
         public BoligBLL HentBolig(BoligBLL bolig)
         {
             string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
             SqlConnection conn = new SqlConnection(connstr);
 
             string sqlCommanBolig = "SELECT * FROM Bolig WHERE " +
-                "BoligID LIKE @BoligID AND " +
+                "BoligID LIKE @BoligID OR " +
                 "Vej Like @Vej AND " +
                 "Postnummer LIKE @Postnummer AND " +
                 "Type LIKE @Type AND " +
@@ -68,7 +114,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 "Kvadratmeter LIKE @Kvadratmeter AND " +
                 "Udbudspris <= @Udbudspris AND " +
                 "HaveFlag LIKE @HaveFlag AND " +
-                "Bygningsår LIKE @Bygningsår OR " +
+                "Bygningsår LIKE @Bygningsår AND " +
                 "RenoveringsÅr LIKE @RenoveringsÅr ";
 
             SqlCommand cmdBolig = new SqlCommand(sqlCommanBolig, conn);
@@ -119,19 +165,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             return null;
         }
 
-        public void OpdaterBolig(BoligBLL bolig, SqlConnection conn)
+        public void OpdaterBolig(BoligBLL bolig)
         {
-            string sqlCommandBolig = "UPDATE Bolig SET" +
-                "Vej = IsNull(NullIf(@Vej, ''), Vej)," +
-                "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer)," +
-                "Type = IsNull(NullIf(@Type, ''), Type)," +
-                "Værelser = IsNull(NullIf(@Værelser, ''), Værelser)," +
-                "Etager = IsNull(NullIf(@Etager, ''), Etager)," +
-                "Kvadratmeter = IsNull(NullIf(@Kvadratmeter, ''), Kvadratmeter)," +
-                "Udbudspris = IsNull(NullIf(@Udbudspris, ''), Udbudspris)," +
-                "HaveFlag = IsNull(NullIf(@HaveFlag, ''), HaveFlag)," +
-                "Bygningsår = IsNull(NullIf(@Bygningsår, ''), Bygningsår)," +
-                "RenoveringsÅr = IsNull(NullIf(@RenoveringsÅr, ''), RenoveringsÅr)" +
+            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(connstr);
+
+            string sqlCommandBolig = "UPDATE Bolig SET " +
+                "Vej = IsNull(NullIf(@Vej, ''), Vej), " +
+                "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer), " +
+                "Type = IsNull(NullIf(@Type, ''), Type), " +
+                "Værelser = IsNull(NullIf(@Værelser, ''), Værelser), " +
+                "Etager = IsNull(NullIf(@Etager, ''), Etager), " +
+                "Kvadratmeter = IsNull(NullIf(@Kvadratmeter, ''), Kvadratmeter), " +
+                "Udbudspris = IsNull(NullIf(@Udbudspris, ''), Udbudspris), " +
+                "HaveFlag = IsNull(NullIf(@HaveFlag, ''), HaveFlag), " +
+                "Bygningsår = IsNull(NullIf(@Bygningsår, ''), Bygningsår), " +
+                "RenoveringsÅr = IsNull(NullIf(@RenoveringsÅr, ''), RenoveringsÅr) " +
                 "WHERE BoligID = @BoligID";
 
             SqlCommand cmdBolig = new SqlCommand(sqlCommandBolig, conn);
@@ -146,13 +195,45 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdBolig.Parameters.AddWithValue("@Bygningsår", bolig.Bygningsår);
             cmdBolig.Parameters.AddWithValue("@RenoveringsÅr", bolig.RenoveringsÅr);
             cmdBolig.Parameters.AddWithValue("@BoligID", bolig.BoligID);
+
+            try
+            {
+                conn.Open();
+                cmdBolig.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        public void SletBolig(BoligBLL bolig, SqlConnection conn)
+        public void SletBolig(BoligBLL bolig)
         {
+            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(connstr);
+
             string sqlCommandBolig = "DELETE FROM Bolig WHERE BoligID = @BoligID";
 
             SqlCommand cmdBolig = new SqlCommand(sqlCommandBolig, conn);
+            cmdBolig.Parameters.AddWithValue("@BoligID", bolig.BoligID);
+
+            try
+            {
+                conn.Open();
+                cmdBolig.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

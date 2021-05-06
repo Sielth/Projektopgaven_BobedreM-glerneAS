@@ -621,9 +621,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         internal System.Windows.Forms.TextBox KøberTelefon_txt;
         internal System.Windows.Forms.TextBox KøberVej_txt;
         internal System.Windows.Forms.TextBox KøberPostnummer_txt;
-        internal System.Windows.Forms.Button OpretKøber_knap;
-        internal System.Windows.Forms.Button FindKøber_knap;
-        internal System.Windows.Forms.Button OpdaterKøber_knap;
-        internal System.Windows.Forms.Button SletKøber_knap;
     }
 }
