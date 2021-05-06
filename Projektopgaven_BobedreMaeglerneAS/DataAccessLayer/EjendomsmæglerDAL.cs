@@ -91,14 +91,14 @@ namespace Projektopgaven_BobedreMæglerneAS
             string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
             SqlConnection conn = new SqlConnection(strconn);
 
-            string sqlCommandEjendomsmægler = "UPDATE Ejendomsmægler SET" +
-                "CPR = IsNull(NullIf(@CPR, ''), CPR)," +
-                "Telefon = IsNull(NullIf(@Telefon, ''), Telefon)," +
-                "Email = IsNull(NullIf(@Email, ''), Email)," +
-                "Fnavn = IsNull(NullIf(@Fnavn, ''), Fnavn)," +
-                "Enavn = IsNull(NullIf(@Enavn, ''), Enavn)," +
-                "Vej = IsNull(NullIf(@Vej, ''), Vej)," +
-                "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer)," +
+            string sqlCommandEjendomsmægler = "UPDATE Ejendomsmægler SET " +
+                "CPR = IsNull(NullIf(@CPR, ''), CPR), " +
+                "Telefon = IsNull(NullIf(@Telefon, ''), Telefon), " +
+                "Email = IsNull(NullIf(@Email, ''), Email), " +
+                "Fnavn = IsNull(NullIf(@Fnavn, ''), Fnavn), " +
+                "Enavn = IsNull(NullIf(@Enavn, ''), Enavn), " +
+                "Vej = IsNull(NullIf(@Vej, ''), Vej), " +
+                "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer) " +
                 "WHERE MæglerID = @MæglerID";
 
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);

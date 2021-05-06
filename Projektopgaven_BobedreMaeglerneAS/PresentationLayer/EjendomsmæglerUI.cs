@@ -37,6 +37,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             EjendomsmæglerUI_Load(sender, e);
         }
 
+
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         private void btn_HentEjendomsmægler_Click(object sender, EventArgs e) //NOT WORKING YET
         {
@@ -54,8 +55,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             EjendomsmæglerUI_Load(sender, e);
         }
 
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e) //NOT WORKING YET
+        
+        private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e) 
         {
             //Connection string - 
             string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
@@ -70,6 +71,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
         }
+
 
         private void btn_SletEjendomsmægler_Click(object sender, EventArgs e)
         {
