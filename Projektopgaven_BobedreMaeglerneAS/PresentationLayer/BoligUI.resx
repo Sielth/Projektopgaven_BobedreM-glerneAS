@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -53,869 +53,1192 @@
     value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
-
     mimetype: application/x-microsoft.net.object.bytearray.base64
     value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="boligID_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 17</value>
-  </data>
-  <data name="boligID_txt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="boligID_txt.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;boligID_txt.Name" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="boligID_txt.Location" type="System.Drawing.Point, System.Drawing">
+		<value>89, 12</value>
+	</data>
+	<data name="boligID_txt.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 20</value>
+	</data>
+	<assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="boligID_txt.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;boligID_txt.Name" xml:space="preserve">
     <value>boligID_txt</value>
   </data>
-  <data name="&gt;&gt;boligID_txt.Type" xml:space="preserve">
+	<data name="&gt;&gt;boligID_txt.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;boligID_txt.Parent" xml:space="preserve">
+	<data name="&gt;&gt;boligID_txt.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;boligID_txt.ZOrder" xml:space="preserve">
-    <value>28</value>
-  </data>
-  <data name="boligVej_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 49</value>
-  </data>
-  <data name="boligVej_txt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="boligVej_txt.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;boligVej_txt.Name" xml:space="preserve">
-    <value>boligVej_txt</value>
-  </data>
-  <data name="&gt;&gt;boligVej_txt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligVej_txt.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligVej_txt.ZOrder" xml:space="preserve">
-    <value>27</value>
-  </data>
-  <data name="boligPostnr_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 81</value>
-  </data>
-  <data name="boligPostnr_txt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="boligPostnr_txt.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;boligPostnr_txt.Name" xml:space="preserve">
-    <value>boligPostnr_txt</value>
-  </data>
-  <data name="&gt;&gt;boligPostnr_txt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligPostnr_txt.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligPostnr_txt.ZOrder" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="boligKvm_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 17</value>
-  </data>
-  <data name="boligKvm_txt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="boligKvm_txt.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;boligKvm_txt.Name" xml:space="preserve">
-    <value>boligKvm_txt</value>
-  </data>
-  <data name="&gt;&gt;boligKvm_txt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligKvm_txt.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligKvm_txt.ZOrder" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="boligUdbudspris_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 114</value>
-  </data>
-  <data name="boligUdbudspris_txt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="boligUdbudspris_txt.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;boligUdbudspris_txt.Name" xml:space="preserve">
-    <value>boligUdbudspris_txt</value>
-  </data>
-  <data name="&gt;&gt;boligUdbudspris_txt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligUdbudspris_txt.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligUdbudspris_txt.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btn_OpretBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_OpretBolig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 262</value>
-  </data>
-  <data name="btn_OpretBolig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 25</value>
-  </data>
-  <data name="btn_OpretBolig.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="btn_OpretBolig.Text" xml:space="preserve">
-    <value>Opret Bolig</value>
-  </data>
-  <data name="&gt;&gt;btn_OpretBolig.Name" xml:space="preserve">
-    <value>btn_OpretBolig</value>
-  </data>
-  <data name="&gt;&gt;btn_OpretBolig.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_OpretBolig.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_OpretBolig.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
-  </data>
-  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 293</value>
-  </data>
-  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 150</value>
-  </data>
-  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
-    <value>dataGridView1</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btn_Clear_HentBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_Clear_HentBolig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>618, 262</value>
-  </data>
-  <data name="btn_Clear_HentBolig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 25</value>
-  </data>
-  <data name="btn_Clear_HentBolig.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
-  </data>
-  <data name="btn_Clear_HentBolig.Text" xml:space="preserve">
-    <value>Clear</value>
-  </data>
-  <data name="&gt;&gt;btn_Clear_HentBolig.Name" xml:space="preserve">
-    <value>btn_Clear_HentBolig</value>
-  </data>
-  <data name="&gt;&gt;btn_Clear_HentBolig.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_Clear_HentBolig.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_Clear_HentBolig.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btn_Clear_OpretBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_Clear_OpretBolig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 262</value>
-  </data>
-  <data name="btn_Clear_OpretBolig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 25</value>
-  </data>
-  <data name="btn_Clear_OpretBolig.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="btn_Clear_OpretBolig.Text" xml:space="preserve">
-    <value>Clear</value>
-  </data>
-  <data name="&gt;&gt;btn_Clear_OpretBolig.Name" xml:space="preserve">
-    <value>btn_Clear_OpretBolig</value>
-  </data>
-  <data name="&gt;&gt;btn_Clear_OpretBolig.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_Clear_OpretBolig.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_Clear_OpretBolig.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btn_SælgBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_SælgBolig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 262</value>
-  </data>
-  <data name="btn_SælgBolig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 25</value>
-  </data>
-  <data name="btn_SælgBolig.TabIndex" type="System.Int32, mscorlib">
-    <value>44</value>
-  </data>
-  <data name="btn_SælgBolig.Text" xml:space="preserve">
-    <value>Mark as SOLD</value>
-  </data>
-  <data name="&gt;&gt;btn_SælgBolig.Name" xml:space="preserve">
-    <value>btn_SælgBolig</value>
-  </data>
-  <data name="&gt;&gt;btn_SælgBolig.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_SælgBolig.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_SælgBolig.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="boligUdbudspris_lbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="boligUdbudspris_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="boligUdbudspris_lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>455, 117</value>
-  </data>
-  <data name="boligUdbudspris_lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
-  </data>
-  <data name="boligUdbudspris_lbl.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
-  </data>
-  <data name="boligUdbudspris_lbl.Text" xml:space="preserve">
-    <value>Udbudspris</value>
-  </data>
-  <data name="&gt;&gt;boligUdbudspris_lbl.Name" xml:space="preserve">
-    <value>boligUdbudspris_lbl</value>
-  </data>
-  <data name="&gt;&gt;boligUdbudspris_lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligUdbudspris_lbl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligUdbudspris_lbl.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="boligBygningsår_lbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="boligBygningsår_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="boligBygningsår_lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>455, 53</value>
-  </data>
-  <data name="boligBygningsår_lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 13</value>
-  </data>
-  <data name="boligBygningsår_lbl.TabIndex" type="System.Int32, mscorlib">
-    <value>42</value>
-  </data>
-  <data name="boligBygningsår_lbl.Text" xml:space="preserve">
-    <value>Bygningsår</value>
-  </data>
-  <data name="&gt;&gt;boligBygningsår_lbl.Name" xml:space="preserve">
-    <value>boligBygningsår_lbl</value>
-  </data>
-  <data name="&gt;&gt;boligBygningsår_lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligBygningsår_lbl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligBygningsår_lbl.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="boligKvm_lbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="boligKvm_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="boligKvm_lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>455, 20</value>
-  </data>
-  <data name="boligKvm_lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 13</value>
-  </data>
-  <data name="boligKvm_lbl.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
-  </data>
-  <data name="boligKvm_lbl.Text" xml:space="preserve">
-    <value>Kvadratmeter</value>
-  </data>
-  <data name="&gt;&gt;boligKvm_lbl.Name" xml:space="preserve">
-    <value>boligKvm_lbl</value>
-  </data>
-  <data name="&gt;&gt;boligKvm_lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligKvm_lbl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligKvm_lbl.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="boligEtager_lbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="boligEtager_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="boligEtager_lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 72</value>
-  </data>
-  <data name="boligEtager_lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 13</value>
-  </data>
-  <data name="boligEtager_lbl.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="boligEtager_lbl.Text" xml:space="preserve">
-    <value>Etager</value>
-  </data>
-  <data name="&gt;&gt;boligEtager_lbl.Name" xml:space="preserve">
-    <value>boligEtager_lbl</value>
-  </data>
-  <data name="&gt;&gt;boligEtager_lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligEtager_lbl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligEtager_lbl.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="boligVærelser_lbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="boligVærelser_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="boligVærelser_lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 20</value>
-  </data>
-  <data name="boligVærelser_lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
-  </data>
-  <data name="boligVærelser_lbl.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="boligVærelser_lbl.Text" xml:space="preserve">
-    <value>Værelser</value>
-  </data>
-  <data name="&gt;&gt;boligVærelser_lbl.Name" xml:space="preserve">
-    <value>boligVærelser_lbl</value>
-  </data>
-  <data name="&gt;&gt;boligVærelser_lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligVærelser_lbl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligVærelser_lbl.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="boligType_lbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="boligType_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="boligType_lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 116</value>
-  </data>
-  <data name="boligType_lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 13</value>
-  </data>
-  <data name="boligType_lbl.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
-  </data>
-  <data name="boligType_lbl.Text" xml:space="preserve">
-    <value>Bolig Type</value>
-  </data>
-  <data name="&gt;&gt;boligType_lbl.Name" xml:space="preserve">
-    <value>boligType_lbl</value>
-  </data>
-  <data name="&gt;&gt;boligType_lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligType_lbl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligType_lbl.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="boligPostnr_lbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="boligPostnr_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="boligPostnr_lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 84</value>
-  </data>
-  <data name="boligPostnr_lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 13</value>
-  </data>
-  <data name="boligPostnr_lbl.TabIndex" type="System.Int32, mscorlib">
-    <value>37</value>
-  </data>
-  <data name="boligPostnr_lbl.Text" xml:space="preserve">
-    <value>Postnummer</value>
-  </data>
-  <data name="&gt;&gt;boligPostnr_lbl.Name" xml:space="preserve">
-    <value>boligPostnr_lbl</value>
-  </data>
-  <data name="&gt;&gt;boligPostnr_lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligPostnr_lbl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligPostnr_lbl.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="boligVej_lbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="boligVej_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="boligVej_lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>38, 53</value>
-  </data>
-  <data name="boligVej_lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
-  </data>
-  <data name="boligVej_lbl.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="boligVej_lbl.Text" xml:space="preserve">
-    <value>Adresse</value>
-  </data>
-  <data name="&gt;&gt;boligVej_lbl.Name" xml:space="preserve">
-    <value>boligVej_lbl</value>
-  </data>
-  <data name="&gt;&gt;boligVej_lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligVej_lbl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligVej_lbl.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="boligID_lbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="boligID_lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>38, 20</value>
-  </data>
-  <data name="boligID_lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
-  </data>
-  <data name="boligID_lbl.TabIndex" type="System.Int32, mscorlib">
+	<data name="&gt;&gt;boligID_txt.ZOrder" xml:space="preserve">
     <value>35</value>
   </data>
-  <data name="boligID_lbl.Text" xml:space="preserve">
-    <value>Bolig ID</value>
+	<data name="boligVej_txt.Location" type="System.Drawing.Point, System.Drawing">
+		<value>89, 44</value>
+	</data>
+	<data name="boligVej_txt.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 20</value>
+	</data>
+	<data name="boligVej_txt.TabIndex" type="System.Int32, mscorlib">
+		<value>1</value>
+	</data>
+	<data name="&gt;&gt;boligVej_txt.Name" xml:space="preserve">
+    <value>boligVej_txt</value>
   </data>
-  <data name="&gt;&gt;boligID_lbl.Name" xml:space="preserve">
-    <value>boligID_lbl</value>
+	<data name="&gt;&gt;boligVej_txt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;boligID_lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligID_lbl.Parent" xml:space="preserve">
+	<data name="&gt;&gt;boligVej_txt.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;boligID_lbl.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="btn_SletBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_SletBolig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>416, 262</value>
-  </data>
-  <data name="btn_SletBolig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 25</value>
-  </data>
-  <data name="btn_SletBolig.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="btn_SletBolig.Text" xml:space="preserve">
-    <value>Slet Bolig</value>
-  </data>
-  <data name="&gt;&gt;btn_SletBolig.Name" xml:space="preserve">
-    <value>btn_SletBolig</value>
-  </data>
-  <data name="&gt;&gt;btn_SletBolig.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_SletBolig.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_SletBolig.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="btn_OpdaterBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_OpdaterBolig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>214, 262</value>
-  </data>
-  <data name="btn_OpdaterBolig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 25</value>
-  </data>
-  <data name="btn_OpdaterBolig.TabIndex" type="System.Int32, mscorlib">
+	<data name="&gt;&gt;boligVej_txt.ZOrder" xml:space="preserve">
     <value>34</value>
   </data>
-  <data name="btn_OpdaterBolig.Text" xml:space="preserve">
-    <value>Opdater Bolig</value>
+	<data name="boligPostnr_txt.Location" type="System.Drawing.Point, System.Drawing">
+		<value>89, 76</value>
+	</data>
+	<data name="boligPostnr_txt.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 20</value>
+	</data>
+	<data name="boligPostnr_txt.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="&gt;&gt;boligPostnr_txt.Name" xml:space="preserve">
+    <value>boligPostnr_txt</value>
   </data>
-  <data name="&gt;&gt;btn_OpdaterBolig.Name" xml:space="preserve">
-    <value>btn_OpdaterBolig</value>
+	<data name="&gt;&gt;boligPostnr_txt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_OpdaterBolig.Type" xml:space="preserve">
+	<data name="&gt;&gt;boligPostnr_txt.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligPostnr_txt.ZOrder" xml:space="preserve">
+    <value>33</value>
+  </data>
+	<data name="boligKvm_txt.Location" type="System.Drawing.Point, System.Drawing">
+		<value>349, 12</value>
+	</data>
+	<data name="boligKvm_txt.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 20</value>
+	</data>
+	<data name="boligKvm_txt.TabIndex" type="System.Int32, mscorlib">
+		<value>6</value>
+	</data>
+	<data name="&gt;&gt;boligKvm_txt.Name" xml:space="preserve">
+    <value>boligKvm_txt</value>
+  </data>
+	<data name="&gt;&gt;boligKvm_txt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligKvm_txt.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligKvm_txt.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+	<data name="boligUdbudspris_txt.Location" type="System.Drawing.Point, System.Drawing">
+		<value>349, 109</value>
+	</data>
+	<data name="boligUdbudspris_txt.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 20</value>
+	</data>
+	<data name="boligUdbudspris_txt.TabIndex" type="System.Int32, mscorlib">
+		<value>7</value>
+	</data>
+	<data name="&gt;&gt;boligUdbudspris_txt.Name" xml:space="preserve">
+    <value>boligUdbudspris_txt</value>
+  </data>
+	<data name="&gt;&gt;boligUdbudspris_txt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligUdbudspris_txt.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligUdbudspris_txt.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+	<data name="btn_OpretBolig.Location" type="System.Drawing.Point, System.Drawing">
+		<value>22, 235</value>
+	</data>
+	<data name="btn_OpretBolig.Size" type="System.Drawing.Size, System.Drawing">
+		<value>95, 25</value>
+	</data>
+	<data name="btn_OpretBolig.TabIndex" type="System.Int32, mscorlib">
+		<value>11</value>
+	</data>
+	<data name="btn_OpretBolig.Text" xml:space="preserve">
+    <value>Opret Bolig</value>
+  </data>
+	<data name="&gt;&gt;btn_OpretBolig.Name" xml:space="preserve">
+    <value>btn_OpretBolig</value>
+  </data>
+	<data name="&gt;&gt;btn_OpretBolig.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_OpdaterBolig.Parent" xml:space="preserve">
+	<data name="&gt;&gt;btn_OpretBolig.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btn_OpdaterBolig.ZOrder" xml:space="preserve">
-    <value>14</value>
+	<data name="&gt;&gt;btn_OpretBolig.ZOrder" xml:space="preserve">
+    <value>30</value>
   </data>
-  <data name="btn_HentBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+	<metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>17, 17</value>
+	</metadata>
+	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>True</value>
+	</metadata>
+	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+		<value>6, 13</value>
+	</data>
+	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+		<value>800, 450</value>
+	</data>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="saveChanges_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="saveChanges_btn.Location" type="System.Drawing.Point, System.Drawing">
+		<value>632, 184</value>
+	</data>
+	<data name="saveChanges_btn.Size" type="System.Drawing.Size, System.Drawing">
+		<value>95, 25</value>
+	</data>
+	<data name="saveChanges_btn.TabIndex" type="System.Int32, mscorlib">
+		<value>54</value>
+	</data>
+	<data name="saveChanges_btn.Text" xml:space="preserve">
+    <value>Save changes</value>
   </data>
-  <data name="btn_HentBolig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 262</value>
+	<data name="&gt;&gt;saveChanges_btn.Name" xml:space="preserve">
+    <value>saveChanges_btn</value>
   </data>
-  <data name="btn_HentBolig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 25</value>
-  </data>
-  <data name="btn_HentBolig.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="btn_HentBolig.Text" xml:space="preserve">
-    <value>Hent Bolig</value>
-  </data>
-  <data name="&gt;&gt;btn_HentBolig.Name" xml:space="preserve">
-    <value>btn_HentBolig</value>
-  </data>
-  <data name="&gt;&gt;btn_HentBolig.Type" xml:space="preserve">
+	<data name="&gt;&gt;saveChanges_btn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_HentBolig.Parent" xml:space="preserve">
+	<data name="&gt;&gt;saveChanges_btn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btn_HentBolig.ZOrder" xml:space="preserve">
-    <value>15</value>
+	<data name="&gt;&gt;saveChanges_btn.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="boligRenoveringsÅr_dtp.CustomFormat" xml:space="preserve">
-    <value>yyyy</value>
+	<data name="allowRedigering_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="allowRedigering_btn.Location" type="System.Drawing.Point, System.Drawing">
+		<value>632, 150</value>
+	</data>
+	<data name="allowRedigering_btn.Size" type="System.Drawing.Size, System.Drawing">
+		<value>95, 25</value>
+	</data>
+	<data name="allowRedigering_btn.TabIndex" type="System.Int32, mscorlib">
+		<value>53</value>
+	</data>
+	<data name="allowRedigering_btn.Text" xml:space="preserve">
+    <value>Allow redigering</value>
   </data>
-  <data name="boligRenoveringsÅr_dtp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 81</value>
+	<data name="&gt;&gt;allowRedigering_btn.Name" xml:space="preserve">
+    <value>allowRedigering_btn</value>
   </data>
-  <data name="boligRenoveringsÅr_dtp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+	<data name="&gt;&gt;allowRedigering_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="boligRenoveringsÅr_dtp.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;boligRenoveringsÅr_dtp.Name" xml:space="preserve">
-    <value>boligRenoveringsÅr_dtp</value>
-  </data>
-  <data name="&gt;&gt;boligRenoveringsÅr_dtp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligRenoveringsÅr_dtp.Parent" xml:space="preserve">
+	<data name="&gt;&gt;allowRedigering_btn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;boligRenoveringsÅr_dtp.ZOrder" xml:space="preserve">
-    <value>16</value>
+	<data name="&gt;&gt;allowRedigering_btn.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="boligRenoveret_ckbox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+	<data name="search_txt.Location" type="System.Drawing.Point, System.Drawing">
+		<value>348, 189</value>
+	</data>
+	<data name="search_txt.Size" type="System.Drawing.Size, System.Drawing">
+		<value>236, 20</value>
+	</data>
+	<data name="search_txt.TabIndex" type="System.Int32, mscorlib">
+		<value>52</value>
+	</data>
+	<data name="&gt;&gt;search_txt.Name" xml:space="preserve">
+    <value>search_txt</value>
   </data>
-  <data name="boligRenoveret_ckbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>458, 83</value>
+	<data name="&gt;&gt;search_txt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="boligRenoveret_ckbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 17</value>
-  </data>
-  <data name="boligRenoveret_ckbox.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="boligRenoveret_ckbox.Text" xml:space="preserve">
-    <value>Renoveret</value>
-  </data>
-  <data name="&gt;&gt;boligRenoveret_ckbox.Name" xml:space="preserve">
-    <value>boligRenoveret_ckbox</value>
-  </data>
-  <data name="&gt;&gt;boligRenoveret_ckbox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligRenoveret_ckbox.Parent" xml:space="preserve">
+	<data name="&gt;&gt;search_txt.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;boligRenoveret_ckbox.ZOrder" xml:space="preserve">
-    <value>17</value>
+	<data name="&gt;&gt;search_txt.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="boligBygningsÅr_dtp.CustomFormat" xml:space="preserve">
-    <value>yyyy</value>
+	<data name="search_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="search_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>301, 192</value>
+	</data>
+	<data name="search_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>41, 13</value>
+	</data>
+	<data name="search_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>51</value>
+	</data>
+	<data name="search_lbl.Text" xml:space="preserve">
+    <value>Search</value>
   </data>
-  <data name="boligBygningsÅr_dtp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 49</value>
+	<data name="&gt;&gt;search_lbl.Name" xml:space="preserve">
+    <value>search_lbl</value>
   </data>
-  <data name="boligBygningsÅr_dtp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+	<data name="&gt;&gt;search_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="boligBygningsÅr_dtp.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;boligBygningsÅr_dtp.Name" xml:space="preserve">
-    <value>boligBygningsÅr_dtp</value>
-  </data>
-  <data name="&gt;&gt;boligBygningsÅr_dtp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligBygningsÅr_dtp.Parent" xml:space="preserve">
+	<data name="&gt;&gt;search_lbl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;boligBygningsÅr_dtp.ZOrder" xml:space="preserve">
-    <value>18</value>
+	<data name="&gt;&gt;search_lbl.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="boligHave_ckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+	<data name="filterCriteria_cbox.Items" xml:space="preserve">
+    <value>Bolig ID</value>
   </data>
-  <data name="boligHave_ckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>546, 83</value>
+	<data name="filterCriteria_cbox.Items1" xml:space="preserve">
+    <value>Adresse</value>
   </data>
-  <data name="boligHave_ckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 17</value>
+	<data name="filterCriteria_cbox.Items2" xml:space="preserve">
+    <value>Postnummer</value>
   </data>
-  <data name="boligHave_ckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+	<data name="filterCriteria_cbox.Items3" xml:space="preserve">
+    <value>Bolig Type</value>
   </data>
-  <data name="boligHave_ckBox.Text" xml:space="preserve">
-    <value>Have</value>
+	<data name="filterCriteria_cbox.Items4" xml:space="preserve">
+    <value>Værelser</value>
   </data>
-  <data name="&gt;&gt;boligHave_ckBox.Name" xml:space="preserve">
-    <value>boligHave_ckBox</value>
+	<data name="filterCriteria_cbox.Items5" xml:space="preserve">
+    <value>Etager</value>
   </data>
-  <data name="&gt;&gt;boligHave_ckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	<data name="filterCriteria_cbox.Items6" xml:space="preserve">
+    <value>Kvadratmeter</value>
   </data>
-  <data name="&gt;&gt;boligHave_ckBox.Parent" xml:space="preserve">
-    <value>$this</value>
+	<data name="filterCriteria_cbox.Items7" xml:space="preserve">
+    <value>Bygningsår</value>
   </data>
-  <data name="&gt;&gt;boligHave_ckBox.ZOrder" xml:space="preserve">
-    <value>19</value>
+	<data name="filterCriteria_cbox.Items8" xml:space="preserve">
+    <value>Renoveringsår</value>
   </data>
-  <data name="boligEtager_tbar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+	<data name="filterCriteria_cbox.Items9" xml:space="preserve">
+    <value>Udbudspris (lower than)</value>
   </data>
-  <data name="boligEtager_tbar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 88</value>
+	<data name="filterCriteria_cbox.Items10" xml:space="preserve">
+    <value>Udbudspris (higher than)</value>
   </data>
-  <data name="boligEtager_tbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 45</value>
+	<data name="filterCriteria_cbox.Location" type="System.Drawing.Point, System.Drawing">
+		<value>83, 189</value>
+	</data>
+	<data name="filterCriteria_cbox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>212, 21</value>
+	</data>
+	<data name="filterCriteria_cbox.TabIndex" type="System.Int32, mscorlib">
+		<value>50</value>
+	</data>
+	<data name="&gt;&gt;filterCriteria_cbox.Name" xml:space="preserve">
+    <value>filterCriteria_cbox</value>
   </data>
-  <data name="boligEtager_tbar.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;boligEtager_tbar.Name" xml:space="preserve">
-    <value>boligEtager_tbar</value>
-  </data>
-  <data name="&gt;&gt;boligEtager_tbar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligEtager_tbar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligEtager_tbar.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="boligVærelser_tbar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="boligVærelser_tbar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 36</value>
-  </data>
-  <data name="boligVærelser_tbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 45</value>
-  </data>
-  <data name="boligVærelser_tbar.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;boligVærelser_tbar.Name" xml:space="preserve">
-    <value>boligVærelser_tbar</value>
-  </data>
-  <data name="&gt;&gt;boligVærelser_tbar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligVærelser_tbar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;boligVærelser_tbar.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="boligType_cbox.Items" xml:space="preserve">
-    <value>Villa</value>
-  </data>
-  <data name="boligType_cbox.Items1" xml:space="preserve">
-    <value>Lejlighed</value>
-  </data>
-  <data name="boligType_cbox.Items2" xml:space="preserve">
-    <value>Rækkehus</value>
-  </data>
-  <data name="boligType_cbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 113</value>
-  </data>
-  <data name="boligType_cbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="boligType_cbox.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;boligType_cbox.Name" xml:space="preserve">
-    <value>boligType_cbox</value>
-  </data>
-  <data name="&gt;&gt;boligType_cbox.Type" xml:space="preserve">
+	<data name="&gt;&gt;filterCriteria_cbox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;boligType_cbox.Parent" xml:space="preserve">
+	<data name="&gt;&gt;filterCriteria_cbox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;boligType_cbox.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;filterCriteria_cbox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+	<data name="label1.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+		<value>9, 192</value>
+	</data>
+	<data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+		<value>75, 13</value>
+	</data>
+	<data name="label1.TabIndex" type="System.Int32, mscorlib">
+		<value>49</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
+    <value>Search criteria</value>
+  </data>
+	<data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+	<data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+	<data name="find_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="find_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>9, 173</value>
+	</data>
+	<data name="find_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>173, 13</value>
+	</data>
+	<data name="find_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>48</value>
+	</data>
+	<data name="find_lbl.Text" xml:space="preserve">
+    <value>Not finding what you're looking for?</value>
+  </data>
+	<data name="&gt;&gt;find_lbl.Name" xml:space="preserve">
+    <value>find_lbl</value>
+  </data>
+	<data name="&gt;&gt;find_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;find_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;find_lbl.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+	<data name="btn_Clear_HentBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="btn_Clear_HentBolig.Location" type="System.Drawing.Point, System.Drawing">
+		<value>632, 235</value>
+	</data>
+	<data name="btn_Clear_HentBolig.Size" type="System.Drawing.Size, System.Drawing">
+		<value>95, 25</value>
+	</data>
+	<data name="btn_Clear_HentBolig.TabIndex" type="System.Int32, mscorlib">
+		<value>46</value>
+	</data>
+	<data name="btn_Clear_HentBolig.Text" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+	<data name="&gt;&gt;btn_Clear_HentBolig.Name" xml:space="preserve">
+    <value>btn_Clear_HentBolig</value>
+  </data>
+	<data name="&gt;&gt;btn_Clear_HentBolig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btn_Clear_HentBolig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btn_Clear_HentBolig.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+	<data name="btn_Clear_OpretBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="btn_Clear_OpretBolig.Location" type="System.Drawing.Point, System.Drawing">
+		<value>531, 235</value>
+	</data>
+	<data name="btn_Clear_OpretBolig.Size" type="System.Drawing.Size, System.Drawing">
+		<value>95, 25</value>
+	</data>
+	<data name="btn_Clear_OpretBolig.TabIndex" type="System.Int32, mscorlib">
+		<value>45</value>
+	</data>
+	<data name="btn_Clear_OpretBolig.Text" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+	<data name="&gt;&gt;btn_Clear_OpretBolig.Name" xml:space="preserve">
+    <value>btn_Clear_OpretBolig</value>
+  </data>
+	<data name="&gt;&gt;btn_Clear_OpretBolig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btn_Clear_OpretBolig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btn_Clear_OpretBolig.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+	<data name="btn_SælgBolig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="btn_SælgBolig.Location" type="System.Drawing.Point, System.Drawing">
+		<value>325, 235</value>
+	</data>
+	<data name="btn_SælgBolig.Size" type="System.Drawing.Size, System.Drawing">
+		<value>95, 25</value>
+	</data>
+	<data name="btn_SælgBolig.TabIndex" type="System.Int32, mscorlib">
+		<value>44</value>
+	</data>
+	<data name="btn_SælgBolig.Text" xml:space="preserve">
+    <value>Mark as SOLD</value>
+  </data>
+	<data name="&gt;&gt;btn_SælgBolig.Name" xml:space="preserve">
+    <value>btn_SælgBolig</value>
+  </data>
+	<data name="&gt;&gt;btn_SælgBolig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btn_SælgBolig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btn_SælgBolig.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+	<data name="boligUdbudspris_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligUdbudspris_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="boligUdbudspris_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>455, 112</value>
+	</data>
+	<data name="boligUdbudspris_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>60, 13</value>
+	</data>
+	<data name="boligUdbudspris_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>43</value>
+	</data>
+	<data name="boligUdbudspris_lbl.Text" xml:space="preserve">
+    <value>Udbudspris</value>
+  </data>
+	<data name="&gt;&gt;boligUdbudspris_lbl.Name" xml:space="preserve">
+    <value>boligUdbudspris_lbl</value>
+  </data>
+	<data name="&gt;&gt;boligUdbudspris_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligUdbudspris_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligUdbudspris_lbl.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+	<data name="boligBygningsår_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligBygningsår_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="boligBygningsår_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>455, 48</value>
+	</data>
+	<data name="boligBygningsår_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>59, 13</value>
+	</data>
+	<data name="boligBygningsår_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>42</value>
+	</data>
+	<data name="boligBygningsår_lbl.Text" xml:space="preserve">
+    <value>Bygningsår</value>
+  </data>
+	<data name="&gt;&gt;boligBygningsår_lbl.Name" xml:space="preserve">
+    <value>boligBygningsår_lbl</value>
+  </data>
+	<data name="&gt;&gt;boligBygningsår_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligBygningsår_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligBygningsår_lbl.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+	<data name="boligKvm_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligKvm_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="boligKvm_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>455, 15</value>
+	</data>
+	<data name="boligKvm_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>70, 13</value>
+	</data>
+	<data name="boligKvm_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>41</value>
+	</data>
+	<data name="boligKvm_lbl.Text" xml:space="preserve">
+    <value>Kvadratmeter</value>
+  </data>
+	<data name="&gt;&gt;boligKvm_lbl.Name" xml:space="preserve">
+    <value>boligKvm_lbl</value>
+  </data>
+	<data name="&gt;&gt;boligKvm_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligKvm_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligKvm_lbl.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+	<data name="boligEtager_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligEtager_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="boligEtager_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>250, 67</value>
+	</data>
+	<data name="boligEtager_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>38, 13</value>
+	</data>
+	<data name="boligEtager_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>40</value>
+	</data>
+	<data name="boligEtager_lbl.Text" xml:space="preserve">
+    <value>Etager</value>
+  </data>
+	<data name="&gt;&gt;boligEtager_lbl.Name" xml:space="preserve">
+    <value>boligEtager_lbl</value>
+  </data>
+	<data name="&gt;&gt;boligEtager_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligEtager_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligEtager_lbl.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+	<data name="boligVærelser_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligVærelser_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="boligVærelser_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>246, 15</value>
+	</data>
+	<data name="boligVærelser_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>49, 13</value>
+	</data>
+	<data name="boligVærelser_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>39</value>
+	</data>
+	<data name="boligVærelser_lbl.Text" xml:space="preserve">
+    <value>Værelser</value>
+  </data>
+	<data name="&gt;&gt;boligVærelser_lbl.Name" xml:space="preserve">
+    <value>boligVærelser_lbl</value>
+  </data>
+	<data name="&gt;&gt;boligVærelser_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligVærelser_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligVærelser_lbl.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+	<data name="boligType_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligType_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="boligType_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>26, 111</value>
+	</data>
+	<data name="boligType_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>57, 13</value>
+	</data>
+	<data name="boligType_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>38</value>
+	</data>
+	<data name="boligType_lbl.Text" xml:space="preserve">
+    <value>Bolig Type</value>
+  </data>
+	<data name="&gt;&gt;boligType_lbl.Name" xml:space="preserve">
+    <value>boligType_lbl</value>
+  </data>
+	<data name="&gt;&gt;boligType_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligType_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligType_lbl.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+	<data name="boligPostnr_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligPostnr_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="boligPostnr_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>18, 79</value>
+	</data>
+	<data name="boligPostnr_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>65, 13</value>
+	</data>
+	<data name="boligPostnr_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>37</value>
+	</data>
+	<data name="boligPostnr_lbl.Text" xml:space="preserve">
+    <value>Postnummer</value>
+  </data>
+	<data name="&gt;&gt;boligPostnr_lbl.Name" xml:space="preserve">
+    <value>boligPostnr_lbl</value>
+  </data>
+	<data name="&gt;&gt;boligPostnr_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligPostnr_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligPostnr_lbl.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+	<data name="boligVej_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligVej_lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="boligVej_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>38, 48</value>
+	</data>
+	<data name="boligVej_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>45, 13</value>
+	</data>
+	<data name="boligVej_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>36</value>
+	</data>
+	<data name="boligVej_lbl.Text" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+	<data name="&gt;&gt;boligVej_lbl.Name" xml:space="preserve">
+    <value>boligVej_lbl</value>
+  </data>
+	<data name="&gt;&gt;boligVej_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligVej_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligVej_lbl.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+	<data name="boligID_lbl.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligID_lbl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>39, 15</value>
+	</data>
+	<data name="boligID_lbl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>44, 13</value>
+	</data>
+	<data name="boligID_lbl.TabIndex" type="System.Int32, mscorlib">
+		<value>35</value>
+	</data>
+	<data name="boligID_lbl.Text" xml:space="preserve">
+    <value>Bolig ID</value>
+  </data>
+	<data name="&gt;&gt;boligID_lbl.Name" xml:space="preserve">
+    <value>boligID_lbl</value>
+  </data>
+	<data name="&gt;&gt;boligID_lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligID_lbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligID_lbl.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+	<metadata name="boligBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>432, 17</value>
+	</metadata>
+	<data name="bolig_DataGridView.Location" type="System.Drawing.Point, System.Drawing">
+		<value>12, 266</value>
+	</data>
+	<data name="bolig_DataGridView.Size" type="System.Drawing.Size, System.Drawing">
+		<value>776, 172</value>
+	</data>
+	<data name="bolig_DataGridView.TabIndex" type="System.Int32, mscorlib">
+		<value>47</value>
+	</data>
+	<data name="&gt;&gt;bolig_DataGridView.Name" xml:space="preserve">
+    <value>bolig_DataGridView</value>
+  </data>
+	<data name="&gt;&gt;bolig_DataGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;bolig_DataGridView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;bolig_DataGridView.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+	<data name="btn_SletBolig.Location" type="System.Drawing.Point, System.Drawing">
+		<value>430, 235</value>
+	</data>
+	<data name="btn_SletBolig.Size" type="System.Drawing.Size, System.Drawing">
+		<value>95, 25</value>
+	</data>
+	<data name="btn_SletBolig.TabIndex" type="System.Int32, mscorlib">
+		<value>33</value>
+	</data>
+	<data name="btn_SletBolig.Text" xml:space="preserve">
+    <value>Slet Bolig</value>
+  </data>
+	<data name="&gt;&gt;btn_SletBolig.Name" xml:space="preserve">
+    <value>btn_SletBolig</value>
+  </data>
+	<data name="&gt;&gt;btn_SletBolig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btn_SletBolig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btn_SletBolig.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+	<data name="btn_OpdaterBolig.Location" type="System.Drawing.Point, System.Drawing">
+		<value>224, 235</value>
+	</data>
+	<data name="btn_OpdaterBolig.Size" type="System.Drawing.Size, System.Drawing">
+		<value>95, 25</value>
+	</data>
+	<data name="btn_OpdaterBolig.TabIndex" type="System.Int32, mscorlib">
+		<value>34</value>
+	</data>
+	<data name="btn_OpdaterBolig.Text" xml:space="preserve">
+    <value>Opdater Bolig</value>
+  </data>
+	<data name="&gt;&gt;btn_OpdaterBolig.Name" xml:space="preserve">
+    <value>btn_OpdaterBolig</value>
+  </data>
+	<data name="&gt;&gt;btn_OpdaterBolig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btn_OpdaterBolig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btn_OpdaterBolig.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+	<data name="btn_HentBolig.Location" type="System.Drawing.Point, System.Drawing">
+		<value>123, 235</value>
+	</data>
+	<data name="btn_HentBolig.Size" type="System.Drawing.Size, System.Drawing">
+		<value>95, 25</value>
+	</data>
+	<data name="btn_HentBolig.TabIndex" type="System.Int32, mscorlib">
+		<value>29</value>
+	</data>
+	<data name="btn_HentBolig.Text" xml:space="preserve">
+    <value>Hent Bolig</value>
+  </data>
+	<data name="&gt;&gt;btn_HentBolig.Name" xml:space="preserve">
+    <value>btn_HentBolig</value>
+  </data>
+	<data name="&gt;&gt;btn_HentBolig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btn_HentBolig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btn_HentBolig.ZOrder" xml:space="preserve">
     <value>22</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
+	<data name="boligRenoveringsÅr_dtp.CustomFormat" xml:space="preserve">
+    <value>yyyy</value>
+  </data>
+	<data name="boligRenoveringsÅr_dtp.Location" type="System.Drawing.Point, System.Drawing">
+		<value>349, 76</value>
+	</data>
+	<data name="boligRenoveringsÅr_dtp.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 20</value>
+	</data>
+	<data name="boligRenoveringsÅr_dtp.TabIndex" type="System.Int32, mscorlib">
+		<value>18</value>
+	</data>
+	<data name="&gt;&gt;boligRenoveringsÅr_dtp.Name" xml:space="preserve">
+    <value>boligRenoveringsÅr_dtp</value>
+  </data>
+	<data name="&gt;&gt;boligRenoveringsÅr_dtp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligRenoveringsÅr_dtp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligRenoveringsÅr_dtp.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+	<data name="boligRenoveret_ckbox.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligRenoveret_ckbox.Location" type="System.Drawing.Point, System.Drawing">
+		<value>458, 78</value>
+	</data>
+	<data name="boligRenoveret_ckbox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>76, 17</value>
+	</data>
+	<data name="boligRenoveret_ckbox.TabIndex" type="System.Int32, mscorlib">
+		<value>17</value>
+	</data>
+	<data name="boligRenoveret_ckbox.Text" xml:space="preserve">
+    <value>Renoveret</value>
+  </data>
+	<data name="&gt;&gt;boligRenoveret_ckbox.Name" xml:space="preserve">
+    <value>boligRenoveret_ckbox</value>
+  </data>
+	<data name="&gt;&gt;boligRenoveret_ckbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligRenoveret_ckbox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligRenoveret_ckbox.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+	<data name="boligBygningsÅr_dtp.CustomFormat" xml:space="preserve">
+    <value>yyyy</value>
+  </data>
+	<data name="boligBygningsÅr_dtp.Location" type="System.Drawing.Point, System.Drawing">
+		<value>349, 44</value>
+	</data>
+	<data name="boligBygningsÅr_dtp.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 20</value>
+	</data>
+	<data name="boligBygningsÅr_dtp.TabIndex" type="System.Int32, mscorlib">
+		<value>16</value>
+	</data>
+	<data name="&gt;&gt;boligBygningsÅr_dtp.Name" xml:space="preserve">
+    <value>boligBygningsÅr_dtp</value>
+  </data>
+	<data name="&gt;&gt;boligBygningsÅr_dtp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligBygningsÅr_dtp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligBygningsÅr_dtp.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+	<data name="boligHave_ckBox.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="boligHave_ckBox.Location" type="System.Drawing.Point, System.Drawing">
+		<value>546, 78</value>
+	</data>
+	<data name="boligHave_ckBox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>52, 17</value>
+	</data>
+	<data name="boligHave_ckBox.TabIndex" type="System.Int32, mscorlib">
+		<value>15</value>
+	</data>
+	<data name="boligHave_ckBox.Text" xml:space="preserve">
+    <value>Have</value>
+  </data>
+	<data name="&gt;&gt;boligHave_ckBox.Name" xml:space="preserve">
+    <value>boligHave_ckBox</value>
+  </data>
+	<data name="&gt;&gt;boligHave_ckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligHave_ckBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligHave_ckBox.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+	<data name="boligEtager_tbar.Location" type="System.Drawing.Point, System.Drawing">
+		<value>219, 83</value>
+	</data>
+	<data name="boligEtager_tbar.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 45</value>
+	</data>
+	<data name="boligEtager_tbar.TabIndex" type="System.Int32, mscorlib">
+		<value>14</value>
+	</data>
+	<data name="&gt;&gt;boligEtager_tbar.Name" xml:space="preserve">
+    <value>boligEtager_tbar</value>
+  </data>
+	<data name="&gt;&gt;boligEtager_tbar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligEtager_tbar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligEtager_tbar.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+	<data name="boligVærelser_tbar.Location" type="System.Drawing.Point, System.Drawing">
+		<value>219, 31</value>
+	</data>
+	<data name="boligVærelser_tbar.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 45</value>
+	</data>
+	<data name="boligVærelser_tbar.TabIndex" type="System.Int32, mscorlib">
+		<value>13</value>
+	</data>
+	<data name="&gt;&gt;boligVærelser_tbar.Name" xml:space="preserve">
+    <value>boligVærelser_tbar</value>
+  </data>
+	<data name="&gt;&gt;boligVærelser_tbar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligVærelser_tbar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligVærelser_tbar.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+	<data name="boligType_cbox.Items" xml:space="preserve">
+    <value>Villa</value>
+  </data>
+	<data name="boligType_cbox.Items1" xml:space="preserve">
+    <value>Lejlighed</value>
+  </data>
+	<data name="boligType_cbox.Items2" xml:space="preserve">
+    <value>Rækkehus</value>
+  </data>
+	<data name="boligType_cbox.Location" type="System.Drawing.Point, System.Drawing">
+		<value>89, 108</value>
+	</data>
+	<data name="boligType_cbox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>100, 21</value>
+	</data>
+	<data name="boligType_cbox.TabIndex" type="System.Int32, mscorlib">
+		<value>12</value>
+	</data>
+	<data name="&gt;&gt;boligType_cbox.Name" xml:space="preserve">
+    <value>boligType_cbox</value>
+  </data>
+	<data name="&gt;&gt;boligType_cbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligType_cbox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;boligType_cbox.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+	<data name="$this.Text" xml:space="preserve">
     <value>BoligUI</value>
   </data>
-  <data name="&gt;&gt;errorProvider1.Name" xml:space="preserve">
+	<data name="&gt;&gt;errorProvider1.Name" xml:space="preserve">
     <value>errorProvider1</value>
   </data>
-  <data name="&gt;&gt;errorProvider1.Type" xml:space="preserve">
+	<data name="&gt;&gt;errorProvider1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
+	<data name="&gt;&gt;boligIDDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>boligIDDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;boligIDDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;vejDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>vejDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;vejDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;postnummerDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>postnummerDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;postnummerDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;typeDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>typeDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;typeDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;værelserDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>værelserDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;værelserDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;etagerDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>etagerDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;etagerDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;kvadratmeterDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>kvadratmeterDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;kvadratmeterDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;udbudsprisDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>udbudsprisDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;udbudsprisDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;haveFlagDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>haveFlagDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;haveFlagDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;bygningsårDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>bygningsårDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;bygningsårDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;renoveringsÅrDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>renoveringsÅrDataGridViewTextBoxColumn</value>
+  </data>
+	<data name="&gt;&gt;renoveringsÅrDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;boligBindingSource.Name" xml:space="preserve">
+    <value>boligBindingSource</value>
+  </data>
+	<data name="&gt;&gt;boligBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;bobedredbDataSet_Bolig.Name" xml:space="preserve">
+    <value>bobedredbDataSet_Bolig</value>
+  </data>
+	<data name="&gt;&gt;bobedredbDataSet_Bolig.Type" xml:space="preserve">
+    <value>Projektopgaven_BobedreMaeglerneAS.bobedredbDataSet_Bolig, bobedredbDataSet_Bolig.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+	<data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
     <value>toolTip1</value>
   </data>
-  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+	<data name="&gt;&gt;boligTableAdapter.Name" xml:space="preserve">
+    <value>boligTableAdapter</value>
+  </data>
+	<data name="&gt;&gt;boligTableAdapter.Type" xml:space="preserve">
+    <value>Projektopgaven_BobedreMaeglerneAS.bobedredbDataSet_BoligTableAdapters.BoligTableAdapter, bobedredbDataSet_Bolig.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+	<data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>BoligUI</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>147, 17</value>
-  </metadata>
+	<data name="boligIDDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>BoligID</value>
+  </data>
+	<data name="vejDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Vej</value>
+  </data>
+	<data name="postnummerDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Postnummer</value>
+  </data>
+	<data name="typeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Type</value>
+  </data>
+	<data name="værelserDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Værelser</value>
+  </data>
+	<data name="etagerDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Etager</value>
+  </data>
+	<data name="kvadratmeterDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Kvadratmeter</value>
+  </data>
+	<data name="udbudsprisDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Udbudspris</value>
+  </data>
+	<data name="haveFlagDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>HaveFlag</value>
+  </data>
+	<data name="bygningsårDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Bygningsår</value>
+  </data>
+	<data name="renoveringsÅrDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>RenoveringsÅr</value>
+  </data>
+	<metadata name="boligBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>432, 17</value>
+	</metadata>
+	<metadata name="bobedredbDataSet_Bolig.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>244, 17</value>
+	</metadata>
+	<metadata name="bobedredbDataSet_Bolig.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>244, 17</value>
+	</metadata>
+	<metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>147, 17</value>
+	</metadata>
+	<metadata name="boligTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>590, 17</value>
+	</metadata>
 </root>

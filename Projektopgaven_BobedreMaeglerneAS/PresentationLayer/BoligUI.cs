@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -88,60 +88,124 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
-        #region Hent Bolig
+        #region Hent Bolig / Opdater Bolig
         private void btn_HentBolig_Click(object sender, EventArgs e)
+        {
+            BoligBLL boligBLL = new BoligBLL(BoligID());
+            BoligDAL boligDAL = new BoligDAL(boligBLL);
+
+            try
+            {
+                BoligBLL matchingbolig = boligDAL.HentBoligViaID(boligBLL);
+
+                boligVej_txt.Text = matchingbolig.Vej.ToString();
+                boligPostnr_txt.Text = matchingbolig.Postnummer.ToString();
+                boligType_cbox.Text = matchingbolig.Type.ToString();
+                boligVærelser_tbar.Value = matchingbolig.Værelser;
+                boligEtager_tbar.Value = matchingbolig.Etager;
+                boligKvm_txt.Text = matchingbolig.Kvadratmeter.ToString();
+                //boligHave_ckBox
+                //boligBygningsÅr_dtp
+                //boligRenoveringsÅr_dtp
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            //retrieve desired entry by id 
+            //add enable editing button (enables textboxes)
+            //edit and save (new button)
+        }
+
+        private void allowRedigering_btn_Click(object sender, EventArgs e)
+        {
+            EnableAll();
+        }
+
+        private void saveChanges_btn_Click(object sender, EventArgs e)
         {
             BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
+            try
+            {
+                boligDAL.OpdaterBolig(boligBLL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            //Updatedversion
+            BoligUI_Load(sender, e);
+            DisableAll();
+            boligID_txt.Enabled = true;
         }
 
         private void search_txt_TextChanged(object sender, EventArgs e)
         {
-            //string input = filterCriteria_cbox.SelectedItem.ToString();
+            string input = filterCriteria_cbox.SelectedItem.ToString();
 
-            //switch (input)
+            switch (input)
             {
-                //    case "Bolig ID":
-                //        this.boligBindingSource.Filter = string.Format("Convert(BoligID, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //        break;
-                //    case "Adresse":
-                //        this.boligBindingSource.Filter = string.Format("Vej LIKE '*{0}*'", search_txt.Text);
-                //        break;
-                //    case "Postnummer":
-                //        this.boligBindingSource.Filter = string.Format("Convert(Postnummer, 'System.String') LIKE '%{0}%'", search_txt.Text);
-                //        break;
-                //    case "Bolig Type":
-                //        this.boligBindingSource.Filter = string.Format("Type LIKE '*{0}*'", search_txt.Text);
-                //        break;
-                //    case "Værelser":
-                //        this.boligBindingSource.Filter = string.Format("Convert(Værelser, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //        break;
-                //    case "Etager":
-                //        this.boligBindingSource.Filter = string.Format("Convert(Etager, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //        break;
-                //    case "Kvadratmeter":
-                //        this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //        break;
-                //    case "Bygningsår":
-                //        break;
-                //    case "Renoveringsår":
-                //        break;
-                //    case "Udbudspris(less than)":
-                //        break;
-                //    case "Udbudspris(greater than)":
-                //        break;
+                //case "Bolig ID":
+                //    this.boligBindingSource.Filter = string.Format("Convert(BoligID, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Adresse":
+                //    this.boligBindingSource.Filter = string.Format("Vej LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Postnummer":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Postnummer, 'System.String') LIKE '%{0}%'", search_txt.Text);
+                //    break;
+                //case "Bolig Type":
+                //    this.boligBindingSource.Filter = string.Format("Type LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Værelser":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Værelser, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Etager":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Etager, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Kvadratmeter":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    //break;
+                case "Bygningsår":
+                    break;
+                case "Renoveringsår":
+                    break;
+                case "Udbudspris(less than)":
+                    break;
+                case "Udbudspris(greater than)":
+                    break;
             }
-            DisableAll();
-
         }
 
         private void btn_Clear_HentBolig_Click(object sender, EventArgs e)
         {
             ClearAll();
-            EnableAll();
+            DisableAll();
+            boligID_txt.Enabled = true;
+        }
+        #endregion
+
+        #region Slet Bolig
+        private void btn_SletBolig_Click(object sender, EventArgs e)
+        {
+            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
+            BoligDAL boligDAL = new BoligDAL(boligBLL);
+
+            try
+            {
+                boligDAL.SletBolig(boligBLL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            BoligUI_Load(sender, e);
+            DisableAll();
+            boligID_txt.Enabled = true;
         }
         #endregion
 
@@ -383,7 +447,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         public string BoligType()
         {
-            return boligType_cbox.SelectedItem.ToString();
+            if (boligType_cbox.SelectedItem != null)
+                return boligType_cbox.SelectedItem.ToString();
+            else
+                return null;
         }
 
         public int BoligVærelser()

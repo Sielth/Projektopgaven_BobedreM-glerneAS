@@ -16,7 +16,6 @@ namespace Projektopgaven_BobedreMaeglerneAS
         public Form1()
         {
             InitializeComponent();
-            KøberUI køberUI = new KøberUI();
         }
 
         private void btn_bolig_Click(object sender, EventArgs e)
@@ -108,7 +107,6 @@ namespace Projektopgaven_BobedreMaeglerneAS
             ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
             ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
             ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.GetMæglerIDTeksboks().Enabled = false;
         }
 
         private void readToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - (C)R(UD)
@@ -150,15 +148,6 @@ namespace Projektopgaven_BobedreMaeglerneAS
             ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
         }
 
-        private void createToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.KøberCreate();
-        }
-
-        private void readToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.KøberRead();
-        }
         //Bolig*********************************************************************'
         private void createToolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -192,6 +181,9 @@ namespace Projektopgaven_BobedreMaeglerneAS
             boligUI.GetOpdaterBoligButton().Visible = false;
             boligUI.GetSælgBoligButton().Visible = false;
             boligUI.GetSletBoligButton().Visible = false;
+
+            boligUI.DisableAll();
+            boligUI.GetBoligIDTextbox().Enabled = true;
         }
 
         private void updateToolStripMenuItem3_Click(object sender, EventArgs e)
