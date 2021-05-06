@@ -48,8 +48,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
+            try
+            {
+                EjendomsmæglerBLL matchingejendomsmægler = ejendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerBLL);
+                CPR_txt.Text = matchingejendomsmægler.CPR.ToString();
+                Telefon_txt.Text = matchingejendomsmægler.Telefon.ToString();
+                Email_txt.Text = matchingejendomsmægler.Email.ToString();
+                Fornavn_txt.Text = matchingejendomsmægler.Fnavn.ToString();
+                Efternavn_txt.Text = matchingejendomsmægler.Enavn.ToString();
+                Vej_txt.Text = matchingejendomsmægler.Vej.ToString();
+                Postnummer_txt.Text = matchingejendomsmægler.Postnummer.ToString();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             //Kalder metoden: FindEjendomsmægler
-            ejendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerBLL);
+            //ejendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerBLL);
 
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
