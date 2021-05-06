@@ -644,5 +644,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn enavnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
+
+        #region Get tekstbokse
+        public System.Windows.Forms.TextBox GetMæglerIDTeksboks()
+        {
+            return MæglerID_txt;
+        }
+        #endregion
+
+
     }
 }

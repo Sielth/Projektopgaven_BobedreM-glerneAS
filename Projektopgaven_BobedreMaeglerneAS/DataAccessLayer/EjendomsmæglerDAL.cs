@@ -62,9 +62,9 @@ namespace Projektopgaven_BobedreMæglerneAS
             string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
             SqlConnection conn = new SqlConnection(strconn);
 
-            //string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
+            string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
 
-            string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE " +
+            /*string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE " +
                 "MæglerID LIKE @MæglerID OR " +
                 "CPR LIKE @CPR OR " +
                 "Telefon LIKE @Telefon OR " +
@@ -73,18 +73,18 @@ namespace Projektopgaven_BobedreMæglerneAS
                 "Enavn LIKE @Enavn OR " +
                 "Vej LIKE @Vej OR " +
                 "Postnummer LIKE @Postnummer ";
-
+            */
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
 
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
-            commandEjendomsmægler.Parameters.AddWithValue("@CPR", ejendomsmægler.CPR);
+            /*commandEjendomsmægler.Parameters.AddWithValue("@CPR", ejendomsmægler.CPR);
             commandEjendomsmægler.Parameters.AddWithValue("@Telefon", ejendomsmægler.Telefon);
             commandEjendomsmægler.Parameters.AddWithValue("@Email", ejendomsmægler.Email);
             commandEjendomsmægler.Parameters.AddWithValue("@Fnavn", ejendomsmægler.Fnavn);
             commandEjendomsmægler.Parameters.AddWithValue("@Enavn", ejendomsmægler.Enavn);
             commandEjendomsmægler.Parameters.AddWithValue("@Vej", ejendomsmægler.Vej);
             commandEjendomsmægler.Parameters.AddWithValue("@Postnummer", ejendomsmægler.Postnummer);
-
+            */
             try
             {
                 conn.Open();

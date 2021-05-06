@@ -107,6 +107,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
             ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
             ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.GetMæglerIDTeksboks().Enabled = false;
         }
 
         private void readToolStripMenuItem_Click(object sender, EventArgs e) // Ejendomsmægler - (C)R(UD)
