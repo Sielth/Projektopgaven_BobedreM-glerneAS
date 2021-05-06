@@ -642,17 +642,6 @@
   <data name="renoveringsÅrDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>RenoveringsÅr</value>
   </data>
-  <metadata name="boligBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>432, 17</value>
-  </metadata>
-  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 135</value>
-  </data>
-  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 274</value>
-  </data>
-  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
   </data>
   <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
     <value>dataGridView1</value>
@@ -927,90 +916,6 @@
   <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bobedredbDataSet_Bolig.Name" xml:space="preserve">
-    <value>bobedredbDataSet_Bolig</value>
-  </data>
-  <data name="&gt;&gt;bobedredbDataSet_Bolig.Type" xml:space="preserve">
-    <value>Projektopgaven_BobedreMaeglerneAS.bobedredbDataSet_Bolig, bobedredbDataSet_Bolig.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;boligBindingSource.Name" xml:space="preserve">
-    <value>boligBindingSource</value>
-  </data>
-  <data name="&gt;&gt;boligBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boligTableAdapter.Name" xml:space="preserve">
-    <value>boligTableAdapter</value>
-  </data>
-  <data name="&gt;&gt;boligTableAdapter.Type" xml:space="preserve">
-    <value>Projektopgaven_BobedreMaeglerneAS.bobedredbDataSet_BoligTableAdapters.BoligTableAdapter, bobedredbDataSet_Bolig.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;boligIDDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>boligIDDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;boligIDDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;vejDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>vejDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;vejDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;postnummerDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>postnummerDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;postnummerDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;typeDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>typeDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;typeDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;værelserDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>værelserDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;værelserDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;etagerDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>etagerDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;etagerDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;kvadratmeterDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>kvadratmeterDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;kvadratmeterDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;udbudsprisDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>udbudsprisDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;udbudsprisDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;haveFlagDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>haveFlagDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;haveFlagDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bygningsårDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>bygningsårDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;bygningsårDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;renoveringsÅrDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>renoveringsÅrDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;renoveringsÅrDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>BoligUI</value>
   </data>
@@ -1019,11 +924,5 @@
   </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>147, 17</value>
-  </metadata>
-  <metadata name="bobedredbDataSet_Bolig.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>244, 17</value>
-  </metadata>
-  <metadata name="boligTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>590, 17</value>
   </metadata>
 </root>
