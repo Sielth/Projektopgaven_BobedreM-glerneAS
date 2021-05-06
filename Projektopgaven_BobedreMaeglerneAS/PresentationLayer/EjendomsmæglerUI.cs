@@ -38,8 +38,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
 
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        private void btn_HentEjendomsmægler_Click(object sender, EventArgs e) //NOT WORKING YET
+        private void btn_HentEjendomsmægler_Click(object sender, EventArgs e)
         {
             //Connection string - 
             string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
