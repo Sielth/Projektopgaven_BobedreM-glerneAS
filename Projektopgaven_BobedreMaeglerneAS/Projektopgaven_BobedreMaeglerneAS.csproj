@@ -47,9 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
+    <Compile Include="BusinessLogicLayer\KøberBLL.cs" />
     <Compile Include="DataAccessLayer\BoligDAL.cs" />
     <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Køber.cs" />
     <Compile Include="PresentationLayer\BoligUI.cs">
       <SubType>Form</SubType>
@@ -75,6 +81,7 @@
     <Compile Include="PresentationLayer\KøberUI.Designer.cs">
       <DependentUpon>KøberUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\MenuBarKnapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PresentationLayer\BoligUI.resx">
@@ -98,6 +105,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

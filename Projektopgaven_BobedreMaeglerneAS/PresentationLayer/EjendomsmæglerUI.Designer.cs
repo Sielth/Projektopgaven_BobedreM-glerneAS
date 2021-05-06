@@ -73,6 +73,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.readToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mæglerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fnavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vejDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -93,7 +101,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             this.label9.AutoSize = true;
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(579, 161);
+            this.label9.Location = new System.Drawing.Point(579, 162);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 20);
@@ -137,7 +145,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             this.label3.AutoSize = true;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(123, 161);
+            this.label3.Location = new System.Drawing.Point(123, 162);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 20);
@@ -188,7 +196,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // Fornavn_txt
             // 
-            this.Fornavn_txt.Location = new System.Drawing.Point(221, 158);
+            this.Fornavn_txt.Location = new System.Drawing.Point(220, 158);
             this.Fornavn_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Fornavn_txt.Name = "Fornavn_txt";
             this.Fornavn_txt.Size = new System.Drawing.Size(148, 26);
@@ -196,7 +204,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // CPR_txt
             // 
-            this.CPR_txt.Location = new System.Drawing.Point(221, 108);
+            this.CPR_txt.Location = new System.Drawing.Point(220, 108);
             this.CPR_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CPR_txt.Name = "CPR_txt";
             this.CPR_txt.Size = new System.Drawing.Size(148, 26);
@@ -204,7 +212,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // MæglerID_txt
             // 
-            this.MæglerID_txt.Location = new System.Drawing.Point(221, 62);
+            this.MæglerID_txt.Location = new System.Drawing.Point(220, 62);
             this.MæglerID_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MæglerID_txt.Name = "MæglerID_txt";
             this.MæglerID_txt.Size = new System.Drawing.Size(148, 26);
@@ -212,7 +220,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // Efternavn_txt
             // 
-            this.Efternavn_txt.Location = new System.Drawing.Point(221, 206);
+            this.Efternavn_txt.Location = new System.Drawing.Point(220, 206);
             this.Efternavn_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Efternavn_txt.Name = "Efternavn_txt";
             this.Efternavn_txt.Size = new System.Drawing.Size(148, 26);
@@ -236,51 +244,63 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 286);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeight = 34;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.mæglerIDDataGridViewTextBoxColumn,
+            this.cPRDataGridViewTextBoxColumn,
+            this.telefonDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.fnavnDataGridViewTextBoxColumn,
+            this.enavnDataGridViewTextBoxColumn,
+            this.vejDataGridViewTextBoxColumn,
+            this.postnummerDataGridViewTextBoxColumn});
+            this.dataGridView1.Location = new System.Drawing.Point(55, 263);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(1155, 292);
-            this.dataGridView1.TabIndex = 66;
+            this.dataGridView1.Size = new System.Drawing.Size(983, 293);
+            this.dataGridView1.TabIndex = 68;
             // 
             // btn_SletEjendomsmægler
             // 
             this.btn_SletEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_SletEjendomsmægler.Location = new System.Drawing.Point(725, 601);
+            this.btn_SletEjendomsmægler.Location = new System.Drawing.Point(724, 602);
             this.btn_SletEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_SletEjendomsmægler.Name = "btn_SletEjendomsmægler";
             this.btn_SletEjendomsmægler.Size = new System.Drawing.Size(220, 35);
             this.btn_SletEjendomsmægler.TabIndex = 65;
             this.btn_SletEjendomsmægler.Text = "Slet Ejendomsmægler";
             this.btn_SletEjendomsmægler.UseVisualStyleBackColor = true;
+            this.btn_SletEjendomsmægler.Click += new System.EventHandler(this.btn_SletEjendomsmægler_Click);
             // 
             // btn_OpdaterEjendomsmægler
             // 
             this.btn_OpdaterEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(497, 601);
+            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(496, 602);
             this.btn_OpdaterEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpdaterEjendomsmægler.Name = "btn_OpdaterEjendomsmægler";
             this.btn_OpdaterEjendomsmægler.Size = new System.Drawing.Size(220, 35);
             this.btn_OpdaterEjendomsmægler.TabIndex = 64;
             this.btn_OpdaterEjendomsmægler.Text = "Opdater Ejendomsmægler";
             this.btn_OpdaterEjendomsmægler.UseVisualStyleBackColor = true;
+            this.btn_OpdaterEjendomsmægler.Click += new System.EventHandler(this.btn_OpdaterEjendomsmægler_Click);
             // 
             // btn_HentEjendomsmægler
             // 
             this.btn_HentEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_HentEjendomsmægler.Location = new System.Drawing.Point(269, 601);
+            this.btn_HentEjendomsmægler.Location = new System.Drawing.Point(268, 602);
             this.btn_HentEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_HentEjendomsmægler.Name = "btn_HentEjendomsmægler";
             this.btn_HentEjendomsmægler.Size = new System.Drawing.Size(220, 35);
             this.btn_HentEjendomsmægler.TabIndex = 63;
             this.btn_HentEjendomsmægler.Text = "Hent Ejendomsmægler";
             this.btn_HentEjendomsmægler.UseVisualStyleBackColor = true;
+            this.btn_HentEjendomsmægler.Click += new System.EventHandler(this.btn_HentEjendomsmægler_Click);
             // 
             // btn_OpretEjendomsmægler
             // 
             this.btn_OpretEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_OpretEjendomsmægler.Location = new System.Drawing.Point(41, 601);
+            this.btn_OpretEjendomsmægler.Location = new System.Drawing.Point(40, 602);
             this.btn_OpretEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpretEjendomsmægler.Name = "btn_OpretEjendomsmægler";
             this.btn_OpretEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -291,7 +311,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.boligToolStripMenuItem,
@@ -318,7 +337,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // uyhgfToolStripMenuItem
             // 
             this.uyhgfToolStripMenuItem.Name = "uyhgfToolStripMenuItem";
-            this.uyhgfToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.uyhgfToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
             this.uyhgfToolStripMenuItem.Text = "Create";
             // 
             // readToolStripMenuItem
@@ -443,6 +462,71 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.deleteToolStripMenuItem3.Name = "deleteToolStripMenuItem3";
             this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(172, 34);
             this.deleteToolStripMenuItem3.Text = "Delete";
+            //
+            // mæglerIDDataGridViewTextBoxColumn
+            // 
+            this.mæglerIDDataGridViewTextBoxColumn.DataPropertyName = "MæglerID";
+            this.mæglerIDDataGridViewTextBoxColumn.HeaderText = "MæglerID";
+            this.mæglerIDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.mæglerIDDataGridViewTextBoxColumn.Name = "mæglerIDDataGridViewTextBoxColumn";
+            this.mæglerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mæglerIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // cPRDataGridViewTextBoxColumn
+            // 
+            this.cPRDataGridViewTextBoxColumn.DataPropertyName = "CPR";
+            this.cPRDataGridViewTextBoxColumn.HeaderText = "CPR";
+            this.cPRDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.cPRDataGridViewTextBoxColumn.Name = "cPRDataGridViewTextBoxColumn";
+            this.cPRDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // telefonDataGridViewTextBoxColumn
+            // 
+            this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
+            this.telefonDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // fnavnDataGridViewTextBoxColumn
+            // 
+            this.fnavnDataGridViewTextBoxColumn.DataPropertyName = "Fnavn";
+            this.fnavnDataGridViewTextBoxColumn.HeaderText = "Fnavn";
+            this.fnavnDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fnavnDataGridViewTextBoxColumn.Name = "fnavnDataGridViewTextBoxColumn";
+            this.fnavnDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // enavnDataGridViewTextBoxColumn
+            // 
+            this.enavnDataGridViewTextBoxColumn.DataPropertyName = "Enavn";
+            this.enavnDataGridViewTextBoxColumn.HeaderText = "Enavn";
+            this.enavnDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.enavnDataGridViewTextBoxColumn.Name = "enavnDataGridViewTextBoxColumn";
+            this.enavnDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // vejDataGridViewTextBoxColumn
+            // 
+            this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
+            this.vejDataGridViewTextBoxColumn.HeaderText = "Vej";
+            this.vejDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
+            this.vejDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // postnummerDataGridViewTextBoxColumn
+            // 
+            this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
+            this.postnummerDataGridViewTextBoxColumn.HeaderText = "Postnummer";
+            this.postnummerDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
+            this.postnummerDataGridViewTextBoxColumn.Width = 150;
             // 
             // EjendomsmæglerUI
             // 
@@ -473,6 +557,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.MæglerID_txt);
             this.Name = "EjendomsmæglerUI";
             this.Text = "EjendomsmæglerUI";
+            this.Load += new System.EventHandler(this.EjendomsmæglerUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -526,5 +611,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mæglerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPRDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fnavnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enavnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
+
+        #region Get tekstbokse
+        public System.Windows.Forms.TextBox GetMæglerIDTeksboks()
+        {
+            return MæglerID_txt;
+        }
+        #endregion
+
+
     }
 }

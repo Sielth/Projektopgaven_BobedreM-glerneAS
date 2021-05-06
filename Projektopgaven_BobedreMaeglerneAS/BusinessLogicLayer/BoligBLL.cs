@@ -37,11 +37,6 @@ namespace Projektopgaven_BobedreMæglerneAS
             this.RenoveringsÅr = renoveringsår;
         }
 
-        public BoligBLL(int boligid)
-        {
-            this.BoligID = boligid;
-        }
-
         private int CalculateUdbudsPris()
         {
             return 0;

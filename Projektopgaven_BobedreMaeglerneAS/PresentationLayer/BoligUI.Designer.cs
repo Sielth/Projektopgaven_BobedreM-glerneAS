@@ -193,12 +193,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             resources.ApplyResources(this.btn_SletBolig, "btn_SletBolig");
             this.btn_SletBolig.Name = "btn_SletBolig";
             this.btn_SletBolig.UseVisualStyleBackColor = true;
-            this.btn_SletBolig.Click += new System.EventHandler(this.btn_SletBolig_Click);
-            // 
-            // bolig_DataGridView
-            // 
-            resources.ApplyResources(this.bolig_DataGridView, "bolig_DataGridView");
-            this.bolig_DataGridView.Name = "bolig_DataGridView";
             // 
             // boligID_lbl
             // 
@@ -265,71 +259,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_Clear_HentBolig.UseVisualStyleBackColor = true;
             this.btn_Clear_HentBolig.Click += new System.EventHandler(this.btn_Clear_HentBolig_Click);
             // 
-            // find_lbl
-            // 
-            resources.ApplyResources(this.find_lbl, "find_lbl");
-            this.find_lbl.Name = "find_lbl";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // filterCriteria_cbox
-            // 
-            this.filterCriteria_cbox.FormattingEnabled = true;
-            this.filterCriteria_cbox.Items.AddRange(new object[] {
-            resources.GetString("filterCriteria_cbox.Items"),
-            resources.GetString("filterCriteria_cbox.Items1"),
-            resources.GetString("filterCriteria_cbox.Items2"),
-            resources.GetString("filterCriteria_cbox.Items3"),
-            resources.GetString("filterCriteria_cbox.Items4"),
-            resources.GetString("filterCriteria_cbox.Items5"),
-            resources.GetString("filterCriteria_cbox.Items6"),
-            resources.GetString("filterCriteria_cbox.Items7"),
-            resources.GetString("filterCriteria_cbox.Items8"),
-            resources.GetString("filterCriteria_cbox.Items9"),
-            resources.GetString("filterCriteria_cbox.Items10")});
-            resources.ApplyResources(this.filterCriteria_cbox, "filterCriteria_cbox");
-            this.filterCriteria_cbox.Name = "filterCriteria_cbox";
-            // 
-            // search_lbl
-            // 
-            resources.ApplyResources(this.search_lbl, "search_lbl");
-            this.search_lbl.Name = "search_lbl";
-            // 
-            // search_txt
-            // 
-            resources.ApplyResources(this.search_txt, "search_txt");
-            this.search_txt.Name = "search_txt";
-            this.search_txt.TextChanged += new System.EventHandler(this.search_txt_TextChanged);
-            // 
-            // allowRedigering_btn
-            // 
-            resources.ApplyResources(this.allowRedigering_btn, "allowRedigering_btn");
-            this.allowRedigering_btn.Name = "allowRedigering_btn";
-            this.allowRedigering_btn.UseVisualStyleBackColor = true;
-            this.allowRedigering_btn.Click += new System.EventHandler(this.allowRedigering_btn_Click);
-            // 
-            // saveChanges_btn
-            // 
-            resources.ApplyResources(this.saveChanges_btn, "saveChanges_btn");
-            this.saveChanges_btn.Name = "saveChanges_btn";
-            this.saveChanges_btn.UseVisualStyleBackColor = true;
-            this.saveChanges_btn.Click += new System.EventHandler(this.saveChanges_btn_Click);
-            // 
             // BoligUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.Controls.Add(this.saveChanges_btn);
-            this.Controls.Add(this.allowRedigering_btn);
-            this.Controls.Add(this.search_txt);
-            this.Controls.Add(this.search_lbl);
-            this.Controls.Add(this.filterCriteria_cbox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.find_lbl);
             this.Controls.Add(this.btn_Clear_HentBolig);
             this.Controls.Add(this.btn_Clear_OpretBolig);
             this.Controls.Add(this.btn_SælgBolig);
@@ -342,7 +276,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.boligPostnr_lbl);
             this.Controls.Add(this.boligVej_lbl);
             this.Controls.Add(this.boligID_lbl);
-            this.Controls.Add(this.bolig_DataGridView);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_SletBolig);
             this.Controls.Add(this.btn_OpdaterBolig);
             this.Controls.Add(this.btn_HentBolig);
@@ -367,7 +301,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.bolig_DataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -387,7 +320,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.DateTimePicker boligBygningsÅr_dtp;
         private System.Windows.Forms.Button btn_HentBolig;
         private System.Windows.Forms.Button btn_OpretBolig;
-        private System.Windows.Forms.DataGridView bolig_DataGridView;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label boligUdbudspris_lbl;
         private System.Windows.Forms.Label boligBygningsår_lbl;
         private System.Windows.Forms.Label boligKvm_lbl;

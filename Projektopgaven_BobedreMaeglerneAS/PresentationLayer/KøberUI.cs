@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -19,12 +20,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Ejendomsmæglerknapper
         private void uyhgfToolStripMenuItem_Click(object sender, EventArgs e) //Create
         {
-
+            
         }
 
         private void readToolStripMenuItem_Click(object sender, EventArgs e) //Read
         {
-
+            
         }
         private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Update
         {
@@ -39,12 +40,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Køberknapper
         private void createToolStripMenuItem_Click(object sender, EventArgs e) //Create
         {
-
+            MenuBarKnapper.KøberCreate();
         }
 
         private void readToolStripMenuItem1_Click(object sender, EventArgs e) //Read
         {
-
+            MenuBarKnapper.KøberRead();
         }
 
         private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Update
@@ -99,5 +100,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         }
         #endregion
+
+        private void KøberUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dataSet1.Køber' table. You can move, or remove it, as needed.
+            this.køberTableAdapter.Fill(this.dataSet1.Køber);
+
+        }
+
+        private void OpretKøber_knap_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Conn.open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        private void KøberID_txt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
