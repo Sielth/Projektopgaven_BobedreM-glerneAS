@@ -52,32 +52,13 @@
       <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
-    <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
-    <Compile Include="BusinessLogicLayer\KøberBLL.cs" />
     <Compile Include="DataAccessLayer\BoligDAL.cs" />
-    <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
-    <Compile Include="DataAccessLayer\KøberDAL.cs" />
-    <Compile Include="ejendomsmægler_bobedredbDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="køber_bobedredbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="ejendomsmægler_bobedredbDataSet.Designer.cs" />
     <Compile Include="PresentationLayer\BoligUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PresentationLayer\BoligUI.Designer.cs">
       <DependentUpon>BoligUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\EjendomsmæglerUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\EjendomsmæglerUI.Designer.cs">
-      <DependentUpon>EjendomsmæglerUI.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Form1.cs">
       <SubType>Form</SubType>
@@ -85,26 +66,13 @@
     <Compile Include="PresentationLayer\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\KøberUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\KøberUI.Designer.cs">
-      <DependentUpon>KøberUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\MenuBarKnapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PresentationLayer\BoligUI.resx">
       <DependentUpon>BoligUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\EjendomsmæglerUI.resx">
-      <DependentUpon>EjendomsmæglerUI.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\KøberUI.resx">
-      <DependentUpon>KøberUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -126,27 +94,12 @@
     <None Include="bolig_bobedredbDataSet.xss">
       <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
     </None>
-    <None Include="ejendomsmægler_bobedredbDataSet1.xsc">
-      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
+    <None Include="ejendomsmægler_bobedredbDataSet.xsc">
+      <DependentUpon>ejendomsmægler_bobedredbDataSet.xsd</DependentUpon>
     </None>
-    <None Include="ejendomsmægler_bobedredbDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ejendomsmægler_bobedredbDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ejendomsmægler_bobedredbDataSet1.xss">
-      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="køber_bobedredbDataSet.xsc">
-      <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="køber_bobedredbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>køber_bobedredbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="køber_bobedredbDataSet.xss">
-      <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
+    <None Include="ejendomsmægler_bobedredbDataSet.xsd" />
+    <None Include="ejendomsmægler_bobedredbDataSet.xss">
+      <DependentUpon>ejendomsmægler_bobedredbDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
