@@ -29,6 +29,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.boligToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uyhgfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,12 +68,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.KøberVej_txt = new System.Windows.Forms.TextBox();
             this.KøberPostnummer_txt = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.køberIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fnavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vejDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.køberBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Projektopgaven_BobedreMaeglerneAS.DataSet1();
             this.OpretKøber_knap = new System.Windows.Forms.Button();
             this.FindKøber_knap = new System.Windows.Forms.Button();
             this.OpdaterKøber_knap = new System.Windows.Forms.Button();
             this.SletKøber_knap = new System.Windows.Forms.Button();
+            this.køberTableAdapter = new Projektopgaven_BobedreMaeglerneAS.DataSet1TableAdapters.KøberTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.køberBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -377,13 +391,99 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.køberIDDataGridViewTextBoxColumn,
+            this.cPRDataGridViewTextBoxColumn,
+            this.telefonDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.fnavnDataGridViewTextBoxColumn,
+            this.enavnDataGridViewTextBoxColumn,
+            this.vejDataGridViewTextBoxColumn,
+            this.postnummerDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.køberBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 249);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(948, 276);
             this.dataGridView1.TabIndex = 19;
+            // 
+            // køberIDDataGridViewTextBoxColumn
+            // 
+            this.køberIDDataGridViewTextBoxColumn.DataPropertyName = "KøberID";
+            this.køberIDDataGridViewTextBoxColumn.HeaderText = "KøberID";
+            this.køberIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.køberIDDataGridViewTextBoxColumn.Name = "køberIDDataGridViewTextBoxColumn";
+            this.køberIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.køberIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // cPRDataGridViewTextBoxColumn
+            // 
+            this.cPRDataGridViewTextBoxColumn.DataPropertyName = "CPR";
+            this.cPRDataGridViewTextBoxColumn.HeaderText = "CPR";
+            this.cPRDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cPRDataGridViewTextBoxColumn.Name = "cPRDataGridViewTextBoxColumn";
+            this.cPRDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // telefonDataGridViewTextBoxColumn
+            // 
+            this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
+            this.telefonDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fnavnDataGridViewTextBoxColumn
+            // 
+            this.fnavnDataGridViewTextBoxColumn.DataPropertyName = "Fnavn";
+            this.fnavnDataGridViewTextBoxColumn.HeaderText = "Fnavn";
+            this.fnavnDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fnavnDataGridViewTextBoxColumn.Name = "fnavnDataGridViewTextBoxColumn";
+            this.fnavnDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // enavnDataGridViewTextBoxColumn
+            // 
+            this.enavnDataGridViewTextBoxColumn.DataPropertyName = "Enavn";
+            this.enavnDataGridViewTextBoxColumn.HeaderText = "Enavn";
+            this.enavnDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.enavnDataGridViewTextBoxColumn.Name = "enavnDataGridViewTextBoxColumn";
+            this.enavnDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // vejDataGridViewTextBoxColumn
+            // 
+            this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
+            this.vejDataGridViewTextBoxColumn.HeaderText = "Vej";
+            this.vejDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
+            this.vejDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // postnummerDataGridViewTextBoxColumn
+            // 
+            this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
+            this.postnummerDataGridViewTextBoxColumn.HeaderText = "Postnummer";
+            this.postnummerDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
+            this.postnummerDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // køberBindingSource
+            // 
+            this.køberBindingSource.DataMember = "Køber";
+            this.køberBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // OpretKøber_knap
             // 
@@ -393,6 +493,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.OpretKøber_knap.TabIndex = 20;
             this.OpretKøber_knap.Text = "Opret Køber";
             this.OpretKøber_knap.UseVisualStyleBackColor = true;
+            this.OpretKøber_knap.Click += new System.EventHandler(this.OpretKøber_knap_Click);
             // 
             // FindKøber_knap
             // 
@@ -420,6 +521,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.SletKøber_knap.TabIndex = 23;
             this.SletKøber_knap.Text = "Slet Køber";
             this.SletKøber_knap.UseVisualStyleBackColor = true;
+            // 
+            // køberTableAdapter
+            // 
+            this.køberTableAdapter.ClearBeforeFill = true;
             // 
             // KøberUI
             // 
@@ -450,9 +555,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.menuStrip1);
             this.Name = "KøberUI";
             this.Text = "KøberUI";
+            this.Load += new System.EventHandler(this.KøberUI_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.køberBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,6 +598,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button OpretKøber_knap;
+        private System.Windows.Forms.Button FindKøber_knap;
+        private System.Windows.Forms.Button OpdaterKøber_knap;
+        private System.Windows.Forms.Button SletKøber_knap;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource køberBindingSource;
+        private DataSet1TableAdapters.KøberTableAdapter køberTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn køberIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPRDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fnavnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enavnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
         internal System.Windows.Forms.TextBox KøberID_txt;
         internal System.Windows.Forms.TextBox KøberCPR_txt;
         internal System.Windows.Forms.TextBox KøberFornavn_txt;

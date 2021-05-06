@@ -12,6 +12,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
 
@@ -28,6 +29,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=den1.mssql7.gear.host;Persist Security Info=True;User ID=bobedredb")]
+        public string KøberConnectionString {
+            get {
+                return ((string)(this["KøberConnectionString"]));
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=den1.mssql7.gear.host;Initial Catalog=bobedredb;Persist Security Info" +
             "=True;User ID=bobedredb")]
         public string bobedredbConnectionString {
