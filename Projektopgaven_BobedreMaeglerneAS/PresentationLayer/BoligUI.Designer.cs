@@ -195,6 +195,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_SletBolig.UseVisualStyleBackColor = true;
             this.btn_SletBolig.Click += new System.EventHandler(this.btn_SletBolig_Click);
             // 
+            // bolig_DataGridView
+            // 
+            resources.ApplyResources(this.bolig_DataGridView, "bolig_DataGridView");
+            this.bolig_DataGridView.Name = "bolig_DataGridView";
+            // 
             // boligID_lbl
             // 
             resources.ApplyResources(this.boligID_lbl, "boligID_lbl");
