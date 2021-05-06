@@ -11,11 +11,21 @@ namespace Projektopgaven_BobedreMæglerneAS
 {
     class EjendomsmæglerDAL
     {
-        private void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        
+        private EjendomsmæglerBLL EjendomsmæglerBLL;
+
+        public EjendomsmæglerDAL(EjendomsmæglerBLL ejendomsmæglerBLL)
         {
-            //Connection string - 
-            //string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            //SqlConnection conn = new SqlConnection(strconn);
+            this.EjendomsmæglerBLL = ejendomsmæglerBLL;
+        }
+
+
+
+        public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        {
+            //Connection string
+            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(strconn);
 
             string sqlCommandEjendomsmægler = $"INSERT INTO Ejendomsmægler VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer)";
 
@@ -28,28 +38,124 @@ namespace Projektopgaven_BobedreMæglerneAS
             commandEjendomsmægler.Parameters.AddWithValue("@Enavn", ejendomsmægler.Enavn);
             commandEjendomsmægler.Parameters.AddWithValue("@Vej", ejendomsmægler.Vej);
             commandEjendomsmægler.Parameters.AddWithValue("@Postnummer", ejendomsmægler.Postnummer);
+
+            try
+            {
+                conn.Open();
+                commandEjendomsmægler.ExecuteNonQuery();
+            }
+
+            catch(SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        private void FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
+            //Connection string
+            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(strconn);
+
             string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
 
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
 
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
+
+            try
+            {
+                conn.Open();
+                commandEjendomsmægler.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        private void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
+            //Connection string
+            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(strconn);
+
+            string sqlCommandEjendomsmægler = "UPDATE Ejendomsmægler SET " +
+                "CPR = IsNull(NullIf(@CPR, ''), CPR), " +
+                "Telefon = IsNull(NullIf(@Telefon, ''), Telefon), " +
+                "Email = IsNull(NullIf(@Email, ''), Email), " +
+                "Fnavn = IsNull(NullIf(@Fnavn, ''), Fnavn), " +
+                "Enavn = IsNull(NullIf(@Enavn, ''), Enavn), " +
+                "Vej = IsNull(NullIf(@Vej, ''), Vej), " +
+                "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer) " +
+                "WHERE MæglerID = @MæglerID";
+
+            SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
+
+            commandEjendomsmægler.Parameters.AddWithValue("@CPR", ejendomsmægler.CPR);
+            commandEjendomsmægler.Parameters.AddWithValue("@Telefon", ejendomsmægler.Telefon);
+            commandEjendomsmægler.Parameters.AddWithValue("@Email", ejendomsmægler.Email);
+            commandEjendomsmægler.Parameters.AddWithValue("@Fnavn", ejendomsmægler.Fnavn);
+            commandEjendomsmægler.Parameters.AddWithValue("@Enavn", ejendomsmægler.Enavn);
+            commandEjendomsmægler.Parameters.AddWithValue("@Vej", ejendomsmægler.Vej);
+            commandEjendomsmægler.Parameters.AddWithValue("@Postnummer", ejendomsmægler.Postnummer);
+            commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
+
+            try
+            {
+                conn.Open();
+                commandEjendomsmægler.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        private void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler, SqlConnection conn)
+        public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
+            //Connection string
+            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            SqlConnection conn = new SqlConnection(strconn);
+
             string sqlCommandEjendomsmægler = $"DELETE FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
 
             SqlCommand commandEjendomsmægler = new SqlCommand(sqlCommandEjendomsmægler, conn);
 
             commandEjendomsmægler.Parameters.AddWithValue("@MæglerID", ejendomsmægler.MæglerID);
+
+            try
+            {
+                conn.Open();
+                commandEjendomsmægler.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

@@ -20,12 +20,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Ejendomsmæglerknapper
         private void uyhgfToolStripMenuItem_Click(object sender, EventArgs e) //Create
         {
-
+            
         }
 
         private void readToolStripMenuItem_Click(object sender, EventArgs e) //Read
         {
-
+            
         }
         private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Update
         {
@@ -40,12 +40,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Køberknapper
         private void createToolStripMenuItem_Click(object sender, EventArgs e) //Create
         {
-
+            MenuBarKnapper.KøberCreate();
         }
 
         private void readToolStripMenuItem1_Click(object sender, EventArgs e) //Read
         {
-
+            MenuBarKnapper.KøberRead();
         }
 
         private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Update
@@ -118,6 +118,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 Console.WriteLine(ex);
             }
+        }
+        private void KøberID_txt_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

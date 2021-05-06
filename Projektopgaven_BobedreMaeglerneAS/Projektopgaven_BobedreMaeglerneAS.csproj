@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bobedredbDataSet_Bolig.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bobedredbDataSet_Bolig.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Bolig.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
     <Compile Include="BusinessLogicLayer\KøberBLL.cs" />
@@ -84,6 +89,7 @@
     <Compile Include="PresentationLayer\KøberUI.Designer.cs">
       <DependentUpon>KøberUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\MenuBarKnapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PresentationLayer\BoligUI.resx">
@@ -117,6 +123,16 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="bobedredbDataSet_Bolig.xsc">
+      <DependentUpon>bobedredbDataSet_Bolig.xsd</DependentUpon>
+    </None>
+    <None Include="bobedredbDataSet_Bolig.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bobedredbDataSet_Bolig.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bobedredbDataSet_Bolig.xss">
+      <DependentUpon>bobedredbDataSet_Bolig.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

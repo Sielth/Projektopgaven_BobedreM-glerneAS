@@ -338,6 +338,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.KøberID_txt.Name = "KøberID_txt";
             this.KøberID_txt.Size = new System.Drawing.Size(100, 22);
             this.KøberID_txt.TabIndex = 11;
+            this.KøberID_txt.TextChanged += new System.EventHandler(this.KøberID_txt_TextChanged);
             // 
             // KøberCPR_txt
             // 
@@ -596,14 +597,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox KøberID_txt;
-        private System.Windows.Forms.TextBox KøberCPR_txt;
-        private System.Windows.Forms.TextBox KøberFornavn_txt;
-        private System.Windows.Forms.TextBox KøberEfternavn_txt;
-        private System.Windows.Forms.TextBox KøberEmail_txt;
-        private System.Windows.Forms.TextBox KøberTelefon_txt;
-        private System.Windows.Forms.TextBox KøberVej_txt;
-        private System.Windows.Forms.TextBox KøberPostnummer_txt;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button OpretKøber_knap;
         private System.Windows.Forms.Button FindKøber_knap;
@@ -620,5 +613,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn enavnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
+        internal System.Windows.Forms.TextBox KøberID_txt;
+        internal System.Windows.Forms.TextBox KøberCPR_txt;
+        internal System.Windows.Forms.TextBox KøberFornavn_txt;
+        internal System.Windows.Forms.TextBox KøberEfternavn_txt;
+        internal System.Windows.Forms.TextBox KøberEmail_txt;
+        internal System.Windows.Forms.TextBox KøberTelefon_txt;
+        internal System.Windows.Forms.TextBox KøberVej_txt;
+        internal System.Windows.Forms.TextBox KøberPostnummer_txt;
+        internal System.Windows.Forms.Button OpretKøber_knap;
+        internal System.Windows.Forms.Button FindKøber_knap;
+        internal System.Windows.Forms.Button OpdaterKøber_knap;
+        internal System.Windows.Forms.Button SletKøber_knap;
     }
 }
