@@ -22,12 +22,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         private void BoligUI_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'bobedredbDataSet_Bolig.Bolig' table. You can move, or remove it, as needed.
             //this.boligTableAdapter.Fill(this.bobedredbDataSet_Bolig.Bolig);
         }
 
+=======
+>>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
 =======
 >>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
         // Method to show the number of rooms as a ToolTip on the TrackBar 
@@ -101,6 +104,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Updatedversion
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         private void search_txt_TextChanged(object sender, EventArgs e)
         {
             string input = filterCriteria_cbox.SelectedItem.ToString();
@@ -137,6 +141,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //    case "Udbudspris(greater than)":
             //        break;
             }
+=======
+            DisableAll();
+>>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
 =======
             DisableAll();
 >>>>>>> parent of 973c1af (BoligCRUD Operative (YES))
