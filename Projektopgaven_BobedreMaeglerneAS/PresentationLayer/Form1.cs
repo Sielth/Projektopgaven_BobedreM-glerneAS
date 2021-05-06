@@ -147,6 +147,14 @@ namespace Projektopgaven_BobedreMaeglerneAS
             ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
             ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
             ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.GetCPRTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetTelefonTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetEmailTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetFnavnTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetEnavnTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetVejTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetPostnummerTekstboks().Enabled = false;
+            
         }
 
         //Bolig*********************************************************************'
