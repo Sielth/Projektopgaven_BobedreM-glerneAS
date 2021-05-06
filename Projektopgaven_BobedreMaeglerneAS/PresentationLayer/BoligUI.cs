@@ -24,7 +24,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void BoligUI_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'bobedredbDataSet_Bolig.Bolig' table. You can move, or remove it, as needed.
-            this.boligTableAdapter.Fill(this.bobedredbDataSet_Bolig.Bolig);
+            //this.boligTableAdapter.Fill(this.bobedredbDataSet_Bolig.Bolig);
         }
 
         // Method to show the number of rooms as a ToolTip on the TrackBar 
@@ -148,35 +148,35 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             switch (input)
             {
-                case "Bolig ID":
-                    this.boligBindingSource.Filter = string.Format("Convert(BoligID, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Adresse":
-                    this.boligBindingSource.Filter = string.Format("Vej LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Postnummer":
-                    this.boligBindingSource.Filter = string.Format("Convert(Postnummer, 'System.String') LIKE '%{0}%'", search_txt.Text);
-                    break;
-                case "Bolig Type":
-                    this.boligBindingSource.Filter = string.Format("Type LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Værelser":
-                    this.boligBindingSource.Filter = string.Format("Convert(Værelser, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Etager":
-                    this.boligBindingSource.Filter = string.Format("Convert(Etager, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Kvadratmeter":
-                    this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Bygningsår":
-                    break;
-                case "Renoveringsår":
-                    break;
-                case "Udbudspris(less than)":
-                    break;
-                case "Udbudspris(greater than)":
-                    break;
+            //    case "Bolig ID":
+            //        this.boligBindingSource.Filter = string.Format("Convert(BoligID, 'System.String') LIKE '*{0}*'", search_txt.Text);
+            //        break;
+            //    case "Adresse":
+            //        this.boligBindingSource.Filter = string.Format("Vej LIKE '*{0}*'", search_txt.Text);
+            //        break;
+            //    case "Postnummer":
+            //        this.boligBindingSource.Filter = string.Format("Convert(Postnummer, 'System.String') LIKE '%{0}%'", search_txt.Text);
+            //        break;
+            //    case "Bolig Type":
+            //        this.boligBindingSource.Filter = string.Format("Type LIKE '*{0}*'", search_txt.Text);
+            //        break;
+            //    case "Værelser":
+            //        this.boligBindingSource.Filter = string.Format("Convert(Værelser, 'System.String') LIKE '*{0}*'", search_txt.Text);
+            //        break;
+            //    case "Etager":
+            //        this.boligBindingSource.Filter = string.Format("Convert(Etager, 'System.String') LIKE '*{0}*'", search_txt.Text);
+            //        break;
+            //    case "Kvadratmeter":
+            //        this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
+            //        break;
+            //    case "Bygningsår":
+            //        break;
+            //    case "Renoveringsår":
+            //        break;
+            //    case "Udbudspris(less than)":
+            //        break;
+            //    case "Udbudspris(greater than)":
+            //        break;
             }
         }
 
