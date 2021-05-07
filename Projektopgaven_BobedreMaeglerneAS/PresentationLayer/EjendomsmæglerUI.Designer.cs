@@ -599,10 +599,45 @@
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem3;
 
-        #region Get tekstbokse
-        public System.Windows.Forms.TextBox GetMæglerIDTeksboks()
+        #region Get tekstbokse //Henter tekstboxene - for at kunne kalde dem
+        public System.Windows.Forms.TextBox GetMæglerIDTekstboks()
         {
             return MæglerID_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetCPRTekstboks()
+        {
+            return CPR_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetTelefonTekstboks()
+        {
+            return Telefon_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetEmailTekstboks()
+        {
+            return Email_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetFnavnTekstboks()
+        {
+            return Fornavn_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetEnavnTekstboks()
+        {
+            return Efternavn_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetVejTekstboks()
+        {
+            return Vej_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetPostnummerTekstboks()
+        {
+            return Postnummer_txt;
         }
         #endregion
 

@@ -82,5 +82,66 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //køberUI.OpdaterKøber_knap.Visible = true;
             //køberUI.FindKøber_knap.Visible = false;
         }
+
+        public static void EjendomsmælgerOpret()
+        {
+            // Opretter en ny instans af EjendomsmæglerUI klassen
+            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+
+            // Show the settings form
+            ejendomsmæglerUI.Show();
+
+            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.GetMæglerIDTekstboks().Enabled = false;
+        }
+
+        public static void EjendomsmæglerFind()
+        {
+            // Opretter en ny instans af EjendomsmæglerUI klassen
+            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+
+            // Show the settings form
+            ejendomsmæglerUI.Show();
+
+            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+        }
+
+        public static void EjendomsmæglerOpdater()
+        {
+            // Opretter en ny instans af EjendomsmæglerUI klassen
+            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+
+            // Show the settings form
+            ejendomsmæglerUI.Show();
+
+            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+        }
+
+        public static void EjendomsmæglerSlet()
+        {
+            // Opretter en ny instans af EjendomsmæglerUI klassen
+            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+
+            // Show the settings form
+            ejendomsmæglerUI.Show();
+
+            //Skjuler knapper og deaktivere tekstbokse
+            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
+            ejendomsmæglerUI.GetCPRTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetTelefonTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetEmailTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetFnavnTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetEnavnTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetVejTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetPostnummerTekstboks().Enabled = false;
+        }
     }
 }

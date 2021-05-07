@@ -88,56 +88,24 @@ namespace Projektopgaven_BobedreMaeglerneAS
         }
 
         //EJENDOMSMÆGLER
-        private void ejendomsmægler_createToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ejendomsmægler_createToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler Opret
         {
-            // Create a new instance of the BoligUI class
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
-
-            // Show the settings form
-            ejendomsmæglerUI.Show();
-
-            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+            MenuBarKnapper.EjendomsmælgerOpret();
         }
 
-        private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler find
         {
-            // Create a new instance of the BoligUI class
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
-
-            // Show the settings form
-            ejendomsmæglerUI.Show();
-
-            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+            MenuBarKnapper.EjendomsmæglerFind();
         }
 
-        private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler opdater
         {
-            // Create a new instance of the BoligUI class
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
-
-            // Show the settings form
-            ejendomsmæglerUI.Show();
-
-            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_SletEjendomsmægler.Visible = false;
+            MenuBarKnapper.EjendomsmæglerOpdater();
         }
 
-        private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler slet
         {
-            // Create a new instance of the BoligUI class
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
-
-            // Show the settings form
-            ejendomsmæglerUI.Show();
-
-            ejendomsmæglerUI.btn_OpretEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_HentEjendomsmægler.Visible = false;
-            ejendomsmæglerUI.btn_OpdaterEjendomsmægler.Visible = false;
+            MenuBarKnapper.EjendomsmæglerSlet();
         }
 
         //KØBER
