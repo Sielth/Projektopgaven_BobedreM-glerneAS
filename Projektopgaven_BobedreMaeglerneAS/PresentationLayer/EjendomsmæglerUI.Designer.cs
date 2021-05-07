@@ -83,6 +83,7 @@
             this.updateToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.ejendomsmæglerTableAdapter = new Projektopgaven_BobedreMaeglerneAS.ejendomsmægler_bobedredbDataSetTableAdapters.EjendomsmæglerTableAdapter();
+            this.Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ejendomsmæglerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ejendomsmægler_bobedredbDataSet)).BeginInit();
@@ -400,7 +401,7 @@
             this.boligToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
             this.menuStrip1.TabIndex = 90;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -548,11 +549,24 @@
             // 
             this.ejendomsmæglerTableAdapter.ClearBeforeFill = true;
             // 
+            // Clear
+            // 
+            this.Clear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Clear.Location = new System.Drawing.Point(736, 194);
+            this.Clear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(121, 35);
+            this.Clear.TabIndex = 91;
+            this.Clear.Text = "Clear";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
             // EjendomsmæglerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.Clear);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_SletEjendomsmægler);
             this.Controls.Add(this.btn_OpdaterEjendomsmægler);
@@ -697,6 +711,20 @@
         }
         #endregion
 
+        #region Clear tekstbokse
+        public void ClearAll()
+        {
+            MæglerID_txt.Clear();
+            CPR_txt.Clear();
+            Telefon_txt.Clear();
+            Email_txt.Clear();
+            Fornavn_txt.Clear();
+            Efternavn_txt.Clear();
+            Vej_txt.Clear();
+            Postnummer_txt.Clear();
+        }
+        #endregion
+
         private ejendomsmægler_bobedredbDataSet ejendomsmægler_bobedredbDataSet;
         private System.Windows.Forms.BindingSource ejendomsmæglerBindingSource;
         private ejendomsmægler_bobedredbDataSetTableAdapters.EjendomsmæglerTableAdapter ejendomsmæglerTableAdapter;
@@ -712,5 +740,6 @@
         private System.Windows.Forms.Button btn_OpretEjendomsmægler;
         private System.Windows.Forms.Button btn_SletEjendomsmægler;
         private System.Windows.Forms.Button btn_OpdaterEjendomsmægler;
+        private System.Windows.Forms.Button Clear;
     }
 }

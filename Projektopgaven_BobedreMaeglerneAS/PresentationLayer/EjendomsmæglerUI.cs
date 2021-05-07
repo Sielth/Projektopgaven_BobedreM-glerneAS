@@ -159,5 +159,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
 
         }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
     }
 }
