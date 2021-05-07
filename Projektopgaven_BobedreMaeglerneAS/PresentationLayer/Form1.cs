@@ -93,9 +93,9 @@ namespace Projektopgaven_BobedreMaeglerneAS
             MenuBarKnapper.EjendomsmælgerOpret();
         }
 
-        private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler find
+        private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler hent
         {
-            MenuBarKnapper.EjendomsmæglerFind();
+            MenuBarKnapper.EjendomsmæglerHent();
         }
 
         private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler opdater
