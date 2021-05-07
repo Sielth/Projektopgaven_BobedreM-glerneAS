@@ -161,7 +161,6 @@
             this.køber_createToolStripMenuItem1.Name = "køber_createToolStripMenuItem1";
             this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
             this.køber_createToolStripMenuItem1.Text = "Create";
-            this.køber_createToolStripMenuItem1.Click += new System.EventHandler(this.køber_createToolStripMenuItem1_Click);
             // 
             // køber_readToolStripMenuItem1
             // 
