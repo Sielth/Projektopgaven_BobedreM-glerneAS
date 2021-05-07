@@ -384,24 +384,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #endregion
 
         #region Convert Textboxes
-        public int BoligID()
+        private int BoligID()
         {
             int.TryParse(boligID_txt.Text, out int boligid);
             return boligid;
         }
 
-        public string BoligVej()
+        private string BoligVej()
         {
             return boligVej_txt.Text;
         }
 
-        public int BoligPostnr()
+        private int BoligPostnr()
         {
             int.TryParse(boligPostnr_txt.Text, out int boligpostnr);
             return boligpostnr;
         }
 
-        public string BoligType()
+        private string BoligType()
         {
             if (boligType_cbox.SelectedItem != null)
                 return boligType_cbox.SelectedItem.ToString();
@@ -409,28 +409,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 return null;
         }
 
-        public int BoligVærelser()
+        private int BoligVærelser()
         {
             return boligVærelser_tbar.Value;
         }
 
-        public int BoligEtager()
+        private int BoligEtager()
         {
             return boligEtager_tbar.Value;
         }
 
-        public int BoligKvm()
+        private int BoligKvm()
         {
             int.TryParse(boligKvm_txt.Text, out int boligkvm);
             return boligkvm;
         }
 
-        public int BoligBygningsÅr()
+        private int BoligBygningsÅr()
         {
             return (int)boligBygningsÅr_dtp.Value.Year;
         }
 
-        public int BoligRenoveringsÅr()
+        private int BoligRenoveringsÅr()
         {
             if (boligRenoveret_ckbox.Checked)
             {
@@ -441,7 +441,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 return 0;
         }
 
-        public int BoligHave()
+        private int BoligHave()
         {
             if (boligHave_ckBox.Checked)
                 return 1;
@@ -449,7 +449,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 return 0;
         }
 
-        public int BoligUdbudspris()
+        private int BoligUdbudspris()
         {
             int.TryParse(boligUdbudspris_txt.Text, out int boligudbudspris);
             return boligudbudspris;
