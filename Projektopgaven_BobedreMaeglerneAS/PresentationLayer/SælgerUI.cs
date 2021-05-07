@@ -23,6 +23,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             SælgerBLL sælgerBLL = new SælgerBLL(SælgerID(), SælgerCPR(), SælgerTelefon(), SælgerEmail(), SælgerFornavn(), SælgerEfternavn(), SælgerVej(), SælgerPostnummer());
             SælgerDAL sælgerDAL = new SælgerDAL(sælgerBLL);
+
+            //Kalder metoden: OpretSælger
+            sælgerDAL.OpretSælger(sælgerBLL);
+
+            //Loader data fra databasen ind i datagridview
+            //SælgerUI_Load(sender, e);
         }
 
         private void btn_HentSælger_Click(object sender, EventArgs e)

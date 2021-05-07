@@ -149,5 +149,41 @@ namespace Projektopgaven_BobedreMaeglerneAS
             // Show the settings form
             køberUI.Show();
         }
+
+        private void sælger_createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+        }
+
+        private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+        }
+
+        private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+        }
+
+        private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+        }
     }
 }
