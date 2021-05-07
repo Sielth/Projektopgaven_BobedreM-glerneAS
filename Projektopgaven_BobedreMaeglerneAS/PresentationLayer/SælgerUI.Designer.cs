@@ -306,6 +306,47 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
 
 
+        #region Get tekstbokse
+        public System.Windows.Forms.TextBox GetSælgerIDTekstboks()
+        {
+            return sælgerID_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetSælgerCPRTekstboks()
+        {
+            return sælgerCPR_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetSælgerTelefonTekstboks()
+        {
+            return sælgerTelefon_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetSælgerEmailTekstboks()
+        {
+            return sælgerEmail_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetSælgerFnavnTekstboks()
+        {
+            return sælgerFornavn_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetSælgerEnavnTekstboks()
+        {
+            return sælgerEfternavn_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetSælgerVejTekstboks()
+        {
+            return sælgerVej_txt;
+        }
+
+        public System.Windows.Forms.TextBox GetSælgerPostnummerTekstboks()
+        {
+            return sælgerPostnummer_txt;
+        }
+        #endregion
 
         #region Get knapper
         public System.Windows.Forms.Button GetOpretSælgerKnap()

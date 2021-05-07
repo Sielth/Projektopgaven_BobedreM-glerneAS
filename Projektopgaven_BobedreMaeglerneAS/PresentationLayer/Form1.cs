@@ -152,6 +152,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             sælgerUI.GetHentSælgerKnap().Visible = false;
             sælgerUI.GetOpdaterSælgerKnap().Visible = false;
             sælgerUI.GetSletSælgerKnap().Visible = false;
+            sælgerUI.GetSælgerIDTekstboks().Enabled = false;
         }
 
         private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e) //Hent sælger
@@ -192,6 +193,13 @@ namespace Projektopgaven_BobedreMaeglerneAS
             sælgerUI.GetOpretSælgerKnap().Visible = false;
             sælgerUI.GetHentSælgerKnap().Visible = false;
             sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetSælgerCPRTekstboks().Enabled = false;
+            sælgerUI.GetSælgerTelefonTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEmailTekstboks().Enabled = false;
+            sælgerUI.GetSælgerFnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerVejTekstboks().Enabled = false;
+            sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
     }
 }
