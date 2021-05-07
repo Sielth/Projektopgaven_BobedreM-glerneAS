@@ -148,6 +148,10 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             // Show the settings form
             sælgerUI.Show();
+
+            sælgerUI.GetHentSælgerKnap().Visible = false;
+            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetSletSælgerKnap().Visible = false;
         }
 
         private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e) //Hent sælger
@@ -157,6 +161,11 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             // Show the settings form
             sælgerUI.Show();
+
+            sælgerUI.GetOpretSælgerKnap().Visible = false;
+            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetSletSælgerKnap().Visible = false;
+
         }
 
         private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sælger
@@ -166,6 +175,10 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             // Show the settings form
             sælgerUI.Show();
+
+            sælgerUI.GetOpretSælgerKnap().Visible = false;
+            sælgerUI.GetHentSælgerKnap().Visible = false;
+            sælgerUI.GetSletSælgerKnap().Visible = false;
         }
 
         private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet sælger
@@ -175,6 +188,10 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             // Show the settings form
             sælgerUI.Show();
+
+            sælgerUI.GetOpretSælgerKnap().Visible = false;
+            sælgerUI.GetHentSælgerKnap().Visible = false;
+            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
         }
     }
 }

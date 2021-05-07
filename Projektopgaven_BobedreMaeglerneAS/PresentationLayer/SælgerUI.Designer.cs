@@ -304,5 +304,30 @@
         public System.Windows.Forms.Button btn_OpretSælger;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+
+
+
+        #region Get knapper
+        public System.Windows.Forms.Button GetOpretSælgerKnap()
+        {
+            return btn_OpretSælger;
+        }
+
+        public System.Windows.Forms.Button GetHentSælgerKnap()
+        {
+            return btn_HentSælger;
+        }
+
+        public System.Windows.Forms.Button GetOpdaterSælgerKnap()
+        {
+            return btn_OpdaterSælger;
+        }
+
+        public System.Windows.Forms.Button GetSletSælgerKnap()
+        {
+            return btn_SletSælger;
+        }
+        #endregion
+
     }
 }
