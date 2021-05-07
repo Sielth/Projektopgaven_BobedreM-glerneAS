@@ -55,8 +55,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public BoligBLL HentBoligViaID(BoligBLL bolig)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+                string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+                SqlConnection conn = new SqlConnection(connstr);
 
             string sqlCommanBolig = "SELECT * FROM Bolig WHERE " +
                 "BoligID = @BoligID";

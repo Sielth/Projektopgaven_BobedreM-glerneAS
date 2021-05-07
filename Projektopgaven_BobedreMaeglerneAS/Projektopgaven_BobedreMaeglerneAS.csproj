@@ -54,9 +54,11 @@
     <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
     <Compile Include="BusinessLogicLayer\KøberBLL.cs" />
+    <Compile Include="BusinessLogicLayer\SælgerBLL.cs" />
     <Compile Include="DataAccessLayer\BoligDAL.cs" />
     <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
     <Compile Include="DataAccessLayer\KøberDAL.cs" />
+    <Compile Include="DataAccessLayer\SælgerDAL.cs" />
     <Compile Include="ejendomsmægler_bobedredbDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
