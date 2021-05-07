@@ -104,7 +104,7 @@
             this.vejDataGridViewTextBoxColumn,
             this.postnummerDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.ejendomsmæglerBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(117, 260);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 350);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(982, 292);
@@ -188,7 +188,7 @@
             // btn_SletEjendomsmægler
             // 
             this.btn_SletEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_SletEjendomsmægler.Location = new System.Drawing.Point(786, 598);
+            this.btn_SletEjendomsmægler.Location = new System.Drawing.Point(736, 278);
             this.btn_SletEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_SletEjendomsmægler.Name = "btn_SletEjendomsmægler";
             this.btn_SletEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -200,7 +200,7 @@
             // btn_OpdaterEjendomsmægler
             // 
             this.btn_OpdaterEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(558, 598);
+            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(508, 278);
             this.btn_OpdaterEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpdaterEjendomsmægler.Name = "btn_OpdaterEjendomsmægler";
             this.btn_OpdaterEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -212,7 +212,7 @@
             // btn_HentEjendomsmægler
             // 
             this.btn_HentEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_HentEjendomsmægler.Location = new System.Drawing.Point(330, 598);
+            this.btn_HentEjendomsmægler.Location = new System.Drawing.Point(280, 278);
             this.btn_HentEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_HentEjendomsmægler.Name = "btn_HentEjendomsmægler";
             this.btn_HentEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -224,7 +224,7 @@
             // btn_OpretEjendomsmægler
             // 
             this.btn_OpretEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_OpretEjendomsmægler.Location = new System.Drawing.Point(102, 598);
+            this.btn_OpretEjendomsmægler.Location = new System.Drawing.Point(52, 278);
             this.btn_OpretEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpretEjendomsmægler.Name = "btn_OpretEjendomsmægler";
             this.btn_OpretEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -235,7 +235,7 @@
             // 
             // Vej_txt
             // 
-            this.Vej_txt.Location = new System.Drawing.Point(747, 155);
+            this.Vej_txt.Location = new System.Drawing.Point(531, 150);
             this.Vej_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Vej_txt.Name = "Vej_txt";
             this.Vej_txt.Size = new System.Drawing.Size(148, 26);
@@ -243,7 +243,7 @@
             // 
             // Postnummer_txt
             // 
-            this.Postnummer_txt.Location = new System.Drawing.Point(747, 203);
+            this.Postnummer_txt.Location = new System.Drawing.Point(531, 198);
             this.Postnummer_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Postnummer_txt.Name = "Postnummer_txt";
             this.Postnummer_txt.Size = new System.Drawing.Size(148, 26);
@@ -251,7 +251,7 @@
             // 
             // Efternavn_txt
             // 
-            this.Efternavn_txt.Location = new System.Drawing.Point(282, 203);
+            this.Efternavn_txt.Location = new System.Drawing.Point(158, 202);
             this.Efternavn_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Efternavn_txt.Name = "Efternavn_txt";
             this.Efternavn_txt.Size = new System.Drawing.Size(148, 26);
@@ -261,7 +261,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(640, 206);
+            this.label10.Location = new System.Drawing.Point(424, 201);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 20);
@@ -272,7 +272,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(640, 158);
+            this.label9.Location = new System.Drawing.Point(424, 153);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 20);
@@ -283,7 +283,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(640, 108);
+            this.label8.Location = new System.Drawing.Point(424, 103);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 20);
@@ -294,7 +294,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(640, 65);
+            this.label7.Location = new System.Drawing.Point(424, 60);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 20);
@@ -305,7 +305,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(184, 206);
+            this.label4.Location = new System.Drawing.Point(60, 205);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 20);
@@ -316,7 +316,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(184, 158);
+            this.label3.Location = new System.Drawing.Point(60, 157);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 20);
@@ -327,7 +327,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(184, 108);
+            this.label2.Location = new System.Drawing.Point(60, 107);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 20);
@@ -338,7 +338,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(184, 65);
+            this.label1.Location = new System.Drawing.Point(60, 64);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 20);
@@ -347,7 +347,7 @@
             // 
             // Email_txt
             // 
-            this.Email_txt.Location = new System.Drawing.Point(747, 105);
+            this.Email_txt.Location = new System.Drawing.Point(531, 100);
             this.Email_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Email_txt.Name = "Email_txt";
             this.Email_txt.Size = new System.Drawing.Size(148, 26);
@@ -355,7 +355,7 @@
             // 
             // Telefon_txt
             // 
-            this.Telefon_txt.Location = new System.Drawing.Point(747, 62);
+            this.Telefon_txt.Location = new System.Drawing.Point(531, 57);
             this.Telefon_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Telefon_txt.Name = "Telefon_txt";
             this.Telefon_txt.Size = new System.Drawing.Size(148, 26);
@@ -363,7 +363,7 @@
             // 
             // Fornavn_txt
             // 
-            this.Fornavn_txt.Location = new System.Drawing.Point(282, 155);
+            this.Fornavn_txt.Location = new System.Drawing.Point(158, 154);
             this.Fornavn_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Fornavn_txt.Name = "Fornavn_txt";
             this.Fornavn_txt.Size = new System.Drawing.Size(148, 26);
@@ -371,7 +371,7 @@
             // 
             // CPR_txt
             // 
-            this.CPR_txt.Location = new System.Drawing.Point(282, 105);
+            this.CPR_txt.Location = new System.Drawing.Point(158, 104);
             this.CPR_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CPR_txt.Name = "CPR_txt";
             this.CPR_txt.Size = new System.Drawing.Size(148, 26);
@@ -379,7 +379,7 @@
             // 
             // MæglerID_txt
             // 
-            this.MæglerID_txt.Location = new System.Drawing.Point(282, 58);
+            this.MæglerID_txt.Location = new System.Drawing.Point(158, 57);
             this.MæglerID_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MæglerID_txt.Name = "MæglerID_txt";
             this.MæglerID_txt.Size = new System.Drawing.Size(148, 26);
