@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
+using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -19,29 +21,49 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void OpretKøber_knap_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //Conn.open();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
+            KøberDAL køberDAL = new KøberDAL(køberBLL);
+
+            køberDAL.OpretKøber(køberBLL);
+            KøberUI_Load(sender, e);
         }
 
         private void FindKøber_knap_Click(object sender, EventArgs e)
         {
-
+            KøberBLL køberBLL = new KøberBLL(KøberID());
+            KøberDAL køberDAL = new KøberDAL(køberBLL);
+            try
+            {
+                KøberBLL matchingkøber = køberDAL.FindKøber(køberBLL);
+                KøberVej_txt.Text = matchingkøber.Vej;
+                KøberPostnummer_txt.Text = matchingkøber.Postnummer.ToString();
+                KøberCPR_txt.Text = matchingkøber.CPR.ToString();
+                KøberFornavn_txt.Text = matchingkøber.Fnavn;
+                KøberEfternavn_txt.Text = matchingkøber.Enavn;
+                KøberEmail_txt.Text = matchingkøber.Email;
+                KøberTelefon_txt.Text = matchingkøber.Telefon.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            KøberUI_Load(sender, e);
         }
 
         private void OpdaterKøber_knap_Click(object sender, EventArgs e)
         {
-
+            KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
+            KøberDAL køberDAL = new KøberDAL(køberBLL);
+            køberDAL.OpdaterKøber(køberBLL);
+            KøberUI_Load(sender, e);
         }
 
         private void SletKøber_knap_Click(object sender, EventArgs e)
         {
-
+            KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
+            KøberDAL køberDAL = new KøberDAL(køberBLL);
+            køberDAL.SletKøber(køberBLL);
+            KøberUI_Load(sender, e);
         }
 
         #region Ejendomsmæglerknapper
@@ -129,6 +151,52 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void deleteToolStripMenuItem3_Click(object sender, EventArgs e)
         {
 
+        }
+        #endregion
+
+        #region Convert Textboxes
+        public int KøberID()
+        {
+            int.TryParse(KøberID_txt.Text, out int køberid);
+            return køberid;
+        }
+
+        public string KøberVej()
+        {
+            return KøberVej_txt.Text;
+        }
+
+        public int KøberPostnummer()
+        {
+            int.TryParse(KøberPostnummer_txt.Text, out int køberpostnummer);
+            return køberpostnummer;
+        }
+
+        public string KøberFornavn()
+        {
+            return KøberFornavn_txt.Text;
+        }
+
+        public string KøberEfternavn()
+        {
+            return KøberEfternavn_txt.Text;
+        }
+
+        public int KøberTelefon()
+        {
+            int.TryParse(KøberTelefon_txt.Text, out int købertelefon);
+            return købertelefon;
+        }
+
+        public int KøberCPR()
+        {
+            int.TryParse(KøberCPR_txt.Text, out int køberCPR);
+            return køberCPR;
+        }
+
+        public string KøberEmail()
+        {
+            return KøberEmail_txt.Text;
         }
         #endregion
 
