@@ -53,7 +53,9 @@
     </Compile>
     <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
+    <Compile Include="BusinessLogicLayer\EjendomsmæglerOplysninger.cs" />
     <Compile Include="BusinessLogicLayer\KøberBLL.cs" />
+    <Compile Include="BusinessLogicLayer\Pictures.cs" />
     <Compile Include="BusinessLogicLayer\SingletonConnection.cs" />
     <Compile Include="BusinessLogicLayer\SælgerBLL.cs" />
     <Compile Include="DataAccessLayer\BoligDAL.cs" />
@@ -173,6 +175,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
