@@ -28,5 +28,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Email = Email;
             this.Telefon = Telefon;
         }
+        public KøberBLL(int køberid)
+        {
+            this.KøberID = køberid;
+        }
     }
 }
