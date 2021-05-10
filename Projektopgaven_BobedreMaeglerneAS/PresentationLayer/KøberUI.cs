@@ -25,6 +25,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             KøberDAL køberDAL = new KøberDAL(køberBLL);
 
             køberDAL.OpretKøber(køberBLL);
+            KøberUI_Load(sender, e);
         }
 
         private void FindKøber_knap_Click(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 Console.WriteLine(ex.Message);
             }
+            KøberUI_Load(sender, e);
         }
 
         private void OpdaterKøber_knap_Click(object sender, EventArgs e)
@@ -53,6 +55,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
             KøberDAL køberDAL = new KøberDAL(køberBLL);
             køberDAL.OpdaterKøber(køberBLL);
+            KøberUI_Load(sender, e);
         }
 
         private void SletKøber_knap_Click(object sender, EventArgs e)
@@ -60,6 +63,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
             KøberDAL køberDAL = new KøberDAL(køberBLL);
             køberDAL.SletKøber(køberBLL);
+            KøberUI_Load(sender, e);
         }
 
         #region Ejendomsmæglerknapper

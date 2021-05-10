@@ -169,5 +169,10 @@ namespace Projektopgaven_BobedreMaeglerneAS
             sælgerUI.GetSælgerVejTekstboks().Enabled = false;
             sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
+
+        private void køber_createToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.KøberCreate();
+        }
     }
 }
