@@ -22,6 +22,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             //string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
             //SqlConnection conn = new SqlConnection(strconn);
 
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
 
             //Tjekker om tekstboxe var tomme og undlader at opdaterer informationer for dem der er tomme
             string sqlCommandKøber = "UPDATE Køber SET" +
@@ -34,7 +35,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer)," +
                 "WHERE KøberID = @KøberID";
             //Sender input til database for at opdatere
-            SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, ConnectionSingleton.Instance());
+            SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber);
             cmdKøber.Parameters.AddWithValue("@CPR", køber.CPR);
             cmdKøber.Parameters.AddWithValue("@Telefon", køber.Telefon);
             cmdKøber.Parameters.AddWithValue("@Email", køber.Email);
