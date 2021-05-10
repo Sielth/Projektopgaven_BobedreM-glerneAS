@@ -19,8 +19,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         public void OpdaterKøber(KøberBLL køber) //Opdaterer køber
         {
             //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            //string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(strconn);
+
 
             //Tjekker om tekstboxe var tomme og undlader at opdaterer informationer for dem der er tomme
             string sqlCommandKøber = "UPDATE Køber SET" +
@@ -33,7 +34,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer)," +
                 "WHERE KøberID = @KøberID";
             //Sender input til database for at opdatere
-            SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
+            SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, ConnectionSingleton.Instance());
             cmdKøber.Parameters.AddWithValue("@CPR", køber.CPR);
             cmdKøber.Parameters.AddWithValue("@Telefon", køber.Telefon);
             cmdKøber.Parameters.AddWithValue("@Email", køber.Email);
@@ -43,7 +44,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdKøber.Parameters.AddWithValue("@Postnummer", køber.Postnummer);
             try
             {
-                conn.Open();
+                ConnectionSingleton.Instance().Open();
                 cmdKøber.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -52,17 +53,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                ConnectionSingleton.Instance().Close();
             }
         }
         public void OpretKøber(KøberBLL køber) //Opretter køber
         {
             //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            //string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(strconn);
 
             string sqlCommandKøber = "INSERT INTO Køber VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer)";
-            SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
+            SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, ConnectionSingleton.Instance());
             cmdKøber.Parameters.AddWithValue("@CPR", køber.CPR);
             cmdKøber.Parameters.AddWithValue("@Telefon", køber.Telefon);
             cmdKøber.Parameters.AddWithValue("@Email", køber.Email);
@@ -72,7 +73,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdKøber.Parameters.AddWithValue("@Postnummer", køber.Postnummer);
             try
             {
-                conn.Open();
+                //ConnectionSingleton.Instance().Open();
                 cmdKøber.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -81,7 +82,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                ConnectionSingleton.Instance().Close();
             }
         }
         public void SletKøber(KøberBLL køber) //Sletter køber
