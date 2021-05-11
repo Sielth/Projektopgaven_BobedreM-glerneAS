@@ -23,9 +23,9 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            //Connection til databasen
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandEjendomsmægler = $"INSERT INTO Ejendomsmægler VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer)";
 
@@ -58,9 +58,9 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public EjendomsmæglerBLL FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            //Connection til databasen
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandEjendomsmægler = "SELECT * FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
 
@@ -123,9 +123,9 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            //Connection til databasen
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandEjendomsmægler = "UPDATE Ejendomsmægler SET " +
                 "CPR = IsNull(NullIf(@CPR, ''), CPR), " +
@@ -167,9 +167,9 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            //Connection til databasen
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandEjendomsmægler = $"DELETE FROM Ejendomsmægler WHERE MæglerID = @MæglerID";
 
