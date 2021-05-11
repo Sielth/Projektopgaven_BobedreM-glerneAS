@@ -10,10 +10,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
     {
         public int MæglerID { get; private set; }
         public int CPR { get; private set; }
-        public int Telefon { get; protected set; }
+        public int Telefon { get; private set; }
         public string Email { get; private set; }
-        public string Fnavn { get; protected set; }
-        public string Enavn { get; protected set; }
+        public string Fnavn { get; private set; }
+        public string Enavn { get; private set; }
         public string Vej { get; private set; }
         public int Postnummer { get; private set; }
 
