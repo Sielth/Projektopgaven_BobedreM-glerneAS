@@ -19,8 +19,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         public void OpdaterKøber(KøberBLL køber) //Opdaterer køber
         {
             //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             //ConnectionSingleton s1 = ConnectionSingleton.Instance();
 
@@ -60,8 +60,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         public void OpretKøber(KøberBLL køber) //Opretter køber
         {
             //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandKøber = "INSERT INTO Køber VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer)";
             SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
@@ -89,8 +89,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         public void SletKøber(KøberBLL køber) //Sletter køber
         {
             //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandKøber = "DELETE FROM Køber WHERE (@KøberID)";
             SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
@@ -112,8 +112,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         public KøberBLL FindKøber(KøberBLL køber)
         {
             //Connection string
-            string strconn = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(strconn);
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandKøber = "SELECT * FROM Sælger WHERE SælgerID = @SæglerID";
 
