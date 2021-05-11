@@ -22,6 +22,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
             //SqlConnection conn = new SqlConnection(connstr);
+
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
@@ -58,8 +59,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public BoligBLL HentBoligViaID(BoligBLL bolig)
         {
-                string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-                SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommanBolig = "SELECT * FROM Bolig WHERE " +
                 "BoligID = @BoligID";
@@ -104,8 +108,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public BoligBLL HentBolig(BoligBLL bolig)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommanBolig = "SELECT * FROM Bolig WHERE " +
                 "BoligID LIKE @BoligID OR " +
@@ -170,8 +177,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public void OpdaterBolig(BoligBLL bolig)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandBolig = "UPDATE Bolig SET " +
                 "Vej = IsNull(NullIf(@Vej, ''), Vej), " +
@@ -216,8 +226,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public void SletBolig(BoligBLL bolig)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandBolig = "DELETE FROM Bolig WHERE BoligID = @BoligID";
 
