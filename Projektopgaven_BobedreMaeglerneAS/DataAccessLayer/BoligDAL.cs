@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
+using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
@@ -19,8 +20,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public void OpretBolig(BoligBLL bolig)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandBolig = "INSERT INTO Bolig VALUES (@Vej, @Postnummer, @Type, @Værelser, @Etager, @Kvadratmeter, @Udbudspris, @HaveFlag, @Bygningsår, @RenoveringsÅr)";
 

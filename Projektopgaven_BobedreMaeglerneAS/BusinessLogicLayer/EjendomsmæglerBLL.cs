@@ -40,7 +40,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 
         public override string ToString()
         {
-            return $"ROLLE: ejendomsmægler\n" +
+            return $"STILLING: ejendomsmægler\n" +
                 $"Navn: {Fnavn}\n" +
                 $"Efternavn: {Enavn}\n" +
                 $"Telefon: {Telefon}";
