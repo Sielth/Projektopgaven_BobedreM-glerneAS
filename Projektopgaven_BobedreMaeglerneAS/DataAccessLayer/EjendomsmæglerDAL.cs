@@ -23,7 +23,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            //Connection til databasen
+            //Connection string
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
@@ -58,7 +58,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public EjendomsmæglerBLL FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            //Connection til databasen
+            //Connection string
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
@@ -123,7 +123,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            //Connection til databasen
+            //Connection string
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
@@ -167,7 +167,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            //Connection til databasen
+            //Connection string
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
