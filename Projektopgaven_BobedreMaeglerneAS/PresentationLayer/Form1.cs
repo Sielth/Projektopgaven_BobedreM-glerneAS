@@ -6,16 +6,25 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 using Projektopgaven_BobedreMaeglerneAS.PresentationLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS
 {
     public partial class Homepage : Form
     {
+        private EjendomsmæglerOplysninger ejendomsmæglerOplysninger1;
+
         public Homepage()
         {
             InitializeComponent();
+
+            ejendomsmæglerOplysninger1 = new EjendomsmæglerOplysninger(richTextBox1);
+            Thread t1 = new Thread(new ThreadStart(ejendomsmæglerOplysninger1.GenerateEjendomsmægler));
+            t1.IsBackground = true;
+            t1.Start();
         }
 
         private void bolig_createToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -173,6 +182,14 @@ namespace Projektopgaven_BobedreMaeglerneAS
         private void køber_createToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.KøberCreate();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //ejendomsmæglerOplysninger1 = new EjendomsmæglerOplysninger(richTextBox1);
+            //Thread t1 = new Thread(new ThreadStart(ejendomsmæglerOplysninger1.GenerateEjendomsmægler));
+            //t1.IsBackground = true;
+            //t1.Start();
         }
     }
 }

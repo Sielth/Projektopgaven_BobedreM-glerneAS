@@ -10,10 +10,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
     {
         public int MæglerID { get; private set; }
         public int CPR { get; private set; }
-        public int Telefon { get; private set; }
+        public int Telefon { get; protected set; }
         public string Email { get; private set; }
-        public string Fnavn { get; private set; }
-        public string Enavn { get; private set; }
+        public string Fnavn { get; protected set; }
+        public string Enavn { get; protected set; }
         public string Vej { get; private set; }
         public int Postnummer { get; private set; }
 
@@ -27,6 +27,23 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Enavn = enavn;
             this.Vej = vej;
             this.Postnummer = postnummer;
+        }
+
+        public EjendomsmæglerBLL(string fnavn, string enavn, int tlf)
+        {
+            this.Fnavn = fnavn;
+            this.Enavn = enavn;
+            this.Telefon = tlf;
+        }
+
+        public EjendomsmæglerBLL() { }
+
+        public override string ToString()
+        {
+            return $"ROLLE: ejendomsmægler\n" +
+                $"Navn: {Fnavn}\n" +
+                $"Efternavn: {Enavn}\n" +
+                $"Telefon: {Telefon}";
         }
     }
 }
