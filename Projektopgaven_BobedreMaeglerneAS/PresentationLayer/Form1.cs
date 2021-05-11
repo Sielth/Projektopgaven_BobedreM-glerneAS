@@ -21,9 +21,18 @@ namespace Projektopgaven_BobedreMaeglerneAS
         {
             InitializeComponent();
 
+            //make new instance of EjendomsmæglerOplysninger class with reference to richTextBox1 (should probably change the name)
             ejendomsmæglerOplysninger1 = new EjendomsmæglerOplysninger(richTextBox1);
+
+            //initialize a new thread with ThreadStart calling GenerateEjendomsmægler method
             Thread t1 = new Thread(new ThreadStart(ejendomsmæglerOplysninger1.GenerateEjendomsmægler));
+
+            //t1 is set as Background, so that it doesn't interfere with the main thread running the Application
+            //and so that we can close the form without triggering a NullReference exception (thread pointing to null)
+            //because since it is working in the background, it is going to be closed as soon as the main thread gets closed
             t1.IsBackground = true;
+
+            //Thread t1 is starting now
             t1.Start();
         }
 
