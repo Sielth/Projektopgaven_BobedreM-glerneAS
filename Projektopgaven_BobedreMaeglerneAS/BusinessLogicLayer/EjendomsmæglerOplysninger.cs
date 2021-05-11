@@ -11,21 +11,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
     class EjendomsmæglerOplysninger
     {
-        private int index = 0;
+        private int index = 0; //loops through ejendomsmæglerne liste
         private RichTextBox output;
         private List<EjendomsmæglerBLL> ejendomsmæglerne;
 
+        //constructor
         public EjendomsmæglerOplysninger(RichTextBox richTextBox)
         {
             output = richTextBox;
         }
 
+        //delegate 
         private delegate void DisplayDelegate(EjendomsmæglerBLL ejendomsmægler);
 
+        //viser ejendomsmægler i textbox output
         private void DisplayEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
             output.Text = ejendomsmægler.ToString();
         }
+
 
         public List<EjendomsmæglerBLL> Fetch()
         {
@@ -66,6 +70,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
                 return ejendomsmæglerne;
             }
         }
+
 
         public void GenerateEjendomsmægler()
         {
