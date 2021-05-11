@@ -19,8 +19,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public void OpretSælger(SælgerBLL sælgerBLL)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandSælger = "INSERT INTO Sælger VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer)";
 
@@ -52,8 +55,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public SælgerBLL HentSælgerViaID(SælgerBLL sælgerBLL)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandSælger = "SELECT * FROM Sælger WHERE " +
                 "SælgerID = SælgerID";
@@ -96,8 +102,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public SælgerBLL HentSælger(SælgerBLL sælgerBLL)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandSælger = "SELECT FROM Sælger WHERE " +
                 "SælgerID LIKE @SælgerID OR " +
@@ -154,8 +163,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public void OpdaterSælger(SælgerBLL sælgerBLL)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandSælger = "UPDATE Sælger SET " +
                 "CPR = IsNull(NullIf(@CPR, ''), CPR), " +
@@ -194,8 +206,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public void SletSælger(SælgerBLL sælgerBLL)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
+            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            //SqlConnection conn = new SqlConnection(connstr);
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
 
             string sqlCommandSælger = "DELETE FROM Sælger WHERE SælgerID = @SælgerID";
 
