@@ -9,8 +9,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
     class ConnectionSingleton
     {
-        private static ConnectionSingleton _instance = new ConnectionSingleton();
+        private static ConnectionSingleton _instance = null;
         public static string ConnectionString; // = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+        public static SqlConnection conn;
 
         // Constructor is 'protected'
         static ConnectionSingleton()
@@ -20,6 +21,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         private ConnectionSingleton()
         {
             ConnectionString = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            conn = new SqlConnection(ConnectionString);
         }
         public static ConnectionSingleton Instance()
         {
@@ -31,6 +33,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             }
 
             return _instance;
+        }
+
+        public SqlConnection GetConnection()
+        {
+            return conn;
         }
     }
 }
