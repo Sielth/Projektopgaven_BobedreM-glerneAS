@@ -62,6 +62,7 @@
     <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
     <Compile Include="DataAccessLayer\KøberDAL.cs" />
     <Compile Include="DataAccessLayer\SælgerDAL.cs" />
+    <Compile Include="DataAccessLayer\Transactions.cs" />
     <Compile Include="ejendomsmægler_bobedredbDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
