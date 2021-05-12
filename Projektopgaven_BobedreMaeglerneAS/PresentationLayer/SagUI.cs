@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +21,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_OpretSag_Click(object sender, EventArgs e)
         {
+            //SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
+            //SagDAL sagDAL = new SagDAL(sagBLL);
+
+            //Kalder metoden: OpretSag
+            //sagDAL.OpretSag(sagBLL);
+
+            //Loader data fra databasen ind i datagridview
+            //SagsUI_Load(sender, e);
 
         }
 
@@ -36,5 +46,37 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
 
         }
+
+
+        #region Konveter Tekstbokse
+        public int SagsID()
+        {
+            int.TryParse(sagID_txt.Text, out int sagsid);
+            return sagsid;
+        }
+
+        public string SagsStatus()
+        {
+            return sagStatus_cbox.Text;
+        }
+
+        public int SagsBoligID()
+        {
+            int.TryParse(sag_boligID_cbox.Text, out int sagsboligid);
+            return sagsboligid;
+        }
+
+        public int SagsSælgerID()
+        {
+            int.TryParse(sag_sælgerID_cbox.Text, out int sagssælgerid);
+            return sagssælgerid;
+        }
+
+        public int SagsMæglerID()
+        {
+            int.TryParse(sag_ejendomsmæglerID_cbox.Text, out int sagsmæglerid);
+            return sagsmæglerid;
+        }
+        #endregion
     }
 }
