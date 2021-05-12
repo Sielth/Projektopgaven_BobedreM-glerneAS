@@ -125,6 +125,9 @@
     <EmbeddedResource Include="PresentationLayer\KøberUI.resx">
       <DependentUpon>KøberUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\SagUI.resx">
+      <DependentUpon>SagUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\SælgerUI.resx">
       <DependentUpon>SælgerUI.cs</DependentUpon>
     </EmbeddedResource>

@@ -59,9 +59,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                BoligBLL matchingbolig = boligDAL.HentBolig(boligBLL);
+                //BoligBLL matchingbolig = boligDAL.HentBolig(boligBLL);
 
-                boligID_txt.Text = matchingbolig.BoligID.ToString();
+                //boligID_txt.Text = matchingbolig.BoligID.ToString();
             }
             catch (Exception ex)
             {
