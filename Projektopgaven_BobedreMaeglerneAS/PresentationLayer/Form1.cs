@@ -49,6 +49,8 @@ namespace Projektopgaven_BobedreMaeglerneAS
             boligUI.GetHentBoligButton().Visible = false;
             boligUI.GetSletBoligButton().Visible = false;
             boligUI.GetClearHentBoligButton().Visible = false;
+            boligUI.GetAllowRedigeringButton().Visible = false;
+            boligUI.GetSaveChangesButton().Visible = false;
 
             // Disable not needed textboxes
             boligUI.GetBoligIDTextbox().Enabled = false;
@@ -76,18 +78,18 @@ namespace Projektopgaven_BobedreMaeglerneAS
         private void bolig_updateToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             // Create a new instance of the BoligUI class
-            BoligUI boligUI = new BoligUI();
+            //BoligUI boligUI = new BoligUI();
 
-            // Show the settings form
-            boligUI.Show();
+            //// Show the settings form
+            //boligUI.Show();
 
-            // Disable not needed buttons
-            boligUI.GetOpretBoligButton().Visible = false;
-            boligUI.GetHentBoligButton().Visible = false;
-            boligUI.GetSletBoligButton().Visible = false;
+            //// Disable not needed buttons
+            //boligUI.GetOpretBoligButton().Visible = false;
+            //boligUI.GetHentBoligButton().Visible = false;
+            //boligUI.GetSletBoligButton().Visible = false;
 
-            // Disable not needed TextBoxes
-            boligUI.GetBoligIDTextbox().Enabled = false;
+            //// Disable not needed TextBoxes
+            //boligUI.GetBoligIDTextbox().Enabled = false;
         }
 
         private void bolig_deleteToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -101,6 +103,14 @@ namespace Projektopgaven_BobedreMaeglerneAS
             // Disable not needed buttons
             boligUI.GetOpretBoligButton().Visible = false;
             boligUI.GetHentBoligButton().Visible = false;
+            boligUI.GetClearOpretBoligButton().Visible = false;
+            boligUI.GetClearHentBoligButton().Visible = false;
+            boligUI.GetAllowRedigeringButton().Visible = false;
+            boligUI.GetSaveChangesButton().Visible = false;
+
+            // Disable not needed TextBoxes
+            boligUI.DisableAll();
+            boligUI.GetBoligIDTextbox().Enabled = true;
         }
 
         //EJENDOMSMÆGLER
