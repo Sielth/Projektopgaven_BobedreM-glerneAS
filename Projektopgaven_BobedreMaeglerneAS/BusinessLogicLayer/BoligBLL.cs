@@ -46,7 +46,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public override string ToString()
         {
-            return BoligID.ToString();
+            return $"{BoligID}";
         }
 
         private int CalculateUdbudsPris()

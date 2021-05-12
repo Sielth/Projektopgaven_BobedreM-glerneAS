@@ -15,7 +15,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class SagUI : Form
     {
-        BoligDAL bolig = new BoligDAL(new BoligBLL());   
+        BoligDAL bolig = new BoligDAL(new BoligBLL());
+        SælgerDAL sælger = new SælgerDAL(new SælgerBLL());
 
         public SagUI()
         {
@@ -23,6 +24,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             foreach (BoligBLL bolig in bolig.HentBoligID_cbox())
                 sag_boligID_cbox.Items.Add(bolig);
+
+            foreach (SælgerBLL sælger in sælger.HentSælgerID_cbox()) 
+                sag_sælgerID_cbox.Items.Add(sælger);
         }
 
         private void btn_OpretSag_Click(object sender, EventArgs e)

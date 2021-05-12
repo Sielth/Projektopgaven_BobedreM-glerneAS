@@ -36,6 +36,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             t1.Start();
         }
 
+        //BOLIG
         private void bolig_createToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             // Create a new instance of the BoligUI class
@@ -46,8 +47,8 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             // Disable not needed buttons
             boligUI.GetHentBoligButton().Visible = false;
-            boligUI.GetOpdaterBoligButton().Visible = false;
             boligUI.GetSletBoligButton().Visible = false;
+            boligUI.GetClearHentBoligButton().Visible = false;
 
             // Disable not needed textboxes
             boligUI.GetBoligIDTextbox().Enabled = false;
@@ -65,9 +66,8 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             // Disable not needed buttons
             boligUI.GetOpretBoligButton().Visible = false;
-            boligUI.GetOpdaterBoligButton().Visible = false;
-            boligUI.GetSælgBoligButton().Visible = false;
             boligUI.GetSletBoligButton().Visible = false;
+            boligUI.GetClearOpretBoligButton().Visible = false;
 
             boligUI.DisableAll();
             boligUI.GetBoligIDTextbox().Enabled = true;
@@ -101,8 +101,6 @@ namespace Projektopgaven_BobedreMaeglerneAS
             // Disable not needed buttons
             boligUI.GetOpretBoligButton().Visible = false;
             boligUI.GetHentBoligButton().Visible = false;
-            boligUI.GetOpdaterBoligButton().Visible = false;
-            boligUI.GetSælgBoligButton().Visible = false;
         }
 
         //EJENDOMSMÆGLER
@@ -235,6 +233,11 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             // Show the settings form
             sagUI.Show();
+        }
+
+        private void Homepage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

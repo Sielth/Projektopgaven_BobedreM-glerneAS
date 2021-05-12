@@ -231,5 +231,42 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 conn.Close();
             }
         }
+
+        public List<SælgerBLL> HentSælgerID_cbox()
+        {
+            string sqlCommand = "SELECT * FROM Sælger";
+
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
+
+            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+
+            try
+            {
+                if (conn == null) 
+                    conn.Open();
+
+                List<SælgerBLL> sælgere = new List<SælgerBLL>();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        sælgere.Add(new SælgerBLL((int)reader["SælgerID"], reader["Fnavn"].ToString(), reader["Enavn"].ToString()));
+                    }
+                }
+
+                return sælgere;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+            conn.Close();
+            return null;
+        }
     }
 }
