@@ -38,6 +38,10 @@
             this.sag_boligID_cbox = new System.Windows.Forms.ComboBox();
             this.sag_sælgerID_cbox = new System.Windows.Forms.ComboBox();
             this.sag_ejendomsmæglerID_cbox = new System.Windows.Forms.ComboBox();
+            this.btn_OpretSag = new System.Windows.Forms.Button();
+            this.btn_HentSag = new System.Windows.Forms.Button();
+            this.btn_OpdaterSag = new System.Windows.Forms.Button();
+            this.btn_SletSag = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // sagnr_lbl
@@ -132,11 +136,55 @@
             this.sag_ejendomsmæglerID_cbox.Size = new System.Drawing.Size(121, 21);
             this.sag_ejendomsmæglerID_cbox.TabIndex = 9;
             // 
+            // btn_OpretSag
+            // 
+            this.btn_OpretSag.Location = new System.Drawing.Point(12, 119);
+            this.btn_OpretSag.Name = "btn_OpretSag";
+            this.btn_OpretSag.Size = new System.Drawing.Size(75, 23);
+            this.btn_OpretSag.TabIndex = 10;
+            this.btn_OpretSag.Text = "Create";
+            this.btn_OpretSag.UseVisualStyleBackColor = true;
+            this.btn_OpretSag.Click += new System.EventHandler(this.btn_OpretSag_Click);
+            // 
+            // btn_HentSag
+            // 
+            this.btn_HentSag.Location = new System.Drawing.Point(136, 119);
+            this.btn_HentSag.Name = "btn_HentSag";
+            this.btn_HentSag.Size = new System.Drawing.Size(75, 23);
+            this.btn_HentSag.TabIndex = 11;
+            this.btn_HentSag.Text = "Hent";
+            this.btn_HentSag.UseVisualStyleBackColor = true;
+            this.btn_HentSag.Click += new System.EventHandler(this.btn_HentSag_Click);
+            // 
+            // btn_OpdaterSag
+            // 
+            this.btn_OpdaterSag.Location = new System.Drawing.Point(252, 119);
+            this.btn_OpdaterSag.Name = "btn_OpdaterSag";
+            this.btn_OpdaterSag.Size = new System.Drawing.Size(75, 23);
+            this.btn_OpdaterSag.TabIndex = 12;
+            this.btn_OpdaterSag.Text = "Opdater";
+            this.btn_OpdaterSag.UseVisualStyleBackColor = true;
+            this.btn_OpdaterSag.Click += new System.EventHandler(this.btn_OpdaterSag_Click);
+            // 
+            // btn_SletSag
+            // 
+            this.btn_SletSag.Location = new System.Drawing.Point(353, 119);
+            this.btn_SletSag.Name = "btn_SletSag";
+            this.btn_SletSag.Size = new System.Drawing.Size(75, 23);
+            this.btn_SletSag.TabIndex = 13;
+            this.btn_SletSag.Text = "Slet";
+            this.btn_SletSag.UseVisualStyleBackColor = true;
+            this.btn_SletSag.Click += new System.EventHandler(this.btn_SletSag_Click);
+            // 
             // SagUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_SletSag);
+            this.Controls.Add(this.btn_OpdaterSag);
+            this.Controls.Add(this.btn_HentSag);
+            this.Controls.Add(this.btn_OpretSag);
             this.Controls.Add(this.sag_ejendomsmæglerID_cbox);
             this.Controls.Add(this.sag_sælgerID_cbox);
             this.Controls.Add(this.sag_boligID_cbox);
@@ -166,5 +214,9 @@
         private System.Windows.Forms.ComboBox sag_boligID_cbox;
         private System.Windows.Forms.ComboBox sag_sælgerID_cbox;
         private System.Windows.Forms.ComboBox sag_ejendomsmæglerID_cbox;
+        private System.Windows.Forms.Button btn_OpretSag;
+        private System.Windows.Forms.Button btn_HentSag;
+        private System.Windows.Forms.Button btn_OpdaterSag;
+        private System.Windows.Forms.Button btn_SletSag;
     }
 }

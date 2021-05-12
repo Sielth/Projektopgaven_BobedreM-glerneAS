@@ -16,5 +16,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             InitializeComponent();
         }
+
+        private void btn_OpretSag_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_HentSag_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_OpdaterSag_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_SletSag_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
