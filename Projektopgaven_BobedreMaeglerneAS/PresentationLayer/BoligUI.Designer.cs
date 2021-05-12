@@ -742,7 +742,7 @@
             boligID_txt.Clear();
             boligVej_txt.Clear();
             boligPostnr_txt.Clear();
-            boligType_cbox.Items.Clear();
+            //boligType_cbox.Items.Clear();
             boligVærelser_tbar.Value = boligVærelser_tbar.Minimum;
             boligEtager_tbar.Value = boligEtager_tbar.Minimum;
             boligKvm_txt.Clear();

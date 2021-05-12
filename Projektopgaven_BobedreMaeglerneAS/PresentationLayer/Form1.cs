@@ -200,5 +200,25 @@ namespace Projektopgaven_BobedreMaeglerneAS
             //t1.IsBackground = true;
             //t1.Start();
         }
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void readToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
