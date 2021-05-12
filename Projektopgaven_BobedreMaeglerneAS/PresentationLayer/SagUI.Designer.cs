@@ -66,7 +66,7 @@
             // 
             this.sagID_txt.Location = new System.Drawing.Point(90, 20);
             this.sagID_txt.Name = "sagID_txt";
-            this.sagID_txt.Size = new System.Drawing.Size(100, 20);
+            this.sagID_txt.Size = new System.Drawing.Size(121, 20);
             this.sagID_txt.TabIndex = 2;
             // 
             // sagStatus_cbox

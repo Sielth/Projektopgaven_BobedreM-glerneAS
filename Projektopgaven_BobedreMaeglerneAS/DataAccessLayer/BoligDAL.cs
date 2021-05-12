@@ -259,5 +259,33 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 //conn.Close();
             }
         }
+
+        public string HentBoligID_cbox()
+        {
+            string sqlCommand = "SELECT * FROM Bolig";
+
+            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+
+            try
+            {
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        BoligBLL matchingbolig = new BoligBLL((int)reader["BoligID"]);
+                        return matchingbolig.ToString();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            conn.Close();
+            return null;
+        }
     }
 }
