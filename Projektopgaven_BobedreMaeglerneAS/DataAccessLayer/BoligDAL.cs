@@ -21,8 +21,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.BoligBLL = boligBLL;
             this.s1 = ConnectionSingleton.Instance();
             this.conn = s1.GetConnection();
-            if (this.conn.State == System.Data.ConnectionState.Closed)
-                this.conn.Open();
+            //if (this.conn.State == System.Data.ConnectionState.Closed)
+            //    this.conn.Open();
         }
 
         public void OpretBolig(BoligBLL bolig)
@@ -44,7 +44,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 //if (conn.State == System.Data.ConnectionState.Closed)
-                //    conn.Open();
+                    conn.Open();
 
                 Transactions.BeginRepeatableReadTransaction(conn);
                 cmdBolig.ExecuteNonQuery();
@@ -52,10 +52,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 if (!Transactions.Commit(conn))
                     Transactions.Rollback(conn);
 
-                Transactions.BeginReadCommittedTransaction(conn);
-                HentBolig(bolig);
-                if (!Transactions.Commit(conn))
-                    Transactions.Rollback(conn);
+                //Transactions.BeginReadCommittedTransaction(conn);
+                //HentBolig(bolig);
+                //if (!Transactions.Commit(conn))
+                //    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
@@ -66,6 +66,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 //if (conn.State == System.Data.ConnectionState.Open)
                 //    conn.Close();
             }
+
+            if (conn != null)
+                conn.Close();
         }
 
         public BoligBLL HentBoligViaID(BoligBLL bolig)
