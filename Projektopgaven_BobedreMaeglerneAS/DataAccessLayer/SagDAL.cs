@@ -42,5 +42,44 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 conn.Close();
             }
         }
+
+        public void FindSag(SagBLL sag)
+        {
+
+        }
+
+        public void OpdaterSag(SagBLL sag)
+        {
+
+        }
+
+        public void SletSag(SagBLL sag)
+        {
+            //Connection string
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
+
+            string sqlCommandSag = $"DELETE FROM Sag WHERE SagsID = @SagsID";
+
+            SqlCommand commandSag = new SqlCommand(sqlCommandSag, conn);
+
+            commandSag.Parameters.AddWithValue("@SagsID", sag.SagsID);
+
+            try
+            {
+                conn.Open();
+                commandSag.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
