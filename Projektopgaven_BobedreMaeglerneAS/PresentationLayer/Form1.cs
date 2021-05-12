@@ -203,22 +203,38 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
         private void createToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
 
+            // Show the settings form
+            sagUI.Show();
         }
 
         private void readToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
 
+            // Show the settings form
+            sagUI.Show();
         }
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
 
+            // Show the settings form
+            sagUI.Show();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
 
+            // Show the settings form
+            sagUI.Show();
         }
     }
 }
