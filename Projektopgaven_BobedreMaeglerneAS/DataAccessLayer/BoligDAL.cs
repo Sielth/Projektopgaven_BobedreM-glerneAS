@@ -260,7 +260,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
         }
 
-        public string HentBoligID_cbox()
+        public List<BoligBLL> HentBoligID_cbox()
         {
             string sqlCommand = "SELECT * FROM Bolig";
 
@@ -269,20 +269,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 conn.Open();
+                List<BoligBLL> boliger = new List<BoligBLL>();
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        BoligBLL matchingbolig = new BoligBLL((int)reader["BoligID"]);
-                        return matchingbolig.ToString();
+                        boliger.Add(new BoligBLL((int)reader["BoligID"]));
                     }
                 }
+
+                return boliger;
+
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
 
             conn.Close();
             return null;

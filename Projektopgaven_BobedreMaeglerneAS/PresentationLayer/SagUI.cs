@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Projektopgaven_BobedreMæglerneAS;
-using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -22,7 +21,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             InitializeComponent();
 
-            sag_boligID_cbox.Items.Add(bolig.HentBoligID_cbox());
+            foreach (BoligBLL bolig in bolig.HentBoligID_cbox())
+                sag_boligID_cbox.Items.Add(bolig);
         }
 
         private void btn_OpretSag_Click(object sender, EventArgs e)
@@ -84,5 +84,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return sagsmæglerid;
         }
         #endregion
+
+        private void SagUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
