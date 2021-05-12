@@ -34,17 +34,52 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_HentSag_Click(object sender, EventArgs e)
         {
+            SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
+            SagDAL sagDAL = new SagDAL(sagBLL);
 
+            try
+            {
+                SagBLL matchingesag = sagDAL.FindSag(sagBLL);
+                sagStatus_cbox.Text = matchingesag.Status.ToString();
+                sag_boligID_cbox.Text = matchingesag.BoligID.ToString();
+                sag_sælgerID_cbox.Text = matchingesag.SælgerID.ToString();
+                sag_ejendomsmæglerID_cbox.Text = matchingesag.MæglerID.ToString();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //Kalder metoden: OpretSag
+            sagDAL.OpretSag(sagBLL);
+
+            //Loader data fra databasen ind i datagridview
+            //SagsUI_Load(sender, e);
         }
 
         private void btn_OpdaterSag_Click(object sender, EventArgs e)
         {
+            SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
+            SagDAL sagDAL = new SagDAL(sagBLL);
 
+            //Kalder metoden: OpretSag
+            sagDAL.OpretSag(sagBLL);
+
+            //Loader data fra databasen ind i datagridview
+            //SagsUI_Load(sender, e);
         }
 
         private void btn_SletSag_Click(object sender, EventArgs e)
         {
+            SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
+            SagDAL sagDAL = new SagDAL(sagBLL);
 
+            //Kalder metoden: OpretSag
+            sagDAL.OpretSag(sagBLL);
+
+            //Loader data fra databasen ind i datagridview
+            //SagsUI_Load(sender, e);
         }
 
 
