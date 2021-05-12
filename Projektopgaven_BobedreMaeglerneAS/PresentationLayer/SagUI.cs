@@ -21,11 +21,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_OpretSag_Click(object sender, EventArgs e)
         {
-            //SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
-            //SagDAL sagDAL = new SagDAL(sagBLL);
+            SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
+            SagDAL sagDAL = new SagDAL(sagBLL);
 
             //Kalder metoden: OpretSag
-            //sagDAL.OpretSag(sagBLL);
+            sagDAL.OpretSag(sagBLL);
 
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);

@@ -10,6 +10,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
     class SagDAL
     {
+        private SagBLL SagBLL;
+
+        public SagDAL(SagBLL sagBLL)
+        {
+            this.SagBLL = sagBLL;
+        }
+
+
+
         public void OpretSag(SagBLL sag)
         {
             //Connection string
