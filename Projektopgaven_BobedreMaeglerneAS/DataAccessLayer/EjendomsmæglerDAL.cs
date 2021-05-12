@@ -21,9 +21,9 @@ namespace Projektopgaven_BobedreMæglerneAS
 
 
 
-        public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Opret ejendomsmælger
         {
-            //Connection til databasen
+            //Connection string
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
@@ -56,9 +56,9 @@ namespace Projektopgaven_BobedreMæglerneAS
             }
         }
 
-        public EjendomsmæglerBLL FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        public EjendomsmæglerBLL FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Find/hent ejendomsmægler
         {
-            //Connection til databasen
+            //Connection string
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
@@ -121,9 +121,9 @@ namespace Projektopgaven_BobedreMæglerneAS
             return null;
         }
 
-        public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Opdater ejendomsmægler
         {
-            //Connection til databasen
+            //Connection string
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
@@ -165,9 +165,9 @@ namespace Projektopgaven_BobedreMæglerneAS
             }
         }
 
-        public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Slet ejendomsmægler
         {
-            //Connection til databasen
+            //Connection string
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
