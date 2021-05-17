@@ -5,17 +5,112 @@ using System.Text;
 using System.Threading.Tasks;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 using System.Data.SqlClient;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
     class SælgerDAL
     {
         private SælgerBLL SælgerBLL;
+        private ConnectionSingleton s1;
+        private SqlConnection conn;
+
+        private ComboBox output;
 
         public SælgerDAL(SælgerBLL sælgerBLL)
         {
             this.SælgerBLL = sælgerBLL;
+            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
+
+        #region Threads
+        public SælgerDAL(ComboBox cBox)
+        {
+            output = cBox;
+            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
+        }
+
+        public delegate void DisplayDelegate(List<SælgerBLL> sælgere);
+
+        private void DisplaySælgere(List<SælgerBLL> sælgere)
+        {
+            output.Items.Clear();
+
+            foreach (SælgerBLL sælger in sælgere)
+                output.Items.Add(sælger.ToString());
+        }
+
+        public List<SælgerBLL> FetchSælger()
+        {
+            List<SælgerBLL> sælgere = new List<SælgerBLL>();
+
+            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            {
+                string sqlCommand = "SELECT * FROM Sælger";
+
+                SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+
+                try
+                {
+                    //OPEN CONNECTION
+                    if (conn.State == System.Data.ConnectionState.Closed)
+                        conn.Open();
+
+                    //BEGIN TRANSACTION
+                    Transactions.BeginReadCommittedTransaction(conn);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            sælgere.Add(new SælgerBLL((int)reader["SælgerID"], reader["Fnavn"].ToString(), reader["Enavn"].ToString()));
+                        }
+
+                        reader.Close();
+                    }
+
+                    if (!Transactions.Commit(conn))
+                        Transactions.Rollback(conn);
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                //CLOSE CONNECTION
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+            }
+
+            //RETURN
+            return sælgere;
+        }
+
+        public void GenerateSælger()
+        {
+            while (true)
+            { 
+                ThreadStart start = new ThreadStart(() => FetchSælger());
+                Thread t1 = new Thread(start);
+
+                List<SælgerBLL> sælgere = FetchSælger();
+
+                try
+                {
+                    output.Invoke(new DisplayDelegate(DisplaySælgere), new object[] { sælgere });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                Thread.Sleep(6000);
+            }
+        }
+        #endregion
 
         public void OpretSælger(SælgerBLL sælgerBLL)
         {
@@ -230,43 +325,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             {
                 conn.Close();
             }
-        }
-
-        public List<SælgerBLL> HentSælgerID_cbox()
-        {
-            string sqlCommand = "SELECT * FROM Sælger";
-
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
-            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
-
-            try
-            {
-                if (conn == null) 
-                    conn.Open();
-
-                List<SælgerBLL> sælgere = new List<SælgerBLL>();
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        sælgere.Add(new SælgerBLL((int)reader["SælgerID"], reader["Fnavn"].ToString(), reader["Enavn"].ToString()));
-                    }
-                }
-
-                return sælgere;
-
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-
-            conn.Close();
-            return null;
         }
     }
 }
