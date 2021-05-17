@@ -25,11 +25,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
-            string sqlCommandSag = $"INSERT INTO Sag VALUES (@SagsID, @Status, @BoligID, @SælgerID, @MæglerID)";
+            string sqlCommandSag = $"INSERT INTO Sag VALUES(@Status, @BoligID, @SælgerID, @MæglerID)";
 
             SqlCommand commandSag = new SqlCommand(sqlCommandSag, conn);
 
-            commandSag.Parameters.AddWithValue("@SagsID", sag.SagsID);
             commandSag.Parameters.AddWithValue("@Status", sag.Status);
             commandSag.Parameters.AddWithValue("@BoligID", sag.BoligID);
             commandSag.Parameters.AddWithValue("@SælgerID", sag.SælgerID);

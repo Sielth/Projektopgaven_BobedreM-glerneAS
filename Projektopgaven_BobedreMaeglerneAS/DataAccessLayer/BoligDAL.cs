@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
+using System.Threading;
 
 //MEMO
 //REMEMBER TO ADD CHECKS FOR READ, UPDATE, DELETE => IF BOLIG EXISTS, THEN EXECUTE QUERY
@@ -225,7 +226,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         //method to retrieve all BoligID to show in the ComboBox of SagUI
         //returns a List of BoligBLL
-        public List<BoligBLL> HentBoligID_cbox()
+        public List<BoligBLL> FetchBolig()
         {
             //INITIALIZE List OF BoligBLL boliger
             List<BoligBLL> boliger = new List<BoligBLL>();
@@ -251,7 +252,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     //RETRIEVE BoligBLL AND ADD IN boliger
                     while (reader.Read())
                     {
-                        boliger.Add(new BoligBLL((int)reader["BoligID"]));
+                        boliger.Add(new BoligBLL((int)reader["BoligID"], reader["Vej"].ToString(), (int)reader["Postnummer"]));
                     }
 
                     //CLOSE READER
@@ -276,6 +277,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 conn.Close();
 
             return null;
+        }
+
+        public void GenerateBolig()
+        {
+            while (true)
+            {
+                
+            }
         }
         #endregion
 
