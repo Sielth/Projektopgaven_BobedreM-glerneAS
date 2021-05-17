@@ -13,18 +13,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
     {
         private BoligBLL BoligBLL;
 
+        private ConnectionSingleton s1;
+        private SqlConnection conn;
+
         public BoligDAL(BoligBLL boligBLL)
         {
             this.BoligBLL = boligBLL;
+            this.s1 = ConnectionSingleton.Instance();
+            this.conn = s1.GetConnection();
+            //if (this.conn.State == System.Data.ConnectionState.Closed)
+            //    this.conn.Open();
         }
 
         public void OpretBolig(BoligBLL bolig)
         {
-            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            //SqlConnection conn = new SqlConnection(connstr);
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
             string sqlCommandBolig = "INSERT INTO Bolig VALUES (@Vej, @Postnummer, @Type, @Værelser, @Etager, @Kvadratmeter, @Udbudspris, @HaveFlag, @Bygningsår, @RenoveringsÅr)";
 
             SqlCommand cmdBolig = new SqlCommand(sqlCommandBolig, conn);
@@ -41,10 +43,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
-                conn.Open();
+                //if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                Transactions.BeginRepeatableReadTransaction(conn);
                 cmdBolig.ExecuteNonQuery();
 
-                HentBolig(bolig);
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+
+                //Transactions.BeginReadCommittedTransaction(conn);
+                //HentBolig(bolig);
+                //if (!Transactions.Commit(conn))
+                //    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
@@ -52,15 +63,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                //if (conn.State == System.Data.ConnectionState.Open)
+                //    conn.Close();
             }
+
+            if (conn != null)
+                conn.Close();
         }
 
         public BoligBLL HentBoligViaID(BoligBLL bolig)
         {
-                string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-                SqlConnection conn = new SqlConnection(connstr);
-
             string sqlCommanBolig = "SELECT * FROM Bolig WHERE " +
                 "BoligID = @BoligID";
 
@@ -69,10 +81,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
-                conn.Open();
-
+                //conn.Open();
+                Transactions.BeginReadCommittedTransaction(conn);
                 using (SqlDataReader reader = cmdBolig.ExecuteReader())
                 {
+                    if (!Transactions.Commit(conn))
+                        Transactions.Rollback(conn);
+
                     while (reader.Read())
                     {
                         BoligBLL matchingbolig = new BoligBLL((int)reader["BoligID"],
@@ -96,7 +111,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                //conn.Close();
             }
 
             return null;
@@ -104,9 +119,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public BoligBLL HentBolig(BoligBLL bolig)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
-
             string sqlCommanBolig = "SELECT * FROM Bolig WHERE " +
                 "BoligID LIKE @BoligID OR " +
                 "Vej Like @Vej AND " +
@@ -135,10 +147,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
-                conn.Open();
+                //conn.Open();
+
+                Transactions.BeginReadCommittedTransaction(conn);
 
                 using (SqlDataReader reader = cmdBolig.ExecuteReader())
                 {
+                    if (!Transactions.Commit(conn))
+                        Transactions.Rollback(conn);
+
                     while (reader.Read())
                     {
                         BoligBLL matchingbolig = new BoligBLL((int)reader["BoligID"],
@@ -162,7 +179,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                //conn.Close();
             }
 
             return null;
@@ -170,9 +187,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public void OpdaterBolig(BoligBLL bolig)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
-
             string sqlCommandBolig = "UPDATE Bolig SET " +
                 "Vej = IsNull(NullIf(@Vej, ''), Vej), " +
                 "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer), " +
@@ -201,8 +215,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
-                conn.Open();
+                //conn.Open();
+
+                Transactions.BeginReadCommittedTransaction(conn);
                 cmdBolig.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
@@ -210,15 +229,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                //conn.Close();
             }
         }
 
         public void SletBolig(BoligBLL bolig)
         {
-            string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            SqlConnection conn = new SqlConnection(connstr);
-
             string sqlCommandBolig = "DELETE FROM Bolig WHERE BoligID = @BoligID";
 
             SqlCommand cmdBolig = new SqlCommand(sqlCommandBolig, conn);
@@ -226,8 +242,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
-                conn.Open();
+                //conn.Open();
+
+                Transactions.BeginRepeatableReadTransaction(conn);
                 cmdBolig.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
@@ -235,8 +256,36 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                //conn.Close();
             }
+        }
+
+        public string HentBoligID_cbox()
+        {
+            string sqlCommand = "SELECT * FROM Bolig";
+
+            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+
+            try
+            {
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        BoligBLL matchingbolig = new BoligBLL((int)reader["BoligID"]);
+                        return matchingbolig.ToString();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            conn.Close();
+            return null;
         }
     }
 }

@@ -56,12 +56,15 @@
     <Compile Include="BusinessLogicLayer\EjendomsmæglerOplysninger.cs" />
     <Compile Include="BusinessLogicLayer\KøberBLL.cs" />
     <Compile Include="BusinessLogicLayer\Pictures.cs" />
+    <Compile Include="BusinessLogicLayer\SagBLL.cs" />
     <Compile Include="BusinessLogicLayer\SingletonConnection.cs" />
     <Compile Include="BusinessLogicLayer\SælgerBLL.cs" />
     <Compile Include="DataAccessLayer\BoligDAL.cs" />
     <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
     <Compile Include="DataAccessLayer\KøberDAL.cs" />
+    <Compile Include="DataAccessLayer\SagDAL.cs" />
     <Compile Include="DataAccessLayer\SælgerDAL.cs" />
+    <Compile Include="DataAccessLayer\Transactions.cs" />
     <Compile Include="ejendomsmægler_bobedredbDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +100,12 @@
       <DependentUpon>KøberUI.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\MenuBarKnapper.cs" />
+    <Compile Include="PresentationLayer\SagUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\SagUI.Designer.cs">
+      <DependentUpon>SagUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\SælgerUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\KøberUI.resx">
       <DependentUpon>KøberUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\SagUI.resx">
+      <DependentUpon>SagUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\SælgerUI.resx">
       <DependentUpon>SælgerUI.cs</DependentUpon>
