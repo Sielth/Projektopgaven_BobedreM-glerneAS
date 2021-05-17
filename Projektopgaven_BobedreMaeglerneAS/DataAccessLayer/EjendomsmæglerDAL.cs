@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMæglerneAS
 {
@@ -41,8 +42,16 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             try
             {
+
+                //if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
+
+                Transactions.BeginRepeatableReadTransaction(conn);
                 commandEjendomsmægler.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+
             }
 
             catch (SqlException ex)
@@ -52,7 +61,8 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
 
@@ -89,6 +99,12 @@ namespace Projektopgaven_BobedreMæglerneAS
             {
                 conn.Open();
 
+                Transactions.BeginReadCommittedTransaction(conn);
+                commandEjendomsmægler.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+
                 using (SqlDataReader reader = commandEjendomsmægler.ExecuteReader())
                 {
                     while (reader.Read())
@@ -115,7 +131,8 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
 
             return null;
@@ -151,7 +168,12 @@ namespace Projektopgaven_BobedreMæglerneAS
             try
             {
                 conn.Open();
+
+                Transactions.BeginReadCommittedTransaction(conn);
                 commandEjendomsmægler.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
 
             catch (SqlException ex)
@@ -161,7 +183,8 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
 
@@ -180,7 +203,12 @@ namespace Projektopgaven_BobedreMæglerneAS
             try
             {
                 conn.Open();
+
+                Transactions.BeginRepeatableReadTransaction(conn);
                 commandEjendomsmægler.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
 
             catch (SqlException ex)
@@ -190,7 +218,8 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
     }
