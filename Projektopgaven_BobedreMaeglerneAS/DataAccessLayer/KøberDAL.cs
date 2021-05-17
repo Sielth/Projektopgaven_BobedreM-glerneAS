@@ -11,16 +11,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
     class KøberDAL
     {
         private KøberBLL KøberBLL;
+        private ConnectionSingleton s1;
+        private SqlConnection conn;
 
         public KøberDAL(KøberBLL køberBLL)
         {
             this.KøberBLL = køberBLL;
+            this.s1 = ConnectionSingleton.Instance();
+            this.conn = s1.GetConnection();
         }
         public void OpdaterKøber(KøberBLL køber) //Opdaterer køber
         {
             //Connection string
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
+            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            //SqlConnection conn = s1.GetConnection();
 
             //ConnectionSingleton s1 = ConnectionSingleton.Instance();
 
@@ -46,22 +50,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 conn.Open();
+                Transactions.BeginRepeatableReadTransaction(conn);
                 cmdKøber.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                {
+                    Transactions.Rollback(conn);
+                }
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }
-            finally
-            {
+            //finally
+            //{
+            //    conn.Close();
+            //}
+            if (conn != null)
                 conn.Close();
-            }
         }
         public void OpretKøber(KøberBLL køber) //Opretter køber
         {
             //Connection string
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
+            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            //SqlConnection conn = s1.GetConnection();
 
             string sqlCommandKøber = "INSERT INTO Køber VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer)";
             SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
@@ -75,22 +87,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 conn.Open();
+                Transactions.BeginRepeatableReadTransaction(conn);
                 cmdKøber.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                {
+                    Transactions.Rollback(conn);
+                }
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }
-            finally
-            {
+            //finally
+            //{
+            //    conn.Close();
+            //}
+            if (conn != null)
                 conn.Close();
-            }
         }
         public void SletKøber(KøberBLL køber) //Sletter køber
         {
             //Connection string
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
+            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            //SqlConnection conn = s1.GetConnection();
 
             string sqlCommandKøber = "DELETE FROM Køber WHERE (@KøberID)";
             SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
@@ -98,22 +118,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 conn.Open();
+                Transactions.BeginRepeatableReadTransaction(conn);
                 cmdKøber.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                {
+                    Transactions.Rollback(conn);
+                }
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }
-            finally
-            {
+            //finally
+            //{
+            //    conn.Close();
+            //}
+            if (conn != null)
                 conn.Close();
-            }
         }
         public KøberBLL FindKøber(KøberBLL køber)
         {
             //Connection string
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
+            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            //SqlConnection conn = s1.GetConnection();
 
             string sqlCommandKøber = "SELECT * FROM Sælger WHERE SælgerID = @SæglerID";
 
@@ -123,7 +151,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 conn.Open();
-
+                Transactions.BeginRepeatableReadTransaction(conn);
                 using (SqlDataReader reader = commandKøber.ExecuteReader())
                 {
                     while (reader.Read())
@@ -145,10 +173,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             {
                 Console.WriteLine(ex);
             }
-            finally
-            {
+            //finally
+            //{
+            //    conn.Close();
+            //}
+            if (conn != null)
                 conn.Close();
-            }
             return null;
         }
     }
