@@ -204,14 +204,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 case "Kvadratmeter":
                     this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
                     break;
-                //case "Bygningsår":
-                //    break;
-                //case "Renoveringsår":
-                //    break;
-                //case "Udbudspris(less than)":
-                //    break;
-                //case "Udbudspris(greater than)":
-                //    break;
+                case "Bygningsår":
+                    this.boligBindingSource.Filter = string.Format("Convert(Bygningsår, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Renoveringsår":
+                    this.boligBindingSource.Filter = string.Format("Convert(RenoveringsÅr, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Udbudspris (lower than)":
+                    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') <= '*{0}*'", search_txt.Text);
+                    break;
+                case "Udbudspris (higher than)": 
+                    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') >= '*{0}*'", search_txt.Text);
+                    break;
             }
         }
 
