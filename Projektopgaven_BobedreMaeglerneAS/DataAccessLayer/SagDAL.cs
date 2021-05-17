@@ -72,6 +72,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             {
                 conn.Open();
 
+                Transactions.BeginReadCommittedTransaction(conn);
+                commandSag.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+
                 using (SqlDataReader reader = commandSag.ExecuteReader())
                 {
                     while (reader.Read())
@@ -92,7 +98,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
             return null;
         }
@@ -120,7 +127,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 conn.Open();
+
+                Transactions.BeginReadCommittedTransaction(conn);
                 cmdSag.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
@@ -128,7 +140,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
 
@@ -146,8 +159,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
-                conn.Open();
+                Transactions.BeginRepeatableReadTransaction(conn);
                 commandSag.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
 
             catch (SqlException ex)
@@ -157,7 +173,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
     }
