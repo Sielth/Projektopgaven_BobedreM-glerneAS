@@ -26,7 +26,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //series of loop that add elements in combobox from methods that return lists of elements
 
-            foreach (BoligBLL bolig in bolig.HentBoligID_cbox())
+            foreach (BoligBLL bolig in bolig.FetchBolig())
                 sag_boligID_cbox.Items.Add(bolig);
 
             foreach (SælgerBLL sælger in sælger.HentSælgerID_cbox()) 
