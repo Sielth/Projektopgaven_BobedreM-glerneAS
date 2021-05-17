@@ -48,10 +48,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public override string ToString()
         {
             return ToString("A");
-            //return $"STILLING: ejendomsmægler\n" +
-            //    $"Navn: {Fnavn}\n" +
-            //    $"Efternavn: {Enavn}\n" +
-            //    $"Telefon: {Telefon}";
         }
 
         public string ToString(string fmt)
@@ -62,17 +58,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             switch(fmt.ToUpperInvariant())
             {
                 case "A":
-                    return $"STILLING: ejendomsmægler\n" +
-                        $"Navn: {Fnavn}\n" +
-                        $"Efternavn: {Enavn}\n" +
-                        $"Telefon: {Telefon}";
+                    return string.Format($"{MæglerID} - {Fnavn} {Enavn}");
                 case "B":
-                    return $"{MæglerID} - {Fnavn} {Enavn}";
-                default:
-                    return $"STILLING: ejendomsmægler\n" +
+                    return string.Format($"STILLING: ejendomsmægler\n" +
                         $"Navn: {Fnavn}\n" +
                         $"Efternavn: {Enavn}\n" +
-                        $"Telefon: {Telefon}";
+                        $"Telefon: {Telefon}");
+                default:
+                    return string.Format($"STILLING: ejendomsmægler\n" +
+                        $"Navn: {Fnavn}\n" +
+                        $"Efternavn: {Enavn}\n" +
+                        $"Telefon: {Telefon}");
             }
         }
     }
