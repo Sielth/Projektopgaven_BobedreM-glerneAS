@@ -66,7 +66,7 @@
             // 
             this.sagID_txt.Location = new System.Drawing.Point(90, 20);
             this.sagID_txt.Name = "sagID_txt";
-            this.sagID_txt.Size = new System.Drawing.Size(100, 20);
+            this.sagID_txt.Size = new System.Drawing.Size(121, 20);
             this.sagID_txt.TabIndex = 2;
             // 
             // sagStatus_cbox
@@ -111,10 +111,6 @@
             // sag_boligID_cbox
             // 
             this.sag_boligID_cbox.FormattingEnabled = true;
-            this.sag_boligID_cbox.Items.AddRange(new object[] {
-            "Åben",
-            "Lukket (solgt bolig)",
-            "Lukket (andre grunde)"});
             this.sag_boligID_cbox.Location = new System.Drawing.Point(252, 63);
             this.sag_boligID_cbox.Name = "sag_boligID_cbox";
             this.sag_boligID_cbox.Size = new System.Drawing.Size(121, 21);
@@ -197,6 +193,7 @@
             this.Controls.Add(this.sagnr_lbl);
             this.Name = "SagUI";
             this.Text = "SagUI";
+            this.Load += new System.EventHandler(this.SagUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

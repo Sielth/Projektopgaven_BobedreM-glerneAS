@@ -9,14 +9,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Projektopgaven_BobedreMæglerneAS;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class SagUI : Form
     {
+        BoligDAL bolig = new BoligDAL(new BoligBLL());
+        SælgerDAL sælger = new SælgerDAL(new SælgerBLL());
+        EjendomsmæglerDAL ejendomsmægler = new EjendomsmæglerDAL(new EjendomsmæglerBLL());
+
         public SagUI()
         {
             InitializeComponent();
+
+            //series of loop that add elements in combobox from methods that return lists of elements
+
+            foreach (BoligBLL bolig in bolig.HentBoligID_cbox())
+                sag_boligID_cbox.Items.Add(bolig);
+
+            foreach (SælgerBLL sælger in sælger.HentSælgerID_cbox()) 
+                sag_sælgerID_cbox.Items.Add(sælger);
+
+            //foreach (EjendomsmæglerBLL ejendomsmægler in ejendomsmægler.HentEjendomsmæglerID_cbox())
+            //    sag_ejendomsmæglerID_cbox.Items.Add(ejendomsmægler);
         }
 
         private void btn_OpretSag_Click(object sender, EventArgs e)
@@ -113,5 +129,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return sagsmæglerid;
         }
         #endregion
+
+        private void SagUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
