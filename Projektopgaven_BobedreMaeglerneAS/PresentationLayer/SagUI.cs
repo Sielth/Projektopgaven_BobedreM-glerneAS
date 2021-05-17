@@ -31,8 +31,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             foreach (SælgerBLL sælger in sælger.HentSælgerID_cbox()) 
                 sag_sælgerID_cbox.Items.Add(sælger);
 
-            //foreach (EjendomsmæglerBLL ejendomsmægler in ejendomsmægler.HentEjendomsmæglerID_cbox())
-            //    sag_ejendomsmæglerID_cbox.Items.Add(ejendomsmægler);
+            foreach (EjendomsmæglerBLL ejendomsmægler in ejendomsmægler.HentEjendomsmæglerID_cbox())
+                sag_ejendomsmæglerID_cbox.Items.Add(ejendomsmægler);
         }
 
         private void btn_OpretSag_Click(object sender, EventArgs e)
