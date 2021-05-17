@@ -43,6 +43,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Enavn = enavn;
         }
 
+        //public string ToString(string format)
+        //{
+        //    return this.ToString(format);
+        //    //$"{MæglerID} - {Fnavn} {Enavn}";
+        //}
+
+
         public EjendomsmæglerBLL() { }
 
         public override string ToString()

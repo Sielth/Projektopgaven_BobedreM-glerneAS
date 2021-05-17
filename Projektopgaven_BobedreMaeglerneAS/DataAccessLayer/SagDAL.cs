@@ -37,8 +37,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
+                if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
+
+                Transactions.BeginRepeatableReadTransaction(conn);
                 commandSag.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
 
             catch (SqlException ex)
@@ -48,7 +54,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
 

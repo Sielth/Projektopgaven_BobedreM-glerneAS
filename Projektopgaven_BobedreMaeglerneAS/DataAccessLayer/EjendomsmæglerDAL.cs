@@ -42,7 +42,6 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             try
             {
-
                 //if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
 
