@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMæglerneAS
 {
@@ -41,8 +42,16 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             try
             {
+
+                //if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
+
+                Transactions.BeginRepeatableReadTransaction(conn);
                 commandEjendomsmægler.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+
             }
 
             catch (SqlException ex)
@@ -52,7 +61,8 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
 
@@ -89,6 +99,12 @@ namespace Projektopgaven_BobedreMæglerneAS
             {
                 conn.Open();
 
+                Transactions.BeginReadCommittedTransaction(conn);
+                commandEjendomsmægler.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+
                 using (SqlDataReader reader = commandEjendomsmægler.ExecuteReader())
                 {
                     while (reader.Read())
@@ -115,11 +131,74 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
 
             return null;
         }
+
+
+        //method to retrieve all EjendomsmæglerID to show in the ComboBox of SagUI
+        //returns a List og EjendomsmæglerBLL
+        public List<EjendomsmæglerBLL> HentEjendomsmæglerID_cbox()
+        {
+            //Connection string
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
+
+            //INITIALIZE List OF EjendomsmæglerBLL ejendomsmæglere
+            List<EjendomsmæglerBLL> ejendomsmægler = new List<EjendomsmæglerBLL>();
+
+            //SQL QUERY
+            string sqlCommand = "SELECT * FROM Ejendomsmægler";
+
+            //SQL COMMAND
+            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                //EXECUTE READER (QUERY)
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    //RETRIEVE EjendomsmæglerBLL AND ADD IN ejendomsmægler
+                    while (reader.Read())
+                    {
+                        ejendomsmægler.Add(new EjendomsmæglerBLL((int)reader["MæglerID"], reader["Fnavn"].ToString(), reader["Enavn"].ToString()));
+                    }
+
+                    //CLOSE READER
+                    reader.Close();
+                }
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+
+                //RETURN
+                return ejendomsmægler;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            return null;
+        }
+
+
 
         public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Opdater ejendomsmægler
         {
@@ -151,7 +230,12 @@ namespace Projektopgaven_BobedreMæglerneAS
             try
             {
                 conn.Open();
+
+                Transactions.BeginReadCommittedTransaction(conn);
                 commandEjendomsmægler.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
 
             catch (SqlException ex)
@@ -161,7 +245,8 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
 
@@ -180,7 +265,12 @@ namespace Projektopgaven_BobedreMæglerneAS
             try
             {
                 conn.Open();
+
+                Transactions.BeginRepeatableReadTransaction(conn);
                 commandEjendomsmægler.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
 
             catch (SqlException ex)
@@ -190,7 +280,8 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
     }
