@@ -47,10 +47,33 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 
         public override string ToString()
         {
-            return $"STILLING: ejendomsmægler\n" +
-                $"Navn: {Fnavn}\n" +
-                $"Efternavn: {Enavn}\n" +
-                $"Telefon: {Telefon}";
+            return ToString("A");
+            //return $"STILLING: ejendomsmægler\n" +
+            //    $"Navn: {Fnavn}\n" +
+            //    $"Efternavn: {Enavn}\n" +
+            //    $"Telefon: {Telefon}";
+        }
+
+        public string ToString(string fmt)
+        {
+            if (string.IsNullOrEmpty(fmt))
+                fmt = "A";
+
+            switch(fmt.ToUpperInvariant())
+            {
+                case "A":
+                    return $"STILLING: ejendomsmægler\n" +
+                        $"Navn: {Fnavn}\n" +
+                        $"Efternavn: {Enavn}\n" +
+                        $"Telefon: {Telefon}";
+                case "B":
+                    return $"{MæglerID} - {Fnavn} {Enavn}";
+                default:
+                    return $"STILLING: ejendomsmægler\n" +
+                        $"Navn: {Fnavn}\n" +
+                        $"Efternavn: {Enavn}\n" +
+                        $"Telefon: {Telefon}";
+            }
         }
     }
 }
