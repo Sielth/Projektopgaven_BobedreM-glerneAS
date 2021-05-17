@@ -20,8 +20,6 @@ namespace Projektopgaven_BobedreMæglerneAS
             this.EjendomsmæglerBLL = ejendomsmæglerBLL;
         }
 
-
-
         public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Opret ejendomsmælger
         {
             //Connection string

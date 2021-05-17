@@ -35,7 +35,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         private void DisplayEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
             //output Ejendomsmægler in RichTextBox
-            output.Text = ejendomsmægler.ToString();
+            output.Text = ejendomsmægler.ToString("B");
         } //end method DisplayEjendomsmægler
 
         //*************************************************************************************************************************************************************************
