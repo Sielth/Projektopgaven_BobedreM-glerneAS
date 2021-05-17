@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Projektopgaven_BobedreMæglerneAS;
+using System.Threading;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -37,7 +38,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_OpretSag_Click(object sender, EventArgs e)
         {
-            SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
+            SagBLL sagBLL = new SagBLL(SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
             SagDAL sagDAL = new SagDAL(sagBLL);
 
             //Kalder metoden: OpretSag
@@ -113,19 +114,23 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         public int SagsBoligID()
         {
-            int.TryParse(sag_boligID_cbox.Text, out int sagsboligid);
+            string[] id = sag_boligID_cbox.Text.Split(' ');
+            int.TryParse(id[0], out int sagsboligid);
             return sagsboligid;
         }
 
         public int SagsSælgerID()
         {
-            int.TryParse(sag_sælgerID_cbox.Text, out int sagssælgerid);
+            string[] id = sag_sælgerID_cbox.Text.Split(' ');
+            int.TryParse(id[0], out int sagssælgerid);
+
             return sagssælgerid;
         }
 
         public int SagsMæglerID()
         {
-            int.TryParse(sag_ejendomsmæglerID_cbox.Text, out int sagsmæglerid);
+            string[] id = sag_ejendomsmæglerID_cbox.Text.Split(' ');
+            int.TryParse(id[0], out int sagsmæglerid);
             return sagsmæglerid;
         }
         #endregion
