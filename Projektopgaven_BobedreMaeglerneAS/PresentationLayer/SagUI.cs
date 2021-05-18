@@ -74,6 +74,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 Console.WriteLine(ex.Message);
             }
 
+
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);
         }
@@ -84,7 +85,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             SagDAL sagDAL = new SagDAL(sagBLL);
 
             //Kalder metoden: OpretSag
-            sagDAL.OpretSag(sagBLL);
+            sagDAL.OpdaterSag(sagBLL);
 
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);
@@ -96,7 +97,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             SagDAL sagDAL = new SagDAL(sagBLL);
 
             //Kalder metoden: OpretSag
-            sagDAL.OpretSag(sagBLL);
+            sagDAL.SletSag(sagBLL);
 
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);
