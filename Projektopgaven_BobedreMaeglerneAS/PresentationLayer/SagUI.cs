@@ -10,24 +10,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Projektopgaven_BobedreMæglerneAS;
-using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
+using System.Threading;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class SagUI : Form
     {
-        BoligDAL bolig = new BoligDAL(new BoligBLL());   
+        BoligDAL bolig = new BoligDAL(new BoligBLL());
+        SælgerDAL sælger = new SælgerDAL(new SælgerBLL());
+        EjendomsmæglerDAL ejendomsmægler = new EjendomsmæglerDAL(new EjendomsmæglerBLL());
 
         public SagUI()
         {
             InitializeComponent();
 
-            sag_boligID_cbox.Items.Add(bolig.HentBoligID_cbox());
+            //series of loop that add elements in combobox from methods that return lists of elements
+
+            foreach (BoligBLL bolig in bolig.FetchBolig())
+                sag_boligID_cbox.Items.Add(bolig);
+
+            foreach (SælgerBLL sælger in sælger.HentSælgerID_cbox()) 
+                sag_sælgerID_cbox.Items.Add(sælger);
+
+            foreach (EjendomsmæglerBLL ejendomsmægler in ejendomsmægler.HentEjendomsmæglerID_cbox())
+                sag_ejendomsmæglerID_cbox.Items.Add(ejendomsmægler);
         }
 
         private void btn_OpretSag_Click(object sender, EventArgs e)
         {
-            SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
+            SagBLL sagBLL = new SagBLL(SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
             SagDAL sagDAL = new SagDAL(sagBLL);
 
             //Kalder metoden: OpretSag
@@ -103,21 +114,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         public int SagsBoligID()
         {
-            int.TryParse(sag_boligID_cbox.Text, out int sagsboligid);
+            string[] id = sag_boligID_cbox.Text.Split(' ');
+            int.TryParse(id[0], out int sagsboligid);
             return sagsboligid;
         }
 
         public int SagsSælgerID()
         {
-            int.TryParse(sag_sælgerID_cbox.Text, out int sagssælgerid);
+            string[] id = sag_sælgerID_cbox.Text.Split(' ');
+            int.TryParse(id[0], out int sagssælgerid);
+
             return sagssælgerid;
         }
 
         public int SagsMæglerID()
         {
-            int.TryParse(sag_ejendomsmæglerID_cbox.Text, out int sagsmæglerid);
+            string[] id = sag_ejendomsmæglerID_cbox.Text.Split(' ');
+            int.TryParse(id[0], out int sagsmæglerid);
             return sagsmæglerid;
         }
         #endregion
+
+        private void SagUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

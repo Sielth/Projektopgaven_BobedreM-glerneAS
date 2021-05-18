@@ -20,8 +20,6 @@ namespace Projektopgaven_BobedreMæglerneAS
             this.EjendomsmæglerBLL = ejendomsmæglerBLL;
         }
 
-
-
         public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Opret ejendomsmælger
         {
             //Connection string
@@ -42,7 +40,6 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             try
             {
-
                 //if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
 

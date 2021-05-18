@@ -12,6 +12,10 @@ using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
 using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
+//MEMO
+//REMEMBER TO FIND A WAY TO SHOW SOME TRICKY ATTRIBUTES WHEN YOU PRESS HENT BUTTON
+//REMEMBER TO ADD TO THE SWITCH CASE SOME TRICKY FILTER CRITERIA
+
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class BoligUI : Form
@@ -21,19 +25,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             InitializeComponent();
         }
 
-        // Method to show the number of rooms as a ToolTip on the TrackBar 
+        //method to refresh DataGridView
+        private void BoligUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'bolig_bobedredbDataSet.Bolig' table. You can move, or remove it, as needed.
+            this.boligTableAdapter.Fill(this.bolig_bobedredbDataSet.Bolig);
+
+        }
+
+        //method to show the number of rooms as a ToolTip on the TrackBar 
         private void boligVærelser_tbar_Scroll(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(boligVærelser_tbar, boligVærelser_tbar.Value.ToString());
         }
 
-        // Method to show the number of floor as a ToolTip on the TrackBar 
+        //method to show the number of floor as a ToolTip on the TrackBar 
         private void boligEtager_tbar_Scroll(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(boligEtager_tbar, boligEtager_tbar.Value.ToString());
         }
 
-        // Method enable or disable DateTimePicker for BoligRenoveringsÅr through the boligRenoveret Checkbox
+        //method enable or disable DateTimePicker for BoligRenoveringsÅr through the boligRenoveret Checkbox
         private void boligRenoveret_ckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (boligRenoveret_ckbox.Checked)
@@ -43,13 +55,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
         #region Opret Bolig
+        //method to create a new Bolig
         private void btn_OpretBolig_Click(object sender, EventArgs e)
         {
+            //initializes BoligBLL and BoligDAL
             BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
             try
             {
+                //creates a new BoligBLL in DB
                 boligDAL.OpretBolig(boligBLL);
             }
             catch (Exception ex)
@@ -59,23 +74,34 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //BoligBLL matchingbolig = boligDAL.HentBolig(boligBLL);
+                //retrieves Bolig ID from DB
+                BoligBLL matchingbolig = boligDAL.HentBolig(boligBLL);
 
-                //boligID_txt.Text = matchingbolig.BoligID.ToString();
+                //shows BoligID in TextBox
+                boligID_txt.Text = matchingbolig.BoligID.ToString();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
+            //load DataGridView
             BoligUI_Load(sender, e);
+
+            //disable all TextBoxes
             DisableAll();
         }
 
+        //method to clear all TextBoxes and enable/disable the ones we need/don't need
         private void btn_Clear_OpretBolig_Click(object sender, EventArgs e)
         {
+            //clear all TextBoxes
             ClearAll();
+
+            //enable all TextBoxes
             EnableAll();
+
+            //disable BoligID, RenoveringsÅr, Udbudspris TextBoxes
             boligID_txt.Enabled = false;
             boligRenoveringsÅr_dtp.Enabled = false;
             boligUdbudspris_txt.Enabled = false;
@@ -83,15 +109,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #endregion
 
         #region Hent Bolig / Opdater Bolig
+        //method to retrieve a Bolig from DB and show its attributes on TextBoxes
         private void btn_HentBolig_Click(object sender, EventArgs e)
         {
+            //initializes BoligBLL and BoligDAL
             BoligBLL boligBLL = new BoligBLL(BoligID());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
             try
             {
+                //retrieve a BoligBLL from DB using BoligID
                 BoligBLL matchingbolig = boligDAL.HentBoligViaID(boligBLL);
-
+                
+                //shows retrieved Bolig from DB on TextBoxes
                 boligVej_txt.Text = matchingbolig.Vej.ToString();
                 boligPostnr_txt.Text = matchingbolig.Postnummer.ToString();
                 boligType_cbox.Text = matchingbolig.Type.ToString();
@@ -101,29 +131,36 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 //boligHave_ckBox
                 //boligBygningsÅr_dtp
                 //boligRenoveringsÅr_dtp
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            //retrieve desired entry by id 
-            //add enable editing button (enables textboxes)
-            //edit and save (new button)
-        }
 
+            //disable BoligID TextBox
+            boligID_txt.Enabled = false;
+        }
+        
+        //method to enable all TextBoxes to edit a Bolig
         private void allowRedigering_btn_Click(object sender, EventArgs e)
         {
+            //enable all TextBoxes
             EnableAll();
+
+            //disable BoligID TextBox
+            boligID_txt.Enabled = false;
         }
 
+        //method to confirm the changes in a Bolig (UPDATE)
         private void saveChanges_btn_Click(object sender, EventArgs e)
         {
+            //initializes BoligBLL and BoligDAL
             BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
             try
             {
+                //updates a Bolig record
                 boligDAL.OpdaterBolig(boligBLL);
             }
             catch (Exception ex)
@@ -131,13 +168,23 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show(ex.Message);
             }
 
+            //load DataGridView
             BoligUI_Load(sender, e);
+
+            //clear all TextBoxes
+            ClearAll();
+
+            //disable all TextBoxes
             DisableAll();
+
+            //enable BoligID TextBox
             boligID_txt.Enabled = true;
         }
 
+        //method to search and filter DataGridView
         private void search_txt_TextChanged(object sender, EventArgs e)
         {
+            //filter criteria from ComboBox
             string input = filterCriteria_cbox.SelectedItem.ToString();
 
             switch (input)
@@ -163,33 +210,42 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 case "Kvadratmeter":
                     this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
                     break;
-                case "Bygningsår":
-                    break;
-                case "Renoveringsår":
-                    break;
-                case "Udbudspris(less than)":
-                    break;
-                case "Udbudspris(greater than)":
-                    break;
+                //case "Bygningsår":
+                //    break;
+                //case "Renoveringsår":
+                //    break;
+                //case "Udbudspris(less than)":
+                //    break;
+                //case "Udbudspris(greater than)":
+                //    break;
             }
         }
 
+        //method to clear all TextBoxes and enable/disable the ones we need/don't need
         private void btn_Clear_HentBolig_Click(object sender, EventArgs e)
         {
+            //clear all TextBoxes
             ClearAll();
+
+            //disable all TextBoxes
             DisableAll();
+
+            //enable BoligID TextBox
             boligID_txt.Enabled = true;
         }
         #endregion
 
         #region Slet Bolig
+        //method to delete a Bolig from DB
         private void btn_SletBolig_Click(object sender, EventArgs e)
         {
+            //initializes BoligBLL and BoligDAL
             BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
             try
             {
+                //delete a Bolig from DB
                 boligDAL.SletBolig(boligBLL);
             }
             catch (Exception ex)
@@ -197,8 +253,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show(ex.Message);
             }
 
-            //BoligUI_Load(sender, e);
+            //load DataGridView
+            BoligUI_Load(sender, e);
+
+            //clear all TextBoxes
+            ClearAll();
+
+            //disable all TextBoxes
             DisableAll();
+
+            //enable BoligID TextBox
             boligID_txt.Enabled = true;
         }
         #endregion
@@ -455,12 +519,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return boligudbudspris;
         }
         #endregion
-
-        private void BoligUI_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'bolig_bobedredbDataSet.Bolig' table. You can move, or remove it, as needed.
-            this.boligTableAdapter.Fill(this.bolig_bobedredbDataSet.Bolig);
-
-        }
     }
 }

@@ -25,11 +25,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
-            string sqlCommandSag = $"INSERT INTO Sag VALUES (@SagsID, @Status, @BoligID, @SælgerID, @MæglerID)";
+            string sqlCommandSag = $"INSERT INTO Sag VALUES(@Status, @BoligID, @SælgerID, @MæglerID)";
 
             SqlCommand commandSag = new SqlCommand(sqlCommandSag, conn);
 
-            commandSag.Parameters.AddWithValue("@SagsID", sag.SagsID);
             commandSag.Parameters.AddWithValue("@Status", sag.Status);
             commandSag.Parameters.AddWithValue("@BoligID", sag.BoligID);
             commandSag.Parameters.AddWithValue("@SælgerID", sag.SælgerID);
@@ -37,8 +36,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
+                if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
+
+                Transactions.BeginRepeatableReadTransaction(conn);
                 commandSag.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
 
             catch (SqlException ex)
@@ -48,7 +53,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
 
@@ -65,6 +71,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 conn.Open();
+
+                Transactions.BeginReadCommittedTransaction(conn);
+                commandSag.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
 
                 using (SqlDataReader reader = commandSag.ExecuteReader())
                 {
@@ -86,7 +98,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
             return null;
         }
@@ -114,7 +127,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 conn.Open();
+
+                Transactions.BeginReadCommittedTransaction(conn);
                 cmdSag.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
@@ -122,7 +140,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
 
@@ -140,8 +159,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
-                conn.Open();
+                Transactions.BeginRepeatableReadTransaction(conn);
                 commandSag.ExecuteNonQuery();
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
 
             catch (SqlException ex)
@@ -151,7 +173,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             finally
             {
-                conn.Close();
+                if (conn != null)
+                    conn.Close();
             }
         }
     }

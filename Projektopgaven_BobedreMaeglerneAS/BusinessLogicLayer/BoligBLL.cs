@@ -37,6 +37,13 @@ namespace Projektopgaven_BobedreMæglerneAS
             this.RenoveringsÅr = renoveringsår;
         }
 
+        public BoligBLL(int boligid, string vej, int postnummer)
+        {
+            this.BoligID = boligid;
+            this.Vej = vej;
+            this.Postnummer = postnummer;
+        }
+
         public BoligBLL(int boligid)
         {
             this.BoligID = boligid;
@@ -46,7 +53,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public override string ToString()
         {
-            return BoligID.ToString();
+            return $"{BoligID} - {Vej} - {Postnummer}";
         }
 
         private int CalculateUdbudsPris()

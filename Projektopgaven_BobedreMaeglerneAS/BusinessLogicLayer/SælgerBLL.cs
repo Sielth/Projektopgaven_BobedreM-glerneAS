@@ -29,9 +29,23 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Postnummer = postnummer;
         }
 
+        public SælgerBLL(int sælgerid, string fnavn, string enavn)
+        {
+            this.SælgerID = sælgerid;
+            this.Fnavn = fnavn;
+            this.Enavn = enavn;
+        }
+
         public SælgerBLL(int sælgerid)
         {
             this.SælgerID = sælgerid;
+        }
+
+        public SælgerBLL() { }
+
+        public override string ToString()
+        {
+            return $"{SælgerID} - {Fnavn} {Enavn}";
         }
     }
 }

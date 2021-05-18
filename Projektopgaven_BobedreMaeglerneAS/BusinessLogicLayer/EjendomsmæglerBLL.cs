@@ -36,14 +36,47 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Telefon = tlf;
         }
 
+        public EjendomsmæglerBLL(int ID, string fnavn, string enavn)
+        {
+            this.MæglerID = ID;
+            this.Fnavn = fnavn;
+            this.Enavn = enavn;
+        }
+
+        //public string ToString(string format)
+        //{
+        //    return this.ToString(format);
+        //    //$"{MæglerID} - {Fnavn} {Enavn}";
+        //}
+
+
         public EjendomsmæglerBLL() { }
 
         public override string ToString()
         {
-            return $"STILLING: ejendomsmægler\n" +
-                $"Navn: {Fnavn}\n" +
-                $"Efternavn: {Enavn}\n" +
-                $"Telefon: {Telefon}";
+            return ToString("A");
+        }
+
+        public string ToString(string fmt)
+        {
+            if (string.IsNullOrEmpty(fmt))
+                fmt = "A";
+
+            switch(fmt.ToUpperInvariant())
+            {
+                case "A":
+                    return string.Format($"{MæglerID} - {Fnavn} {Enavn}");
+                case "B":
+                    return string.Format($"STILLING: ejendomsmægler\n" +
+                        $"Navn: {Fnavn}\n" +
+                        $"Efternavn: {Enavn}\n" +
+                        $"Telefon: {Telefon}");
+                default:
+                    return string.Format($"STILLING: ejendomsmægler\n" +
+                        $"Navn: {Fnavn}\n" +
+                        $"Efternavn: {Enavn}\n" +
+                        $"Telefon: {Telefon}");
+            }
         }
     }
 }
