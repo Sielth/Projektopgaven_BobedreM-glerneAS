@@ -147,5 +147,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             ClearAll();
         }
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret ejendomsmægler
+        {
+            MenuBarKnapper.EjendomsmælgerOpret();
+        }
+
+        private void readToolStripMenuItem_Click(object sender, EventArgs e) //Find/hent ejendomsmægler
+        {
+            MenuBarKnapper.EjendomsmæglerHent();
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater ejendomsmægler
+        {
+            MenuBarKnapper.EjendomsmæglerOpdater();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet ejendomsmægler
+        {
+            MenuBarKnapper.EjendomsmæglerSlet();
+        }
     }
 }
