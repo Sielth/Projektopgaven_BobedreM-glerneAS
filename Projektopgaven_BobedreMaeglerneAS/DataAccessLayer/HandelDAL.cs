@@ -8,5 +8,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
     class HandelDAL
     {
+
     }
 }
