@@ -238,32 +238,36 @@
             this.ejendomsmægler_updateToolStripMenuItem,
             this.ejendomsmægler_deleteToolStripMenuItem});
             this.ejendomsmæglerToolStripMenuItem.Name = "ejendomsmæglerToolStripMenuItem";
-            this.ejendomsmæglerToolStripMenuItem.Size = new System.Drawing.Size(167, 30);
+            this.ejendomsmæglerToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
             this.ejendomsmæglerToolStripMenuItem.Text = "Ejendomsmægler";
             // 
             // ejendomsmægler_createToolStripMenuItem
             // 
             this.ejendomsmægler_createToolStripMenuItem.Name = "ejendomsmægler_createToolStripMenuItem";
-            this.ejendomsmægler_createToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.ejendomsmægler_createToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.ejendomsmægler_createToolStripMenuItem.Text = "Create";
+            this.ejendomsmægler_createToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_createToolStripMenuItem_Click);
             // 
             // ejendomsmægler_readToolStripMenuItem
             // 
             this.ejendomsmægler_readToolStripMenuItem.Name = "ejendomsmægler_readToolStripMenuItem";
-            this.ejendomsmægler_readToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.ejendomsmægler_readToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.ejendomsmægler_readToolStripMenuItem.Text = "Read";
+            this.ejendomsmægler_readToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_readToolStripMenuItem_Click);
             // 
             // ejendomsmægler_updateToolStripMenuItem
             // 
             this.ejendomsmægler_updateToolStripMenuItem.Name = "ejendomsmægler_updateToolStripMenuItem";
-            this.ejendomsmægler_updateToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.ejendomsmægler_updateToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.ejendomsmægler_updateToolStripMenuItem.Text = "Update";
+            this.ejendomsmægler_updateToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_updateToolStripMenuItem_Click);
             // 
             // ejendomsmægler_deleteToolStripMenuItem
             // 
             this.ejendomsmægler_deleteToolStripMenuItem.Name = "ejendomsmægler_deleteToolStripMenuItem";
-            this.ejendomsmægler_deleteToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.ejendomsmægler_deleteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.ejendomsmægler_deleteToolStripMenuItem.Text = "Delete";
+            this.ejendomsmægler_deleteToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_deleteToolStripMenuItem_Click);
             // 
             // sælgerToolStripMenuItem
             // 
@@ -273,32 +277,36 @@
             this.sælger_updateToolStripMenuItem,
             this.sælger_deleteToolStripMenuItem});
             this.sælgerToolStripMenuItem.Name = "sælgerToolStripMenuItem";
-            this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(83, 30);
+            this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(83, 29);
             this.sælgerToolStripMenuItem.Text = "Sælger";
             // 
             // sælger_createToolStripMenuItem
             // 
             this.sælger_createToolStripMenuItem.Name = "sælger_createToolStripMenuItem";
-            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sælger_createToolStripMenuItem.Text = "Create";
+            this.sælger_createToolStripMenuItem.Click += new System.EventHandler(this.sælger_createToolStripMenuItem_Click);
             // 
             // sælger_readToolStripMenuItem
             // 
             this.sælger_readToolStripMenuItem.Name = "sælger_readToolStripMenuItem";
-            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sælger_readToolStripMenuItem.Text = "Read";
+            this.sælger_readToolStripMenuItem.Click += new System.EventHandler(this.sælger_readToolStripMenuItem_Click);
             // 
             // sælger_updateToolStripMenuItem
             // 
             this.sælger_updateToolStripMenuItem.Name = "sælger_updateToolStripMenuItem";
-            this.sælger_updateToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.sælger_updateToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sælger_updateToolStripMenuItem.Text = "Update";
+            this.sælger_updateToolStripMenuItem.Click += new System.EventHandler(this.sælger_updateToolStripMenuItem_Click);
             // 
             // sælger_deleteToolStripMenuItem
             // 
             this.sælger_deleteToolStripMenuItem.Name = "sælger_deleteToolStripMenuItem";
-            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sælger_deleteToolStripMenuItem.Text = "Delete";
+            this.sælger_deleteToolStripMenuItem.Click += new System.EventHandler(this.sælger_deleteToolStripMenuItem_Click);
             // 
             // køberToolStripMenuItem
             // 
@@ -308,32 +316,36 @@
             this.køber_updateToolStripMenuItem1,
             this.køber_deleteToolStripMenuItem1});
             this.køberToolStripMenuItem.Name = "køberToolStripMenuItem";
-            this.køberToolStripMenuItem.Size = new System.Drawing.Size(75, 30);
+            this.køberToolStripMenuItem.Size = new System.Drawing.Size(75, 29);
             this.køberToolStripMenuItem.Text = "Køber";
             // 
             // køber_createToolStripMenuItem1
             // 
             this.køber_createToolStripMenuItem1.Name = "køber_createToolStripMenuItem1";
-            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.køber_createToolStripMenuItem1.Text = "Create";
+            this.køber_createToolStripMenuItem1.Click += new System.EventHandler(this.køber_createToolStripMenuItem1_Click);
             // 
             // køber_readToolStripMenuItem1
             // 
             this.køber_readToolStripMenuItem1.Name = "køber_readToolStripMenuItem1";
-            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.køber_readToolStripMenuItem1.Text = "Read";
+            this.køber_readToolStripMenuItem1.Click += new System.EventHandler(this.køber_readToolStripMenuItem1_Click);
             // 
             // køber_updateToolStripMenuItem1
             // 
             this.køber_updateToolStripMenuItem1.Name = "køber_updateToolStripMenuItem1";
-            this.køber_updateToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.køber_updateToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.køber_updateToolStripMenuItem1.Text = "Update";
+            this.køber_updateToolStripMenuItem1.Click += new System.EventHandler(this.køber_updateToolStripMenuItem1_Click);
             // 
             // køber_deleteToolStripMenuItem1
             // 
             this.køber_deleteToolStripMenuItem1.Name = "køber_deleteToolStripMenuItem1";
-            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.køber_deleteToolStripMenuItem1.Text = "Delete";
+            this.køber_deleteToolStripMenuItem1.Click += new System.EventHandler(this.køber_deleteToolStripMenuItem1_Click);
             // 
             // boligToolStripMenuItem
             // 
@@ -343,7 +355,7 @@
             this.bolig_updateToolStripMenuItem2,
             this.bolig_deleteToolStripMenuItem2});
             this.boligToolStripMenuItem.Name = "boligToolStripMenuItem";
-            this.boligToolStripMenuItem.Size = new System.Drawing.Size(68, 30);
+            this.boligToolStripMenuItem.Size = new System.Drawing.Size(68, 29);
             this.boligToolStripMenuItem.Text = "Bolig";
             // 
             // bolig_createToolStripMenuItem2
@@ -384,28 +396,28 @@
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
             this.createToolStripMenuItem.Text = "Create ";
             this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // readToolStripMenuItem
             // 
             this.readToolStripMenuItem.Name = "readToolStripMenuItem";
-            this.readToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.readToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
             this.readToolStripMenuItem.Text = "Read";
             this.readToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
