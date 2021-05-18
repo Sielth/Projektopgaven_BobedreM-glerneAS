@@ -7,18 +7,115 @@ using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Projektopgaven_BobedreMæglerneAS
 {
     class EjendomsmæglerDAL
     {
-
         private EjendomsmæglerBLL EjendomsmæglerBLL;
+
+        private ComboBox output;
 
         public EjendomsmæglerDAL(EjendomsmæglerBLL ejendomsmæglerBLL)
         {
             this.EjendomsmæglerBLL = ejendomsmæglerBLL;
         }
+
+        #region Threads
+        public EjendomsmæglerDAL(ComboBox cBox)
+        {
+            output = cBox;
+        }
+
+        private delegate void DisplayDelegate(List<EjendomsmæglerBLL> ejendomsmæglere);
+
+        private void DisplayEjendomsmægler(List<EjendomsmæglerBLL> ejendomsmæglere)
+        {
+            output.Items.Clear();
+
+            foreach (EjendomsmæglerBLL ejendomsmægler in ejendomsmæglere)
+                output.Items.Add(ejendomsmægler.ToString());
+        }
+
+        //method to retrieve all EjendomsmæglerID to show in the ComboBox of SagUI
+        //returns a List og EjendomsmæglerBLL
+        public List<EjendomsmæglerBLL> FetchEjendomsmægler()
+        {
+            //INITIALIZE List OF EjendomsmæglerBLL ejendomsmæglere
+            List<EjendomsmæglerBLL> ejendomsmægler = new List<EjendomsmæglerBLL>();
+
+            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            {
+                //SQL QUERY
+                string sqlCommand = "SELECT * FROM Ejendomsmægler";
+
+                //SQL COMMAND
+                SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+
+                try
+                {
+                    //OPEN CONNECTION
+                    if (conn.State == System.Data.ConnectionState.Closed)
+                        conn.Open();
+
+                    //BEGIN TRANSACTION
+                    Transactions.BeginReadCommittedTransaction(conn);
+
+                    //EXECUTE READER (QUERY)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        //RETRIEVE EjendomsmæglerBLL AND ADD IN ejendomsmægler
+                        while (reader.Read())
+                        {
+                            ejendomsmægler.Add(new EjendomsmæglerBLL((int)reader["MæglerID"], reader["Fnavn"].ToString(), reader["Enavn"].ToString()));
+                        }
+
+                        //CLOSE READER
+                        reader.Close();
+                    }
+
+                    //COMMIT OR ROLLBACK
+                    if (!Transactions.Commit(conn))
+                        Transactions.Rollback(conn);
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                //CLOSE CONNECTION
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+
+                //RETURN
+                return ejendomsmægler;
+            }
+        }
+
+        public void GenerateEjendomsmægler()
+        {
+            while (true)
+            {
+                ThreadStart start = new ThreadStart(() => FetchEjendomsmægler());
+                Thread t1 = new Thread(start);
+
+                List<EjendomsmæglerBLL> ejendomsmæglere = FetchEjendomsmægler();
+
+                try
+                {
+                    output.Invoke(new DisplayDelegate(DisplayEjendomsmægler), new object[] { ejendomsmæglere });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                Thread.Sleep(6000);
+            }
+        }
+        #endregion
 
         public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Opret ejendomsmælger
         {
@@ -134,68 +231,6 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             return null;
         }
-
-
-        //method to retrieve all EjendomsmæglerID to show in the ComboBox of SagUI
-        //returns a List og EjendomsmæglerBLL
-        public List<EjendomsmæglerBLL> HentEjendomsmæglerID_cbox()
-        {
-            //Connection string
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
-            //INITIALIZE List OF EjendomsmæglerBLL ejendomsmæglere
-            List<EjendomsmæglerBLL> ejendomsmægler = new List<EjendomsmæglerBLL>();
-
-            //SQL QUERY
-            string sqlCommand = "SELECT * FROM Ejendomsmægler";
-
-            //SQL COMMAND
-            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
-
-            try
-            {
-                //OPEN CONNECTION
-                if (conn.State == System.Data.ConnectionState.Closed)
-                    conn.Open();
-
-                //BEGIN TRANSACTION
-                Transactions.BeginReadCommittedTransaction(conn);
-
-                //EXECUTE READER (QUERY)
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    //RETRIEVE EjendomsmæglerBLL AND ADD IN ejendomsmægler
-                    while (reader.Read())
-                    {
-                        ejendomsmægler.Add(new EjendomsmæglerBLL((int)reader["MæglerID"], reader["Fnavn"].ToString(), reader["Enavn"].ToString()));
-                    }
-
-                    //CLOSE READER
-                    reader.Close();
-                }
-
-                //COMMIT OR ROLLBACK
-                if (!Transactions.Commit(conn))
-                    Transactions.Rollback(conn);
-
-                //RETURN
-                return ejendomsmægler;
-
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            //CLOSE CONNECTION
-            if (conn.State == System.Data.ConnectionState.Open)
-                conn.Close();
-
-            return null;
-        }
-
-
 
         public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Opdater ejendomsmægler
         {

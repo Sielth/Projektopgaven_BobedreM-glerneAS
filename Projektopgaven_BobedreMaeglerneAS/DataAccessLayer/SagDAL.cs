@@ -17,8 +17,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.SagBLL = sagBLL;
         }
 
-
-
         public void OpretSag(SagBLL sag)
         {
             //Connection string
@@ -63,11 +61,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
+            SagBLL matchingsag = null;
+
             string sqlCommandSag = "SELECT * FROM Sag WHERE SagsID = @SagsID";
 
             SqlCommand commandSag = new SqlCommand(sqlCommandSag, conn);
 
-            commandSag.Parameters.AddWithValue("@SagID", sag.SagsID);
+            commandSag.Parameters.AddWithValue("@SagsID", sag.SagsID);
             try
             {
                 conn.Open();
@@ -82,13 +82,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 {
                     while (reader.Read())
                     {
-                        SagBLL matchingsag = new SagBLL((int)reader["SagsID"],
+                        matchingsag = new SagBLL((int)reader["SagsID"],
                             reader["Status"].ToString(),
                             (int)reader["BoligID"],
                             (int)reader["SælgerID"],
-                            (int)reader["Mægler"]);
-
-                        return matchingsag;
+                            (int)reader["MæglerID"]);
                     }
                 }
             }
@@ -101,7 +99,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 if (conn != null)
                     conn.Close();
             }
-            return null;
+            return matchingsag;
         }
 
         public void OpdaterSag(SagBLL sag)

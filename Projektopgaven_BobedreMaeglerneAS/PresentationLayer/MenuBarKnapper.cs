@@ -143,5 +143,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.GetVejTekstboks().Enabled = false;
             ejendomsmæglerUI.GetPostnummerTekstboks().Enabled = false;
         }
+
+        public static void OpretBolig() { }
+        public static void HentOpdaterBolig() { }
+        public static void SletBolig() { }
     }
 }

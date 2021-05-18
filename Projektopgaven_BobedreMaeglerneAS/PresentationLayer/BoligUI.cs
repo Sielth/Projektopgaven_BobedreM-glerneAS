@@ -29,7 +29,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void BoligUI_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'bolig_bobedredbDataSet.Bolig' table. You can move, or remove it, as needed.
-            this.boligTableAdapter.Fill(this.bolig_bobedredbDataSet.Bolig);
+            //this.boligTableAdapter.Fill(this.bolig_bobedredbDataSet.Bolig);
 
         }
 
@@ -128,9 +128,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 boligVærelser_tbar.Value = matchingbolig.Værelser;
                 boligEtager_tbar.Value = matchingbolig.Etager;
                 boligKvm_txt.Text = matchingbolig.Kvadratmeter.ToString();
-                //boligHave_ckBox
-                //boligBygningsÅr_dtp
-                //boligRenoveringsÅr_dtp
+                boligHave_ckBox.Checked = matchingbolig.Have;
+                boligBygningsÅr_dtp.Value = matchingbolig.Bygningsår;
+                boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
             }
             catch (Exception ex)
             {
@@ -171,14 +171,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //load DataGridView
             BoligUI_Load(sender, e);
 
-            //clear all TextBoxes
-            ClearAll();
-
             //disable all TextBoxes
             DisableAll();
-
-            //enable BoligID TextBox
-            boligID_txt.Enabled = true;
         }
 
         //method to search and filter DataGridView
@@ -210,14 +204,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 case "Kvadratmeter":
                     this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
                     break;
-                //case "Bygningsår":
-                //    break;
-                //case "Renoveringsår":
-                //    break;
-                //case "Udbudspris(less than)":
-                //    break;
-                //case "Udbudspris(greater than)":
-                //    break;
+                case "Bygningsår":
+                    this.boligBindingSource.Filter = string.Format("Convert(Bygningsår, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Renoveringsår":
+                    this.boligBindingSource.Filter = string.Format("Convert(RenoveringsÅr, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Udbudspris (lower than)":
+                    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') <= '*{0}*'", search_txt.Text);
+                    break;
+                case "Udbudspris (higher than)": 
+                    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') >= '*{0}*'", search_txt.Text);
+                    break;
             }
         }
 
@@ -489,28 +487,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return boligkvm;
         }
 
-        private int BoligBygningsÅr()
+        private DateTime BoligBygningsÅr()
         {
-            return (int)boligBygningsÅr_dtp.Value.Year;
+            return boligBygningsÅr_dtp.Value;
         }
 
-        private int BoligRenoveringsÅr()
+        private DateTime BoligRenoveringsÅr()
         {
-            if (boligRenoveret_ckbox.Checked)
-            {
-                return (int)boligRenoveringsÅr_dtp.Value.Year;
-            }
+            //if (boligRenoveret_ckbox.Checked)
+            //{
+            //    return boligRenoveringsÅr_dtp.Value;
+            //}
 
-            else
-                return 0;
+            //else
+            //    return null;
+
+            return boligRenoveringsÅr_dtp.Value;
         }
 
-        private int BoligHave()
+        private bool BoligHave()
         {
             if (boligHave_ckBox.Checked)
-                return 1;
+                return true;
             else
-                return 0;
+                return false;
         }
 
         private int BoligUdbudspris()
