@@ -29,11 +29,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Postnummer = postnummer;
         }
 
-        public EjendomsmæglerBLL(string fnavn, string enavn, int tlf)
+        public EjendomsmæglerBLL(string fnavn, string enavn, int tlf, string email)
         {
             this.Fnavn = fnavn;
             this.Enavn = enavn;
             this.Telefon = tlf;
+            this.Email = email;
         }
 
         public EjendomsmæglerBLL(int ID, string fnavn, string enavn)
@@ -67,15 +68,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
                 case "A":
                     return string.Format($"{MæglerID} - {Fnavn} {Enavn}");
                 case "B":
-                    return string.Format($"STILLING: ejendomsmægler\n" +
+                    return string.Format($"EJENDOMSMÆGLER\n\n" +
                         $"Navn: {Fnavn}\n" +
-                        $"Efternavn: {Enavn}\n" +
-                        $"Telefon: {Telefon}");
+                        $"Efternavn: {Enavn}\n\n" +
+                        $"Telefon: {Telefon}\n" +
+                        $"Email: {Email}");
                 default:
-                    return string.Format($"STILLING: ejendomsmægler\n" +
+                    return string.Format($"EJENDOMSMÆGLER\n\n" +
                         $"Navn: {Fnavn}\n" +
-                        $"Efternavn: {Enavn}\n" +
-                        $"Telefon: {Telefon}");
+                        $"Efternavn: {Enavn}\n\n" +
+                        $"Telefon: {Telefon}\n" +
+                        $"Email: {Email}");
             }
         }
     }

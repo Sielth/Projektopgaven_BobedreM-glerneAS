@@ -121,9 +121,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
-
-        #region MENBAREN
-        //MENUBAREN
+        #region MENUBAREN
         //SÆLGER MENUBARKNAPPER - I SÆLGER MENU
         private void sælger_createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sælger
         {
@@ -187,7 +185,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.KøberDelete();
         }
 
-        #endregion
         //SAG MENUBARKNAPPER - I SÆLGER MENU
         private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sag
         {
@@ -208,5 +205,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.SagSlet();
         }
+
+        //ÅBENT HUS MENUBARKNAPPER - I SÆLGER MENU
+        private void komTilÅbentHusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.ÅbentHus();
+        }
+
+        //BOLIG MENUBARKNAPPER - I SÆLGER MENU
+        private void bolig_createToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.OpretBolig();
+        }
+
+        private void bolig_readToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.HentOpdaterBolig();
+        }
+
+        private void bolig_deleteToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SletBolig();
+        }
+        #endregion
     }
 }

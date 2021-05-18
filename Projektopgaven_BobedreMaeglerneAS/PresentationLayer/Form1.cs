@@ -54,9 +54,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
         private void komTilÅbentHusToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ÅbentHusUI åbentHusUI = new ÅbentHusUI();
-
-            åbentHusUI.Show();
+            MenuBarKnapper.ÅbentHus();
         }
 
         //EJENDOMSMÆGLER

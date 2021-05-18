@@ -85,7 +85,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
             {
                 //SQL QUERY
-                string sqlCommand = "SELECT * FROM Bolig WHERE BoligID IN (SELECT Sag.BoligID from Sag WHERE Sag.Status = 'Åben')";
+                string sqlCommand = "SELECT * FROM Bolig WHERE BoligID IN (SELECT Sag.BoligID from Sag WHERE Sag.Status = 'Åben') AND Bolig.Kvadratmeter >= 145";
 
                 //SQL COMMAND
                 SqlCommand cmd = new SqlCommand(sqlCommand, conn);
@@ -140,6 +140,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             //SORT
             boliger.Sort();
+
+            //there is a very nice lambra function that can sort by two criteria
+            //boliger = boliger.OrderBy( x => x.Vej).ThenBy(x => x.Udbudspris).ToList();
 
             //RETURN
             return boliger;

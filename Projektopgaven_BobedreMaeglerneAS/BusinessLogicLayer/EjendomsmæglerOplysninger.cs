@@ -73,7 +73,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
                     {
                         //add Ejendomsmægler(name, lastname, tlf) to Ejendomsmæglerne list
                         //see constructor in EjendomsmæglerBLL
-                        ejendomsmæglerne.Add(new EjendomsmæglerBLL(reader["Fnavn"].ToString(), reader["Enavn"].ToString(), (int)reader["Telefon"]));
+                        ejendomsmæglerne.Add(new EjendomsmæglerBLL(reader["Fnavn"].ToString(), reader["Enavn"].ToString(), (int)reader["Telefon"], reader["Email"].ToString()));
                     }
 
                 }

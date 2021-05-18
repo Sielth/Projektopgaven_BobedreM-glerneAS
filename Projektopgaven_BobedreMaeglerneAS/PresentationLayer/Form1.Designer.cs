@@ -55,6 +55,7 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -268,17 +269,31 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(546, 140);
+            this.richTextBox1.AutoWordSelection = true;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.richTextBox1.Location = new System.Drawing.Point(604, 56);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(195, 232);
+            this.richTextBox1.Size = new System.Drawing.Size(184, 382);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Orange;
+            this.label1.Location = new System.Drawing.Point(601, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Mød vores medarbejdere!";
             // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -320,6 +335,7 @@
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem komTilÅbentHusToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }
 

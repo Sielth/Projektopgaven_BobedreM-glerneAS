@@ -341,5 +341,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetSælgerVejTekstboks().Enabled = false;
             sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
+
+        public static void ÅbentHus()
+        {
+            //create a new instance of the ÅbentHusUI class
+            ÅbentHusUI åbentHusUI = new ÅbentHusUI();
+
+            //show the settings form
+            åbentHusUI.Show();
+        }
     }
 }
