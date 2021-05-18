@@ -149,8 +149,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
 
-
-        //MENU
+        #region MENUBAREN
+        //MENUBAREN
         //EJENDOMSMÆGLER MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
         private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret ejendomsmægler
         {
@@ -234,5 +234,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.KøberDelete();
         }
+
+        #endregion
     }
 }

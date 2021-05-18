@@ -145,7 +145,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
 
-        //MENU
+        #region MENUBAREN
+        //MENUBAREN
         //SAG MENUBARKNAPPER - I SAG MENU
         private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sag
         {
@@ -230,5 +231,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.KøberDelete();
         }
+
+        #endregion
     }
 }
