@@ -68,7 +68,40 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public override string ToString()
         {
-            return $"{BoligID} - {Vej} - {Postnummer}";
+            return ToString("A");
+        }
+
+        public string ToString(string fmt)
+        {
+            if (string.IsNullOrEmpty(fmt))
+                fmt = "A";
+            switch (fmt.ToUpperInvariant())
+            {
+                case "A":
+                    return string.Format($"{BoligID} - {Vej} - {Postnummer}");
+                case "B":
+                    return string.Format($"ID: {BoligID} \t\t{Vej, 20}, {Postnummer, 10} \t{Udbudspris, 20}- kr");
+                default:
+                    return string.Format($"ID: {BoligID} \t, Adresse: {Vej} - {Postnummer}, \n" +
+                        $"{Type}, værelser: {Værelser}, etager: {Etager}, kvm: {Kvadratmeter}, {HasGarden(this.Have)}, \n" +
+                        $"pris: {Udbudspris}, bygget i: {Bygningsår}{IsRenoveret(this.Bygningsår, this.RenoveringsÅr)}");
+            }
+        }
+
+        private string HasGarden(bool have)
+        {
+            if (have)
+                return $"med have";
+            else
+                return $"uden have";
+        }
+
+        private string IsRenoveret(DateTime bygningsår, DateTime renoveringsår)
+        {
+            if (DateTime.Compare(bygningsår, renoveringsår) == 0)
+                return ", ikke blevet renoveret siden byggelsen";
+            else
+                return $", renoveret i {renoveringsår}";
         }
 
         public int CalculateUdbudsPris()
@@ -137,7 +170,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                 return 1;
             else if (string.Compare(this.Vej, bolig.Vej) < 0)
                 return -1;
-            else
+            else if (this.Vej.Equals(bolig.Vej))
             {
                 if (this.Udbudspris > bolig.Udbudspris)
                     return 1;
@@ -146,7 +179,8 @@ namespace Projektopgaven_BobedreMæglerneAS
                 else
                     return 0;
             }
-
+            else
+                return 0;
         }
     }
 }

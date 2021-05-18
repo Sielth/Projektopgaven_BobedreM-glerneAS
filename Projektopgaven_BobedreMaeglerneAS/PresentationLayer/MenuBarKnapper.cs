@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Projektopgaven_BobedreMæglerneAS;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -180,6 +181,26 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             boligUI.DisableAll();
             boligUI.GetBoligIDTextbox().Enabled = true;
+        }
+
+        public static void HentOpdaterBolig(string boligid)
+        {
+            // Create a new instance of the BoligUI class
+            BoligUI boligUI = new BoligUI();
+
+            // Show the settings form
+            boligUI.Show();
+
+            // Disable not needed buttons
+            boligUI.GetOpretBoligButton().Visible = false;
+            boligUI.GetSletBoligButton().Visible = false;
+            boligUI.GetClearOpretBoligButton().Visible = false;
+
+            boligUI.DisableAll();
+            boligUI.GetBoligIDTextbox().Enabled = true;
+
+            boligUI.GetBoligIDTextbox().Text = boligid;
+            boligUI.HentClick();
         }
 
         public static void SletBolig()

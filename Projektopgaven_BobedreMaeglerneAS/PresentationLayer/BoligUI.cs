@@ -115,6 +115,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #endregion
 
         #region Hent Bolig / Opdater Bolig
+        public void HentClick()
+        {
+            object sender = new object();
+            EventArgs e = new EventArgs();
+
+            btn_HentBolig_Click(sender, e);
+        }
+
         //method to retrieve a Bolig from DB and show its attributes on TextBoxes
         private void btn_HentBolig_Click(object sender, EventArgs e)
         {

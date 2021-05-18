@@ -37,8 +37,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
 
-            #region Threads
-            public BoligDAL(ComboBox cBox)
+        #region Threads
+        public BoligDAL(ComboBox cBox)
         {
             output = cBox;
             this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance

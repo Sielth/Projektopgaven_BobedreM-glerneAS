@@ -14,10 +14,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
     class ÅbentHusDAL : BoligDAL
     {
         private ListBox output;
+        private TextBox txt1;
+        private TextBox txt2;
 
-        public ÅbentHusDAL(ListBox lBox) : base(lBox)
+        public ÅbentHusDAL(ListBox lBox, TextBox t1, TextBox t2) : base(lBox)
         {
             output = lBox;
+            txt1 = t1;
+            txt2 = t2;
         }
 
         private delegate void DisplayDelegateÅbent(List<BoligBLL> boliger);
@@ -26,8 +30,32 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             output.Items.Clear();
 
-            foreach (BoligBLL bolig in boliger)
-                output.Items.Add(bolig.ToString());
+            if (string.IsNullOrEmpty(txt1.Text) && string.IsNullOrEmpty(txt2.Text))
+            {
+                foreach (BoligBLL bolig in boliger)
+                    output.Items.Add(bolig.ToString("B"));
+            }
+            else if (string.IsNullOrEmpty(txt2.Text))
+            {
+                char start = txt1.Text.ToUpper()[0];
+
+                foreach (BoligBLL bolig in boliger)
+                {
+                    if (bolig.Vej.ToUpper()[0] >= start)
+                        output.Items.Add(bolig.ToString("B"));
+                }
+            }
+            else
+            {
+                char start = txt1.Text.ToUpper()[0];
+                char end = txt2.Text.ToUpper()[0];
+
+                foreach (BoligBLL bolig in boliger)
+                {
+                    if (bolig.Vej.ToUpper()[0] >= start && bolig.Vej.ToUpper()[0] <= end)
+                        output.Items.Add(bolig.ToString("B"));
+                }
+            }
         }
 
         protected override List<BoligBLL> FetchBolig()
@@ -59,7 +87,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                         //RETRIEVE BoligBLL AND ADD IN boliger
                         while (reader.Read())
                         {
-                            boliger.Add(new BoligBLL((int)reader["BoligID"], reader["Vej"].ToString(), (int)reader["Postnummer"]));
+                            boliger.Add(new BoligBLL((int)reader["BoligID"],
+                            reader["Vej"].ToString(),
+                            (int)reader["Postnummer"],
+                            reader["Type"].ToString(),
+                            (int)reader["Værelser"],
+                            (int)reader["Etager"],
+                            (int)reader["Kvadratmeter"],
+                            (int)reader["Udbudspris"],
+                            (bool)reader["HaveFlag"],
+                            (DateTime)reader["Bygningsår"],
+                            (DateTime)reader["RenoveringsÅr"]));
                         }
 
                         //CLOSE READER
@@ -80,6 +118,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 if (conn.State == System.Data.ConnectionState.Open)
                     conn.Close();
             }
+
+            //SORT
+            boliger.Sort();
 
             //RETURN
             return boliger;
@@ -103,7 +144,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     Console.WriteLine(ex.Message);
                 }
 
-                Thread.Sleep(6000);
+                //Thread.Sleep(500);
             }
         }
     }

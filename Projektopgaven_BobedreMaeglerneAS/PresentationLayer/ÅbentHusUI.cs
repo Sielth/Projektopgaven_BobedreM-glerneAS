@@ -21,10 +21,29 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             InitializeComponent();
 
-            åbentHusDAL = new ÅbentHusDAL(åbentHus_boligListe_lbox);
+            åbentHusDAL = new ÅbentHusDAL(åbentHus_boligListe_lbox, åbentHus_bogstav1_txt, åbentHus_bogstav2_txt);
             Thread t1 = new Thread(new ThreadStart(åbentHusDAL.GenerateBolig));
             t1.IsBackground = true;
             t1.Start();
+        }
+
+        private void åbentHus_boligListe_lbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var text = åbentHus_boligListe_lbox.SelectedItem;
+            string[] boligid = null;
+            
+            if (text != null)
+            {
+                try
+                {
+                    boligid = text.ToString().Split(' ');
+                    MenuBarKnapper.HentOpdaterBolig(boligid[1]);
+                }
+                catch (NullReferenceException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
     }
 }
