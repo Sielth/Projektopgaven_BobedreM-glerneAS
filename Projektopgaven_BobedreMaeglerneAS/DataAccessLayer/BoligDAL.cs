@@ -49,8 +49,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         protected virtual void DisplayBolig(List<BoligBLL> boliger)
         {
+            //CLEAR OUTPUT EVERY TIME
+            //so that we don't have an infinite list
             output.Items.Clear();
 
+            //FOREACH ITEM IN THE LIST
+            //ADD ITEM TO OUTPUT
             foreach (BoligBLL bolig in boliger)
                 output.Items.Add(bolig.ToString());
         }
@@ -113,15 +117,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public virtual void GenerateBolig()
         {
-            while (true)
+            while (true) //ALWAYS
             {
+
+                //THREAD THAT CALLS FetchBolig WITH A LAMBA FUNCTION (since the method has a return argument)
+                //this will give the user a list of BoligBLL always up to date
                 ThreadStart start = new ThreadStart(() => FetchBolig());
                 Thread t1 = new Thread(start);
-                
+
+                //the list from FetchBoliger is saved in boliger
+
                 List<BoligBLL> boliger = FetchBolig();
 
                 try
                 {
+                    //invoking DisplayBolig
                     output.Invoke(new DisplayDelegate(DisplayBolig), new object[] { boliger });
                 }
                 catch (Exception ex)
