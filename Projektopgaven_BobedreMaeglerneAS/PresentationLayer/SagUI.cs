@@ -16,24 +16,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class SagUI : Form
     {
-        BoligDAL bolig = new BoligDAL(new BoligBLL());
-        SælgerDAL sælger = new SælgerDAL(new SælgerBLL());
-        EjendomsmæglerDAL ejendomsmægler = new EjendomsmæglerDAL(new EjendomsmæglerBLL());
+        BoligDAL bolig;
+        SælgerDAL sælger;
+        EjendomsmæglerDAL ejendomsmægler;
 
         public SagUI()
         {
             InitializeComponent();
 
             //series of loop that add elements in combobox from methods that return lists of elements
+            //uses three different threads to have the list always updated
 
-            foreach (BoligBLL bolig in bolig.FetchBolig())
-                sag_boligID_cbox.Items.Add(bolig);
+            bolig = new BoligDAL(sag_boligID_cbox);
+            Thread t1 = new Thread(new ThreadStart(bolig.GenerateBolig));
+            t1.IsBackground = true;
+            t1.Start();
 
-            foreach (SælgerBLL sælger in sælger.HentSælgerID_cbox()) 
-                sag_sælgerID_cbox.Items.Add(sælger);
+            sælger = new SælgerDAL(sag_sælgerID_cbox);
+            Thread t2 = new Thread(new ThreadStart(sælger.GenerateSælger));
+            t2.IsBackground = true;
+            t2.Start();
 
-            foreach (EjendomsmæglerBLL ejendomsmægler in ejendomsmægler.HentEjendomsmæglerID_cbox())
-                sag_ejendomsmæglerID_cbox.Items.Add(ejendomsmægler);
+            ejendomsmægler = new EjendomsmæglerDAL(sag_ejendomsmæglerID_cbox);
+            Thread t3 = new Thread(new ThreadStart(ejendomsmægler.GenerateEjendomsmægler));
+            t3.IsBackground = true;
         }
 
         private void btn_OpretSag_Click(object sender, EventArgs e)
@@ -67,9 +73,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 Console.WriteLine(ex.Message);
             }
-
-            //Kalder metoden: OpretSag
-            sagDAL.OpretSag(sagBLL);
 
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);
