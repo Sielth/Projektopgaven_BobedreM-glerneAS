@@ -47,15 +47,14 @@
             this.boligToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bolig_createToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bolig_readToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bolig_updateToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bolig_deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.komTilÅbentHusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -194,8 +193,8 @@
             this.boligToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bolig_createToolStripMenuItem2,
             this.bolig_readToolStripMenuItem2,
-            this.bolig_updateToolStripMenuItem2,
-            this.bolig_deleteToolStripMenuItem2});
+            this.bolig_deleteToolStripMenuItem2,
+            this.komTilÅbentHusToolStripMenuItem});
             this.boligToolStripMenuItem.Name = "boligToolStripMenuItem";
             this.boligToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.boligToolStripMenuItem.Text = "Bolig";
@@ -203,30 +202,30 @@
             // bolig_createToolStripMenuItem2
             // 
             this.bolig_createToolStripMenuItem2.Name = "bolig_createToolStripMenuItem2";
-            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
-            this.bolig_createToolStripMenuItem2.Text = "Create";
+            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.bolig_createToolStripMenuItem2.Text = "Opret en ny Bolig";
             this.bolig_createToolStripMenuItem2.Click += new System.EventHandler(this.bolig_createToolStripMenuItem2_Click);
             // 
             // bolig_readToolStripMenuItem2
             // 
             this.bolig_readToolStripMenuItem2.Name = "bolig_readToolStripMenuItem2";
-            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
-            this.bolig_readToolStripMenuItem2.Text = "Read";
+            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.bolig_readToolStripMenuItem2.Text = "Hent og Opdater";
             this.bolig_readToolStripMenuItem2.Click += new System.EventHandler(this.bolig_readToolStripMenuItem2_Click);
-            // 
-            // bolig_updateToolStripMenuItem2
-            // 
-            this.bolig_updateToolStripMenuItem2.Name = "bolig_updateToolStripMenuItem2";
-            this.bolig_updateToolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
-            this.bolig_updateToolStripMenuItem2.Text = "Update";
-            this.bolig_updateToolStripMenuItem2.Click += new System.EventHandler(this.bolig_updateToolStripMenuItem2_Click);
             // 
             // bolig_deleteToolStripMenuItem2
             // 
             this.bolig_deleteToolStripMenuItem2.Name = "bolig_deleteToolStripMenuItem2";
-            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
-            this.bolig_deleteToolStripMenuItem2.Text = "Delete";
+            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.bolig_deleteToolStripMenuItem2.Text = "Slet en Bolig";
             this.bolig_deleteToolStripMenuItem2.Click += new System.EventHandler(this.bolig_deleteToolStripMenuItem2_Click);
+            // 
+            // komTilÅbentHusToolStripMenuItem
+            // 
+            this.komTilÅbentHusToolStripMenuItem.Name = "komTilÅbentHusToolStripMenuItem";
+            this.komTilÅbentHusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.komTilÅbentHusToolStripMenuItem.Text = "Kom til Åbent Hus!";
+            this.komTilÅbentHusToolStripMenuItem.Click += new System.EventHandler(this.komTilÅbentHusToolStripMenuItem_Click);
             // 
             // sagToolStripMenuItem
             // 
@@ -275,28 +274,16 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(615, 403);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Homepage";
             this.Text = "Homepage";
-            this.Load += new System.EventHandler(this.Homepage_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -325,15 +312,14 @@
         private System.Windows.Forms.ToolStripMenuItem boligToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bolig_createToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem bolig_readToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem bolig_updateToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem bolig_deleteToolStripMenuItem2;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem sagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem komTilÅbentHusToolStripMenuItem;
     }
 }
 

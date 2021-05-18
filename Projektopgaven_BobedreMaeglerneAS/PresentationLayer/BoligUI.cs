@@ -54,6 +54,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 boligRenoveringsÅr_dtp.Enabled = false;
         }
 
+        private void boligBygningsÅr_dtp_ValueChanged(object sender, EventArgs e)
+        {
+            boligRenoveringsÅr_dtp.Value = boligBygningsÅr_dtp.Value;
+        }
+
         #region Opret Bolig
         //method to create a new Bolig
         private void btn_OpretBolig_Click(object sender, EventArgs e)

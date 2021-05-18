@@ -39,78 +39,24 @@ namespace Projektopgaven_BobedreMaeglerneAS
         //BOLIG
         private void bolig_createToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the BoligUI class
-            BoligUI boligUI = new BoligUI();
-
-            // Show the settings form
-            boligUI.Show();
-
-            // Disable not needed buttons
-            boligUI.GetHentBoligButton().Visible = false;
-            boligUI.GetSletBoligButton().Visible = false;
-            boligUI.GetClearHentBoligButton().Visible = false;
-            boligUI.GetAllowRedigeringButton().Visible = false;
-            boligUI.GetSaveChangesButton().Visible = false;
-
-            // Disable not needed textboxes
-            boligUI.GetBoligIDTextbox().Enabled = false;
-            boligUI.GetBoligRenoveringsÅrDateTimePicker().Enabled = false;
-            boligUI.GetBoligUdbudsprisTextbox().Enabled = false;
+            MenuBarKnapper.OpretBolig();
         }
 
         private void bolig_readToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the BoligUI class
-            BoligUI boligUI = new BoligUI();
-
-            // Show the settings form
-            boligUI.Show();
-
-            // Disable not needed buttons
-            boligUI.GetOpretBoligButton().Visible = false;
-            boligUI.GetSletBoligButton().Visible = false;
-            boligUI.GetClearOpretBoligButton().Visible = false;
-
-            boligUI.DisableAll();
-            boligUI.GetBoligIDTextbox().Enabled = true;
-        }
-
-        private void bolig_updateToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            // Create a new instance of the BoligUI class
-            //BoligUI boligUI = new BoligUI();
-
-            //// Show the settings form
-            //boligUI.Show();
-
-            //// Disable not needed buttons
-            //boligUI.GetOpretBoligButton().Visible = false;
-            //boligUI.GetHentBoligButton().Visible = false;
-            //boligUI.GetSletBoligButton().Visible = false;
-
-            //// Disable not needed TextBoxes
-            //boligUI.GetBoligIDTextbox().Enabled = false;
+            MenuBarKnapper.HentOpdaterBolig();
         }
 
         private void bolig_deleteToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the BoligUI class
-            BoligUI boligUI = new BoligUI();
+            MenuBarKnapper.SletBolig();
+        }
 
-            // Show the settings form
-            boligUI.Show();
+        private void komTilÅbentHusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ÅbentHusUI åbentHusUI = new ÅbentHusUI();
 
-            // Disable not needed buttons
-            boligUI.GetOpretBoligButton().Visible = false;
-            boligUI.GetHentBoligButton().Visible = false;
-            boligUI.GetClearOpretBoligButton().Visible = false;
-            boligUI.GetClearHentBoligButton().Visible = false;
-            boligUI.GetAllowRedigeringButton().Visible = false;
-            boligUI.GetSaveChangesButton().Visible = false;
-
-            // Disable not needed TextBoxes
-            boligUI.DisableAll();
-            boligUI.GetBoligIDTextbox().Enabled = true;
+            åbentHusUI.Show();
         }
 
         //EJENDOMSMÆGLER
@@ -134,7 +80,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             MenuBarKnapper.EjendomsmæglerSlet();
         }
 
-        //KØBER
+        //SÆLGER
         private void sælger_createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sælger
         {
             // Create a new instance of the SælgerUI class
@@ -201,14 +147,8 @@ namespace Projektopgaven_BobedreMaeglerneAS
             MenuBarKnapper.KøberCreate();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //ejendomsmæglerOplysninger1 = new EjendomsmæglerOplysninger(richTextBox1);
-            //Thread t1 = new Thread(new ThreadStart(ejendomsmæglerOplysninger1.GenerateEjendomsmægler));
-            //t1.IsBackground = true;
-            //t1.Start();
-        }
 
+        //SAG
         private void createToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Create a new instance of the SagUI class
@@ -243,11 +183,6 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             // Show the settings form
             sagUI.Show();
-        }
-
-        private void Homepage_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

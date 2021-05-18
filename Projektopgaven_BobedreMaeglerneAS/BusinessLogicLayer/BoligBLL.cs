@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace Projektopgaven_BobedreMæglerneAS
 {
-    class BoligBLL
+    class BoligBLL : IComparable
     {
         public int BoligID { get; private set; }
         public string Vej { get; private set; }
@@ -122,6 +122,31 @@ namespace Projektopgaven_BobedreMæglerneAS
                 pris += 1000;
 
             return pris;
+        }
+
+        public int CompareTo(object other)
+        {
+            if (other == null)
+                return 1;
+            else if (!(other is BoligBLL))
+                throw new ArgumentException("Object is not a Bolig");
+
+            BoligBLL bolig = (BoligBLL)other;
+
+            if (string.Compare(this.Vej, bolig.Vej) > 0)
+                return 1;
+            else if (string.Compare(this.Vej, bolig.Vej) < 0)
+                return -1;
+            else
+            {
+                if (this.Udbudspris > bolig.Udbudspris)
+                    return 1;
+                else if (this.Udbudspris < bolig.Udbudspris)
+                    return -1;
+                else
+                    return 0;
+            }
+
         }
     }
 }

@@ -144,8 +144,63 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.GetPostnummerTekstboks().Enabled = false;
         }
 
-        public static void OpretBolig() { }
-        public static void HentOpdaterBolig() { }
-        public static void SletBolig() { }
+        public static void OpretBolig() 
+        {
+            // Create a new instance of the BoligUI class
+            BoligUI boligUI = new BoligUI();
+
+            // Show the settings form
+            boligUI.Show();
+
+            // Disable not needed buttons
+            boligUI.GetHentBoligButton().Visible = false;
+            boligUI.GetSletBoligButton().Visible = false;
+            boligUI.GetClearHentBoligButton().Visible = false;
+            boligUI.GetAllowRedigeringButton().Visible = false;
+            boligUI.GetSaveChangesButton().Visible = false;
+
+            // Disable not needed textboxes
+            boligUI.GetBoligIDTextbox().Enabled = false;
+            boligUI.GetBoligRenoveringsÅrDateTimePicker().Enabled = false;
+            boligUI.GetBoligUdbudsprisTextbox().Enabled = false;
+        }
+
+        public static void HentOpdaterBolig()
+        {            
+            // Create a new instance of the BoligUI class
+            BoligUI boligUI = new BoligUI();
+
+            // Show the settings form
+            boligUI.Show();
+
+            // Disable not needed buttons
+            boligUI.GetOpretBoligButton().Visible = false;
+            boligUI.GetSletBoligButton().Visible = false;
+            boligUI.GetClearOpretBoligButton().Visible = false;
+
+            boligUI.DisableAll();
+            boligUI.GetBoligIDTextbox().Enabled = true;
+        }
+
+        public static void SletBolig()
+        {            
+            // Create a new instance of the BoligUI class
+            BoligUI boligUI = new BoligUI();
+
+            // Show the settings form
+            boligUI.Show();
+
+            // Disable not needed buttons
+            boligUI.GetOpretBoligButton().Visible = false;
+            boligUI.GetHentBoligButton().Visible = false;
+            boligUI.GetClearOpretBoligButton().Visible = false;
+            boligUI.GetClearHentBoligButton().Visible = false;
+            boligUI.GetAllowRedigeringButton().Visible = false;
+            boligUI.GetSaveChangesButton().Visible = false;
+
+            // Disable not needed TextBoxes
+            boligUI.DisableAll();
+            boligUI.GetBoligIDTextbox().Enabled = true;
+        }
     }
 }
