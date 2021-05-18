@@ -79,6 +79,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
                 //shows BoligID in TextBox
                 boligID_txt.Text = matchingbolig.BoligID.ToString();
+                boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
             }
             catch (Exception ex)
             {
@@ -131,6 +132,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 boligHave_ckBox.Checked = matchingbolig.Have;
                 boligBygningsÅr_dtp.Value = matchingbolig.Bygningsår;
                 boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
+                boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
             }
             catch (Exception ex)
             {
@@ -155,7 +157,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void saveChanges_btn_Click(object sender, EventArgs e)
         {
             //initializes BoligBLL and BoligDAL
-            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
+            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligUdbudspris(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
             try
@@ -494,14 +496,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private DateTime BoligRenoveringsÅr()
         {
-            //if (boligRenoveret_ckbox.Checked)
-            //{
-            //    return boligRenoveringsÅr_dtp.Value;
-            //}
-
-            //else
-            //    return null;
-
             return boligRenoveringsÅr_dtp.Value;
         }
 

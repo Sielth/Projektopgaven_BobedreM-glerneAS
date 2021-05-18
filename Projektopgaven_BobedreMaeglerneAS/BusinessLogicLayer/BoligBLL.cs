@@ -37,6 +37,21 @@ namespace Projektopgaven_BobedreMæglerneAS
             this.RenoveringsÅr = renoveringsår;
         }
 
+        public BoligBLL(int boligid, string vej, int postnummer, string type, int værelser, int etager, int kvadratmeter, int udbudspris, bool have, DateTime bygningsår, DateTime renoveringsår)
+        {
+            this.BoligID = boligid;
+            this.Vej = vej;
+            this.Postnummer = postnummer;
+            this.Type = type;
+            this.Værelser = værelser;
+            this.Etager = etager;
+            this.Kvadratmeter = kvadratmeter;
+            this.Udbudspris = udbudspris;
+            this.Have = have;
+            this.Bygningsår = bygningsår;
+            this.RenoveringsÅr = renoveringsår;
+        }
+
         public BoligBLL(int boligid, string vej, int postnummer)
         {
             this.BoligID = boligid;
@@ -56,9 +71,57 @@ namespace Projektopgaven_BobedreMæglerneAS
             return $"{BoligID} - {Vej} - {Postnummer}";
         }
 
-        private int CalculateUdbudsPris()
+        public int CalculateUdbudsPris()
         {
-            return 0;
+            int pris = 0;
+
+            if (this.Postnummer > 999 && this.Postnummer < 3000) //KBH
+                pris += this.Kvadratmeter * 40000;
+            else if (this.Postnummer >= 3000 && this.Postnummer < 5400  //SJÆLLAND + ODENSE
+                || this.Postnummer >= 8000 && this.Postnummer < 8800 //AARHUS (OG ØSTJYLLAND)
+                || this.Postnummer >= 9000 && this.Postnummer < 9400) //AALBORG
+                pris += this.Kvadratmeter * 20000;
+            else if (this.Postnummer >= 5400 && this.Postnummer < 6000) //FYN 
+                pris += this.Kvadratmeter * 15000;
+            else if (this.Postnummer >= 6000 && this.Postnummer < 8000) //SØNDERJYLLAND + MIDTJYLLAND
+                pris += this.Kvadratmeter * 8000;
+            else if (this.Kvadratmeter >= 8800 && this.Postnummer < 9000) //RANDERS OG LIGNEDE
+                pris += this.Kvadratmeter * 5000;
+            else if (this.Kvadratmeter >= 9400 && this.Postnummer < 9999) //SKAGEN OG SOMMERHUSE PÅ NORDJYLLAND
+                pris += this.Kvadratmeter * 20000;
+            else
+                pris += this.Kvadratmeter * 5000;
+
+            if (this.Type == "Lejlighed")
+                pris += pris / 100 * 1;
+            else if (this.Type == "Villa")
+                pris += pris / 100 * 3;
+            else if (this.Type == "Rækkehus")
+                pris += pris / 100 * 2;
+
+            pris += this.Værelser * 500;
+            pris += this.Etager * 1000;
+
+            if (this.Have)
+                pris += 5000;
+
+            DateTime date1 = this.Bygningsår;
+            DateTime date2 = new DateTime(1950, 1, 1, 0, 0, 0);
+            int result = DateTime.Compare(date1, date2);
+
+            if (result < 0) //EARLIER THAN 1950
+                pris -= 30000;
+            if (result >= 0) //LATER THAN 1950
+                pris += 15000;
+
+            date1 = this.RenoveringsÅr;
+            date2 = new DateTime(2010, 1, 1, 0, 0, 0);
+            result = DateTime.Compare(date1, date2);
+
+            if (result >= 0)
+                pris += 1000;
+
+            return pris;
         }
     }
 }
