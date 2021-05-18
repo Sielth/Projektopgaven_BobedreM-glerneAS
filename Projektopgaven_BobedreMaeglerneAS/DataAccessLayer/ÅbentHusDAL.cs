@@ -73,6 +73,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                         output.Items.Add(bolig.ToString("B"));
                 }
             }
+
+            //Lambda implementation
+
+            //List<BoligBLL> sortedBolig = bolig.FindAll(item => Between(item, a, b));
+
+            //Implement Between
+            //private bool Between(string s, char a, char b)
+            //{
+            //    if (s[0] >= a && s[0] <= b)
+            //    {
+            //        return true;
+            //    }
+
+            //    return false;
+            //}
         }
 
         //method to retrieve all BoligID to show in the ComboBox of SagUI
@@ -142,7 +157,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             boliger.Sort();
 
             //there is a very nice lambra function that can sort by two criteria
-            //boliger = boliger.OrderBy( x => x.Vej).ThenBy(x => x.Udbudspris).ToList();
+            //boliger = boliger.OrderBy(x => x.Vej).ThenBy(x => x.Udbudspris).ToList();
 
             //RETURN
             return boliger;
