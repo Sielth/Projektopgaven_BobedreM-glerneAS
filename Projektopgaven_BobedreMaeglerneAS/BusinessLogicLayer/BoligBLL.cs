@@ -18,11 +18,11 @@ namespace Projektopgaven_BobedreMæglerneAS
         public int Etager { get; private set; }
         public int Kvadratmeter { get; private set; }
         public int Udbudspris { get; private set; }
-        public int Have { get; private set; }
-        public int Bygningsår { get; private set; }
-        public int RenoveringsÅr { get; private set; }
+        public bool Have { get; private set; }
+        public DateTime Bygningsår { get; private set; }
+        public DateTime RenoveringsÅr { get; private set; }
 
-        public BoligBLL(int boligid, string vej, int postnummer, string type, int værelser, int etager, int kvadratmeter, int have, int bygningsår, int renoveringsår)
+        public BoligBLL(int boligid, string vej, int postnummer, string type, int værelser, int etager, int kvadratmeter, bool have, DateTime bygningsår, DateTime renoveringsår)
         {
             this.BoligID = boligid;
             this.Vej = vej;
@@ -37,6 +37,13 @@ namespace Projektopgaven_BobedreMæglerneAS
             this.RenoveringsÅr = renoveringsår;
         }
 
+        public BoligBLL(int boligid, string vej, int postnummer)
+        {
+            this.BoligID = boligid;
+            this.Vej = vej;
+            this.Postnummer = postnummer;
+        }
+
         public BoligBLL(int boligid)
         {
             this.BoligID = boligid;
@@ -46,7 +53,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public override string ToString()
         {
-            return $"{BoligID}";
+            return $"{BoligID} - {Vej} - {Postnummer}";
         }
 
         private int CalculateUdbudsPris()
