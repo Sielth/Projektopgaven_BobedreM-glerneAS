@@ -120,5 +120,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return sælgerpostnummer;
         }
         #endregion
+
+        private void sælger_createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sælger
+        {
+            MenuBarKnapper.SælgerOpret();
+        }
+
+        private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e) //Find/hent sælger
+        {
+            MenuBarKnapper.SælgerHent();
+        }
+
+        private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sælger
+        {
+            MenuBarKnapper.SælgerOpdater();
+        }
+
+        private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet sælger
+        {
+            MenuBarKnapper.SælgerSlet();
+        }
     }
 }

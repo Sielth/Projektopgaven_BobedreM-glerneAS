@@ -361,26 +361,30 @@
             // sælger_createToolStripMenuItem
             // 
             this.sælger_createToolStripMenuItem.Name = "sælger_createToolStripMenuItem";
-            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sælger_createToolStripMenuItem.Text = "Create";
+            this.sælger_createToolStripMenuItem.Click += new System.EventHandler(this.sælger_createToolStripMenuItem_Click);
             // 
             // sælger_readToolStripMenuItem
             // 
             this.sælger_readToolStripMenuItem.Name = "sælger_readToolStripMenuItem";
-            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sælger_readToolStripMenuItem.Text = "Read";
+            this.sælger_readToolStripMenuItem.Click += new System.EventHandler(this.sælger_readToolStripMenuItem_Click);
             // 
             // sælger_updateToolStripMenuItem
             // 
             this.sælger_updateToolStripMenuItem.Name = "sælger_updateToolStripMenuItem";
-            this.sælger_updateToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.sælger_updateToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sælger_updateToolStripMenuItem.Text = "Update";
+            this.sælger_updateToolStripMenuItem.Click += new System.EventHandler(this.sælger_updateToolStripMenuItem_Click);
             // 
             // sælger_deleteToolStripMenuItem
             // 
             this.sælger_deleteToolStripMenuItem.Name = "sælger_deleteToolStripMenuItem";
-            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sælger_deleteToolStripMenuItem.Text = "Delete";
+            this.sælger_deleteToolStripMenuItem.Click += new System.EventHandler(this.sælger_deleteToolStripMenuItem_Click);
             // 
             // køberToolStripMenuItem
             // 
