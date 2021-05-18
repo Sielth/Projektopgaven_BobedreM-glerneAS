@@ -148,6 +148,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ClearAll();
         }
 
+
+
+        //MENU
+        //EJENDOMSMÆGLER MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
         private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret ejendomsmægler
         {
             MenuBarKnapper.EjendomsmælgerOpret();
@@ -166,6 +170,69 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet ejendomsmægler
         {
             MenuBarKnapper.EjendomsmæglerSlet();
+        }
+
+        //SÆLGER MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
+        private void createToolStripMenuItem1_Click(object sender, EventArgs e) //Opret sælger
+        {
+            MenuBarKnapper.SælgerOpret();
+        }
+
+        private void readToolStripMenuItem1_Click(object sender, EventArgs e) //Find/hent sælger
+        {
+            MenuBarKnapper.SælgerHent();
+        }
+
+        private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater sælger
+        {
+            MenuBarKnapper.SælgerOpdater();
+        }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet sælger
+        {
+            MenuBarKnapper.SælgerSlet();
+        }
+
+        //SAG MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
+        private void createToolStripMenuItem4_Click(object sender, EventArgs e) //Opret sag
+        {
+            MenuBarKnapper.SagOpret();
+        }
+
+        private void readToolStripMenuItem4_Click(object sender, EventArgs e) //Find/hent sag
+        {
+            MenuBarKnapper.SagHent();
+        }
+
+        private void opdateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sag
+        {
+            MenuBarKnapper.SagOpdater();
+        }
+
+        private void deleteToolStripMenuItem4_Click(object sender, EventArgs e) //Slet sag
+        {
+            MenuBarKnapper.SagSlet();
+        }
+
+        //KØBER MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
+        private void createToolStripMenuItem2_Click(object sender, EventArgs e) //Opret køber
+        {
+            MenuBarKnapper.KøberCreate();
+        }
+
+        private void readToolStripMenuItem2_Click(object sender, EventArgs e) //Find/hent køber
+        {
+            MenuBarKnapper.KøberRead();
+        }
+
+        private void updateToolStripMenuItem2_Click(object sender, EventArgs e) //Opdater køber
+        {
+            MenuBarKnapper.KøberUpdate();
+        }
+
+        private void deleteToolStripMenuItem2_Click(object sender, EventArgs e) //Slet køber
+        {
+            MenuBarKnapper.KøberDelete();
         }
     }
 }
