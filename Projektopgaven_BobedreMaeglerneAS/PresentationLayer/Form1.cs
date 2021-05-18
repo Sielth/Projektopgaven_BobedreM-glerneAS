@@ -137,63 +137,22 @@ namespace Projektopgaven_BobedreMaeglerneAS
         //SÆLGER
         private void sælger_createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sælger
         {
-            // Create a new instance of the SælgerUI class
-            SælgerUI sælgerUI = new SælgerUI();
-
-            // Show the settings form
-            sælgerUI.Show();
-
-            sælgerUI.GetHentSælgerKnap().Visible = false;
-            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
-            sælgerUI.GetSletSælgerKnap().Visible = false;
-            sælgerUI.GetSælgerIDTekstboks().Enabled = false;
+            MenuBarKnapper.SælgerOpret();
         }
 
         private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e) //Hent sælger
         {
-            // Create a new instance of the SælgerUI class
-            SælgerUI sælgerUI = new SælgerUI();
-
-            // Show the settings form
-            sælgerUI.Show();
-
-            sælgerUI.GetOpretSælgerKnap().Visible = false;
-            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
-            sælgerUI.GetSletSælgerKnap().Visible = false;
-
+            MenuBarKnapper.SælgerHent();
         }
 
         private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sælger
         {
-            // Create a new instance of the SælgerUI class
-            SælgerUI sælgerUI = new SælgerUI();
-
-            // Show the settings form
-            sælgerUI.Show();
-
-            sælgerUI.GetOpretSælgerKnap().Visible = false;
-            sælgerUI.GetHentSælgerKnap().Visible = false;
-            sælgerUI.GetSletSælgerKnap().Visible = false;
+            MenuBarKnapper.SælgerOpdater();
         }
 
         private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet sælger
         {
-            // Create a new instance of the SælgerUI class
-            SælgerUI sælgerUI = new SælgerUI();
-
-            // Show the settings form
-            sælgerUI.Show();
-
-            sælgerUI.GetOpretSælgerKnap().Visible = false;
-            sælgerUI.GetHentSælgerKnap().Visible = false;
-            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
-            sælgerUI.GetSælgerCPRTekstboks().Enabled = false;
-            sælgerUI.GetSælgerTelefonTekstboks().Enabled = false;
-            sælgerUI.GetSælgerEmailTekstboks().Enabled = false;
-            sælgerUI.GetSælgerFnavnTekstboks().Enabled = false;
-            sælgerUI.GetSælgerEnavnTekstboks().Enabled = false;
-            sælgerUI.GetSælgerVejTekstboks().Enabled = false;
-            sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
+            MenuBarKnapper.SælgerSlet();
         }
 
         //KØBER

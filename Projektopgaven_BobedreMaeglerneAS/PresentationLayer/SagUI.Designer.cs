@@ -77,9 +77,9 @@
             this.sagnr_lbl.Location = new System.Drawing.Point(41, 85);
             this.sagnr_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sagnr_lbl.Name = "sagnr_lbl";
-            this.sagnr_lbl.Size = new System.Drawing.Size(64, 20);
+            this.sagnr_lbl.Size = new System.Drawing.Size(63, 20);
             this.sagnr_lbl.TabIndex = 0;
-            this.sagnr_lbl.Text = "Sags nr";
+            this.sagnr_lbl.Text = "SagsID";
             // 
             // sagStatus_lbl
             // 
@@ -238,7 +238,7 @@
             this.ejendomsmægler_updateToolStripMenuItem,
             this.ejendomsmægler_deleteToolStripMenuItem});
             this.ejendomsmæglerToolStripMenuItem.Name = "ejendomsmæglerToolStripMenuItem";
-            this.ejendomsmæglerToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.ejendomsmæglerToolStripMenuItem.Size = new System.Drawing.Size(167, 30);
             this.ejendomsmæglerToolStripMenuItem.Text = "Ejendomsmægler";
             // 
             // ejendomsmægler_createToolStripMenuItem
@@ -273,7 +273,7 @@
             this.sælger_updateToolStripMenuItem,
             this.sælger_deleteToolStripMenuItem});
             this.sælgerToolStripMenuItem.Name = "sælgerToolStripMenuItem";
-            this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(83, 29);
+            this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(83, 30);
             this.sælgerToolStripMenuItem.Text = "Sælger";
             // 
             // sælger_createToolStripMenuItem
@@ -308,7 +308,7 @@
             this.køber_updateToolStripMenuItem1,
             this.køber_deleteToolStripMenuItem1});
             this.køberToolStripMenuItem.Name = "køberToolStripMenuItem";
-            this.køberToolStripMenuItem.Size = new System.Drawing.Size(75, 29);
+            this.køberToolStripMenuItem.Size = new System.Drawing.Size(75, 30);
             this.køberToolStripMenuItem.Text = "Køber";
             // 
             // køber_createToolStripMenuItem1
@@ -343,7 +343,7 @@
             this.bolig_updateToolStripMenuItem2,
             this.bolig_deleteToolStripMenuItem2});
             this.boligToolStripMenuItem.Name = "boligToolStripMenuItem";
-            this.boligToolStripMenuItem.Size = new System.Drawing.Size(68, 29);
+            this.boligToolStripMenuItem.Size = new System.Drawing.Size(68, 30);
             this.boligToolStripMenuItem.Text = "Bolig";
             // 
             // bolig_createToolStripMenuItem2
@@ -384,26 +384,30 @@
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.createToolStripMenuItem.Text = "Create ";
+            this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // readToolStripMenuItem
             // 
             this.readToolStripMenuItem.Name = "readToolStripMenuItem";
-            this.readToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.readToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.readToolStripMenuItem.Text = "Read";
+            this.readToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // SagUI
             // 

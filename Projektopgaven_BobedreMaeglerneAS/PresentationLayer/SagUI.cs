@@ -143,5 +143,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
 
         }
+
+
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sag
+        {
+            MenuBarKnapper.SagOpret();
+        }
+
+        private void readToolStripMenuItem_Click(object sender, EventArgs e) //Find/hent sag
+        {
+            MenuBarKnapper.SagHent();
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sag
+        {
+            MenuBarKnapper.SagOpdater();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet sag
+        {
+            MenuBarKnapper.SagSlet();
+        }
     }
 }
