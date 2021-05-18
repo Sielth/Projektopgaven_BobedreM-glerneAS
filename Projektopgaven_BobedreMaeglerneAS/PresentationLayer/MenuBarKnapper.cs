@@ -223,5 +223,123 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             boligUI.DisableAll();
             boligUI.GetBoligIDTextbox().Enabled = true;
         }
+
+        public static void SagOpret()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetSletSagKnap().Visible = false;
+            sagUI.GetSagsIDTekstboks().Enabled = false;
+        }
+
+        public static void SagHent()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetSletSagKnap().Visible = false;
+        }
+
+        public static void SagOpdater()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetSletSagKnap().Visible = false;
+        }
+
+        public static void SagSlet()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetSagStatusComboboks().Enabled = false;
+            sagUI.GetSagBoligIDComboboks().Enabled = false;
+            sagUI.GetSagSælgerIDComboboks().Enabled = false;
+            sagUI.GetSagMæglerIDComboboks().Enabled = false;
+        }
+
+
+        public static void SælgerOpret()
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+
+            sælgerUI.GetHentSælgerKnap().Visible = false;
+            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetSletSælgerKnap().Visible = false;
+            sælgerUI.GetSælgerIDTekstboks().Enabled = false;
+        }
+
+        public static void SælgerHent()
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+
+            sælgerUI.GetOpretSælgerKnap().Visible = false;
+            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetSletSælgerKnap().Visible = false;
+        }
+
+        public static void SælgerOpdater()
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+
+            sælgerUI.GetOpretSælgerKnap().Visible = false;
+            sælgerUI.GetHentSælgerKnap().Visible = false;
+            sælgerUI.GetSletSælgerKnap().Visible = false;
+        }
+
+        public static void SælgerSlet()
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+
+            sælgerUI.GetOpretSælgerKnap().Visible = false;
+            sælgerUI.GetHentSælgerKnap().Visible = false;
+            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetSælgerCPRTekstboks().Enabled = false;
+            sælgerUI.GetSælgerTelefonTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEmailTekstboks().Enabled = false;
+            sælgerUI.GetSælgerFnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerVejTekstboks().Enabled = false;
+            sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
+        }
     }
 }
