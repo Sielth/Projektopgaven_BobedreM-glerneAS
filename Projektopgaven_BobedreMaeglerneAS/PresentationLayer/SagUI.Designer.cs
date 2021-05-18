@@ -215,5 +215,58 @@
         private System.Windows.Forms.Button btn_HentSag;
         private System.Windows.Forms.Button btn_OpdaterSag;
         private System.Windows.Forms.Button btn_SletSag;
+
+
+        #region Get knapper
+        public System.Windows.Forms.Button GetOpretSagKnap()
+        {
+            return btn_OpretSag;
+        }
+
+        public System.Windows.Forms.Button GetHentSagKnap()
+        {
+            return btn_HentSag;
+        }
+
+        public System.Windows.Forms.Button GetOpdaterSagKnap()
+        {
+            return btn_OpdaterSag;
+        }
+
+        public System.Windows.Forms.Button GetSletSagKnap()
+        {
+            return btn_SletSag;
+        }
+
+        #endregion
+
+        #region Get teksbokse
+        public System.Windows.Forms.TextBox GetSagsIDTekstboks()
+        {
+            return sagID_txt;
+        }
+
+        public System.Windows.Forms.ComboBox GetSagStatusComboboks()
+        {
+            return sagStatus_cbox;
+        }
+
+        public System.Windows.Forms.ComboBox GetSagBoligIDComboboks()
+        {
+            return sag_boligID_cbox;
+        }
+
+        public System.Windows.Forms.ComboBox GetSagSælgerIDComboboks()
+        {
+            return sag_sælgerID_cbox;
+        }
+
+        public System.Windows.Forms.ComboBox GetSagMæglerIDComboboks()
+        {
+            return sag_ejendomsmæglerID_cbox;
+        }
+
+        #endregion
+
     }
 }

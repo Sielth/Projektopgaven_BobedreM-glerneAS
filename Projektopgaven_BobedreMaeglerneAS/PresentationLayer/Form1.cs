@@ -134,7 +134,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             MenuBarKnapper.EjendomsmæglerSlet();
         }
 
-        //KØBER
+        //SÆLGER
         private void sælger_createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sælger
         {
             // Create a new instance of the SælgerUI class
@@ -196,6 +196,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
             sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
 
+        //KØBER
         private void køber_createToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.KøberCreate();
@@ -209,41 +210,27 @@ namespace Projektopgaven_BobedreMaeglerneAS
             //t1.Start();
         }
 
-        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        //SAG
+        private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sag
         {
-            //Create a new instance of the SagUI class
-            SagUI sagUI = new SagUI();
-
-            // Show the settings form
-            sagUI.Show();
+            MenuBarKnapper.SagOpret();
         }
 
-        private void readToolStripMenuItem_Click(object sender, EventArgs e)
+        private void readToolStripMenuItem_Click(object sender, EventArgs e) //Find/hent sag
         {
-            //Create a new instance of the SagUI class
-            SagUI sagUI = new SagUI();
-
-            // Show the settings form
-            sagUI.Show();
+            MenuBarKnapper.SagHent();
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sag
         {
-            //Create a new instance of the SagUI class
-            SagUI sagUI = new SagUI();
-
-            // Show the settings form
-            sagUI.Show();
+            MenuBarKnapper.SagOpdater();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) //Delete sag
         {
-            //Create a new instance of the SagUI class
-            SagUI sagUI = new SagUI();
-
-            // Show the settings form
-            sagUI.Show();
+            MenuBarKnapper.SagSlet();
         }
+
 
         private void Homepage_Load(object sender, EventArgs e)
         {

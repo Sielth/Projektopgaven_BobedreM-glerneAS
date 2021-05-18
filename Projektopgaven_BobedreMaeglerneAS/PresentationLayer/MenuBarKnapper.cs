@@ -144,6 +144,65 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.GetPostnummerTekstboks().Enabled = false;
         }
 
+
+        public static void SagOpret()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetSletSagKnap().Visible = false;
+            sagUI.GetSagsIDTekstboks().Enabled = false;
+        }
+
+        public static void SagHent()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetSletSagKnap().Visible = false;
+        }
+
+        public static void SagOpdater()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetSletSagKnap().Visible = false;
+        }
+
+        public static void SagSlet()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetSagStatusComboboks().Enabled = false;
+            sagUI.GetSagBoligIDComboboks().Enabled = false;
+            sagUI.GetSagSælgerIDComboboks().Enabled = false;
+            sagUI.GetSagMæglerIDComboboks().Enabled = false;
+        }
+
+
         public static void OpretBolig() { }
         public static void HentOpdaterBolig() { }
         public static void SletBolig() { }
