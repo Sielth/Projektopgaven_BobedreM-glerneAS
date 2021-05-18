@@ -69,7 +69,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Kalder metoden: OpretSag
-            sagDAL.OpretSag(sagBLL);
+            //sagDAL.FindSag(sagBLL);
 
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);

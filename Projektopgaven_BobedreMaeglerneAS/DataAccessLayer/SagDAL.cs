@@ -67,7 +67,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             SqlCommand commandSag = new SqlCommand(sqlCommandSag, conn);
 
-            commandSag.Parameters.AddWithValue("@SagID", sag.SagsID);
+            commandSag.Parameters.AddWithValue("@SagsID", sag.SagsID);
 
             try
             {
@@ -87,7 +87,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             reader["Status"].ToString(),
                             (int)reader["BoligID"],
                             (int)reader["SælgerID"],
-                            (int)reader["Mægler"]);
+                            (int)reader["MæglerID"]);
 
                         return matchingsag;
                     }
@@ -97,11 +97,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             {
                 Console.WriteLine(ex);
             }
+
             finally
             {
                 if (conn != null)
                     conn.Close();
             }
+
             return null;
         }
 
@@ -144,6 +146,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             {
                 Console.WriteLine(ex);
             }
+
             finally
             {
                 if (conn != null)
