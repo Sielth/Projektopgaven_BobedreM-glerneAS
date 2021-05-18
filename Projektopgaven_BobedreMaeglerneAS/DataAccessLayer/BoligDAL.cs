@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 using System.Threading;
+using System.Windows.Forms;
 
 //MEMO
 //REMEMBER TO ADD CHECKS FOR READ, UPDATE, DELETE => IF BOLIG EXISTS, THEN EXECUTE QUERY
@@ -20,6 +21,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         private ConnectionSingleton s1;
         private SqlConnection conn;
 
+        private ComboBox output;
+        
         //BoligBLL constructor
         public BoligDAL(BoligBLL boligBLL)
         {
@@ -27,6 +30,103 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
+
+        #region Threads
+        public BoligDAL(ComboBox cBox)
+        {
+            output = cBox;
+            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
+        }
+
+        private delegate void DisplayDelegate(List<BoligBLL> boliger);
+
+        private void DisplayBolig(List<BoligBLL> boliger)
+        {
+            output.Items.Clear();
+
+            foreach (BoligBLL bolig in boliger)
+                output.Items.Add(bolig.ToString());
+        }
+
+        //method to retrieve all BoligID to show in the ComboBox of SagUI
+        //returns a List of BoligBLL
+        public List<BoligBLL> FetchBolig()
+        {
+            //INITIALIZE List OF BoligBLL boliger
+            List<BoligBLL> boliger = new List<BoligBLL>();
+
+            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            {
+                //SQL QUERY
+                string sqlCommand = "SELECT * FROM Bolig";
+
+                //SQL COMMAND
+                SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+
+                try
+                {
+                    //OPEN CONNECTION
+                    if (conn.State == System.Data.ConnectionState.Closed)
+                        conn.Open();
+
+                    //BEGIN TRANSACTION
+                    Transactions.BeginReadCommittedTransaction(conn);
+
+                    //EXECUTE READER (QUERY)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        //RETRIEVE BoligBLL AND ADD IN boliger
+                        while (reader.Read())
+                        {
+                            boliger.Add(new BoligBLL((int)reader["BoligID"], reader["Vej"].ToString(), (int)reader["Postnummer"]));
+                        }
+
+                        //CLOSE READER
+                        reader.Close();
+                    }
+
+                    //COMMIT OR ROLLBACK
+                    if (!Transactions.Commit(conn))
+                        Transactions.Rollback(conn);
+
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                //CLOSE CONNECTION
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+            }
+
+            //RETURN
+            return boliger;
+        }
+
+        public void GenerateBolig()
+        {
+            while (true)
+            {
+                ThreadStart start = new ThreadStart(() => FetchBolig());
+                Thread t1 = new Thread(start);
+                
+                List<BoligBLL> boliger = FetchBolig();
+
+                try
+                {
+                    output.Invoke(new DisplayDelegate(DisplayBolig), new object[] { boliger });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                Thread.Sleep(6000);
+            }
+        }
+        #endregion
 
         #region Opret Bolig
         //method to create a new BoligBLL
@@ -112,9 +212,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             (int)reader["Værelser"],
                             (int)reader["Etager"],
                             (int)reader["Kvadratmeter"],
-                            (int)reader["HaveFlag"],
-                            (int)reader["Bygningsår"],
-                            (int)reader["RenoveringsÅr"]);
+                            (bool)reader["HaveFlag"],
+                            (DateTime)reader["Bygningsår"],
+                            (DateTime)reader["RenoveringsÅr"]);
                     }
 
                     //CLOSE READER
@@ -196,9 +296,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             (int)reader["Værelser"],
                             (int)reader["Etager"],
                             (int)reader["Kvadratmeter"],
-                            (int)reader["HaveFlag"],
-                            (int)reader["Bygningsår"],
-                            (int)reader["RenoveringsÅr"]);
+                            (bool)reader["HaveFlag"],
+                            (DateTime)reader["Bygningsår"],
+                            (DateTime)reader["RenoveringsÅr"]);
                     }
 
                     //CLOSE READER
@@ -222,69 +322,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 conn.Close();
 
             return null;
-        }
-
-        //method to retrieve all BoligID to show in the ComboBox of SagUI
-        //returns a List of BoligBLL
-        public List<BoligBLL> FetchBolig()
-        {
-            //INITIALIZE List OF BoligBLL boliger
-            List<BoligBLL> boliger = new List<BoligBLL>();
-
-            //SQL QUERY
-            string sqlCommand = "SELECT * FROM Bolig";
-
-            //SQL COMMAND
-            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
-
-            try
-            {
-                //OPEN CONNECTION
-                if (conn.State == System.Data.ConnectionState.Closed)
-                    conn.Open();
-
-                //BEGIN TRANSACTION
-                Transactions.BeginReadCommittedTransaction(conn);
-
-                //EXECUTE READER (QUERY)
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    //RETRIEVE BoligBLL AND ADD IN boliger
-                    while (reader.Read())
-                    {
-                        boliger.Add(new BoligBLL((int)reader["BoligID"], reader["Vej"].ToString(), (int)reader["Postnummer"]));
-                    }
-
-                    //CLOSE READER
-                    reader.Close();
-                }
-
-                //COMMIT OR ROLLBACK
-                if (!Transactions.Commit(conn))
-                    Transactions.Rollback(conn);
-
-                //RETURN
-                return boliger;
-
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            //CLOSE CONNECTION
-            if (conn.State == System.Data.ConnectionState.Open)
-                conn.Close();
-
-            return null;
-        }
-
-        public void GenerateBolig()
-        {
-            while (true)
-            {
-                
-            }
         }
         #endregion
 

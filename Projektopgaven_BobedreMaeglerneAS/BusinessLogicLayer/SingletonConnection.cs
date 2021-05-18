@@ -20,7 +20,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 
         private ConnectionSingleton()
         {
-            ConnectionString = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
+            ConnectionString = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_; MultipleActiveResultSets=false";
             conn = new SqlConnection(ConnectionString);
         }
         public static ConnectionSingleton Instance()
