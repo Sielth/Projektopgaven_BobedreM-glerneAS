@@ -23,10 +23,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         private ComboBox output;
         
-        //BoligBLL constructor
+        //BoligDAL constructor
         public BoligDAL(BoligBLL boligBLL)
         {
             this.BoligBLL = boligBLL;
+            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
+        }
+
+        public BoligDAL(ListBox lbox) 
+        {
             this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
@@ -39,9 +45,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
 
-        private delegate void DisplayDelegate(List<BoligBLL> boliger);
+        protected delegate void DisplayDelegate(List<BoligBLL> boliger);
 
-        private void DisplayBolig(List<BoligBLL> boliger)
+        protected virtual void DisplayBolig(List<BoligBLL> boliger)
         {
             output.Items.Clear();
 
@@ -51,7 +57,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         //method to retrieve all BoligID to show in the ComboBox of SagUI
         //returns a List of BoligBLL
-        public List<BoligBLL> FetchBolig()
+        protected virtual List<BoligBLL> FetchBolig()
         {
             //INITIALIZE List OF BoligBLL boliger
             List<BoligBLL> boliger = new List<BoligBLL>();
@@ -105,7 +111,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             return boliger;
         }
 
-        public void GenerateBolig()
+        public virtual void GenerateBolig()
         {
             while (true)
             {

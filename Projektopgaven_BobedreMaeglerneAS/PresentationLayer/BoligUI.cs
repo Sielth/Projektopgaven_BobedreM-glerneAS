@@ -54,6 +54,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 boligRenoveringsÅr_dtp.Enabled = false;
         }
 
+        private void boligBygningsÅr_dtp_ValueChanged(object sender, EventArgs e)
+        {
+            boligRenoveringsÅr_dtp.Value = boligBygningsÅr_dtp.Value;
+        }
+
         #region Opret Bolig
         //method to create a new Bolig
         private void btn_OpretBolig_Click(object sender, EventArgs e)
@@ -110,6 +115,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #endregion
 
         #region Hent Bolig / Opdater Bolig
+        public void HentClick()
+        {
+            object sender = new object();
+            EventArgs e = new EventArgs();
+
+            btn_HentBolig_Click(sender, e);
+        }
+
         //method to retrieve a Bolig from DB and show its attributes on TextBoxes
         private void btn_HentBolig_Click(object sender, EventArgs e)
         {
