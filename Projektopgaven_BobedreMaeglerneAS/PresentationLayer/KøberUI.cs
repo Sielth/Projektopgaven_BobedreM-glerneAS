@@ -66,73 +66,75 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             KøberUI_Load(sender, e);
         }
 
-        #region Ejendomsmæglerknapper
-        private void createToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
+        #region MENUBAREN
+        //MENUBAREN
+        //EJENDOMSMÆGLER MENUBARKNAPPER - I KØBER MENU
+        private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret ejendomsmægler
+        {
+            MenuBarKnapper.EjendomsmælgerOpret();
         }
 
-        private void readToolStripMenuItem_Click(object sender, EventArgs e)
+        private void readToolStripMenuItem_Click(object sender, EventArgs e) //Hent ejendomsmægler
         {
-
+            MenuBarKnapper.EjendomsmæglerHent();
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater ejendomsmælger
         {
-
+            MenuBarKnapper.EjendomsmæglerOpdater();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet ejendomsmægler
         {
-
+            MenuBarKnapper.EjendomsmæglerSlet();
         }
-        #endregion
-
-        #region Sælgerknapper
-        private void createToolStripMenuItem1_Click(object sender, EventArgs e)
+        
+        //SÆLGER MENUBARKNAPPER - I KØBER MENU
+        private void createToolStripMenuItem1_Click(object sender, EventArgs e) //Opret sælger
         {
-
-        }
-
-        private void readToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
+            MenuBarKnapper.SælgerOpret();
         }
 
-        private void updateToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void readToolStripMenuItem1_Click(object sender, EventArgs e) //Hent sælger
         {
-
+            MenuBarKnapper.SælgerHent();
         }
 
-        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater sælger
         {
-
-        }
-        #endregion
-
-        #region Køberknapper
-        private void createToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
+            MenuBarKnapper.SælgerOpdater();
         }
 
-        private void readToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet sælger
         {
+            MenuBarKnapper.SælgerSlet();
+        }
+        
 
+        //KØBER MENUBARKNAPPER - I KØBER MENU
+        private void createToolStripMenuItem2_Click(object sender, EventArgs e) //Opret køber
+        {
+            MenuBarKnapper.KøberCreate();
         }
 
-        private void updateToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void readToolStripMenuItem2_Click(object sender, EventArgs e) //Hent køber
         {
-
+            MenuBarKnapper.KøberRead();
         }
 
-        private void deleteToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void updateToolStripMenuItem2_Click(object sender, EventArgs e) //Opdater køber
         {
-
+            MenuBarKnapper.KøberUpdate();
         }
-        #endregion
 
-        #region Boligknapper
+        private void deleteToolStripMenuItem2_Click(object sender, EventArgs e) //Slet køber
+        {
+            MenuBarKnapper.KøberDelete();
+        }
+       
+
+        //BOLIG MENUKNAPPER - I KØBER MENU
         private void createToolStripMenuItem3_Click(object sender, EventArgs e)
         {
 
@@ -151,6 +153,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void deleteToolStripMenuItem3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //SAG MENUBARKNAPPER - I KØBER MENU
+        private void createToolStripMenuItem4_Click(object sender, EventArgs e) //Opret sag
+        {
+            MenuBarKnapper.SagOpret();
+        }
+
+        private void readToolStripMenuItem4_Click(object sender, EventArgs e) //Hent sag
+        {
+            MenuBarKnapper.SagHent();
+        }
+
+        private void updateToolStripMenuItem4_Click(object sender, EventArgs e) //Opdater sag
+        {
+            MenuBarKnapper.SagOpdater();
+        }
+
+        private void deleteToolStripMenuItem4_Click(object sender, EventArgs e) //Slet sag
+        {
+            MenuBarKnapper.SagSlet();
         }
         #endregion
 
@@ -206,5 +229,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.køberTableAdapter.Fill(this.køber_bobedredbDataSet.Køber);
 
         }
+
+ 
     }
 }
