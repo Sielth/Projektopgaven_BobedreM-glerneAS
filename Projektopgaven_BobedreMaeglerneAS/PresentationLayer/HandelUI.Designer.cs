@@ -12,6 +12,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        public System.Windows.Forms.DateTimePicker GetStartDate()
+        {
+            return dateTimePicker1;
+        }
+        public System.Windows.Forms.DateTimePicker GetEndDate()
+        {
+            return dateTimePicker2;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -43,6 +51,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.btn_slethandel = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.handelID_txt = new System.Windows.Forms.TextBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+
             this.SuspendLayout();
             // 
             // handelSalgsID_cbox
@@ -180,6 +190,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.btn_opdaterhandel);
             this.Controls.Add(this.btn_findhandel);
             this.Controls.Add(this.btn_oprethandel);
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(45, 270);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker2.TabIndex = 10;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -211,5 +228,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox handelID_txt;
         private System.Windows.Forms.ComboBox handelKøberID_txt;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
