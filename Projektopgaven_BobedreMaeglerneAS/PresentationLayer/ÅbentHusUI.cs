@@ -34,6 +34,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //Thread t1 is starting now
             t1.Start();
+
         }
 
 
@@ -63,6 +64,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        private void ÅbentHusUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }

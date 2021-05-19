@@ -119,27 +119,34 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             while (true) //ALWAYS
             {
-
-                //THREAD THAT CALLS FetchBolig WITH A LAMBA FUNCTION (since the method has a return argument)
-                //this will give the user a list of BoligBLL always up to date
-                ThreadStart start = new ThreadStart(() => FetchBolig());
-                Thread t1 = new Thread(start);
-
-                //the list from FetchBoliger is saved in boliger
-
-                List<BoligBLL> boliger = FetchBolig();
-
-                try
+                //CHECK IF OUTPUT IS NOT DISPOSED
+                if (!output.IsDisposed)
                 {
-                    //invoking DisplayBolig
-                    output.Invoke(new DisplayDelegate(DisplayBolig), new object[] { boliger });
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                    //THREAD THAT CALLS FetchBolig WITH A LAMBA FUNCTION (since the method has a return argument)
+                    //this will give the user a list of BoligBLL always up to date
+                    ThreadStart start = new ThreadStart(() => FetchBolig());
+                    Thread t1 = new Thread(start);
 
-                Thread.Sleep(6000);
+                    //the list from FetchBoliger is saved in boliger
+
+                    List<BoligBLL> boliger = FetchBolig();
+
+                    try
+                    {
+                        //CHECK IF OUTPUT HANDLE HAS NOT BEEN CREATED
+                        if (!output.IsHandleCreated)
+                            output.CreateControl(); //CREATES OUPUT CONTROL
+
+                        //invoking DisplayBolig
+                        output.Invoke(new DisplayDelegate(DisplayBolig), new object[] { boliger });
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    Thread.Sleep(6000);
+                }
             }
         }
         #endregion

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
-    class EjendomsmæglerBLL
+    class EjendomsmæglerBLL : IPerson 
     {
-        public int MæglerID { get; private set; }
-        public int CPR { get; private set; }
-        public int Telefon { get; private set; }
-        public string Email { get; private set; }
-        public string Fnavn { get; private set; }
-        public string Enavn { get; private set; }
-        public string Vej { get; private set; }
-        public int Postnummer { get; private set; }
+        public int MæglerID { get; set; }
+        public int CPR { get; set; }
+        public int Telefon { get; set; }
+        public string Email { get; set; }
+        public string Fnavn { get; set; }
+        public string Enavn { get; set; }
+        public string Vej { get; set; }
+        public int Postnummer { get; set; }
 
         public EjendomsmæglerBLL(int mæglerID, int cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer)
         {
