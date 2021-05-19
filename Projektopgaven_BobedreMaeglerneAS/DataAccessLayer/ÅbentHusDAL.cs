@@ -76,7 +76,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             //Lambda implementation
 
-            //List<BoligBLL> sortedBolig = bolig.FindAll(item => Between(item, a, b));
+            //List<BoligBLL> sortedBolig = boliger.FindAll(item => Between(item, a, b));
 
             //Implement Between
             //private bool Between(string s, char a, char b)
@@ -156,7 +156,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             //SORT
             boliger.Sort();
 
-            //there is a very nice lambra function that can sort by two criteria
+            //there is a very nice lambda function that can sort by two criteria
             //boliger = boliger.OrderBy(x => x.Vej).ThenBy(x => x.Udbudspris).ToList();
 
             //RETURN
