@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
@@ -25,6 +26,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public HandelBLL(int handelID)
         {
             this.HandelID = handelID;
+        }
+        //Methods go here
+        public void StatsToText()
+        {
+            //DateTime salgsdato;
+            int price;
+            string broker;
+            string city;
+            try
+            {
+                StreamWriter sw = new StreamWriter(@"Resources/");
+                sw.WriteLine("\t Tidsperiode");
+                sw.WriteLine("By\t Bolig solgt\t Pris\t Ejendomsmægler");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }
