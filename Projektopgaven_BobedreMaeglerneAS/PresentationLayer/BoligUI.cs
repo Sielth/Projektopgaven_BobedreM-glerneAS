@@ -54,6 +54,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 boligRenoveringsÅr_dtp.Enabled = false;
         }
 
+        private void boligBygningsÅr_dtp_ValueChanged(object sender, EventArgs e)
+        {
+            boligRenoveringsÅr_dtp.Value = boligBygningsÅr_dtp.Value;
+        }
+
         #region Opret Bolig
         //method to create a new Bolig
         private void btn_OpretBolig_Click(object sender, EventArgs e)
@@ -79,6 +84,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
                 //shows BoligID in TextBox
                 boligID_txt.Text = matchingbolig.BoligID.ToString();
+                boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
             }
             catch (Exception ex)
             {
@@ -109,6 +115,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #endregion
 
         #region Hent Bolig / Opdater Bolig
+        public void HentClick()
+        {
+            object sender = new object();
+            EventArgs e = new EventArgs();
+
+            btn_HentBolig_Click(sender, e);
+        }
+
         //method to retrieve a Bolig from DB and show its attributes on TextBoxes
         private void btn_HentBolig_Click(object sender, EventArgs e)
         {
@@ -131,6 +145,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 boligHave_ckBox.Checked = matchingbolig.Have;
                 boligBygningsÅr_dtp.Value = matchingbolig.Bygningsår;
                 boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
+                boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
             }
             catch (Exception ex)
             {
@@ -155,7 +170,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void saveChanges_btn_Click(object sender, EventArgs e)
         {
             //initializes BoligBLL and BoligDAL
-            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
+            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligUdbudspris(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
             BoligDAL boligDAL = new BoligDAL(boligBLL);
 
             try
@@ -494,14 +509,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private DateTime BoligRenoveringsÅr()
         {
-            //if (boligRenoveret_ckbox.Checked)
-            //{
-            //    return boligRenoveringsÅr_dtp.Value;
-            //}
-
-            //else
-            //    return null;
-
             return boligRenoveringsÅr_dtp.Value;
         }
 
@@ -517,6 +524,113 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             int.TryParse(boligUdbudspris_txt.Text, out int boligudbudspris);
             return boligudbudspris;
+        }
+        #endregion
+
+        #region Links to Other Windows
+        //EJENDOMSMÆGLER
+        private void ejendomsmægler_createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.EjendomsmælgerOpret();
+        }
+
+        private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.EjendomsmæglerHent();
+        }
+
+        private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.EjendomsmæglerOpdater();
+        }
+
+        private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.EjendomsmæglerSlet();
+        }
+
+        //SÆLGER
+        private void sælger_createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SælgerOpret();
+        }
+
+        private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SælgerHent();
+        }
+
+        private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SælgerOpdater();
+        }
+
+        private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SælgerSlet();
+        }
+
+        //KØBER
+        private void køber_createToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.KøberCreate();
+        }
+
+        private void køber_readToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.KøberRead();
+        }
+
+        private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.KøberUpdate();
+        }
+
+        private void køber_deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.KøberDelete();
+        }
+
+        //BOLIG
+        private void bolig_createToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.OpretBolig();
+        }
+
+        private void bolig_readToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.HentOpdaterBolig();
+        }
+
+        private void bolig_deleteToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SletBolig();
+        }
+
+        private void komTilÅbentHusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.ÅbentHus();
+        }
+
+        //SAG
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SagOpret();
+        }
+
+        private void readToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SagHent();
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SagOpdater();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.SagSlet();
         }
         #endregion
     }
