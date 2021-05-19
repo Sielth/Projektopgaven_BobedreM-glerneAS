@@ -5,16 +5,51 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Projektopgaven_BobedreMaeglerneAS.PresentationLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
     class HandelDAL
     {
         private HandelBLL HandelBLL;
-
+        private ConnectionSingleton s1;
+        private SqlConnection conn;
+        private HandelUI HandelUI;
         public HandelDAL(HandelBLL handelBLL)
         {
             this.HandelBLL = handelBLL;
+            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
+        }
+        public void SoldProperties(List<HandelBLL> statistik)
+        {
+            string startdate = HandelUI.GetStartDate().Value.ToShortDateString();
+            string enddate = HandelUI.GetEndDate().Value.ToShortDateString();
+            string sqlCommandHandel = "SELECT * FROM Handel WHERE Handelsdato BETWEEN '" + startdate + "' AND '" + enddate + "+";
+            SqlCommand cmd = new SqlCommand(sqlCommandHandel, conn);
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                Transactions.BeginReadCommittedTransaction(conn);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        statistik.Add(new HandelBLL((int)reader["HandelID"], (DateTime)reader["Handelsdato"], (int)reader["Salgspris"], (int)reader["SagsID"], (int)reader["KøberID"]));
+                    }
+
+                    //CLOSE READER
+                    reader.Close();
+                }
+            }
+            catch
+            {
+
+            }
         }
 
 
