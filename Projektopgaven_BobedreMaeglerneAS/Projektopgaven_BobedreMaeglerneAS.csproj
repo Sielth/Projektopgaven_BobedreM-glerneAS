@@ -55,6 +55,7 @@
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerOplysninger.cs" />
     <Compile Include="BusinessLogicLayer\HandelBLL.cs" />
+    <Compile Include="BusinessLogicLayer\IPerson.cs" />
     <Compile Include="BusinessLogicLayer\KøberBLL.cs" />
     <Compile Include="BusinessLogicLayer\Pictures.cs" />
     <Compile Include="BusinessLogicLayer\SagBLL.cs" />
