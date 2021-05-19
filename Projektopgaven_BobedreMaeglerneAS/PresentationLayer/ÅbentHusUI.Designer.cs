@@ -152,6 +152,7 @@
             this.Controls.Add(this.åbentHus_bogstav1_txt);
             this.Name = "ÅbentHusUI";
             this.Text = "Kom til Åbent Hus!";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ÅbentHusUI_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

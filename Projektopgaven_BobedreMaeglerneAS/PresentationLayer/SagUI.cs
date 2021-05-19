@@ -40,6 +40,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmægler = new EjendomsmæglerDAL(sag_ejendomsmæglerID_cbox);
             Thread t3 = new Thread(new ThreadStart(ejendomsmægler.GenerateEjendomsmægler));
             t3.IsBackground = true;
+            t3.Start();
         }
 
         private void btn_OpretSag_Click(object sender, EventArgs e)

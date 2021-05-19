@@ -80,7 +80,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                 case "A":
                     return string.Format($"{BoligID} - {Vej} - {Postnummer}");
                 case "B":
-                    return string.Format($"ID: {BoligID} \t\t{Vej, 20}, {Postnummer, 10} \t{Udbudspris, 20}- kr");
+                    return string.Format($"ID: {BoligID} \t\t{Vej, 20} {Postnummer, 10} \t{Udbudspris, 20}- kr");
                 default:
                     return string.Format($"ID: {BoligID} \t, Adresse: {Vej} - {Postnummer}, \n" +
                         $"{Type}, værelser: {Værelser}, etager: {Etager}, kvm: {Kvadratmeter}, {HasGarden(this.Have)}, \n" +

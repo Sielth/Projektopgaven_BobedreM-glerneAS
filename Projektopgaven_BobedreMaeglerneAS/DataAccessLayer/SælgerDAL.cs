@@ -93,21 +93,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             while (true)
             { 
-                ThreadStart start = new ThreadStart(() => FetchSælger());
-                Thread t1 = new Thread(start);
-
-                List<SælgerBLL> sælgere = FetchSælger();
-
-                try
+                if (!output.IsDisposed)
                 {
-                    output.Invoke(new DisplayDelegate(DisplaySælgere), new object[] { sælgere });
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                    ThreadStart start = new ThreadStart(() => FetchSælger());
+                    Thread t1 = new Thread(start);
 
-                Thread.Sleep(6000);
+                    List<SælgerBLL> sælgere = FetchSælger();
+
+                    try
+                    {
+                        //CHECK IF OUTPUT HANDLE HAS NOT BEEN CREATED
+                        if (!output.IsHandleCreated)
+                            output.CreateControl(); //CREATES OUPUT CONTROL
+
+                        output.Invoke(new DisplayDelegate(DisplaySælgere), new object[] { sælgere });
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    Thread.Sleep(6000);
+                }
             }
         }
         #endregion
