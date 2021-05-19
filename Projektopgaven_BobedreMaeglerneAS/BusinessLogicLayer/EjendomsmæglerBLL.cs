@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
-    class EjendomsmæglerBLL
+    class EjendomsmæglerBLL : IPerson 
     {
-        public int MæglerID { get; private set; }
-        public int CPR { get; private set; }
-        public int Telefon { get; private set; }
-        public string Email { get; private set; }
-        public string Fnavn { get; private set; }
-        public string Enavn { get; private set; }
-        public string Vej { get; private set; }
-        public int Postnummer { get; private set; }
+        public int MæglerID { get; set; }
+        public int CPR { get; set; }
+        public int Telefon { get; set; }
+        public string Email { get; set; }
+        public string Fnavn { get; set; }
+        public string Enavn { get; set; }
+        public string Vej { get; set; }
+        public int Postnummer { get; set; }
 
         public EjendomsmæglerBLL(int mæglerID, int cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer)
         {
@@ -29,11 +29,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Postnummer = postnummer;
         }
 
-        public EjendomsmæglerBLL(string fnavn, string enavn, int tlf)
+        public EjendomsmæglerBLL(string fnavn, string enavn, int tlf, string email)
         {
             this.Fnavn = fnavn;
             this.Enavn = enavn;
             this.Telefon = tlf;
+            this.Email = email;
         }
 
         public EjendomsmæglerBLL(int ID, string fnavn, string enavn)
@@ -67,15 +68,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
                 case "A":
                     return string.Format($"{MæglerID} - {Fnavn} {Enavn}");
                 case "B":
-                    return string.Format($"STILLING: ejendomsmægler\n" +
+                    return string.Format($"EJENDOMSMÆGLER\n\n" +
                         $"Navn: {Fnavn}\n" +
-                        $"Efternavn: {Enavn}\n" +
-                        $"Telefon: {Telefon}");
+                        $"Efternavn: {Enavn}\n\n" +
+                        $"Telefon: {Telefon}\n" +
+                        $"Email: {Email}");
                 default:
-                    return string.Format($"STILLING: ejendomsmægler\n" +
+                    return string.Format($"EJENDOMSMÆGLER\n\n" +
                         $"Navn: {Fnavn}\n" +
-                        $"Efternavn: {Enavn}\n" +
-                        $"Telefon: {Telefon}");
+                        $"Efternavn: {Enavn}\n\n" +
+                        $"Telefon: {Telefon}\n" +
+                        $"Email: {Email}");
             }
         }
     }

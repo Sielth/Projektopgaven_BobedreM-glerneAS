@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Projektopgaven_BobedreMæglerneAS;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -144,8 +145,210 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.GetPostnummerTekstboks().Enabled = false;
         }
 
-        public static void OpretBolig() { }
-        public static void HentOpdaterBolig() { }
-        public static void SletBolig() { }
+        public static void OpretBolig() 
+        {
+            // Create a new instance of the BoligUI class
+            BoligUI boligUI = new BoligUI();
+
+            // Show the settings form
+            boligUI.Show();
+
+            // Disable not needed buttons
+            boligUI.GetHentBoligButton().Visible = false;
+            boligUI.GetSletBoligButton().Visible = false;
+            boligUI.GetClearHentBoligButton().Visible = false;
+            boligUI.GetAllowRedigeringButton().Visible = false;
+            boligUI.GetSaveChangesButton().Visible = false;
+
+            // Disable not needed textboxes
+            boligUI.GetBoligIDTextbox().Enabled = false;
+            boligUI.GetBoligRenoveringsÅrDateTimePicker().Enabled = false;
+            boligUI.GetBoligUdbudsprisTextbox().Enabled = false;
+        }
+
+        public static void HentOpdaterBolig()
+        {            
+            // Create a new instance of the BoligUI class
+            BoligUI boligUI = new BoligUI();
+
+            // Show the settings form
+            boligUI.Show();
+
+            // Disable not needed buttons
+            boligUI.GetOpretBoligButton().Visible = false;
+            boligUI.GetSletBoligButton().Visible = false;
+            boligUI.GetClearOpretBoligButton().Visible = false;
+
+            boligUI.DisableAll();
+            boligUI.GetBoligIDTextbox().Enabled = true;
+        }
+
+        public static void HentOpdaterBolig(string boligid)
+        {
+            // Create a new instance of the BoligUI class
+            BoligUI boligUI = new BoligUI();
+
+            // Show the settings form
+            boligUI.Show();
+
+            // Disable not needed buttons
+            boligUI.GetOpretBoligButton().Visible = false;
+            boligUI.GetSletBoligButton().Visible = false;
+            boligUI.GetClearOpretBoligButton().Visible = false;
+
+            boligUI.DisableAll();
+            boligUI.GetBoligIDTextbox().Enabled = true;
+
+            boligUI.GetBoligIDTextbox().Text = boligid;
+            boligUI.HentClick();
+        }
+
+        public static void SletBolig()
+        {            
+            // Create a new instance of the BoligUI class
+            BoligUI boligUI = new BoligUI();
+
+            // Show the settings form
+            boligUI.Show();
+
+            // Disable not needed buttons
+            boligUI.GetOpretBoligButton().Visible = false;
+            boligUI.GetHentBoligButton().Visible = false;
+            boligUI.GetClearOpretBoligButton().Visible = false;
+            boligUI.GetClearHentBoligButton().Visible = false;
+            boligUI.GetAllowRedigeringButton().Visible = false;
+            boligUI.GetSaveChangesButton().Visible = false;
+
+            // Disable not needed TextBoxes
+            boligUI.DisableAll();
+            boligUI.GetBoligIDTextbox().Enabled = true;
+        }
+
+        public static void SagOpret()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetSletSagKnap().Visible = false;
+            sagUI.GetSagsIDTekstboks().Enabled = false;
+        }
+
+        public static void SagHent()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetSletSagKnap().Visible = false;
+        }
+
+        public static void SagOpdater()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetSletSagKnap().Visible = false;
+        }
+
+        public static void SagSlet()
+        {
+            //Create a new instance of the SagUI class
+            SagUI sagUI = new SagUI();
+
+            // Show the settings form
+            sagUI.Show();
+
+            sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetSagStatusComboboks().Enabled = false;
+            sagUI.GetSagBoligIDComboboks().Enabled = false;
+            sagUI.GetSagSælgerIDComboboks().Enabled = false;
+            sagUI.GetSagMæglerIDComboboks().Enabled = false;
+        }
+
+
+        public static void SælgerOpret()
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+
+            sælgerUI.GetHentSælgerKnap().Visible = false;
+            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetSletSælgerKnap().Visible = false;
+            sælgerUI.GetSælgerIDTekstboks().Enabled = false;
+        }
+
+        public static void SælgerHent()
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+
+            sælgerUI.GetOpretSælgerKnap().Visible = false;
+            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetSletSælgerKnap().Visible = false;
+        }
+
+        public static void SælgerOpdater()
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+
+            sælgerUI.GetOpretSælgerKnap().Visible = false;
+            sælgerUI.GetHentSælgerKnap().Visible = false;
+            sælgerUI.GetSletSælgerKnap().Visible = false;
+        }
+
+        public static void SælgerSlet()
+        {
+            // Create a new instance of the SælgerUI class
+            SælgerUI sælgerUI = new SælgerUI();
+
+            // Show the settings form
+            sælgerUI.Show();
+
+            sælgerUI.GetOpretSælgerKnap().Visible = false;
+            sælgerUI.GetHentSælgerKnap().Visible = false;
+            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetSælgerCPRTekstboks().Enabled = false;
+            sælgerUI.GetSælgerTelefonTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEmailTekstboks().Enabled = false;
+            sælgerUI.GetSælgerFnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerVejTekstboks().Enabled = false;
+            sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
+        }
+
+        public static void ÅbentHus()
+        {
+            //create a new instance of the ÅbentHusUI class
+            ÅbentHusUI åbentHusUI = new ÅbentHusUI();
+
+            //show the settings form
+            åbentHusUI.Show();
+        }
     }
 }

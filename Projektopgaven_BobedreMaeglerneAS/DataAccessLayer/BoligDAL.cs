@@ -23,10 +23,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         private ComboBox output;
         
-        //BoligBLL constructor
+        //BoligDAL constructor
         public BoligDAL(BoligBLL boligBLL)
         {
             this.BoligBLL = boligBLL;
+            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
+        }
+
+        public BoligDAL(ListBox lbox) 
+        {
             this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
@@ -39,19 +45,23 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
 
-        private delegate void DisplayDelegate(List<BoligBLL> boliger);
+        protected delegate void DisplayDelegate(List<BoligBLL> boliger);
 
-        private void DisplayBolig(List<BoligBLL> boliger)
+        protected virtual void DisplayBolig(List<BoligBLL> boliger)
         {
+            //CLEAR OUTPUT EVERY TIME
+            //so that we don't have an infinite list
             output.Items.Clear();
 
+            //FOREACH ITEM IN THE LIST
+            //ADD ITEM TO OUTPUT
             foreach (BoligBLL bolig in boliger)
                 output.Items.Add(bolig.ToString());
         }
 
         //method to retrieve all BoligID to show in the ComboBox of SagUI
         //returns a List of BoligBLL
-        public List<BoligBLL> FetchBolig()
+        protected virtual List<BoligBLL> FetchBolig()
         {
             //INITIALIZE List OF BoligBLL boliger
             List<BoligBLL> boliger = new List<BoligBLL>();
@@ -105,17 +115,23 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             return boliger;
         }
 
-        public void GenerateBolig()
+        public virtual void GenerateBolig()
         {
-            while (true)
+            while (true) //ALWAYS
             {
+
+                //THREAD THAT CALLS FetchBolig WITH A LAMBA FUNCTION (since the method has a return argument)
+                //this will give the user a list of BoligBLL always up to date
                 ThreadStart start = new ThreadStart(() => FetchBolig());
                 Thread t1 = new Thread(start);
-                
+
+                //the list from FetchBoliger is saved in boliger
+
                 List<BoligBLL> boliger = FetchBolig();
 
                 try
                 {
+                    //invoking DisplayBolig
                     output.Invoke(new DisplayDelegate(DisplayBolig), new object[] { boliger });
                 }
                 catch (Exception ex)
@@ -143,7 +159,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdBolig.Parameters.AddWithValue("@Værelser", bolig.Værelser);
             cmdBolig.Parameters.AddWithValue("@Etager", bolig.Etager);
             cmdBolig.Parameters.AddWithValue("@Kvadratmeter", bolig.Kvadratmeter);
-            cmdBolig.Parameters.AddWithValue("@Udbudspris", bolig.Udbudspris);
+            cmdBolig.Parameters.AddWithValue("@Udbudspris", bolig.CalculateUdbudsPris()); ;
             cmdBolig.Parameters.AddWithValue("@HaveFlag", bolig.Have);
             cmdBolig.Parameters.AddWithValue("@Bygningsår", bolig.Bygningsår);
             cmdBolig.Parameters.AddWithValue("@RenoveringsÅr", bolig.RenoveringsÅr);
@@ -212,6 +228,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             (int)reader["Værelser"],
                             (int)reader["Etager"],
                             (int)reader["Kvadratmeter"],
+                            (int)reader["Udbudspris"],
                             (bool)reader["HaveFlag"],
                             (DateTime)reader["Bygningsår"],
                             (DateTime)reader["RenoveringsÅr"]);
@@ -255,7 +272,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 "Værelser LIKE @Værelser AND " +
                 "Etager LIKE @Etager AND " +
                 "Kvadratmeter LIKE @Kvadratmeter AND " +
-                "Udbudspris <= @Udbudspris AND " +
+                //"Udbudspris <= @Udbudspris AND " +
                 "HaveFlag LIKE @HaveFlag AND " +
                 "Bygningsår LIKE @Bygningsår AND " +
                 "RenoveringsÅr LIKE @RenoveringsÅr ";
@@ -269,7 +286,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdBolig.Parameters.AddWithValue("@Værelser", bolig.Værelser);
             cmdBolig.Parameters.AddWithValue("@Etager", bolig.Etager);
             cmdBolig.Parameters.AddWithValue("@Kvadratmeter", bolig.Kvadratmeter);
-            cmdBolig.Parameters.AddWithValue("@Udbudspris", bolig.Udbudspris);
+            //cmdBolig.Parameters.AddWithValue("@Udbudspris", bolig.Udbudspris);
             cmdBolig.Parameters.AddWithValue("@HaveFlag", bolig.Have);
             cmdBolig.Parameters.AddWithValue("@Bygningsår", bolig.Bygningsår);
             cmdBolig.Parameters.AddWithValue("@RenoveringsÅr", bolig.RenoveringsÅr);
@@ -296,6 +313,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             (int)reader["Værelser"],
                             (int)reader["Etager"],
                             (int)reader["Kvadratmeter"],
+                            (int)reader["Udbudspris"],
                             (bool)reader["HaveFlag"],
                             (DateTime)reader["Bygningsår"],
                             (DateTime)reader["RenoveringsÅr"]);
