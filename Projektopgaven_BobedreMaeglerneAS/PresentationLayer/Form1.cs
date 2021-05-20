@@ -16,6 +16,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
     public partial class Homepage : Form
     {
         private EjendomsmæglerOplysninger ejendomsmæglerOplysninger1;
+        private Pictures pictures;
 
         public Homepage()
         {
@@ -34,6 +35,21 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             //Thread t1 is starting now
             t1.Start();
+
+
+            //make new instance of Pictures class with reference to pictureBox1 (should probably change the name)
+            pictures = new Pictures(pictureBox1);
+
+            //initialize a new thread with ThreadStart calling GeneratePictures method
+            Thread t2 = new Thread(new ThreadStart(pictures.GeneratePictures));
+
+            //t2 is set as Background, so that it doesn't interfere with the main thread running the Application
+            //and so that we can close the form without triggering a NullReference exception (thread pointing to null)
+            //because since it is working in the background, it is going to be closed as soon as the main thread gets closed
+            t2.IsBackground = true;
+
+            //Thread t2 is starting now
+            t2.Start();
         }
 
         //BOLIG
@@ -105,7 +121,6 @@ namespace Projektopgaven_BobedreMaeglerneAS
             MenuBarKnapper.KøberCreate();
         }
 
-
         //SAG
         private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sag
 
@@ -147,6 +162,11 @@ namespace Projektopgaven_BobedreMaeglerneAS
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet sag
         {
             MenuBarKnapper.HandelSlet();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.ÅbentHus();
         }
     }
 }
