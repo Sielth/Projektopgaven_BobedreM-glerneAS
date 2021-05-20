@@ -95,7 +95,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         public int HandelKøberID()
         {
-            int.TryParse(handelKøberID_txt.Text, out int handelkøberid);
+            int.TryParse(handelKøberID_cbox.Text, out int handelkøberid);
             return handelkøberid;
         }
         #endregion
