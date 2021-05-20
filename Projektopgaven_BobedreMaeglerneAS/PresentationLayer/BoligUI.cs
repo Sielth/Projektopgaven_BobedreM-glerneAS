@@ -177,6 +177,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 //updates a Bolig record
                 boligDAL.OpdaterBolig(boligBLL);
+
+                //henter en bolig
+                btn_HentBolig_Click(sender, e);
             }
             catch (Exception ex)
             {

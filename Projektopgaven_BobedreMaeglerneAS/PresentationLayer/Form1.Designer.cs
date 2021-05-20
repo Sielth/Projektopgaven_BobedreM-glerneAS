@@ -186,20 +186,23 @@
             // køber_readToolStripMenuItem1
             // 
             this.køber_readToolStripMenuItem1.Name = "køber_readToolStripMenuItem1";
-            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.køber_readToolStripMenuItem1.Text = "Read";
+            this.køber_readToolStripMenuItem1.Click += new System.EventHandler(this.køber_readToolStripMenuItem1_Click);
             // 
             // køber_updateToolStripMenuItem1
             // 
             this.køber_updateToolStripMenuItem1.Name = "køber_updateToolStripMenuItem1";
-            this.køber_updateToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.køber_updateToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.køber_updateToolStripMenuItem1.Text = "Update";
+            this.køber_updateToolStripMenuItem1.Click += new System.EventHandler(this.køber_updateToolStripMenuItem1_Click);
             // 
             // køber_deleteToolStripMenuItem1
             // 
             this.køber_deleteToolStripMenuItem1.Name = "køber_deleteToolStripMenuItem1";
-            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.køber_deleteToolStripMenuItem1.Text = "Delete";
+            this.køber_deleteToolStripMenuItem1.Click += new System.EventHandler(this.køber_deleteToolStripMenuItem1_Click);
             // 
             // boligToolStripMenuItem
             // 
@@ -326,6 +329,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.richTextBox1.Location = new System.Drawing.Point(418, 56);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(184, 184);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";

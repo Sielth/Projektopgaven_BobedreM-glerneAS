@@ -375,7 +375,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdBolig.Parameters.AddWithValue("@Værelser", bolig.Værelser);
             cmdBolig.Parameters.AddWithValue("@Etager", bolig.Etager);
             cmdBolig.Parameters.AddWithValue("@Kvadratmeter", bolig.Kvadratmeter);
-            cmdBolig.Parameters.AddWithValue("@Udbudspris", bolig.Udbudspris);
+            cmdBolig.Parameters.AddWithValue("@Udbudspris", bolig.CalculateUdbudsPris());
             cmdBolig.Parameters.AddWithValue("@HaveFlag", bolig.Have);
             cmdBolig.Parameters.AddWithValue("@Bygningsår", bolig.Bygningsår);
             cmdBolig.Parameters.AddWithValue("@RenoveringsÅr", bolig.RenoveringsÅr);

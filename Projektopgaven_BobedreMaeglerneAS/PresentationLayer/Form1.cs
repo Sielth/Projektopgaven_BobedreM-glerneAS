@@ -52,44 +52,50 @@ namespace Projektopgaven_BobedreMaeglerneAS
             t2.Start();
         }
 
+        //method that opens Åbent Hus window when pictureBox1 is clicked
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.ÅbentHus();
+        }
+
         //BOLIG
-        private void bolig_createToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void bolig_createToolStripMenuItem2_Click(object sender, EventArgs e) //Opret bolig
         {
             MenuBarKnapper.OpretBolig();
         }
 
-        private void bolig_readToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void bolig_readToolStripMenuItem2_Click(object sender, EventArgs e) //Hent og Opdater bolig
         {
             MenuBarKnapper.HentOpdaterBolig();
         }
 
-        private void bolig_deleteToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void bolig_deleteToolStripMenuItem2_Click(object sender, EventArgs e) //Slet bolig
         {
             MenuBarKnapper.SletBolig();
         }
 
-        private void komTilÅbentHusToolStripMenuItem_Click(object sender, EventArgs e)
+        private void komTilÅbentHusToolStripMenuItem_Click(object sender, EventArgs e) //Åbent Hus
         {
             MenuBarKnapper.ÅbentHus();
         }
 
         //EJENDOMSMÆGLER
-        private void ejendomsmægler_createToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler Opret
+        private void ejendomsmægler_createToolStripMenuItem_Click(object sender, EventArgs e) //Opret ejendomsmægler 
         {
             MenuBarKnapper.EjendomsmælgerOpret();
         }
 
-        private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler hent
+        private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e) //Hent ejendomsmægler 
         {
             MenuBarKnapper.EjendomsmæglerHent();
         }
 
-        private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler opdater
+        private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater ejendomsmægler 
         {
             MenuBarKnapper.EjendomsmæglerOpdater();
         }
 
-        private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e) //Ejendomsmægler slet
+        private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet ejendomsmægler 
         {
             MenuBarKnapper.EjendomsmæglerSlet();
         }
@@ -116,9 +122,24 @@ namespace Projektopgaven_BobedreMaeglerneAS
         }
 
         //KØBER
-        private void køber_createToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void køber_createToolStripMenuItem1_Click(object sender, EventArgs e) //Opret køber
         {
             MenuBarKnapper.KøberCreate();
+        }
+
+        private void køber_readToolStripMenuItem1_Click(object sender, EventArgs e) //Hent Køber
+        {
+            MenuBarKnapper.KøberRead();
+        }
+
+        private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater køber
+        {
+            MenuBarKnapper.KøberUpdate();
+        }
+
+        private void køber_deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet køber
+        {
+            MenuBarKnapper.KøberDelete();
         }
 
         //SAG
@@ -144,29 +165,24 @@ namespace Projektopgaven_BobedreMaeglerneAS
         }
 
         //HANDEL
-        private void createToolStripMenuItem1_Click(object sender, EventArgs e) //Opret sag
+        private void createToolStripMenuItem1_Click(object sender, EventArgs e) //Opret handel
         {
             MenuBarKnapper.HandelOpret();
         }
 
-        private void readToolStripMenuItem1_Click(object sender, EventArgs e) //Find/hent sag
+        private void readToolStripMenuItem1_Click(object sender, EventArgs e) //Find/hent handel
         {
             MenuBarKnapper.HandelHent();
         }
 
-        private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater sag
+        private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater handel
         {
             MenuBarKnapper.HandelOpdater();
         }
 
-        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet sag
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet handel
         {
             MenuBarKnapper.HandelSlet();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.ÅbentHus();
         }
     }
 }
