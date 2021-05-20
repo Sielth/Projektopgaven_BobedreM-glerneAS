@@ -39,7 +39,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             //string city;
             HandelDAL HandelDAL = new HandelDAL();
             List<HandelBLL> statistik = new List<HandelBLL>();
-            HandelDAL.SoldProperties();
+            statistik = HandelDAL.SoldProperties();
+
             try
             {
                 StreamWriter sw = new StreamWriter(@"Resources/");

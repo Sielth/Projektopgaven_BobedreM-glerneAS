@@ -21,12 +21,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
-
         public HandelDAL()
         {
 
         }
-        public List<HandelBLL> SoldProperties(/*List<HandelBLL> statistik*/)
+        /*public List<HandelBLL> SoldProperties(List<HandelBLL> statistik)
         {
             List<HandelBLL> statistik = new List<HandelBLL>();
             string startdate = HandelUI.GetStartDate().Value.ToShortDateString();
@@ -55,6 +54,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     //CLOSE READER
                     reader.Close();
                 }
+                if (!Transactions.Commit(conn))
+                {
+                    Transactions.Rollback(conn);
+                }
             }
             catch (SqlException ex)
             {
@@ -65,7 +68,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 conn.Close();
             }
             return statistik;
-        }
+        }*/
         public void OpretHandel(HandelBLL handel)
         {
             //Connection string
