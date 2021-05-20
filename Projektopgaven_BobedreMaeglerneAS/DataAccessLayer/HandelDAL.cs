@@ -21,8 +21,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
-        public void SoldProperties(List<HandelBLL> statistik)
+        public HandelDAL()
         {
+
+        }
+        public List<HandelBLL> SoldProperties(/*List<HandelBLL> statistik*/)
+        {
+            List<HandelBLL> statistik = new List<HandelBLL>();
             string startdate = HandelUI.GetStartDate().Value.ToShortDateString();
             string enddate = HandelUI.GetEndDate().Value.ToShortDateString();
             string sqlCommandHandel = "SELECT * FROM Handel WHERE Handelsdato BETWEEN '" + startdate + "' AND '" + enddate + "+";
@@ -36,23 +41,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 Transactions.BeginReadCommittedTransaction(conn);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-
                     while (reader.Read())
                     {
-                        statistik.Add(new HandelBLL((int)reader["HandelID"], (DateTime)reader["Handelsdato"], (int)reader["Salgspris"], (int)reader["SagsID"], (int)reader["KøberID"]));
+                        statistik.Add(new HandelBLL(
+                            (int)reader["HandelID"],
+                            (DateTime)reader["Handelsdato"],
+                            (int)reader["Salgspris"],
+                            (int)reader["SagsID"],
+                            (int)reader["KøberID"])
+                            );
                     }
-
                     //CLOSE READER
                     reader.Close();
                 }
             }
-            catch
+            catch (SqlException ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            return statistik;
         }
-
-
         public void OpretHandel(HandelBLL handel)
         {
             //Connection string
