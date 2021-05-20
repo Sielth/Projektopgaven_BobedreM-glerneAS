@@ -243,7 +243,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.SagSlet();
         }
-
         #endregion
 
     }
