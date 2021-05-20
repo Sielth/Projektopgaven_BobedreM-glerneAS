@@ -124,6 +124,7 @@ namespace Projektopgaven_BobedreMæglerneAS
         }
         #endregion
 
+        #region Opret Ejendomsmægler
         public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Opret ejendomsmælger
         {
             //Connection string
@@ -166,7 +167,9 @@ namespace Projektopgaven_BobedreMæglerneAS
                     conn.Close();
             }
         }
+        #endregion
 
+        #region Hent Ejendomsmægler
         public EjendomsmæglerBLL FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Find/hent ejendomsmægler
         {
             //Connection string
@@ -238,7 +241,9 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             return null;
         }
+        #endregion
 
+        #region Opdater Ejendomsmægler
         public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Opdater ejendomsmægler
         {
             //Connection string
@@ -288,7 +293,9 @@ namespace Projektopgaven_BobedreMæglerneAS
                     conn.Close();
             }
         }
+        #endregion
 
+        #region Slet Ejendomsmægler
         public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Slet ejendomsmægler
         {
             //Connection string
@@ -323,5 +330,6 @@ namespace Projektopgaven_BobedreMæglerneAS
                     conn.Close();
             }
         }
+        #endregion
     }
 }
