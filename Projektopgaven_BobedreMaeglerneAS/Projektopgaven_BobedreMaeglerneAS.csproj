@@ -60,12 +60,14 @@
     <Compile Include="BusinessLogicLayer\Pictures.cs" />
     <Compile Include="BusinessLogicLayer\SagBLL.cs" />
     <Compile Include="BusinessLogicLayer\SingletonConnection.cs" />
+    <Compile Include="BusinessLogicLayer\StatistikBLL.cs" />
     <Compile Include="BusinessLogicLayer\SælgerBLL.cs" />
     <Compile Include="DataAccessLayer\BoligDAL.cs" />
     <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
     <Compile Include="DataAccessLayer\HandelDAL.cs" />
     <Compile Include="DataAccessLayer\KøberDAL.cs" />
     <Compile Include="DataAccessLayer\SagDAL.cs" />
+    <Compile Include="DataAccessLayer\StatistikDAL.cs" />
     <Compile Include="DataAccessLayer\SælgerDAL.cs" />
     <Compile Include="DataAccessLayer\Transactions.cs" />
     <Compile Include="DataAccessLayer\ÅbentHusDAL.cs" />
