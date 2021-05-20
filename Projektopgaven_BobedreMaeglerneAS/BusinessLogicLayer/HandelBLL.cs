@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
@@ -31,9 +32,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public void StatsToText()
         {
             //DateTime salgsdato;
-            int price;
-            string broker;
-            string city;
+            //int price;
+            //string broker;
+            //string city;
+            HandelDAL HandelDAL = new HandelDAL();
+            List<HandelBLL> statistik = new List<HandelBLL>();
+            HandelDAL.SoldProperties();
             try
             {
                 StreamWriter sw = new StreamWriter(@"Resources/");
@@ -43,7 +47,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
         }
     }
