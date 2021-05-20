@@ -8,6 +8,7 @@ using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 using System.Threading;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Projektopgaven_BobedreMaeglerneAS.PresentationLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
@@ -73,6 +74,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                         output.Items.Add(bolig.ToString("B"));
                 }
             }
+
+            //Lambda implementation
+
+            //List<BoligBLL> sortedBolig = boliger.FindAll(item => Between(item, a, b));
+
+            //Implement Between
+            //private bool Between(string s, char a, char b)
+            //{
+            //    if (s[0] >= a && s[0] <= b)
+            //    {
+            //        return true;
+            //    }
+
+            //    return false;
+            //}
         }
 
         //method to retrieve all BoligID to show in the ComboBox of SagUI
@@ -141,8 +157,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             //SORT
             boliger.Sort();
 
-            //there is a very nice lambra function that can sort by two criteria
-            //boliger = boliger.OrderBy( x => x.Vej).ThenBy(x => x.Udbudspris).ToList();
+            //there is a very nice lambda function that can sort by two criteria
+            //boliger = boliger.OrderBy(x => x.Vej).ThenBy(x => x.Udbudspris).ToList();
 
             //RETURN
             return boliger;
@@ -152,25 +168,33 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             while (true) //ALWAYS
             {
-                //THREAD THAT CALLS FetchBolig WITH A LAMBA FUNCTION (since the method has a return argument)
-                //this will give the user a list of BoligBLL always up to date
-                ThreadStart start = new ThreadStart(() => FetchBolig());
-                Thread t1 = new Thread(start);
-
-                //the list from FetchBoliger is saved in boliger
-                List<BoligBLL> boliger = FetchBolig();
-
-                try
+                //CHECK IF OUTPUT IS NOT DISPOSED
+                if (!output.IsDisposed)
                 {
-                    //invoking DisplayBolig
-                    output.Invoke(new DisplayDelegate(DisplayBolig), new object[] { boliger });
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                    //THREAD THAT CALLS FetchBolig WITH A LAMBA FUNCTION (since the method has a return argument)
+                    //this will give the user a list of BoligBLL always up to date
+                    ThreadStart start = new ThreadStart(() => FetchBolig());
+                    Thread t1 = new Thread(start);
 
-                Thread.Sleep(600);
+                    //the list from FetchBoliger is saved in boliger
+                    List<BoligBLL> boliger = FetchBolig();
+
+                    try
+                    {
+                        //CHECK IF OUTPUT HANDLE HAS NOT BEEN CREATED
+                        if (!output.IsHandleCreated)
+                            output.CreateControl(); //CREATES OUPUT CONTROL
+
+                        //invoking DisplayBolig
+                        output.Invoke(new DisplayDelegate(DisplayBolig), new object[] { boliger });
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    Thread.Sleep(600);
+                }
             }
         }
     }

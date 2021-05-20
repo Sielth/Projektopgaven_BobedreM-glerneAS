@@ -98,21 +98,28 @@ namespace Projektopgaven_BobedreMæglerneAS
         {
             while (true)
             {
-                ThreadStart start = new ThreadStart(() => FetchEjendomsmægler());
-                Thread t1 = new Thread(start);
-
-                List<EjendomsmæglerBLL> ejendomsmæglere = FetchEjendomsmægler();
-
-                try
+                if (!output.IsDisposed)
                 {
-                    output.Invoke(new DisplayDelegate(DisplayEjendomsmægler), new object[] { ejendomsmæglere });
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                    ThreadStart start = new ThreadStart(() => FetchEjendomsmægler());
+                    Thread t1 = new Thread(start);
 
-                Thread.Sleep(6000);
+                    List<EjendomsmæglerBLL> ejendomsmæglere = FetchEjendomsmægler();
+
+                    try
+                    {
+                        //CHECK IF OUTPUT HANDLE HAS NOT BEEN CREATED
+                        if (!output.IsHandleCreated)
+                            output.CreateControl(); //CREATES OUPUT CONTROL
+
+                        output.Invoke(new DisplayDelegate(DisplayEjendomsmægler), new object[] { ejendomsmæglere });
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    Thread.Sleep(6000);
+                }
             }
         }
         #endregion

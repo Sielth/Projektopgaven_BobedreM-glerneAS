@@ -11,21 +11,28 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class HandelUI : Form
     {
         KøberDAL køber;
-        
+        SagDAL sag;
 
         public HandelUI()
         {
             InitializeComponent();
 
             køber = new KøberDAL(handelKøberID_cbox);
+            sag = new SagDAL(handelSalgsID_cbox);
+
             Thread t1 = new Thread(new ThreadStart(køber.GenerateKøber));
             t1.IsBackground = true;
             t1.Start();
+
+            Thread t2 = new Thread(new ThreadStart(sag.GenerateSag));
+            t2.IsBackground = true;
+            t2.Start();
         }
 
         private void btn_oprethandel_Click(object sender, EventArgs e)

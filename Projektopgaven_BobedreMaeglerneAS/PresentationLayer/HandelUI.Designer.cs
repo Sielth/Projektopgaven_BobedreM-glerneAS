@@ -517,7 +517,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.ComboBox handelKøberID_cbox;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
 
-
         #region Get knapper
         public System.Windows.Forms.Button GetOpretHandelKnap()
         {

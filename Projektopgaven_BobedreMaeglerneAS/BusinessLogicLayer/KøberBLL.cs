@@ -28,16 +28,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Email = Email;
             this.Telefon = Telefon;
         }
+        
+        public KøberBLL(int køberid, string fnavn, string enavn)
+        {
+            this.KøberID = køberid;
+            this.Fnavn = fnavn;
+            this.Enavn = enavn;
+        }
+
         public KøberBLL(int køberid)
         {
             this.KøberID = køberid;
-        }
-
-        public KøberBLL(int ID, string fnavn, string enavn)
-        {
-            this.KøberID = ID;
-            this.Fnavn = fnavn;
-            this.Enavn = enavn;
         }
 
         public override string ToString()

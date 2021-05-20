@@ -34,6 +34,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //Thread t1 is starting now
             t1.Start();
+
         }
 
 
@@ -56,13 +57,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     //calling method HentOpdaterBolig with parameter string BoligID (the one we've just found)
                     //this method opens the window to retrieve a BoligBLL from the db
                     //with the BoligID passed in the parameter (aka. the selected item in the form)
-                    MenuBarKnapper.HentOpdaterBolig(boligid[1]);
+                    MenuBarKnapper.HentOpdaterBolig(boligid[1]); 
                 }
                 catch (NullReferenceException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        private void ÅbentHusUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }

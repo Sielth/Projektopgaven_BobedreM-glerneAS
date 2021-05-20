@@ -31,6 +31,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.MæglerID = MæglerID;
         }
 
+        public SagBLL(int sagsID, string status)
+        {
+            this.SagsID = sagsID;
+            this.Status = status;
+        }
+
         public SagBLL(int SagsID)
         {
             this.SagsID = SagsID;
