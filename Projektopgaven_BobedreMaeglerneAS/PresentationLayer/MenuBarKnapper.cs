@@ -342,6 +342,63 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
 
+        public static void HandelOpret()
+        {
+            // Opretter en ny instans af HandelUI klassen
+            HandelUI handelUI = new HandelUI();
+
+            // Show the settings form
+            handelUI.Show();
+
+            handelUI.GetFindHandelKnap().Visible = false;
+            handelUI.GetOpdaterHandelKnap().Visible = false;
+            handelUI.GetSletHandelKnap().Visible = false;
+            handelUI.GetHandelIDTekstboks().Enabled = false;
+        }
+
+        public static void HandelHent()
+        {
+            // Opretter en ny instans af HandelUI klassen
+            HandelUI handelUI = new HandelUI();
+
+            // Show the settings form
+            handelUI.Show();
+
+            handelUI.GetOpretHandelKnap().Visible = false;
+            handelUI.GetOpdaterHandelKnap().Visible = false;
+            handelUI.GetSletHandelKnap().Visible = false;
+        }
+
+        public static void HandelOpdater()
+        {
+            // Opretter en ny instans af HandelUI klassen
+            HandelUI handelUI = new HandelUI();
+
+            // Show the settings form
+            handelUI.Show();
+
+            handelUI.GetOpretHandelKnap().Visible = false;
+            handelUI.GetFindHandelKnap().Visible = false;
+            handelUI.GetSletHandelKnap().Visible = false;
+        }
+
+        public static void HandelSlet()
+        {
+            // Opretter en ny instans af HandelUI klassen
+            HandelUI handelUI = new HandelUI();
+
+            // Show the settings form
+            handelUI.Show();
+
+            handelUI.GetOpretHandelKnap().Visible = false;
+            handelUI.GetFindHandelKnap().Visible = false;
+            handelUI.GetOpdaterHandelKnap().Visible = false;
+            handelUI.GetHandelsdatoDatetime().Enabled = false;
+            handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
+            handelUI.GetHandelSagsIDComboboks().Enabled = false;
+            handelUI.GetHandelKøberIDComboboks().Enabled = false;
+        }
+
         public static void ÅbentHus()
         {
             //create a new instance of the ÅbentHusUI class
