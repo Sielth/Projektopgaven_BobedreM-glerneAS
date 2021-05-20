@@ -632,6 +632,29 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.SagSlet();
         }
+
+        //HANDEL
+        private void createToolStripMenuItem1_Click(object sender, EventArgs e) //Opret handel
+        {
+            MenuBarKnapper.HandelOpret();
+        }
+
+        private void readToolStripMenuItem1_Click(object sender, EventArgs e) //Hent handel
+        {
+            MenuBarKnapper.HandelHent();
+        }
+
+        private void updateToolStripMenuItem_Click_1(object sender, EventArgs e) //Opdater handel
+        {
+            MenuBarKnapper.HandelOpdater();
+        }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet handel
+        {
+            MenuBarKnapper.HandelSlet();
+        }
+
         #endregion
+
     }
 }
