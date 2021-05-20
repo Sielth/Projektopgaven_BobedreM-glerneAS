@@ -416,7 +416,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // Show the settings form
             handelUI.Show();
 
-            handelUI.GetSagsID_txt().Text = sagsid;
+            handelUI.GetHandelSagsIDComboboks().Text = sagsid;
         }
     }
 }
