@@ -131,22 +131,22 @@ namespace Projektopgaven_BobedreMaeglerneAS
         //HANDEL
         private void createToolStripMenuItem1_Click(object sender, EventArgs e) //Opret sag
         {
-            MenuBarKnapper.OpretHandel();
+            MenuBarKnapper.HandelOpret();
         }
 
         private void readToolStripMenuItem1_Click(object sender, EventArgs e) //Find/hent sag
         {
-            MenuBarKnapper.HentHandel();
+            MenuBarKnapper.HandelHent();
         }
 
         private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater sag
         {
-            MenuBarKnapper.OpdatertHandel();
+            MenuBarKnapper.HandelOpdater();
         }
 
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet sag
         {
-            MenuBarKnapper.SletHandel();
+            MenuBarKnapper.HandelSlet();
         }
     }
 }

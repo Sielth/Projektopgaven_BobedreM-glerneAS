@@ -342,7 +342,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
 
-        public static void OpretHandel()
+        public static void HandelOpret()
         {
             // Opretter en ny instans af HandelUI klassen
             HandelUI handelUI = new HandelUI();
@@ -356,7 +356,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetHandelIDTekstboks().Enabled = false;
         }
 
-        public static void HentHandel()
+        public static void HandelHent()
         {
             // Opretter en ny instans af HandelUI klassen
             HandelUI handelUI = new HandelUI();
@@ -369,7 +369,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetSletHandelKnap().Visible = false;
         }
 
-        public static void OpdatertHandel()
+        public static void HandelOpdater()
         {
             // Opretter en ny instans af HandelUI klassen
             HandelUI handelUI = new HandelUI();
@@ -382,7 +382,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetSletHandelKnap().Visible = false;
         }
 
-        public static void SletHandel()
+        public static void HandelSlet()
         {
             // Opretter en ny instans af HandelUI klassen
             HandelUI handelUI = new HandelUI();
