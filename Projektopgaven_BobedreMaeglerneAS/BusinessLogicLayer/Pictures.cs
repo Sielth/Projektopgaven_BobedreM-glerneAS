@@ -41,7 +41,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
                 //create a list of images from directory Resources
                 images = new List<Image>();
                 DirectoryInfo di = new DirectoryInfo(@"Resources/");
-                FileInfo[] fileinfos = di.GetFiles("*.png", SearchOption.AllDirectories);
+                FileInfo[] fileinfos = di.GetFiles("*.jpg", SearchOption.AllDirectories);
                 foreach (FileInfo fi in fileinfos)
                     images.Add(Image.FromFile(fi.FullName)); //add images in list
 

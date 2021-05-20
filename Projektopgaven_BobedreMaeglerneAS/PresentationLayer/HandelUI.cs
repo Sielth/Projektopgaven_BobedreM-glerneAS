@@ -7,16 +7,32 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class HandelUI : Form
     {
+        KøberDAL køber;
+        SagDAL sag;
+
         public HandelUI()
         {
             InitializeComponent();
+
+            køber = new KøberDAL(handelKøberID_cbox);
+            sag = new SagDAL(handelSalgsID_cbox);
+
+            Thread t1 = new Thread(new ThreadStart(køber.GenerateKøber));
+            t1.IsBackground = true;
+            t1.Start();
+
+            Thread t2 = new Thread(new ThreadStart(sag.GenerateSag));
+            t2.IsBackground = true;
+            t2.Start();
         }
 
         private void btn_oprethandel_Click(object sender, EventArgs e)
@@ -187,7 +203,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
         //BOLIG MENUBARKNAPPER - I HANDEL MENU
+        private void bolig_createToolStripMenuItem2_Click(object sender, EventArgs e) //Opret bolig
+        {
+            MenuBarKnapper.OpretBolig();
+        }
 
+        private void bolig_readToolStripMenuItem2_Click(object sender, EventArgs e) //Hent og opdater bolig
+        {
+            MenuBarKnapper.HentOpdaterBolig();
+        }
+
+        private void bolig_deleteToolStripMenuItem2_Click(object sender, EventArgs e) //Slet bolig
+        {
+            MenuBarKnapper.SletBolig();
+        }
+
+        private void komTilÅbentHusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.ÅbentHus();
+        }
 
         //SAG MENUBARKNAPPER - I HANDEL MENU
         private void createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sag
@@ -209,8 +243,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.SagSlet();
         }
-        #endregion
 
+        #endregion
 
     }
 }

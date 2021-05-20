@@ -28,6 +28,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         {
             this.HandelID = handelID;
         }
+
+        public HandelBLL() { }
         //Methods go here
         public void StatsToText()
         {
@@ -38,6 +40,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             HandelDAL HandelDAL = new HandelDAL();
             List<HandelBLL> statistik = new List<HandelBLL>();
             statistik = HandelDAL.SoldProperties();
+
             try
             {
                 StreamWriter sw = new StreamWriter(@"Resources/");

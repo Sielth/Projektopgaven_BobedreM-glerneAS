@@ -246,5 +246,43 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         }
 
+
+        public int HentSalgsPris(string sagsid)
+        {
+            //Connection string
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
+
+            string sqlCommand = "select Handel.Salgspris from Handel, Sag where Handel.SagsID = @SagsID";
+
+            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+
+            cmd.Parameters.AddWithValue("@SagsID", sagsid);
+
+            int pris = 0;
+
+            try
+            {
+                conn.Open();
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                        pris = reader.GetInt32(0);
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            conn.Close();
+
+            return pris;
+        }
+
     }
 }

@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
+using System.Threading;
+using System.Windows.Forms;
+
 
 namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
@@ -14,13 +17,110 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         private ConnectionSingleton s1;
         private SqlConnection conn;
 
+        private ComboBox output;
+
         public KøberDAL(KøberBLL køberBLL)
         {
             this.KøberBLL = køberBLL;
             this.s1 = ConnectionSingleton.Instance();
             this.conn = s1.GetConnection();
         }
-        
+
+        #region Threads
+        public KøberDAL(ComboBox cBox)
+        {
+            output = cBox;
+            this.s1 = ConnectionSingleton.Instance();
+            this.conn = s1.GetConnection();
+        }
+
+        private delegate void DisplayDelegate(List<KøberBLL> købere);
+
+        private void DisplayKøber(List<KøberBLL> købere)
+        {
+            output.Items.Clear();
+
+            foreach (KøberBLL køber in købere)
+                output.Items.Add(køber.ToString());
+        }
+
+        //Metode til at få alle KøberID vist i comboboksen i HandelUI
+        //Returnere en liste og KøberBLL
+        public List<KøberBLL> FetchKøber()
+        {
+            //Initialisere liste af KøberBLL købere 
+            List<KøberBLL> køber = new List<KøberBLL>();
+
+            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            {
+                //SQL QUERY
+                string sqlcommand = "SELECT * FROM Køber";
+
+                //SQL COMMAND
+                SqlCommand command = new SqlCommand(sqlcommand, conn);
+
+                try
+                {
+                    //OPEN CONNECTION
+                    if (conn.State == System.Data.ConnectionState.Closed)
+                        conn.Open();
+
+                    //BEGIN TRANSACTION
+                    Transactions.BeginReadCommittedTransaction(conn);
+
+                    //EXECUTE READER (QUERY)
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        //RETRIEVE KøberBLL AND ADD IN køber
+                        while (reader.Read())
+                        {
+                            køber.Add(new KøberBLL((int)reader["KøberID"], reader["Fnavn"].ToString(), reader["Enavn"].ToString()));
+                        }
+
+                        //CLOSE READER
+                        reader.Close();
+                    }
+
+                    //COMMIT OR ROLLBACK
+                    if (!Transactions.Commit(conn))
+                        Transactions.Rollback(conn);
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                //CLOSE CONNECTION
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+
+                //RETURN
+                return køber;
+            }
+        }
+
+        public void GenerateKøber()
+        {
+            while(true)
+            {
+                ThreadStart start = new ThreadStart(() => FetchKøber());
+                Thread t1 = new Thread(start);
+
+                List<KøberBLL> købere = FetchKøber();
+
+                try
+                {
+                    output.Invoke(new DisplayDelegate(DisplayKøber), new object[] { købere });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                Thread.Sleep(6000);
+            }
+        }
+
+        #endregion
         public void OpretKøber(KøberBLL køber) //Opretter køber
         {
             //Connection string

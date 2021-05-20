@@ -19,6 +19,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         BoligDAL bolig;
         SælgerDAL sælger;
         EjendomsmæglerDAL ejendomsmægler;
+        HandelDAL handel;
 
         public SagUI()
         {
@@ -41,6 +42,38 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             Thread t3 = new Thread(new ThreadStart(ejendomsmægler.GenerateEjendomsmægler));
             t3.IsBackground = true;
             t3.Start();
+        }
+
+        private void sagStatus_cbox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string sagsid = null;
+
+            if (sagID_txt != null)
+                sagsid = sagID_txt.Text;
+            else
+                Console.WriteLine("input sagsid");
+                
+
+            if (sagStatus_cbox.SelectedItem.ToString() == "Lukket (solgt bolig)")
+            {
+                MenuBarKnapper.HandlenCreate(sagsid);
+            }
+        }
+
+        private void btn_beregnSalær_Click(object sender, EventArgs e)
+        {
+            string sagsid = null;
+            handel = new HandelDAL();
+
+            if (sagID_txt != null)
+                sagsid = sagID_txt.Text;
+
+            int salgspris = handel.HentSalgsPris(sagsid);
+            int.TryParse(antalTimer_txt.Text, out int antaltimer);
+
+            resut_txt.Text = BeregnSalær(salgspris, antaltimer);
+
+
         }
 
         private void btn_OpretSag_Click(object sender, EventArgs e)
@@ -255,5 +288,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.ÅbentHus();
         }
         #endregion
+
+        private string BeregnSalær(int salgspris, int antalTimer)
+        {
+            int salær = antalTimer * 150;
+
+            salær += salgspris / 100 * 2;
+
+            return salær.ToString();
+        }
     }
 }
