@@ -38,7 +38,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void InitializeComponent()
         {
             this.handelSalgsID_cbox = new System.Windows.Forms.ComboBox();
-            this.handelKøberID_txt = new System.Windows.Forms.ComboBox();
+            this.handelKøberID_cbox = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.handelSalgspris_txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,7 +52,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.label3 = new System.Windows.Forms.Label();
             this.handelID_txt = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-
             this.SuspendLayout();
             // 
             // handelSalgsID_cbox
@@ -63,13 +62,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.handelSalgsID_cbox.Size = new System.Drawing.Size(136, 28);
             this.handelSalgsID_cbox.TabIndex = 0;
             // 
-            // handelKøberID_txt
+            // handelKøberID_cbox
             // 
-            this.handelKøberID_txt.FormattingEnabled = true;
-            this.handelKøberID_txt.Location = new System.Drawing.Point(160, 276);
-            this.handelKøberID_txt.Name = "handelKøberID_txt";
-            this.handelKøberID_txt.Size = new System.Drawing.Size(136, 28);
-            this.handelKøberID_txt.TabIndex = 2;
+            this.handelKøberID_cbox.FormattingEnabled = true;
+            this.handelKøberID_cbox.Location = new System.Drawing.Point(160, 276);
+            this.handelKøberID_cbox.Name = "handelKøberID_cbox";
+            this.handelKøberID_cbox.Size = new System.Drawing.Size(136, 28);
+            this.handelKøberID_cbox.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
@@ -179,6 +178,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.handelID_txt.Size = new System.Drawing.Size(136, 26);
             this.handelID_txt.TabIndex = 15;
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(45, 270);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker2.TabIndex = 10;
+            // 
             // HandelUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -190,20 +197,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.btn_opdaterhandel);
             this.Controls.Add(this.btn_findhandel);
             this.Controls.Add(this.btn_oprethandel);
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(45, 270);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 10;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.handelSalgspris_txt);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.handelKøberID_txt);
+            this.Controls.Add(this.handelKøberID_cbox);
             this.Controls.Add(this.handelSalgsID_cbox);
             this.Name = "HandelUI";
             this.Text = "HandelUI";
@@ -227,7 +227,57 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Button btn_slethandel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox handelID_txt;
-        private System.Windows.Forms.ComboBox handelKøberID_txt;
+        private System.Windows.Forms.ComboBox handelKøberID_cbox;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+
+
+        #region Get knapper
+        public System.Windows.Forms.Button GetOpretHandelKnap()
+        {
+            return btn_oprethandel;
+        }
+
+        public System.Windows.Forms.Button GetFindHandelKnap()
+        {
+            return btn_findhandel;
+        }
+
+        public System.Windows.Forms.Button GetOpdaterHandelKnap()
+        {
+            return btn_opdaterhandel;
+        }
+
+        public System.Windows.Forms.Button GetSletHandelKnap()
+        {
+            return btn_slethandel;
+        }
+        #endregion
+
+        #region Get tekstbokse og combobokse
+        public System.Windows.Forms.TextBox GetHandelIDTekstboks()
+        {
+            return handelID_txt;
+        }
+
+        public System.Windows.Forms.DateTimePicker GetHandelsdatoDatetime()
+        {
+            return dateTimePicker1;
+        }
+
+        public System.Windows.Forms.TextBox GetHandelSalgsprisTekstboks()
+        {
+            return handelSalgspris_txt;
+        }
+
+        public System.Windows.Forms.ComboBox GetHandelSagsIDComboboks()
+        {
+            return handelSalgsID_cbox;
+        }
+
+        public System.Windows.Forms.ComboBox GetHandelKøberIDComboboks()
+        {
+            return handelKøberID_cbox;
+        }
+        #endregion
     }
 }
