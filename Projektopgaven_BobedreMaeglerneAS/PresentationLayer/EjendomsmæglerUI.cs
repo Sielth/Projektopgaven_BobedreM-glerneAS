@@ -251,12 +251,34 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.SletBolig();
         }
 
+        //HANDEL MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
+        private void createToolStripMenuItem5_Click(object sender, EventArgs e) //Opret handel
+        {
+            MenuBarKnapper.HandelOpret();
+        }
+
+        private void readToolStripMenuItem5_Click(object sender, EventArgs e) //Hent handel
+        {
+            MenuBarKnapper.HandelHent();
+        }
+
+        private void updateToolStripMenuItem3_Click(object sender, EventArgs e) //Opdater handel
+        {
+            MenuBarKnapper.HandelOpdater();
+        }
+
+        private void deleteToolStripMenuItem5_Click(object sender, EventArgs e) //Slet handel
+        {
+            MenuBarKnapper.HandelSlet();
+        }
+
         //ÅBENT HUS MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
         private void komTilÅbentHusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.ÅbentHus();
         }
         #endregion
+
 
     }
 }
