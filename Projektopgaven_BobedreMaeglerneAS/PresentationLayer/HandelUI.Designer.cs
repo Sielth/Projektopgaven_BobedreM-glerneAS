@@ -367,26 +367,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // bolig_createToolStripMenuItem2
             // 
             this.bolig_createToolStripMenuItem2.Name = "bolig_createToolStripMenuItem2";
-            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(264, 34);
+            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
             this.bolig_createToolStripMenuItem2.Text = "Opret en ny Bolig";
+            this.bolig_createToolStripMenuItem2.Click += new System.EventHandler(this.bolig_createToolStripMenuItem2_Click);
             // 
             // bolig_readToolStripMenuItem2
             // 
             this.bolig_readToolStripMenuItem2.Name = "bolig_readToolStripMenuItem2";
-            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(264, 34);
+            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
             this.bolig_readToolStripMenuItem2.Text = "Hent og Opdater";
+            this.bolig_readToolStripMenuItem2.Click += new System.EventHandler(this.bolig_readToolStripMenuItem2_Click);
             // 
             // bolig_deleteToolStripMenuItem2
             // 
             this.bolig_deleteToolStripMenuItem2.Name = "bolig_deleteToolStripMenuItem2";
-            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(264, 34);
+            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
             this.bolig_deleteToolStripMenuItem2.Text = "Slet en Bolig";
+            this.bolig_deleteToolStripMenuItem2.Click += new System.EventHandler(this.bolig_deleteToolStripMenuItem2_Click);
             // 
             // komTilÅbentHusToolStripMenuItem
             // 
             this.komTilÅbentHusToolStripMenuItem.Name = "komTilÅbentHusToolStripMenuItem";
-            this.komTilÅbentHusToolStripMenuItem.Size = new System.Drawing.Size(264, 34);
+            this.komTilÅbentHusToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.komTilÅbentHusToolStripMenuItem.Text = "Kom til Åbent Hus!";
+            this.komTilÅbentHusToolStripMenuItem.Click += new System.EventHandler(this.komTilÅbentHusToolStripMenuItem_Click);
             // 
             // sagToolStripMenuItem
             // 
