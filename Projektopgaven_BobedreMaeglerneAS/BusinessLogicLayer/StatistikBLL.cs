@@ -1,44 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
-    class HandelBLL
+    class StatistikBLL
     {
-        public int HandelID { get; private set; }
         public DateTime Handelsdato { get; private set; }
         public int Salgspris { get; private set; }
-        public int SagsID { get; private set; }
-        public int KøberID { get; private set; }
-
-        public HandelBLL(int HandelID, DateTime Handelsdato, int Salgspris, int SagsID, int KøberID)
+        public int MæglerID { get; private set; }
+        public int Postnummer { get; private set; }
+        public string Adresse { get; private set; }
+        public StatistikBLL(DateTime Handelsdato, int Salgspris, int MæglerID, int Postnummer, string Adresse)
         {
-            this.HandelID = HandelID;
             this.Handelsdato = Handelsdato;
             this.Salgspris = Salgspris;
-            this.SagsID = SagsID;
-            this.KøberID = KøberID;
+            this.MæglerID = MæglerID;
+            this.Postnummer = Postnummer;
+            this.Adresse = Adresse;
         }
-        public HandelBLL(int handelID)
-        {
-            this.HandelID = handelID;
-        }
-
-        public HandelBLL() { }
-        //Methods go here
-        /*public void StatsToText()
+        public void StatsToText()
         {
             //DateTime salgsdato;
             //int price;
             //string broker;
             //string city;
-            HandelDAL HandelDAL = new HandelDAL();
-            List<HandelBLL> statistik = new List<HandelBLL>();
+            StatistikDAL StatistikDAL = new StatistikDAL();
+            List<StatistikBLL> statistik = new List<StatistikBLL>();
             //statistik = HandelDAL.SoldProperties();
 
             try
@@ -52,6 +44,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             {
                 Console.WriteLine(ex.Message);
             }
-        }*/
+        }
     }
 }
