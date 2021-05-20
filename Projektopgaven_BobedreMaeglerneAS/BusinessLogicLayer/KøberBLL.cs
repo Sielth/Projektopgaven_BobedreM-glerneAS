@@ -32,5 +32,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         {
             this.KøberID = køberid;
         }
+
+        public KøberBLL(int ID, string fnavn, string enavn)
+        {
+            this.KøberID = ID;
+            this.Fnavn = fnavn;
+            this.Enavn = enavn;
+        }
+
+        public override string ToString()
+        {
+            return $"{KøberID} - {Fnavn} {Enavn}";
+        }
     }
 }
