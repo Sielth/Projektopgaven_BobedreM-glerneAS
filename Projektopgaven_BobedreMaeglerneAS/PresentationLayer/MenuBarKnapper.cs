@@ -407,5 +407,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //show the settings form
             åbentHusUI.Show();
         }
+
+        public static void HandlenCreate(string sagsid)
+        {
+            // Create a new instance of the HandelUI class
+            HandelUI handelUI = new HandelUI();
+
+            // Show the settings form
+            handelUI.Show();
+
+            handelUI.GetSagsID_txt().Text = sagsid;
+        }
     }
 }

@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
-using System.Windows.Forms;
 using System.Threading;
+using System.Windows.Forms;
+
 
 namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
@@ -24,7 +25,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.s1 = ConnectionSingleton.Instance();
             this.conn = s1.GetConnection();
         }
-
 
         #region Threads
         public KøberDAL(ComboBox cBox)
@@ -121,8 +121,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         }
 
         #endregion
-
-
         public void OpretKøber(KøberBLL køber) //Opretter køber
         {
             //Connection string

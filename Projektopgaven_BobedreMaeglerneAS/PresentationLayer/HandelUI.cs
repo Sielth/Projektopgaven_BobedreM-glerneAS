@@ -10,19 +10,22 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class HandelUI : Form
     {
         KøberDAL køber;
-        
+
 
         public HandelUI()
         {
             InitializeComponent();
 
             køber = new KøberDAL(handelKøberID_cbox);
+
             Thread t1 = new Thread(new ThreadStart(køber.GenerateKøber));
             t1.IsBackground = true;
             t1.Start();
