@@ -41,5 +41,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         {
             this.SagsID = SagsID;
         }
+
+        public override string ToString()
+        {
+            return $"{SagsID} - {Status}";
+        }
     }
 }
