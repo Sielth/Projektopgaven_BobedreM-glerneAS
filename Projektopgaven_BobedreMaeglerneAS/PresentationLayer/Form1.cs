@@ -16,6 +16,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
     public partial class Homepage : Form
     {
         private EjendomsmæglerOplysninger ejendomsmæglerOplysninger1;
+        private Pictures pictures;
 
         public Homepage()
         {
@@ -34,6 +35,11 @@ namespace Projektopgaven_BobedreMaeglerneAS
 
             //Thread t1 is starting now
             t1.Start();
+
+            pictures = new Pictures(pictureBox1);
+            Thread t2 = new Thread(new ThreadStart(pictures.GeneratePictures));
+            t2.IsBackground = true;
+            t2.Start();
         }
 
         //BOLIG
