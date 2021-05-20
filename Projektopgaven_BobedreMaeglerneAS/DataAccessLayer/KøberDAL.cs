@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
@@ -14,13 +16,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         private ConnectionSingleton s1;
         private SqlConnection conn;
 
+        private ComboBox output;
+
         public KøberDAL(KøberBLL køberBLL)
         {
             this.KøberBLL = køberBLL;
             this.s1 = ConnectionSingleton.Instance();
             this.conn = s1.GetConnection();
         }
-        
+
         public void OpretKøber(KøberBLL køber) //Opretter køber
         {
             //Connection string

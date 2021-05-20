@@ -27,6 +27,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         {
             this.HandelID = handelID;
         }
+
+        public HandelBLL() { }
         //Methods go here
         public void StatsToText()
         {

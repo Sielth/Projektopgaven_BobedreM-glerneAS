@@ -21,6 +21,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
+        public HandelDAL() { }
         public void SoldProperties(List<HandelBLL> statistik)
         {
             string startdate = HandelUI.GetStartDate().Value.ToShortDateString();
@@ -228,6 +229,44 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     conn.Close();
             }
 
+        }
+
+
+        public int HentSalgsPris(string sagsid)
+        {
+            //Connection string
+            ConnectionSingleton s1 = ConnectionSingleton.Instance();
+            SqlConnection conn = s1.GetConnection();
+
+            string sqlCommand = "select Handel.Salgspris from Handel, Sag where Handel.SagsID = @SagsID";
+
+            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+
+            cmd.Parameters.AddWithValue("@SagsID", sagsid);
+
+            int pris = 0;
+
+            try
+            {
+                conn.Open();
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                        pris = reader.GetInt32(0);
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            conn.Close();
+
+            return pris;
         }
 
     }

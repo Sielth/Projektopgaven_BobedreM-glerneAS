@@ -229,5 +229,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.TextBox handelID_txt;
         private System.Windows.Forms.ComboBox handelKøberID_txt;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+
+
+        public System.Windows.Forms.ComboBox GetSagsID_txt()
+        {
+            return handelSalgsID_cbox;
+        }
     }
 }

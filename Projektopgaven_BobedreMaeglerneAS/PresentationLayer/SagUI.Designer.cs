@@ -62,12 +62,16 @@
             this.bolig_createToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bolig_readToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bolig_deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.komTilÅbentHusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.komTilÅbentHusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_beregnSalær = new System.Windows.Forms.Button();
+            this.antalTimer_txt = new System.Windows.Forms.TextBox();
+            this.antalTimer_lbl = new System.Windows.Forms.Label();
+            this.resut_txt = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,6 +111,7 @@
             this.sagStatus_cbox.Name = "sagStatus_cbox";
             this.sagStatus_cbox.Size = new System.Drawing.Size(121, 21);
             this.sagStatus_cbox.TabIndex = 3;
+            this.sagStatus_cbox.SelectedValueChanged += new System.EventHandler(this.sagStatus_cbox_SelectedValueChanged);
             // 
             // sag_boligID_lbl
             // 
@@ -346,23 +351,30 @@
             // bolig_createToolStripMenuItem2
             // 
             this.bolig_createToolStripMenuItem2.Name = "bolig_createToolStripMenuItem2";
-            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
             this.bolig_createToolStripMenuItem2.Text = "Opret en ny Bolig";
             this.bolig_createToolStripMenuItem2.Click += new System.EventHandler(this.bolig_createToolStripMenuItem2_Click);
             // 
             // bolig_readToolStripMenuItem2
             // 
             this.bolig_readToolStripMenuItem2.Name = "bolig_readToolStripMenuItem2";
-            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
             this.bolig_readToolStripMenuItem2.Text = "Hent og Opdater";
             this.bolig_readToolStripMenuItem2.Click += new System.EventHandler(this.bolig_readToolStripMenuItem2_Click);
             // 
             // bolig_deleteToolStripMenuItem2
             // 
             this.bolig_deleteToolStripMenuItem2.Name = "bolig_deleteToolStripMenuItem2";
-            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
             this.bolig_deleteToolStripMenuItem2.Text = "Slet en Bolig";
             this.bolig_deleteToolStripMenuItem2.Click += new System.EventHandler(this.bolig_deleteToolStripMenuItem2_Click);
+            // 
+            // komTilÅbentHusToolStripMenuItem
+            // 
+            this.komTilÅbentHusToolStripMenuItem.Name = "komTilÅbentHusToolStripMenuItem";
+            this.komTilÅbentHusToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.komTilÅbentHusToolStripMenuItem.Text = "Kom til Åbent Hus!";
+            this.komTilÅbentHusToolStripMenuItem.Click += new System.EventHandler(this.komTilÅbentHusToolStripMenuItem_Click);
             // 
             // sagToolStripMenuItem
             // 
@@ -403,18 +415,48 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // komTilÅbentHusToolStripMenuItem
+            // btn_beregnSalær
             // 
-            this.komTilÅbentHusToolStripMenuItem.Name = "komTilÅbentHusToolStripMenuItem";
-            this.komTilÅbentHusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.komTilÅbentHusToolStripMenuItem.Text = "Kom til Åbent Hus!";
-            this.komTilÅbentHusToolStripMenuItem.Click += new System.EventHandler(this.komTilÅbentHusToolStripMenuItem_Click);
+            this.btn_beregnSalær.Location = new System.Drawing.Point(17, 191);
+            this.btn_beregnSalær.Name = "btn_beregnSalær";
+            this.btn_beregnSalær.Size = new System.Drawing.Size(160, 25);
+            this.btn_beregnSalær.TabIndex = 15;
+            this.btn_beregnSalær.Text = "Beregn mæglerens salær";
+            this.btn_beregnSalær.UseVisualStyleBackColor = true;
+            this.btn_beregnSalær.Click += new System.EventHandler(this.btn_beregnSalær_Click);
+            // 
+            // antalTimer_txt
+            // 
+            this.antalTimer_txt.Location = new System.Drawing.Point(295, 194);
+            this.antalTimer_txt.Name = "antalTimer_txt";
+            this.antalTimer_txt.Size = new System.Drawing.Size(121, 20);
+            this.antalTimer_txt.TabIndex = 16;
+            // 
+            // antalTimer_lbl
+            // 
+            this.antalTimer_lbl.AutoSize = true;
+            this.antalTimer_lbl.Location = new System.Drawing.Point(229, 197);
+            this.antalTimer_lbl.Name = "antalTimer_lbl";
+            this.antalTimer_lbl.Size = new System.Drawing.Size(60, 13);
+            this.antalTimer_lbl.TabIndex = 17;
+            this.antalTimer_lbl.Text = "Antal Timer";
+            // 
+            // resut_txt
+            // 
+            this.resut_txt.Location = new System.Drawing.Point(295, 232);
+            this.resut_txt.Name = "resut_txt";
+            this.resut_txt.Size = new System.Drawing.Size(121, 20);
+            this.resut_txt.TabIndex = 18;
             // 
             // SagUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.resut_txt);
+            this.Controls.Add(this.antalTimer_lbl);
+            this.Controls.Add(this.antalTimer_txt);
+            this.Controls.Add(this.btn_beregnSalær);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btn_SletSag);
             this.Controls.Add(this.btn_OpdaterSag);
@@ -535,5 +577,9 @@
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem komTilÅbentHusToolStripMenuItem;
+        private System.Windows.Forms.Button btn_beregnSalær;
+        private System.Windows.Forms.TextBox antalTimer_txt;
+        private System.Windows.Forms.Label antalTimer_lbl;
+        private System.Windows.Forms.TextBox resut_txt;
     }
 }
