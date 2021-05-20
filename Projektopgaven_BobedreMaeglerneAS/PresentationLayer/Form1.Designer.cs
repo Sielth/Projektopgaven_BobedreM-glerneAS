@@ -350,13 +350,14 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // velkommen_lbl
             // 
             this.velkommen_lbl.AutoSize = true;
             this.velkommen_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.velkommen_lbl.ForeColor = System.Drawing.Color.Orange;
-            this.velkommen_lbl.Location = new System.Drawing.Point(12, 39);
+            this.velkommen_lbl.Location = new System.Drawing.Point(12, 37);
             this.velkommen_lbl.Name = "velkommen_lbl";
             this.velkommen_lbl.Size = new System.Drawing.Size(277, 16);
             this.velkommen_lbl.TabIndex = 4;
