@@ -25,6 +25,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public SagDAL(ComboBox cBox)
         {
+            output = cBox;
             this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
@@ -114,7 +115,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
                     //the list from FetchBoliger is saved in boliger
 
-                    List<SagBLL> sager = SagBLL();
+                    List<SagBLL> sager = FetchSag();
 
                     try
                     {
