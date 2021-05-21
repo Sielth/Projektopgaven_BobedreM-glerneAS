@@ -132,27 +132,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.KøberDelete();
         }
-       
+
 
         //BOLIG MENUKNAPPER - I KØBER MENU
         private void createToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-
+            MenuBarKnapper.OpretBolig();
         }
 
         private void readToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void updateToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-
+            MenuBarKnapper.HentOpdaterBolig();
         }
 
         private void deleteToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-
+            MenuBarKnapper.SletBolig();
         }
 
         //SAG MENUBARKNAPPER - I KØBER MENU
@@ -174,6 +169,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void deleteToolStripMenuItem4_Click(object sender, EventArgs e) //Slet sag
         {
             MenuBarKnapper.SagSlet();
+        }
+
+        //HANDEL MENUKNAPPER - I KØBER MENU
+        private void createToolStripMenuItem5_Click(object sender, EventArgs e) //Opret handel
+        {
+            MenuBarKnapper.HandelOpret();
+        }
+
+        private void readToolStripMenuItem5_Click(object sender, EventArgs e) //Hent handel
+        {
+            MenuBarKnapper.HandelHent();
+        }
+
+        private void updateToolStripMenuItem5_Click(object sender, EventArgs e) //Opdater handel
+        {
+            MenuBarKnapper.HandelOpdater();
+        }
+
+        private void deleteToolStripMenuItem5_Click(object sender, EventArgs e) //Slet handel
+        {
+            MenuBarKnapper.HandelSlet();
         }
         #endregion
 
@@ -229,7 +245,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.køberTableAdapter.Fill(this.køber_bobedredbDataSet.Køber);
 
         }
-
- 
     }
 }

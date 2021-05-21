@@ -99,11 +99,16 @@
             this.bolig_createToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bolig_readToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bolig_deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.komTilÅbentHusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.komTilÅbentHusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.handelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.readToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bolig_DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bolig_bobedredbDataSet)).BeginInit();
@@ -312,6 +317,7 @@
             this.bolig_DataGridView.AllowUserToAddRows = false;
             this.bolig_DataGridView.AllowUserToDeleteRows = false;
             this.bolig_DataGridView.AutoGenerateColumns = false;
+            this.bolig_DataGridView.ColumnHeadersHeight = 34;
             this.bolig_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.boligIDDataGridViewTextBoxColumn,
             this.vejDataGridViewTextBoxColumn,
@@ -328,6 +334,7 @@
             this.bolig_DataGridView.Location = new System.Drawing.Point(14, 266);
             this.bolig_DataGridView.Name = "bolig_DataGridView";
             this.bolig_DataGridView.ReadOnly = true;
+            this.bolig_DataGridView.RowHeadersWidth = 62;
             this.bolig_DataGridView.Size = new System.Drawing.Size(776, 172);
             this.bolig_DataGridView.TabIndex = 83;
             // 
@@ -335,78 +342,100 @@
             // 
             this.boligIDDataGridViewTextBoxColumn.DataPropertyName = "BoligID";
             this.boligIDDataGridViewTextBoxColumn.HeaderText = "BoligID";
+            this.boligIDDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.boligIDDataGridViewTextBoxColumn.Name = "boligIDDataGridViewTextBoxColumn";
             this.boligIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.boligIDDataGridViewTextBoxColumn.Width = 150;
             // 
             // vejDataGridViewTextBoxColumn
             // 
             this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
             this.vejDataGridViewTextBoxColumn.HeaderText = "Vej";
+            this.vejDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
             this.vejDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vejDataGridViewTextBoxColumn.Width = 150;
             // 
             // postnummerDataGridViewTextBoxColumn
             // 
             this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
             this.postnummerDataGridViewTextBoxColumn.HeaderText = "Postnummer";
+            this.postnummerDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
             this.postnummerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.postnummerDataGridViewTextBoxColumn.Width = 150;
             // 
             // typeDataGridViewTextBoxColumn
             // 
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
             this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeDataGridViewTextBoxColumn.Width = 150;
             // 
             // værelserDataGridViewTextBoxColumn
             // 
             this.værelserDataGridViewTextBoxColumn.DataPropertyName = "Værelser";
             this.værelserDataGridViewTextBoxColumn.HeaderText = "Værelser";
+            this.værelserDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.værelserDataGridViewTextBoxColumn.Name = "værelserDataGridViewTextBoxColumn";
             this.værelserDataGridViewTextBoxColumn.ReadOnly = true;
+            this.værelserDataGridViewTextBoxColumn.Width = 150;
             // 
             // etagerDataGridViewTextBoxColumn
             // 
             this.etagerDataGridViewTextBoxColumn.DataPropertyName = "Etager";
             this.etagerDataGridViewTextBoxColumn.HeaderText = "Etager";
+            this.etagerDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.etagerDataGridViewTextBoxColumn.Name = "etagerDataGridViewTextBoxColumn";
             this.etagerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.etagerDataGridViewTextBoxColumn.Width = 150;
             // 
             // kvadratmeterDataGridViewTextBoxColumn
             // 
             this.kvadratmeterDataGridViewTextBoxColumn.DataPropertyName = "Kvadratmeter";
             this.kvadratmeterDataGridViewTextBoxColumn.HeaderText = "Kvadratmeter";
+            this.kvadratmeterDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.kvadratmeterDataGridViewTextBoxColumn.Name = "kvadratmeterDataGridViewTextBoxColumn";
             this.kvadratmeterDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kvadratmeterDataGridViewTextBoxColumn.Width = 150;
             // 
             // udbudsprisDataGridViewTextBoxColumn
             // 
             this.udbudsprisDataGridViewTextBoxColumn.DataPropertyName = "Udbudspris";
             this.udbudsprisDataGridViewTextBoxColumn.HeaderText = "Udbudspris";
+            this.udbudsprisDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.udbudsprisDataGridViewTextBoxColumn.Name = "udbudsprisDataGridViewTextBoxColumn";
             this.udbudsprisDataGridViewTextBoxColumn.ReadOnly = true;
+            this.udbudsprisDataGridViewTextBoxColumn.Width = 150;
             // 
             // HaveFlag
             // 
             this.HaveFlag.DataPropertyName = "HaveFlag";
             this.HaveFlag.HeaderText = "HaveFlag";
+            this.HaveFlag.MinimumWidth = 8;
             this.HaveFlag.Name = "HaveFlag";
             this.HaveFlag.ReadOnly = true;
+            this.HaveFlag.Width = 150;
             // 
             // Bygningsår
             // 
             this.Bygningsår.DataPropertyName = "Bygningsår";
             this.Bygningsår.HeaderText = "Bygningsår";
+            this.Bygningsår.MinimumWidth = 8;
             this.Bygningsår.Name = "Bygningsår";
             this.Bygningsår.ReadOnly = true;
+            this.Bygningsår.Width = 150;
             // 
             // RenoveringsÅr
             // 
             this.RenoveringsÅr.DataPropertyName = "RenoveringsÅr";
             this.RenoveringsÅr.HeaderText = "Renoveringsår";
+            this.RenoveringsÅr.MinimumWidth = 8;
             this.RenoveringsÅr.Name = "RenoveringsÅr";
             this.RenoveringsÅr.ReadOnly = true;
+            this.RenoveringsÅr.Width = 150;
             // 
             // boligBindingSource
             // 
@@ -588,7 +617,8 @@
             this.sælgerToolStripMenuItem,
             this.køberToolStripMenuItem,
             this.boligToolStripMenuItem,
-            this.sagToolStripMenuItem});
+            this.sagToolStripMenuItem,
+            this.handelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -610,28 +640,28 @@
             // ejendomsmægler_createToolStripMenuItem
             // 
             this.ejendomsmægler_createToolStripMenuItem.Name = "ejendomsmægler_createToolStripMenuItem";
-            this.ejendomsmægler_createToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ejendomsmægler_createToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.ejendomsmægler_createToolStripMenuItem.Text = "Create";
             this.ejendomsmægler_createToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_createToolStripMenuItem_Click);
             // 
             // ejendomsmægler_readToolStripMenuItem
             // 
             this.ejendomsmægler_readToolStripMenuItem.Name = "ejendomsmægler_readToolStripMenuItem";
-            this.ejendomsmægler_readToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ejendomsmægler_readToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.ejendomsmægler_readToolStripMenuItem.Text = "Read";
             this.ejendomsmægler_readToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_readToolStripMenuItem_Click);
             // 
             // ejendomsmægler_updateToolStripMenuItem
             // 
             this.ejendomsmægler_updateToolStripMenuItem.Name = "ejendomsmægler_updateToolStripMenuItem";
-            this.ejendomsmægler_updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ejendomsmægler_updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.ejendomsmægler_updateToolStripMenuItem.Text = "Update";
             this.ejendomsmægler_updateToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_updateToolStripMenuItem_Click);
             // 
             // ejendomsmægler_deleteToolStripMenuItem
             // 
             this.ejendomsmægler_deleteToolStripMenuItem.Name = "ejendomsmægler_deleteToolStripMenuItem";
-            this.ejendomsmægler_deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ejendomsmægler_deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.ejendomsmægler_deleteToolStripMenuItem.Text = "Delete";
             this.ejendomsmægler_deleteToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_deleteToolStripMenuItem_Click);
             // 
@@ -649,28 +679,28 @@
             // sælger_createToolStripMenuItem
             // 
             this.sælger_createToolStripMenuItem.Name = "sælger_createToolStripMenuItem";
-            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.sælger_createToolStripMenuItem.Text = "Create";
             this.sælger_createToolStripMenuItem.Click += new System.EventHandler(this.sælger_createToolStripMenuItem_Click);
             // 
             // sælger_readToolStripMenuItem
             // 
             this.sælger_readToolStripMenuItem.Name = "sælger_readToolStripMenuItem";
-            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.sælger_readToolStripMenuItem.Text = "Read";
             this.sælger_readToolStripMenuItem.Click += new System.EventHandler(this.sælger_readToolStripMenuItem_Click);
             // 
             // sælger_updateToolStripMenuItem
             // 
             this.sælger_updateToolStripMenuItem.Name = "sælger_updateToolStripMenuItem";
-            this.sælger_updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sælger_updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.sælger_updateToolStripMenuItem.Text = "Update";
             this.sælger_updateToolStripMenuItem.Click += new System.EventHandler(this.sælger_updateToolStripMenuItem_Click);
             // 
             // sælger_deleteToolStripMenuItem
             // 
             this.sælger_deleteToolStripMenuItem.Name = "sælger_deleteToolStripMenuItem";
-            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.sælger_deleteToolStripMenuItem.Text = "Delete";
             this.sælger_deleteToolStripMenuItem.Click += new System.EventHandler(this.sælger_deleteToolStripMenuItem_Click);
             // 
@@ -688,28 +718,28 @@
             // køber_createToolStripMenuItem1
             // 
             this.køber_createToolStripMenuItem1.Name = "køber_createToolStripMenuItem1";
-            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.køber_createToolStripMenuItem1.Text = "Create";
             this.køber_createToolStripMenuItem1.Click += new System.EventHandler(this.køber_createToolStripMenuItem1_Click);
             // 
             // køber_readToolStripMenuItem1
             // 
             this.køber_readToolStripMenuItem1.Name = "køber_readToolStripMenuItem1";
-            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.køber_readToolStripMenuItem1.Text = "Read";
             this.køber_readToolStripMenuItem1.Click += new System.EventHandler(this.køber_readToolStripMenuItem1_Click);
             // 
             // køber_updateToolStripMenuItem1
             // 
             this.køber_updateToolStripMenuItem1.Name = "køber_updateToolStripMenuItem1";
-            this.køber_updateToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.køber_updateToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.køber_updateToolStripMenuItem1.Text = "Update";
             this.køber_updateToolStripMenuItem1.Click += new System.EventHandler(this.køber_updateToolStripMenuItem1_Click);
             // 
             // køber_deleteToolStripMenuItem1
             // 
             this.køber_deleteToolStripMenuItem1.Name = "køber_deleteToolStripMenuItem1";
-            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.køber_deleteToolStripMenuItem1.Text = "Delete";
             this.køber_deleteToolStripMenuItem1.Click += new System.EventHandler(this.køber_deleteToolStripMenuItem1_Click);
             // 
@@ -727,23 +757,30 @@
             // bolig_createToolStripMenuItem2
             // 
             this.bolig_createToolStripMenuItem2.Name = "bolig_createToolStripMenuItem2";
-            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
             this.bolig_createToolStripMenuItem2.Text = "Opret en ny Bolig";
             this.bolig_createToolStripMenuItem2.Click += new System.EventHandler(this.bolig_createToolStripMenuItem2_Click);
             // 
             // bolig_readToolStripMenuItem2
             // 
             this.bolig_readToolStripMenuItem2.Name = "bolig_readToolStripMenuItem2";
-            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
             this.bolig_readToolStripMenuItem2.Text = "Hent og Opdater";
             this.bolig_readToolStripMenuItem2.Click += new System.EventHandler(this.bolig_readToolStripMenuItem2_Click);
             // 
             // bolig_deleteToolStripMenuItem2
             // 
             this.bolig_deleteToolStripMenuItem2.Name = "bolig_deleteToolStripMenuItem2";
-            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
             this.bolig_deleteToolStripMenuItem2.Text = "Slet en Bolig";
             this.bolig_deleteToolStripMenuItem2.Click += new System.EventHandler(this.bolig_deleteToolStripMenuItem2_Click);
+            // 
+            // komTilÅbentHusToolStripMenuItem
+            // 
+            this.komTilÅbentHusToolStripMenuItem.Name = "komTilÅbentHusToolStripMenuItem";
+            this.komTilÅbentHusToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.komTilÅbentHusToolStripMenuItem.Text = "Kom til Åbent Hus!";
+            this.komTilÅbentHusToolStripMenuItem.Click += new System.EventHandler(this.komTilÅbentHusToolStripMenuItem_Click);
             // 
             // sagToolStripMenuItem
             // 
@@ -759,29 +796,61 @@
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
             this.createToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.createToolStripMenuItem.Text = "Create ";
+            this.createToolStripMenuItem.Text = "Opret en ny Sag";
             this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // readToolStripMenuItem
             // 
             this.readToolStripMenuItem.Name = "readToolStripMenuItem";
             this.readToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.readToolStripMenuItem.Text = "Read";
+            this.readToolStripMenuItem.Text = "Hent og Opdater";
             this.readToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Text = "Slet en Sag";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // komTilÅbentHusToolStripMenuItem
+            // handelToolStripMenuItem
             // 
-            this.komTilÅbentHusToolStripMenuItem.Name = "komTilÅbentHusToolStripMenuItem";
-            this.komTilÅbentHusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.komTilÅbentHusToolStripMenuItem.Text = "Kom til Åbent Hus!";
-            this.komTilÅbentHusToolStripMenuItem.Click += new System.EventHandler(this.komTilÅbentHusToolStripMenuItem_Click);
+            this.handelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createToolStripMenuItem1,
+            this.readToolStripMenuItem1,
+            this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem1});
+            this.handelToolStripMenuItem.Name = "handelToolStripMenuItem";
+            this.handelToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.handelToolStripMenuItem.Text = "Handel";
+            // 
+            // createToolStripMenuItem1
+            // 
+            this.createToolStripMenuItem1.Name = "createToolStripMenuItem1";
+            this.createToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.createToolStripMenuItem1.Text = "Create";
+            this.createToolStripMenuItem1.Click += new System.EventHandler(this.createToolStripMenuItem1_Click);
+            // 
+            // readToolStripMenuItem1
+            // 
+            this.readToolStripMenuItem1.Name = "readToolStripMenuItem1";
+            this.readToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.readToolStripMenuItem1.Text = "Read";
+            this.readToolStripMenuItem1.Click += new System.EventHandler(this.readToolStripMenuItem1_Click);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click_1);
+            // 
+            // deleteToolStripMenuItem1
+            // 
+            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.deleteToolStripMenuItem1.Text = "Delete";
+            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
             // 
             // BoligUI
             // 
@@ -1025,5 +1094,10 @@
         }
 
         private System.Windows.Forms.ToolStripMenuItem komTilÅbentHusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem handelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
     }
 }

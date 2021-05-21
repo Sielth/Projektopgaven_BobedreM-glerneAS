@@ -245,7 +245,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.SagSlet();
         }
-
         #endregion
 
         private void button1_Click(object sender, EventArgs e) //udtræk statistik

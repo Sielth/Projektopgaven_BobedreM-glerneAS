@@ -176,7 +176,74 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
         }
 
-        public SagBLL FindSag(SagBLL sag)
+        public SagBLL HentSag(SagBLL sag)
+        {
+            //initialize SagBLL matchingsag
+            SagBLL matchingsag = null;
+
+            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            {
+                //SQL QUERY
+                string sqlCommandSag = "SELECT * FROM Sag WHERE " +
+                    "SagsID LIKE @SagsID OR " +
+                    "Status LIKE @Status AND " +
+                    "BoligID LIKE @BoligID AND " +
+                    "SælgerID LIKE @SælgerID AND " +
+                    "MæglerID LIKE @MæglerID ";
+
+                //SQL COMMAND + PARAMETERS
+                SqlCommand cmdSag = new SqlCommand(sqlCommandSag, conn);
+                cmdSag.Parameters.AddWithValue("@SagsID", sag.SagsID);
+                cmdSag.Parameters.AddWithValue("@Status", sag.Status);
+                cmdSag.Parameters.AddWithValue("@BoligID", sag.BoligID);
+                cmdSag.Parameters.AddWithValue("@SælgerID", sag.SælgerID);
+                cmdSag.Parameters.AddWithValue("@MæglerID", sag.MæglerID);
+
+                try
+                {
+                    //OPEN CONNECTION
+                    if (conn.State == System.Data.ConnectionState.Closed)
+                        conn.Open();
+
+                    //BEGIN TRANSACTION
+                    Transactions.BeginReadCommittedTransaction(conn);
+
+                    //EXECUTE READER (QUERY)
+                    using (SqlDataReader reader = cmdSag.ExecuteReader())
+                    {
+                        //RETRIEVE SagBLL AND SAVE IN matchingsag
+                        while (reader.Read())
+                        {
+                            matchingsag = new SagBLL((int)reader["SagsID"],
+                                reader["Status"].ToString(),
+                                (int)reader["BoligID"],
+                                (int)reader["SælgerID"],
+                                (int)reader["MæglerID"]);
+                        }
+
+                        //CLOSE READER
+                        reader.Close();
+                    }
+
+                    //COMMIT OR ROLLBACK
+                    if (!Transactions.Commit(conn))
+                        Transactions.Rollback(conn);
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                //CLOSE CONNECTION
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+            }
+
+            //RETURN
+            return matchingsag;
+        }
+
+        public SagBLL HentSagViaID(SagBLL sag)
         {
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();

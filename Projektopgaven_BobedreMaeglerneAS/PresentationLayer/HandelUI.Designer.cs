@@ -76,7 +76,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.sagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.handelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,7 +98,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // handelKøberID_cbox
             // 
             this.handelKøberID_cbox.FormattingEnabled = true;
-            this.handelKøberID_cbox.Location = new System.Drawing.Point(106, 180);
+            this.handelKøberID_cbox.Location = new System.Drawing.Point(107, 179);
             this.handelKøberID_cbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.handelKøberID_cbox.Name = "handelKøberID_cbox";
             this.handelKøberID_cbox.Size = new System.Drawing.Size(92, 21);
@@ -107,7 +106,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.CustomFormat = "";
             this.dateTimePicker1.Location = new System.Drawing.Point(263, 61);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -410,7 +408,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.sagToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createToolStripMenuItem,
             this.readToolStripMenuItem,
-            this.updateToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.sagToolStripMenuItem.Name = "sagToolStripMenuItem";
             this.sagToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
@@ -419,29 +416,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.createToolStripMenuItem.Text = "Create ";
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createToolStripMenuItem.Text = "Opret en ny Sag";
             this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // readToolStripMenuItem
             // 
             this.readToolStripMenuItem.Name = "readToolStripMenuItem";
-            this.readToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.readToolStripMenuItem.Text = "Read";
+            this.readToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.readToolStripMenuItem.Text = "Hent og Opdater";
             this.readToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
-            // 
-            // updateToolStripMenuItem
-            // 
-            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.updateToolStripMenuItem.Text = "Update";
-            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Slet en Sag";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // handelToolStripMenuItem
@@ -614,7 +604,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem sagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem handelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem1;
