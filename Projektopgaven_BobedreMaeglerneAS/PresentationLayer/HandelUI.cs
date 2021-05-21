@@ -18,6 +18,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
     {
         KøberDAL køber;
         SagDAL sag;
+        StatistikBLL statistik = new StatistikBLL();
+        StatistikDAL statistikdal = new StatistikDAL();
 
         public HandelUI()
         {
@@ -245,5 +247,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
+        private void button1_Click(object sender, EventArgs e) //udtræk statistik
+        {
+            //HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsddato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
+            //HandelDAL handelDAL = new HandelDAL(handelBLL);
+            //statistik.StatsToText();
+            //statistikdal.SoldProperties(dateTimePicker1.Value, dateTimePicker3.Value);
+
+            StatistikDAL statistikdal = new StatistikDAL();
+
+            //DateTime from, to;
+
+            //try
+            //{
+            //    DateTime.ParseExact ("yyyy-MM-dd HH:mm:ss:fff", dateTimePicker1, )
+            //}
+
+            List<StatistikBLL> stats = statistikdal.SoldProperties(dateTimePicker1.Value, dateTimePicker3.Value);
+
+            foreach (StatistikBLL stat in stats)
+                Console.WriteLine(stat.ToString());
+
+        }
     }
 }
