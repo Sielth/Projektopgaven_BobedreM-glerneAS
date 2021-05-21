@@ -54,7 +54,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         }
         public override string ToString()
         {
-            return $"{Vej}\t,{Postnummer}\t,{MæglerID}\t,{Salgspris}\t,{Handelsdato}";
+            return $"{Vej}\t,{Postnummer}\t,{MæglerID}\t,{Salgspris}\t,{Handelsdato.ToShortDateString()}";
         }
     }
 }

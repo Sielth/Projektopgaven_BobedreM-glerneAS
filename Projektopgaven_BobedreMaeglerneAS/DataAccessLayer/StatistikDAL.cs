@@ -26,53 +26,67 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
             this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
+
         public List<StatistikBLL> SoldProperties(DateTime startdate, DateTime enddate)
         {
-            HandelUI Handel = new HandelUI();
+            //HandelUI Handel = new HandelUI();
+
             List<StatistikBLL> statistik = new List<StatistikBLL>();
-            //DateTime startdate = Handel.GetStartDate().Value;
-            //DateTime enddate = Handel.GetEndDate().Value;
-            //string sqlCommandStatistik = "SELECT * FROM Handel WHERE Handelsdato BETWEEN '" + startdate + "' AND '" + enddate + "+";
-            string sqlCommandStatistik = "SELECT Handel.Handelsdato, Handel.Salgspris, Sag.MæglerID, Bolig.Postnummer, Bolig.Vej" +
-                " FROM Handel INNER JOIN Sag ON Sag.SagsID = Handel.SagsID INNER JOIN Bolig ON Bolig.BoligID = Sag.BoligID" +
-                " WHERE Sag.Status = 'Lukket (solgt bolig)' AND Handel.Handelsdato BETWEEN '" + startdate + "' AND '" + enddate + "'";
-            SqlCommand cmd = new SqlCommand(sqlCommandStatistik, conn);
-            try
+
+            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
             {
-                if (conn.State == System.Data.ConnectionState.Closed)
+                //DateTime startdate = Handel.GetStartDate().Value;
+                //DateTime enddate = Handel.GetEndDate().Value;
+                //string sqlCommandStatistik = "SELECT * FROM Handel WHERE Handelsdato BETWEEN '" + startdate + "' AND '" + enddate + "+";
+
+
+                string sqlCommandStatistik = "SELECT Handel.Handelsdato, Handel.Salgspris, Sag.MæglerID, Bolig.Postnummer, Bolig.Vej" +
+                    " FROM Handel INNER JOIN Sag ON Sag.SagsID = Handel.SagsID INNER JOIN Bolig ON Bolig.BoligID = Sag.BoligID" +
+                    " WHERE Sag.Status = 'Lukket (solgt bolig)' AND Handel.Handelsdato BETWEEN @date1 AND @date2";
+
+                SqlCommand cmd = new SqlCommand(sqlCommandStatistik, conn);
+
+                cmd.Parameters.AddWithValue("@date1", startdate);
+                cmd.Parameters.AddWithValue("@date2",enddate);
+
+                try
                 {
-                    conn.Open();
-                }
-                Transactions.BeginReadCommittedTransaction(conn);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
+                    if (conn.State == System.Data.ConnectionState.Closed)
                     {
-                        statistik.Add(new StatistikBLL(
-                            (DateTime)reader["Handelsdato"],
-                            (int)reader["Salgspris"],
-                            (int)reader["MæglerID"],
-                            (int)reader["Postnummer"],
-                            reader["Vej"].ToString())
-                            );
+                        conn.Open();
                     }
-                    //CLOSE READER
-                    reader.Close();
+                    Transactions.BeginReadCommittedTransaction(conn);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            statistik.Add(new StatistikBLL(
+                                (DateTime)reader["Handelsdato"],
+                                (int)reader["Salgspris"],
+                                (int)reader["MæglerID"],
+                                (int)reader["Postnummer"],
+                                reader["Vej"].ToString())
+                                );
+                        }
+                        //CLOSE READER
+                        reader.Close();
+                    }
+                    if (!Transactions.Commit(conn))
+                    {
+                        Transactions.Rollback(conn);
+                    }
+                    return statistik;
                 }
-                if (!Transactions.Commit(conn))
+                catch (SqlException ex)
                 {
-                    Transactions.Rollback(conn);
+                    Console.WriteLine(ex.Message);
                 }
-                return statistik;
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
             }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            if (conn.State == System.Data.ConnectionState.Open)
-            {
-                conn.Close();
-            }
+
             return statistik;
         }
     }
