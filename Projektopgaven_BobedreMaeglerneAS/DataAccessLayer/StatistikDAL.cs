@@ -47,7 +47,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 SqlCommand cmd = new SqlCommand(sqlCommandStatistik, conn);
 
                 cmd.Parameters.AddWithValue("@date1", startdate);
-                cmd.Parameters.AddWithValue("@date2",enddate);
+                cmd.Parameters.AddWithValue("@date2", enddate);
 
                 try
                 {
