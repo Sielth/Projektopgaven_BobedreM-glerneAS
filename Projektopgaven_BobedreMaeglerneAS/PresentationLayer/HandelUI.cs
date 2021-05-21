@@ -86,7 +86,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
 
-        #region Konveter Tekstbokse
+        #region Konverter Tekstbokse
         public int HandelID()
         {
             int.TryParse(handelID_txt.Text, out int handelid);
@@ -95,8 +95,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         public DateTime Handelsddato()
         {
-            DateTime.TryParse(dateTimePicker1.Text, out DateTime handelsdato);
-            return handelsdato;
+            //DateTime.TryParse(dateTimePicker1.Text, out DateTime handelsdato);
+            return GetStartDate().Value;
         }
 
         public int HandelSalgspris()
@@ -267,6 +267,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             foreach (StatistikBLL stat in stats)
                 Console.WriteLine(stat.ToString());
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }
