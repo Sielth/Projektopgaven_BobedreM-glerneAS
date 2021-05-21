@@ -235,6 +235,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sagUI.GetHentSagKnap().Visible = false;
             sagUI.GetOpdaterSagKnap().Visible = false;
             sagUI.GetSletSagKnap().Visible = false;
+            sagUI.GetAllowRedigeringSagKnap().Visible = false;
+            sagUI.GetClearHentKnap().Visible = false;
+
             sagUI.GetSagsIDTekstboks().Enabled = false;
         }
 
@@ -247,8 +250,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sagUI.Show();
 
             sagUI.GetOpretSagKnap().Visible = false;
-            sagUI.GetOpdaterSagKnap().Visible = false;
+            sagUI.GetClearOpretSag().Visible = false;
             sagUI.GetSletSagKnap().Visible = false;
+
+            sagUI.DisableAll();
+            sagUI.GetSagsIDTekstboks().Enabled = true;
         }
 
         public static void SagOpdater()
@@ -273,8 +279,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sagUI.Show();
 
             sagUI.GetOpretSagKnap().Visible = false;
+            sagUI.GetClearOpretSag().Visible = false;
             sagUI.GetHentSagKnap().Visible = false;
+            sagUI.GetAllowRedigeringSagKnap().Visible = false;
             sagUI.GetOpdaterSagKnap().Visible = false;
+
             sagUI.GetSagStatusComboboks().Enabled = false;
             sagUI.GetSagBoligIDComboboks().Enabled = false;
             sagUI.GetSagSælgerIDComboboks().Enabled = false;
@@ -417,6 +426,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.Show();
 
             handelUI.GetHandelSagsIDComboboks().Text = sagsid;
+        }
+
+        public static void BeregnSalærShow()
+        {
+            BeregnSalærForm beregnSalær = new BeregnSalærForm();
+
+            beregnSalær.Show();
         }
     }
 }

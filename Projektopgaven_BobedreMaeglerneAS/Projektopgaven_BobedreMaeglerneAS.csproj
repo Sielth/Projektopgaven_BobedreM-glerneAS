@@ -62,6 +62,7 @@
     <Compile Include="BusinessLogicLayer\SingletonConnection.cs" />
     <Compile Include="BusinessLogicLayer\StatistikBLL.cs" />
     <Compile Include="BusinessLogicLayer\SælgerBLL.cs" />
+    <Compile Include="BusinessLogicLayer\WorksOnBLL.cs" />
     <Compile Include="DataAccessLayer\BoligDAL.cs" />
     <Compile Include="DataAccessLayer\EjendomsmæglerDAL.cs" />
     <Compile Include="DataAccessLayer\HandelDAL.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="DataAccessLayer\StatistikDAL.cs" />
     <Compile Include="DataAccessLayer\SælgerDAL.cs" />
     <Compile Include="DataAccessLayer\Transactions.cs" />
+    <Compile Include="DataAccessLayer\WorksOnDAL.cs" />
     <Compile Include="DataAccessLayer\ÅbentHusDAL.cs" />
     <Compile Include="ejendomsmægler_bobedredbDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -80,6 +82,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\BeregnSalærForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\BeregnSalærForm.Designer.cs">
+      <DependentUpon>BeregnSalærForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\BoligUI.cs">
       <SubType>Form</SubType>
@@ -132,6 +140,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PresentationLayer\BeregnSalærForm.resx">
+      <DependentUpon>BeregnSalærForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\BoligUI.resx">
       <DependentUpon>BoligUI.cs</DependentUpon>
     </EmbeddedResource>
