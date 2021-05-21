@@ -39,7 +39,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_oprethandel_Click(object sender, EventArgs e)
         {
-            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsddato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
+            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
             HandelDAL handelDAL = new HandelDAL(handelBLL);
 
             //Kalder metoden: OpretHandel
@@ -51,7 +51,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_findhandel_Click(object sender, EventArgs e)
         {
-            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsddato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
+            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
             HandelDAL handelDAL = new HandelDAL(handelBLL);
 
             //Kalder metoden: OpretHandel
@@ -63,7 +63,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_opdaterhandel_Click(object sender, EventArgs e)
         {
-            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsddato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
+            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
             HandelDAL handelDAL = new HandelDAL(handelBLL);
 
             //Kalder metoden: OpretHandel
@@ -75,7 +75,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_slethandel_Click(object sender, EventArgs e)
         {
-            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsddato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
+            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
             HandelDAL handelDAL = new HandelDAL(handelBLL);
 
             //Kalder metoden: OpretHandel
@@ -93,7 +93,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return handelid;
         }
 
-        public DateTime Handelsddato()
+        public DateTime Handelsdato()
         {
             DateTime.TryParse(dateTimePicker1.Text, out DateTime handelsdato);
             return handelsdato;

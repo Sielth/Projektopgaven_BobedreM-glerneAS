@@ -75,11 +75,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
-            string sqlCommandHandel = $"INSERT INTO Handel VALUES (@HandelID, @Handelsdato, @Salgspris, @SagsID, @KøberID)";
+            string sqlCommandHandel = $"INSERT INTO Handel VALUES (@Handelsdato, @Salgspris, @SagsID, @KøberID)";
 
             SqlCommand commandHandel = new SqlCommand(sqlCommandHandel, conn);
 
-            commandHandel.Parameters.AddWithValue("@HandelID", handel.HandelID);
+            //commandHandel.Parameters.AddWithValue("@HandelID", handel.HandelID);
             commandHandel.Parameters.AddWithValue("@Handelsdato", handel.Handelsdato);
             commandHandel.Parameters.AddWithValue("@Salgspris", handel.Salgspris);
             commandHandel.Parameters.AddWithValue("@SagsID", handel.SagsID);
