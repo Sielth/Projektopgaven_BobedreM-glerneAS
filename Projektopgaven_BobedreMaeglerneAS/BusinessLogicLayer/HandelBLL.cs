@@ -31,7 +31,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 
         public HandelBLL() { }
         //Methods go here
-        public void StatsToText()
+        /*public void StatsToText()
         {
             //DateTime salgsdato;
             //int price;
@@ -52,6 +52,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             {
                 Console.WriteLine(ex.Message);
             }
-        }
+        }*/
     }
 }

@@ -103,20 +103,32 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             while(true)
             {
-                ThreadStart start = new ThreadStart(() => FetchKøber());
-                Thread t1 = new Thread(start);
-
-                List<KøberBLL> købere = FetchKøber();
-
-                try
+                //CHECK IF OUTPUT IS NOT DISPOSED
+                if (!output.IsDisposed)
                 {
-                    output.Invoke(new DisplayDelegate(DisplayKøber), new object[] { købere });
+                    //THREAD THAT CALLS FetchKøber WITH A LAMBA FUNCTION (since the method has a return argument)
+                    //this will give the user a list of KøberBLL always up to date
+                    ThreadStart start = new ThreadStart(() => FetchKøber());
+                    Thread t1 = new Thread(start);
+
+                    //the list from FetchKøber is saved in køber
+                    List<KøberBLL> købere = FetchKøber();
+
+                    try
+                    {
+                        //CHECK IF OUTPUT HANDLE HAS NOT BEEN CREATED
+                        if (!output.IsHandleCreated)
+                        {
+                            output.CreateControl(); //CREATES OUPUT CONTROL
+                        }
+                        output.Invoke(new DisplayDelegate(DisplayKøber), new object[] { købere });
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    Thread.Sleep(6000);
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                Thread.Sleep(6000);
             }
         }
 

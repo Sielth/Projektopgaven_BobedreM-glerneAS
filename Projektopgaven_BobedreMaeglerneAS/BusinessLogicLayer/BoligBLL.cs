@@ -22,6 +22,7 @@ namespace Projektopgaven_BobedreMæglerneAS
         public DateTime Bygningsår { get; private set; }
         public DateTime RenoveringsÅr { get; private set; }
 
+        //BoligBLL constructors
         public BoligBLL(int boligid, string vej, int postnummer, string type, int værelser, int etager, int kvadratmeter, bool have, DateTime bygningsår, DateTime renoveringsår)
         {
             this.BoligID = boligid;
@@ -66,11 +67,13 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public BoligBLL() { }
 
+        //this method returns object in a specific format
         public override string ToString()
         {
             return ToString("A");
         }
 
+        //this method is a helper method to ToString method, to choose the format in which the object will be shown
         public string ToString(string fmt)
         {
             if (string.IsNullOrEmpty(fmt))
@@ -88,6 +91,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             }
         }
 
+        //helper methods to ToString format
         private string HasGarden(bool have)
         {
             if (have)
@@ -104,10 +108,12 @@ namespace Projektopgaven_BobedreMæglerneAS
                 return $", renoveret i {renoveringsår}";
         }
 
+        //this method calculates the Udbudspris
         public int CalculateUdbudsPris()
         {
             int pris = 0;
 
+            //divides the price of kvm by zone (postnummer)
             if (this.Postnummer > 999 && this.Postnummer < 3000) //KBH
                 pris += this.Kvadratmeter * 40000;
             else if (this.Postnummer >= 3000 && this.Postnummer < 5400  //SJÆLLAND + ODENSE
@@ -125,6 +131,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             else
                 pris += this.Kvadratmeter * 5000;
 
+            //adds percent of the price depending of the house type
             if (this.Type == "Lejlighed")
                 pris += pris / 100 * 1;
             else if (this.Type == "Villa")
@@ -132,9 +139,13 @@ namespace Projektopgaven_BobedreMæglerneAS
             else if (this.Type == "Rækkehus")
                 pris += pris / 100 * 2;
 
+            //every room costs 500 more
             pris += this.Værelser * 500;
+
+            //every etage costs 1000 more
             pris += this.Etager * 1000;
 
+            //if the house has a garden, it costs 5000 more
             if (this.Have)
                 pris += 5000;
 
@@ -142,21 +153,22 @@ namespace Projektopgaven_BobedreMæglerneAS
             DateTime date2 = new DateTime(1950, 1, 1, 0, 0, 0);
             int result = DateTime.Compare(date1, date2);
 
-            if (result < 0) //EARLIER THAN 1950
-                pris -= 30000;
-            if (result >= 0) //LATER THAN 1950
-                pris += 15000;
+            if (result < 0) //if the house is built EARLIER THAN 1950
+                pris -= 30000; //it costs 30000 less
+            if (result >= 0) //Lif the house is built AFTER THAN 1950
+                pris += 15000; //it costs 15000 more
 
             date1 = this.RenoveringsÅr;
             date2 = new DateTime(2010, 1, 1, 0, 0, 0);
             result = DateTime.Compare(date1, date2);
 
-            if (result >= 0)
+            if (result >= 0) //if it has been renewed, it will cost 1000 more
                 pris += 1000;
 
             return pris;
         }
 
+        //implementation of CompareTo
         public int CompareTo(object other)
         {
             if (other == null)
