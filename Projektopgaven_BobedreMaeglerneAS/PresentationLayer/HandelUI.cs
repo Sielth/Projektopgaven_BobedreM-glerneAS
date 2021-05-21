@@ -18,6 +18,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
     {
         KøberDAL køber;
         SagDAL sag;
+        StatistikBLL statistik = new StatistikBLL();
+        StatistikDAL statistikdal = new StatistikDAL();
 
         public HandelUI()
         {
@@ -246,5 +248,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         #endregion
 
+        private void button1_Click(object sender, EventArgs e) //udtræk statistik
+        {
+            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsddato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
+            HandelDAL handelDAL = new HandelDAL(handelBLL);
+            statistik.StatsToText();
+            statistikdal.SoldProperties(dateTimePicker1.Value, dateTimePicker3.Value);
+        }
     }
 }

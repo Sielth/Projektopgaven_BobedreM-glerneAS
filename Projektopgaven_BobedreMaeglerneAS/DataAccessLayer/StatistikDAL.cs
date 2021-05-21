@@ -23,14 +23,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         }
         public StatistikDAL()
         {
-
+            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
-        public List<StatistikBLL> SoldProperties()
+        public List<StatistikBLL> SoldProperties(DateTime startdate, DateTime enddate)
         {
+            HandelUI Handel = new HandelUI();
             List<StatistikBLL> statistik = new List<StatistikBLL>();
-            string startdate = HandelUI.GetStartDate().Value.ToShortDateString();
-            string enddate = HandelUI.GetEndDate().Value.ToShortDateString();
-            string sqlCommandStatistik = "SELECT * FROM Handel WHERE Handelsdato BETWEEN '" + startdate + "' AND '" + enddate + "+";
+            //DateTime startdate = Handel.GetStartDate().Value;
+            //DateTime enddate = Handel.GetEndDate().Value;
+            //string sqlCommandStatistik = "SELECT * FROM Handel WHERE Handelsdato BETWEEN '" + startdate + "' AND '" + enddate + "+";
+            string sqlCommandStatistik = "SELECT Handel.Handelsdato, Handel.Salgspris, Sag.MæglerID, Bolig.Postnummer, Bolig.Vej" +
+                " FROM Handel INNER JOIN Sag ON Sag.SagsID = Handel.SagsID INNER JOIN Bolig ON Bolig.BoligID = Sag.BoligID" +
+                " WHERE Sag.Status = 'Lukket (solgt bolig)' AND Handel.Handelsdato BETWEEN '" + startdate + "' AND '" + enddate + "'";
             SqlCommand cmd = new SqlCommand(sqlCommandStatistik, conn);
             try
             {
@@ -48,7 +53,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             (int)reader["Salgspris"],
                             (int)reader["MæglerID"],
                             (int)reader["Postnummer"],
-                            reader["Adresse"].ToString())
+                            reader["Vej"].ToString())
                             );
                     }
                     //CLOSE READER
@@ -58,6 +63,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 {
                     Transactions.Rollback(conn);
                 }
+                return statistik;
             }
             catch (SqlException ex)
             {

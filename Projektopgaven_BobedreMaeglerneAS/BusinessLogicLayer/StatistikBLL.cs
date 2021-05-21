@@ -14,14 +14,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public int Salgspris { get; private set; }
         public int MæglerID { get; private set; }
         public int Postnummer { get; private set; }
-        public string Adresse { get; private set; }
-        public StatistikBLL(DateTime Handelsdato, int Salgspris, int MæglerID, int Postnummer, string Adresse)
+        public string Vej { get; private set; }
+        public StatistikBLL(DateTime Handelsdato, int Salgspris, int MæglerID, int Postnummer, string Vej)
         {
             this.Handelsdato = Handelsdato;
             this.Salgspris = Salgspris;
             this.MæglerID = MæglerID;
             this.Postnummer = Postnummer;
-            this.Adresse = Adresse;
+            this.Vej = Vej;
+        }
+        public StatistikBLL()
+        {
+
         }
         public void StatsToText()
         {
@@ -31,19 +35,26 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             //string city;
             StatistikDAL StatistikDAL = new StatistikDAL();
             List<StatistikBLL> statistik = new List<StatistikBLL>();
-            //statistik = HandelDAL.SoldProperties();
+            //statistik = StatistikDAL.SoldProperties(/*startdate, Enddate*/);
 
             try
             {
                 StreamWriter sw = new StreamWriter(@"Resources/");
-                sw.WriteLine("\t Tidsperiode");
-                sw.WriteLine("By\t Bolig solgt\t Pris\t Ejendomsmægler");
-
+                sw.WriteLine("\t Tidsperiode:"); //tilføj tidsperiode man har sorteret efter
+                sw.WriteLine("Adresse\t Postnummer\t Mægler\t Pris\t Handelsdato");
+                foreach (StatistikBLL a in statistik)
+                {
+                    Console.WriteLine(a.ToString());
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+        public override string ToString()
+        {
+            return $"{Vej}\t,{Postnummer}\t,{MæglerID}\t,{Salgspris}\t,{Handelsdato}";
         }
     }
 }
