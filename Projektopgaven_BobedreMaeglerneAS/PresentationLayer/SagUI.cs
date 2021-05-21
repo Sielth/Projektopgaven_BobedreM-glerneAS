@@ -19,7 +19,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         BoligDAL bolig;
         SælgerDAL sælger;
         EjendomsmæglerDAL ejendomsmægler;
-        HandelDAL handel;
 
         public SagUI()
         {
@@ -44,99 +43,238 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             t3.Start();
         }
 
-        private void sagStatus_cbox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            string sagsid = null;
-
-            if (sagID_txt != null)
-                sagsid = sagID_txt.Text;
-            else
-                Console.WriteLine("input sagsid");
-                
-
-            if (sagStatus_cbox.SelectedItem.ToString() == "Lukket (solgt bolig)")
-            {
-                MenuBarKnapper.HandlenCreate(sagsid);
-            }
-        }
-
-        private void btn_beregnSalær_Click(object sender, EventArgs e)
-        {
-            string sagsid = null;
-            handel = new HandelDAL();
-
-            if (sagID_txt != null)
-                sagsid = sagID_txt.Text;
-
-            int salgspris = handel.HentSalgsPris(sagsid);
-            int.TryParse(antalTimer_txt.Text, out int antaltimer);
-
-            resut_txt.Text = BeregnSalær(salgspris, antaltimer);
-
-
-        }
-
+        #region Opret Sag
+        //method to create a new Sag
         private void btn_OpretSag_Click(object sender, EventArgs e)
         {
+            //Initializes SagBLL and SagDAL
             SagBLL sagBLL = new SagBLL(SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
             SagDAL sagDAL = new SagDAL(sagBLL);
 
-            //Kalder metoden: OpretSag
-            sagDAL.OpretSag(sagBLL);
+            try
+            {
+                //creates a new SagBLL in DB
+                sagDAL.OpretSag(sagBLL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                //retrieves Sags ID from DB
+                SagBLL matchingsag = sagDAL.HentSag(sagBLL);
+
+                //show SagsID in TextBox
+                sagID_txt.Text = matchingsag.SagsID.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            //save SagsID in a string
+            string sagsid = null;
+
+            if (sagID_txt != null)
+                sagsid = sagID_txt.Text;
+
+            //if Sag is beign closed because a house has been sold
+            if (sagStatus_cbox.SelectedItem.ToString() == "Lukket (solgt bolig)")
+            {
+                //user must create a new Handle
+                MenuBarKnapper.HandlenCreate(sagsid);
+            }
 
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);
 
+            //disable alle TextBoxes
+            DisableAll();
         }
 
+        //method to clear all TextBoxes and enable/disable the ones we need/don't need
+        private void btn_Clear_OpretSag_Click(object sender, EventArgs e)
+        {
+            //clear all textboxes
+            ClearAll();
+
+            //enable all textboxes
+            EnableAll();
+
+            //disable SagsID TextBox
+            sagID_txt.Enabled = false;
+        }
+        #endregion
+
+        #region Hent Sag / Opdater Sag
+        //method to retrieve a Sag from DB and show its attributes on TextBoxes
         private void btn_HentSag_Click(object sender, EventArgs e)
         {
+            //Initializes SagBLL and SagDAL
             SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
             SagDAL sagDAL = new SagDAL(sagBLL);
 
             try
             {
-                SagBLL matchingesag = sagDAL.FindSag(sagBLL);
+                //retrieve a SagBLL from DB using SagsID
+                SagBLL matchingesag = sagDAL.HentSagViaID(sagBLL);
+                
+                //shows retrieved Sag from DB on TextBoxes
                 sagStatus_cbox.Text = matchingesag.Status.ToString();
                 sag_boligID_cbox.Text = matchingesag.BoligID.ToString();
                 sag_sælgerID_cbox.Text = matchingesag.SælgerID.ToString();
                 sag_ejendomsmæglerID_cbox.Text = matchingesag.MæglerID.ToString();
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
-
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);
+
+            sagID_txt.Enabled = false;
         }
 
+        //method to enable all TextBoxes to edit a Bolig
+        private void allowRedigering_btn_Click(object sender, EventArgs e)
+        {
+            //enable all TextBoxes
+            EnableAll();
+
+            //disable BoligID TextBox
+            sagID_txt.Enabled = false;
+        }
+
+        //method to update a Sag
         private void btn_OpdaterSag_Click(object sender, EventArgs e)
         {
+            //Initializes SagBLL and SagDAL
             SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
             SagDAL sagDAL = new SagDAL(sagBLL);
 
-            //Kalder metoden: OpretSag
-            sagDAL.OpdaterSag(sagBLL);
+            try
+            {
+                //updates a Sag record
+                sagDAL.OpdaterSag(sagBLL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            //save SagsID in a string
+            string sagsid = null;
+
+            if (sagID_txt != null)
+                sagsid = sagID_txt.Text;
+
+            //if Sag is beign closed because a house has been sold
+            if (sagStatus_cbox.SelectedItem.ToString() == "Lukket (solgt bolig)")
+            {
+                //user must create a new Handle
+                MenuBarKnapper.HandlenCreate(sagsid);
+            }
 
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);
+
+            //disable all TextBoxes
+            DisableAll();
         }
 
+        //method to clear all TextBoxes and enable/disable the ones we need/don't need
+        private void btn_Clear_HentSag_Click(object sender, EventArgs e)
+        {
+            //clear all TextBoxes
+            ClearAll();
+
+            //disable all TextBoxes
+            DisableAll();
+
+            //enable BoligID TextBox
+            sagID_txt.Enabled = true;
+        }
+        #endregion
+
+        #region Slet Sag
+        //method to delete a Sag from DB
         private void btn_SletSag_Click(object sender, EventArgs e)
         {
+            //Initializes SagBLL and SagDAL
             SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
             SagDAL sagDAL = new SagDAL(sagBLL);
 
-            //Kalder metoden: OpretSag
-            sagDAL.SletSag(sagBLL);
+            try
+            {
+                //delete a Sag from DB
+                sagDAL.SletSag(sagBLL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             //Loader data fra databasen ind i datagridview
             //SagsUI_Load(sender, e);
+
+            //clear all TextBoxes
+            ClearAll();
+
+            //disable all TextBoxes
+            DisableAll();
+
+            //enable BoligID TextBox
+            sagID_txt.Enabled = true;
+        }
+        #endregion
+
+        #region Validating SagsID
+        private void sagID_txt_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+
+            if (!ValidSagsId(sagID_txt.Text, out errorMsg))
+            {
+                //Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                sagID_txt.Select(0, sagID_txt.Text.Length);
+
+                //Set the ErrorProvider error with the text to display. 
+                this.errorProvider1.SetError(sagID_txt, errorMsg);
+            }
         }
 
+        private void sagID_txt_Validated(object sender, EventArgs e)
+        {
+            //If all conditions have been met, clear the ErrorProvider of errors.
+            errorProvider1.SetError(sagID_txt, "");
+        }
+
+        //Method to check whether BoligID is valid or not
+        //It must be only numbers
+        //It CAN be empty (be careful when casting to int)
+        //CANNOT be bigger than 4
+        public bool ValidSagsId(string boligid, out string errorMsg)
+        {
+            if (boligid.Length > 4)
+            {
+                errorMsg = "Indtast en Bolig ID mellem 1-999";
+                return false;
+            }
+
+            if (int.TryParse(boligid, out int result) || string.IsNullOrEmpty(boligid))
+            {
+                errorMsg = "";
+                return true;
+            }
+
+            errorMsg = "SagsID kan kun indeholde numre";
+            return false;
+        }
+        #endregion
 
         #region Konveter Tekstbokse
         public int SagsID()
@@ -172,12 +310,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return sagsmæglerid;
         }
         #endregion
-
-        private void SagUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         #region MENUBAREN
         //MENUBAREN
@@ -309,16 +441,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.HandelSlet();
         }
         #endregion
-
-        private string BeregnSalær(int salgspris, int antalTimer)
-        {
-            int salær = antalTimer * 150;
-
-            salær += salgspris / 100 * 2;
-
-            return salær.ToString();
-        }
-
-
     }
 }

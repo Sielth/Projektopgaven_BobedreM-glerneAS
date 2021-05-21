@@ -30,7 +30,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             // TODO: This line of code loads data into the 'bolig_bobedredbDataSet.Bolig' table. You can move, or remove it, as needed.
             //this.boligTableAdapter.Fill(this.bolig_bobedredbDataSet.Bolig);
-
         }
 
         //method to show the number of rooms as a ToolTip on the TrackBar 
