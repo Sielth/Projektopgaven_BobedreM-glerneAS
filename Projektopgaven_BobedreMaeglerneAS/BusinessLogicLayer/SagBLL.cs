@@ -46,5 +46,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         {
             return $"{SagsID} - {Status}";
         }
+
+        public static SagBLL FromString(string input)
+        {
+            string[] sag = input.Split(' ');
+
+            return new SagBLL(Convert.ToInt32(sag[0]), sag[2]);
+        }
     }
 }

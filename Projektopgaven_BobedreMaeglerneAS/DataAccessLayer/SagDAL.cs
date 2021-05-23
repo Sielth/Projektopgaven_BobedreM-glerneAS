@@ -37,12 +37,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             //CLEAR OUTPUT EVERY TIME
             //so that we don't have an infinite list
-            output.Items.Clear();
+            //output.Items.Clear();
 
-            //FOREACH ITEM IN THE LIST
-            //ADD ITEM TO OUTPUT
-            foreach (SagBLL sag in sager)
-                output.Items.Add(sag.ToString());
+            if (output.Items.Count == 0)
+            {
+                foreach (SagBLL sag in sager)
+                    output.Items.Add(sag.ToString());
+            }
+            else
+            {
+                SagBLL lastIndexItem = SagBLL.FromString(output.Items[output.Items.Count - 1].ToString());
+
+                //FOREACH ITEM IN THE LIST
+                //ADD ITEM TO OUTPUT
+                foreach (SagBLL sag in sager)
+                {
+                    if (sag.SagsID > lastIndexItem.SagsID)
+                        output.Items.Add(sag.ToString());
+                }
+            }
         }
 
         //method to retrieve all BoligID to show in the ComboBox of SagUI
@@ -55,7 +68,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
             {
                 //SQL QUERY
-                string sqlCommand = "SELECT * FROM Sag";
+                string sqlCommand = "SELECT * FROM Sag ORDER BY SagsID";
 
                 //SQL COMMAND
                 SqlCommand cmd = new SqlCommand(sqlCommand, conn);
