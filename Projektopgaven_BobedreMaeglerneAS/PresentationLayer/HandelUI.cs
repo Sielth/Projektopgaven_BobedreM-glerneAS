@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
@@ -273,11 +274,38 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             foreach (StatistikBLL stat in stats)
                 Console.WriteLine(stat.ToString());
 
+            var output = statistik_solgteboliger_lbox;
+
+            output.Items.Add("Adresse\t\tPostnummer\tMægler\tPris\tHandelsdato");
+            foreach (StatistikBLL stat in stats)
+                output.Items.Add(stat.ToString());
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            //saveFileDialog1.Filter = "Txt File|*.txt";
+            //saveFileDialog1.Title = "Save a Text File";
+
+            //saveFileDialog1.ShowDialog();
+
+            //// If the file name is not an empty string open it for saving.
+            //if (saveFileDialog1.FileName != "")
+            //{
+            //    // Saves the File via a FileStream created by the OpenFile method.
+            //    System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();
+
+
+
+            //    fs.Close();
+
+            //}
+
+            StatistikBLL.StatsToText(dateTimePicker1.Value, dateTimePicker3.Value);
         }
     }
 }
