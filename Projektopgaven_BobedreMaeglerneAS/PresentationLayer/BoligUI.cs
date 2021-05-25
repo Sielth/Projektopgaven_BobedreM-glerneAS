@@ -64,12 +64,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             //initializes BoligBLL and BoligDAL
             BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
-            BoligDAL boligDAL = new BoligDAL(boligBLL);
+            //BoligDAL boligDAL = new BoligDAL(boligBLL);
 
             try
             {
                 //creates a new BoligBLL in DB
-                boligDAL.OpretBolig(boligBLL);
+                boligBLL.OpretBolig(boligBLL);
             }
             catch (Exception ex)
             {
