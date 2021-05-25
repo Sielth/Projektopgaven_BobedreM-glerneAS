@@ -45,5 +45,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         {
             return $"{KøberID} - {Fnavn} {Enavn}";
         }
+
+        public static KøberBLL FromString(string input)
+        {
+            string[] køber = input.Split(' ');
+
+            return new KøberBLL(Convert.ToInt32(køber[0]), køber[2], køber[3]);
+        }
     }
 }

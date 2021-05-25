@@ -38,10 +38,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         private void DisplayKøber(List<KøberBLL> købere)
         {
-            output.Items.Clear();
+            if (output.Items.Count == 0)
+            {
+                foreach (KøberBLL køber in købere)
+                    output.Items.Add(køber.ToString());
+            }
+            else
+            {
+                KøberBLL lastIndexItem = KøberBLL.FromString(output.Items[output.Items.Count - 1].ToString());
 
-            foreach (KøberBLL køber in købere)
-                output.Items.Add(køber.ToString());
+                foreach (KøberBLL køber in købere)
+                {
+                    if (køber.KøberID > lastIndexItem.KøberID)
+                        output.Items.Add(køber.ToString());
+                }
+            } 
         }
 
         //Metode til at få alle KøberID vist i comboboksen i HandelUI
@@ -54,7 +65,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
             {
                 //SQL QUERY
-                string sqlcommand = "SELECT * FROM Køber";
+                string sqlcommand = "SELECT * FROM Køber ORDER BY KøberID";
 
                 //SQL COMMAND
                 SqlCommand command = new SqlCommand(sqlcommand, conn);

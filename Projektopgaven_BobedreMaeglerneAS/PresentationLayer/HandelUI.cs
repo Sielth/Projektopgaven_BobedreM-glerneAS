@@ -64,6 +64,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_opdaterhandel_Click(object sender, EventArgs e)
         {
             HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
+            
             HandelDAL handelDAL = new HandelDAL(handelBLL);
 
             //Kalder metoden: OpretHandel
@@ -105,16 +106,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return handelsalgspris;
         }
 
-        public int HandelSagsID()
+        private int HandelSagsID()
         {
-            int.TryParse(handelSalgsID_cbox.Text, out int handelsalgsid);
-            return handelsalgsid;
+            var selected = handelSalgsID_cbox.SelectedItem;
+            string[] sagsID_txt = handelSalgsID_cbox.SelectedItem.ToString().Split(' ');
+            int.TryParse(sagsID_txt[0], out int sagsID);
+            return sagsID;
         }
 
         public int HandelKøberID()
         {
-            int.TryParse(handelKøberID_cbox.Text, out int handelkøberid);
-            return handelkøberid;
+            var selected = handelKøberID_cbox.SelectedItem;
+            string[] køberID_txt = handelKøberID_cbox.SelectedItem.ToString().Split(' ');
+            int.TryParse(køberID_txt[0], out int køberID);
+            return køberID;
         }
         #endregion
 
