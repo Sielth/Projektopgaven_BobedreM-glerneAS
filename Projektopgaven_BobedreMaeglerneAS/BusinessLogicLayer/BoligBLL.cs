@@ -198,9 +198,30 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         public void OpretBolig(BoligBLL bolig)
         {
-            BoligDAL boligDAL = new BoligDAL(bolig);
-
+            BoligDAL boligDAL = new BoligDAL();
             boligDAL.OpretBolig(bolig);
+        }
+
+        public static BoligBLL HentBoligViaID(BoligBLL boligToFind)
+        {
+            return BoligDAL.HentBoligViaID(boligToFind);
+        }
+
+        public static BoligBLL HentBolig(BoligBLL boligToFind)
+        {
+            return BoligDAL.HentBolig(boligToFind);
+        }
+
+        public void OpdaterBolig(BoligBLL bolig)
+        {
+            BoligDAL boligDAL = new BoligDAL();
+            boligDAL.OpdaterBolig(bolig);
+        }
+
+        public void SletBolig(BoligBLL bolig)
+        {
+            BoligDAL boligDAL = new BoligDAL();
+            boligDAL.SletBolig(bolig);
         }
     }
 }

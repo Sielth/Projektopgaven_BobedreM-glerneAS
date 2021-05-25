@@ -12,25 +12,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
     class SælgerDAL
     {
-        private SælgerBLL SælgerBLL;
-        private ConnectionSingleton s1;
-        private SqlConnection conn;
+        private static ConnectionSingleton s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+        private static SqlConnection conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
 
         private ComboBox output;
 
-        public SælgerDAL(SælgerBLL sælgerBLL)
+        public SælgerDAL()
         {
-            this.SælgerBLL = sælgerBLL;
-            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
-            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
+        
         }
 
         #region Threads
         public SælgerDAL(ComboBox cBox)
         {
             output = cBox;
-            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
-            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
 
         public delegate void DisplayDelegate(List<SælgerBLL> sælgere);
@@ -47,7 +42,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             List<SælgerBLL> sælgere = new List<SælgerBLL>();
 
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            using (var conn = new SqlConnection(s1.GetConnectionString()))
             {
                 string sqlCommand = "SELECT * FROM Sælger";
 
@@ -69,7 +64,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             sælgere.Add(new SælgerBLL((int)reader["SælgerID"], reader["Fnavn"].ToString(), reader["Enavn"].ToString()));
                         }
 
-                        reader.Close();
+                        if (reader != null)
+                            reader.Close();
                     }
 
                     if (!Transactions.Commit(conn))
@@ -119,65 +115,67 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         }
         #endregion
 
-        public void OpretSælger(SælgerBLL sælgerBLL)
+        #region OpretSælger
+        public void OpretSælger(SælgerBLL sælger)
         {
-            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            //SqlConnection conn = new SqlConnection(connstr);
-
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
             string sqlCommandSælger = "INSERT INTO Sælger VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer)";
 
             SqlCommand cmdSælger = new SqlCommand(sqlCommandSælger, conn);
-            cmdSælger.Parameters.AddWithValue("@CPR", sælgerBLL.CPR);
-            cmdSælger.Parameters.AddWithValue("@Telefon", sælgerBLL.Telefon);
-            cmdSælger.Parameters.AddWithValue("@Email", sælgerBLL.Email);
-            cmdSælger.Parameters.AddWithValue("@Fnavn", sælgerBLL.Fnavn);
-            cmdSælger.Parameters.AddWithValue("@Enavn", sælgerBLL.Enavn);
-            cmdSælger.Parameters.AddWithValue("@Vej", sælgerBLL.Vej);
-            cmdSælger.Parameters.AddWithValue("@Postnummer", sælgerBLL.Postnummer);
+            cmdSælger.Parameters.AddWithValue("@CPR", sælger.CPR);
+            cmdSælger.Parameters.AddWithValue("@Telefon", sælger.Telefon);
+            cmdSælger.Parameters.AddWithValue("@Email", sælger.Email);
+            cmdSælger.Parameters.AddWithValue("@Fnavn", sælger.Fnavn);
+            cmdSælger.Parameters.AddWithValue("@Enavn", sælger.Enavn);
+            cmdSælger.Parameters.AddWithValue("@Vej", sælger.Vej);
+            cmdSælger.Parameters.AddWithValue("@Postnummer", sælger.Postnummer);
 
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                Transactions.BeginRepeatableReadTransaction(conn);
+
                 cmdSælger.ExecuteNonQuery();
 
-                //HentSælger
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }
-            finally
-            {
+
+            if (conn.State == System.Data.ConnectionState.Open)
                 conn.Close();
-            }
         }
+        #endregion
 
-        public SælgerBLL HentSælgerViaID(SælgerBLL sælgerBLL)
+        #region HentSælger
+        public static SælgerBLL HentSælgerViaID(SælgerBLL sælgerToFind)
         {
-            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            //SqlConnection conn = new SqlConnection(connstr);
-
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
+            SælgerBLL matchingsælger = null;
 
             string sqlCommandSælger = "SELECT * FROM Sælger WHERE " +
                 "SælgerID = SælgerID";
 
             SqlCommand cmdSælger = new SqlCommand(sqlCommandSælger, conn);
-            cmdSælger.Parameters.AddWithValue("@SælgerID", sælgerBLL.SælgerID);
+            cmdSælger.Parameters.AddWithValue("@SælgerID", sælgerToFind.SælgerID);
 
             try
             {
-                conn.Open();
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
 
                 using (SqlDataReader reader = cmdSælger.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        SælgerBLL matchingsælger = new SælgerBLL((int)reader["SælgerID"],
+                        matchingsælger = new SælgerBLL((int)reader["SælgerID"],
                             (int)reader["CPR"],
                             (int)reader["Telefon"],
                             reader["Email"].ToString(),
@@ -185,30 +183,32 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             reader["Enavn"].ToString(),
                             reader["Vej"].ToString(),
                             (int)reader["Postnummer"]);
-
-                        return matchingsælger;
                     }
+                    //CLOSE READER
+                    if (reader != null)
+                        reader.Close();
                 }
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
-                conn.Close();
-            }
 
-            return null;
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            //RETURN
+            return matchingsælger;
         }
 
-        public SælgerBLL HentSælger(SælgerBLL sælgerBLL)
+        public static SælgerBLL HentSælger(SælgerBLL sælgerToFind)
         {
-            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            //SqlConnection conn = new SqlConnection(connstr);
-
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
+            SælgerBLL matchingsælger = null;
 
             string sqlCommandSælger = "SELECT FROM Sælger WHERE " +
                 "SælgerID LIKE @SælgerID OR " +
@@ -221,24 +221,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 "Postnummer LIKE @Postnummer";
 
             SqlCommand cmdSælger = new SqlCommand(sqlCommandSælger, conn);
-            cmdSælger.Parameters.AddWithValue("@SælgerID", sælgerBLL.SælgerID);
-            cmdSælger.Parameters.AddWithValue("@CPR", sælgerBLL.CPR);
-            cmdSælger.Parameters.AddWithValue("@Telefon", sælgerBLL.Telefon);
-            cmdSælger.Parameters.AddWithValue("@Email", sælgerBLL.Email);
-            cmdSælger.Parameters.AddWithValue("@Fnavn", sælgerBLL.Fnavn);
-            cmdSælger.Parameters.AddWithValue("@Enavn", sælgerBLL.Enavn);
-            cmdSælger.Parameters.AddWithValue("@Vej", sælgerBLL.Vej);
-            cmdSælger.Parameters.AddWithValue("@Postnummer", sælgerBLL.Postnummer);
+            cmdSælger.Parameters.AddWithValue("@SælgerID", sælgerToFind.SælgerID);
+            cmdSælger.Parameters.AddWithValue("@CPR", sælgerToFind.CPR);
+            cmdSælger.Parameters.AddWithValue("@Telefon", sælgerToFind.Telefon);
+            cmdSælger.Parameters.AddWithValue("@Email", sælgerToFind.Email);
+            cmdSælger.Parameters.AddWithValue("@Fnavn", sælgerToFind.Fnavn);
+            cmdSælger.Parameters.AddWithValue("@Enavn", sælgerToFind.Enavn);
+            cmdSælger.Parameters.AddWithValue("@Vej", sælgerToFind.Vej);
+            cmdSælger.Parameters.AddWithValue("@Postnummer", sælgerToFind.Postnummer);
 
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
 
                 using (SqlDataReader reader = cmdSælger.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        SælgerBLL matchingsælger = new SælgerBLL((int)reader["SælgerID"],
+                        matchingsælger = new SælgerBLL((int)reader["SælgerID"],
                             (int)reader["CPR"],
                             (int)reader["Telefon"],
                             reader["Email"].ToString(),
@@ -246,31 +250,34 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             reader["Enavn"].ToString(),
                             reader["Vej"].ToString(),
                             (int)reader["Postnummer"]);
-
-                        return matchingsælger;
                     }
+
+                    //CLOSE READER
+                    if (reader != null)
+                        reader.Close();
                 }
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
                 conn.Close();
-            }
 
-            return null;
+            //RETURN
+            return matchingsælger;
         }
+        #endregion
 
-        public void OpdaterSælger(SælgerBLL sælgerBLL)
+        #region Opdater Sælger
+        public void OpdaterSælger(SælgerBLL sælger)
         {
-            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            //SqlConnection conn = new SqlConnection(connstr);
-
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
             string sqlCommandSælger = "UPDATE Sælger SET " +
                 "CPR = IsNull(NullIf(@CPR, ''), CPR), " +
                 "Telefon = IsNull(NullIf(@Telefon, ''), Telefon), " +
@@ -282,56 +289,75 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 "WHERE SælgerID = @SælgerID";
 
             SqlCommand cmdSælger = new SqlCommand(sqlCommandSælger, conn);
-            cmdSælger.Parameters.AddWithValue("@SælgerID", sælgerBLL.SælgerID);
-            cmdSælger.Parameters.AddWithValue("@CPR", sælgerBLL.CPR);
-            cmdSælger.Parameters.AddWithValue("@Telefon", sælgerBLL.Telefon);
-            cmdSælger.Parameters.AddWithValue("@Email", sælgerBLL.Email);
-            cmdSælger.Parameters.AddWithValue("@Fnavn", sælgerBLL.Fnavn);
-            cmdSælger.Parameters.AddWithValue("@Enavn", sælgerBLL.Enavn);
-            cmdSælger.Parameters.AddWithValue("@Vej", sælgerBLL.Vej);
-            cmdSælger.Parameters.AddWithValue("@Postnummer", sælgerBLL.Postnummer);
+            cmdSælger.Parameters.AddWithValue("@SælgerID", sælger.SælgerID);
+            cmdSælger.Parameters.AddWithValue("@CPR", sælger.CPR);
+            cmdSælger.Parameters.AddWithValue("@Telefon", sælger.Telefon);
+            cmdSælger.Parameters.AddWithValue("@Email", sælger.Email);
+            cmdSælger.Parameters.AddWithValue("@Fnavn", sælger.Fnavn);
+            cmdSælger.Parameters.AddWithValue("@Enavn", sælger.Enavn);
+            cmdSælger.Parameters.AddWithValue("@Vej", sælger.Vej);
+            cmdSælger.Parameters.AddWithValue("@Postnummer", sælger.Postnummer);
 
             try
             {
-                conn.Open();
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                //EXECUTE QUERY
                 cmdSælger.ExecuteNonQuery();
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
                 conn.Close();
-            }
         }
+        #endregion
 
-        public void SletSælger(SælgerBLL sælgerBLL)
+        #region Slet Sælger
+        public void SletSælger(SælgerBLL sælger)
         {
-            //string connstr = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_";
-            //SqlConnection conn = new SqlConnection(connstr);
-
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
             string sqlCommandSælger = "DELETE FROM Sælger WHERE SælgerID = @SælgerID";
 
             SqlCommand cmdSælger = new SqlCommand(sqlCommandSælger, conn);
-            cmdSælger.Parameters.AddWithValue("@SælgerID", sælgerBLL.SælgerID);
+            cmdSælger.Parameters.AddWithValue("@SælgerID", sælger.SælgerID);
 
             try
             {
-                conn.Open();
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginRepeatableReadTransaction(conn);
+
+                //EXECUTE QUERY
                 cmdSælger.ExecuteNonQuery();
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
                 conn.Close();
-            }
         }
+        #endregion
     }
 }

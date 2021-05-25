@@ -20,6 +20,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         SælgerDAL sælger;
         EjendomsmæglerDAL ejendomsmægler;
 
+        SagBLL sag;
+
         public SagUI()
         {
             InitializeComponent();
@@ -48,13 +50,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_OpretSag_Click(object sender, EventArgs e)
         {
             //Initializes SagBLL and SagDAL
-            SagBLL sagBLL = new SagBLL(SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
-            SagDAL sagDAL = new SagDAL(sagBLL);
+            sag = new SagBLL(SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
 
             try
             {
                 //creates a new SagBLL in DB
-                sagDAL.OpretSag(sagBLL);
+                sag.OpretSag(sag);
             }
             catch (Exception ex)
             {
@@ -64,7 +65,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             try
             {
                 //retrieves Sags ID from DB
-                SagBLL matchingsag = sagDAL.HentSag(sagBLL);
+                SagBLL matchingsag = SagBLL.HentSag(sag);
 
                 //show SagsID in TextBox
                 sagID_txt.Text = matchingsag.SagsID.ToString();
@@ -113,13 +114,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_HentSag_Click(object sender, EventArgs e)
         {
             //Initializes SagBLL and SagDAL
-            SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
-            SagDAL sagDAL = new SagDAL(sagBLL);
+            sag = new SagBLL(SagsID());
 
             try
             {
                 //retrieve a SagBLL from DB using SagsID
-                SagBLL matchingesag = sagDAL.HentSagViaID(sagBLL);
+                SagBLL matchingesag = SagBLL.HentSagViaID(sag);
                 
                 //shows retrieved Sag from DB on TextBoxes
                 sagStatus_cbox.Text = matchingesag.Status.ToString();
@@ -152,13 +152,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_OpdaterSag_Click(object sender, EventArgs e)
         {
             //Initializes SagBLL and SagDAL
-            SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
-            SagDAL sagDAL = new SagDAL(sagBLL);
+            sag = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
 
             try
             {
                 //updates a Sag record
-                sagDAL.OpdaterSag(sagBLL);
+                sag.OpdaterSag(sag);
             }
             catch (Exception ex)
             {
@@ -204,13 +203,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_SletSag_Click(object sender, EventArgs e)
         {
             //Initializes SagBLL and SagDAL
-            SagBLL sagBLL = new SagBLL(SagsID(), SagsStatus(), SagsBoligID(), SagsSælgerID(), SagsMæglerID());
-            SagDAL sagDAL = new SagDAL(sagBLL);
+            sag = new SagBLL(SagsID());
 
             try
             {
                 //delete a Sag from DB
-                sagDAL.SletSag(sagBLL);
+                sag.SletSag(sag);
             }
             catch (Exception ex)
             {

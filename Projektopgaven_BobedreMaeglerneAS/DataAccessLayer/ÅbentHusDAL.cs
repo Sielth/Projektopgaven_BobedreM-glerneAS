@@ -12,8 +12,11 @@ using Projektopgaven_BobedreMaeglerneAS.PresentationLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
-    class ÅbentHusDAL : BoligDAL //arver fra BoligDAL (so that the methods can be called with the same name)
+    class ÅbentHusDAL : BoligDAL //inherits from BoligDAL (so that the methods can be called with the same name)
     {
+        private static ConnectionSingleton s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+        private static SqlConnection conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
+
         private ListBox output; //THE BIG ListBox
         private TextBox txt1; //THE FIRST LETTER WE FILTER THE ADRESSES WITH
         private TextBox txt2; //THE SECOND LETTER WE FILTER THE ADDRESSES WITH
@@ -98,7 +101,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             //INITIALIZE List OF BoligBLL boliger
             List<BoligBLL> boliger = new List<BoligBLL>();
 
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            using (var conn = new SqlConnection(s1.GetConnectionString()))
             {
                 //SQL QUERY
                 string sqlCommand = "SELECT * FROM Bolig WHERE BoligID IN (SELECT Sag.BoligID from Sag WHERE Sag.Status = 'Åben') AND Bolig.Kvadratmeter >= 145";
@@ -136,7 +139,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                         }
 
                         //CLOSE READER
-                        reader.Close();
+                        if (reader != null)
+                            reader.Close();
                     }
 
                     //COMMIT OR ROLLBACK
@@ -193,7 +197,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                         Console.WriteLine(ex.Message);
                     }
 
-                    Thread.Sleep(600);
+                    Thread.Sleep(1000);
                 }
             }
         }

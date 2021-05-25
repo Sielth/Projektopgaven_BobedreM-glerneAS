@@ -12,22 +12,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
     class SagDAL
     {
-        private SagBLL SagBLL;
-        private ConnectionSingleton s1;
-        private SqlConnection conn;
+        private static ConnectionSingleton s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+        private static SqlConnection conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
 
         private ComboBox output;
 
-        public SagDAL(SagBLL sagBLL)
+        public SagDAL()
         {
-            this.SagBLL = sagBLL;
+
         }
 
         public SagDAL(ComboBox cBox)
         {
             output = cBox;
-            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
-            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
 
         #region Threads
@@ -65,7 +62,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             //INITIALIZE List OF BoligBLL boliger
             List<SagBLL> sager = new List<SagBLL>();
 
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            using (var conn = new SqlConnection(s1.GetConnectionString()))
             {
                 //SQL QUERY
                 string sqlCommand = "SELECT * FROM Sag ORDER BY SagsID";
@@ -109,7 +106,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 if (conn.State == System.Data.ConnectionState.Open)
                     conn.Close();
             }
-
+ 
             //RETURN
             return sager;
         }
@@ -150,12 +147,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         }
         #endregion
 
+        #region Opret Sag
         public void OpretSag(SagBLL sag)
         {
-            //Connection string
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
             string sqlCommandSag = $"INSERT INTO Sag VALUES(@Status, @BoligID, @SælgerID, @MæglerID)";
 
             SqlCommand commandSag = new SqlCommand(sqlCommandSag, conn);
@@ -171,113 +165,38 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 conn.Open();
 
                 Transactions.BeginRepeatableReadTransaction(conn);
+
                 commandSag.ExecuteNonQuery();
 
                 if (!Transactions.Commit(conn))
                     Transactions.Rollback(conn);
             }
-
             catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }
 
-            finally
-            {
-                if (conn != null)
-                    conn.Close();
-            }
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
         }
+        #endregion
 
-        public SagBLL HentSag(SagBLL sag)
+        #region Hent / Opdater Sag
+        public static SagBLL HentSagViaID(SagBLL sagToFind)
         {
-            //initialize SagBLL matchingsag
-            SagBLL matchingsag = null;
-
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
-            {
-                //SQL QUERY
-                string sqlCommandSag = "SELECT * FROM Sag WHERE " +
-                    "SagsID LIKE @SagsID OR " +
-                    "Status LIKE @Status AND " +
-                    "BoligID LIKE @BoligID AND " +
-                    "SælgerID LIKE @SælgerID AND " +
-                    "MæglerID LIKE @MæglerID ";
-
-                //SQL COMMAND + PARAMETERS
-                SqlCommand cmdSag = new SqlCommand(sqlCommandSag, conn);
-                cmdSag.Parameters.AddWithValue("@SagsID", sag.SagsID);
-                cmdSag.Parameters.AddWithValue("@Status", sag.Status);
-                cmdSag.Parameters.AddWithValue("@BoligID", sag.BoligID);
-                cmdSag.Parameters.AddWithValue("@SælgerID", sag.SælgerID);
-                cmdSag.Parameters.AddWithValue("@MæglerID", sag.MæglerID);
-
-                try
-                {
-                    //OPEN CONNECTION
-                    if (conn.State == System.Data.ConnectionState.Closed)
-                        conn.Open();
-
-                    //BEGIN TRANSACTION
-                    Transactions.BeginReadCommittedTransaction(conn);
-
-                    //EXECUTE READER (QUERY)
-                    using (SqlDataReader reader = cmdSag.ExecuteReader())
-                    {
-                        //RETRIEVE SagBLL AND SAVE IN matchingsag
-                        while (reader.Read())
-                        {
-                            matchingsag = new SagBLL((int)reader["SagsID"],
-                                reader["Status"].ToString(),
-                                (int)reader["BoligID"],
-                                (int)reader["SælgerID"],
-                                (int)reader["MæglerID"]);
-                        }
-
-                        //CLOSE READER
-                        reader.Close();
-                    }
-
-                    //COMMIT OR ROLLBACK
-                    if (!Transactions.Commit(conn))
-                        Transactions.Rollback(conn);
-                }
-                catch (SqlException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-                //CLOSE CONNECTION
-                if (conn.State == System.Data.ConnectionState.Open)
-                    conn.Close();
-            }
-
-            //RETURN
-            return matchingsag;
-        }
-
-        public SagBLL HentSagViaID(SagBLL sag)
-        {
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
             SagBLL matchingsag = null;
 
             string sqlCommandSag = "SELECT * FROM Sag WHERE SagsID = @SagsID";
 
             SqlCommand commandSag = new SqlCommand(sqlCommandSag, conn);
-
-            commandSag.Parameters.AddWithValue("@SagsID", sag.SagsID);
+            commandSag.Parameters.AddWithValue("@SagsID", sagToFind.SagsID);
 
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
 
                 Transactions.BeginReadCommittedTransaction(conn);
-                commandSag.ExecuteNonQuery();
-
-                if (!Transactions.Commit(conn))
-                    Transactions.Rollback(conn);
 
                 using (SqlDataReader reader = commandSag.ExecuteReader())
                 {
@@ -288,32 +207,97 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             (int)reader["BoligID"],
                             (int)reader["SælgerID"],
                             (int)reader["MæglerID"]);
-
                     }
+
+                    //CLOSE READER
+                    if (reader != null)
+                        reader.Close();
                 }
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
 
-            finally
-            {
-                if (conn != null)
-                    conn.Close();
-            }
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
 
+            //RETURN
             return matchingsag;
+        }
 
+        public static SagBLL HentSag(SagBLL sagToFind)
+        {
+            //initialize SagBLL matchingsag
+            SagBLL matchingsag = null;
+
+            //SQL QUERY
+            string sqlCommandSag = "SELECT * FROM Sag WHERE " +
+                "SagsID LIKE @SagsID OR " +
+                "Status LIKE @Status AND " +
+                "BoligID LIKE @BoligID AND " +
+                "SælgerID LIKE @SælgerID AND " +
+                "MæglerID LIKE @MæglerID ";
+
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmdSag = new SqlCommand(sqlCommandSag, conn);
+            cmdSag.Parameters.AddWithValue("@SagsID", sagToFind.SagsID);
+            cmdSag.Parameters.AddWithValue("@Status", sagToFind.Status);
+            cmdSag.Parameters.AddWithValue("@BoligID", sagToFind.BoligID);
+            cmdSag.Parameters.AddWithValue("@SælgerID", sagToFind.SælgerID);
+            cmdSag.Parameters.AddWithValue("@MæglerID", sagToFind.MæglerID);
+
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                //EXECUTE READER (QUERY)
+                using (SqlDataReader reader = cmdSag.ExecuteReader())
+                {
+                    //RETRIEVE SagBLL AND SAVE IN matchingsag
+                    while (reader.Read())
+                    {
+                        matchingsag = new SagBLL((int)reader["SagsID"],
+                            reader["Status"].ToString(),
+                            (int)reader["BoligID"],
+                            (int)reader["SælgerID"],
+                            (int)reader["MæglerID"]);
+                    }
+
+                    //CLOSE READER
+                    if (reader != null)
+                        reader.Close();
+                }
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            //RETURN
+            return matchingsag;
         }
 
         public void OpdaterSag(SagBLL sag)
         {
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
-            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
-
             //Tjekker om tekstboxe var tomme og undlader at opdaterer informationer for dem der er tomme
             string sqlCommandSag = "UPDATE Sag SET " +
                 "Status = IsNull(NullIf(@Status, ''), Status), " +
@@ -337,6 +321,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     conn.Open();
 
                 Transactions.BeginReadCommittedTransaction(conn);
+
                 commandSag.ExecuteNonQuery();
 
                 if (!Transactions.Commit(conn))
@@ -347,19 +332,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 Console.WriteLine(ex);
             }
 
-            finally
-            {
-                if (conn != null)
-                    conn.Close();
-            }
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
         }
+        #endregion
 
+        #region Slet Sag
         public void SletSag(SagBLL sag)
         {
-            //Connection string
-            ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            SqlConnection conn = s1.GetConnection();
-
             string sqlCommandSag = $"DELETE FROM Sag WHERE SagsID = @SagsID";
 
             SqlCommand commandSag = new SqlCommand(sqlCommandSag, conn);
@@ -368,23 +348,29 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             try
             {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
                 Transactions.BeginRepeatableReadTransaction(conn);
+
+                //EXECUTE QUERY
                 commandSag.ExecuteNonQuery();
 
+                //COMMIT OR ROLLBACK
                 if (!Transactions.Commit(conn))
                     Transactions.Rollback(conn);
             }
-
             catch (SqlException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
 
-            finally
-            {
-                if (conn != null)
-                    conn.Close();
-            }
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
         }
+        #endregion
     }
 }

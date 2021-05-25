@@ -14,6 +14,9 @@ namespace Projektopgaven_BobedreMæglerneAS
 {
     class EjendomsmæglerDAL
     {
+        private static ConnectionSingleton s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+        private static SqlConnection conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
+
         private EjendomsmæglerBLL EjendomsmæglerBLL;
 
         private ComboBox output;
@@ -46,7 +49,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             //INITIALIZE List OF EjendomsmæglerBLL ejendomsmæglere
             List<EjendomsmæglerBLL> ejendomsmægler = new List<EjendomsmæglerBLL>();
 
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            using (var conn = new SqlConnection(s1.GetConnectionString()))
             {
                 //SQL QUERY
                 string sqlCommand = "SELECT * FROM Ejendomsmægler";
@@ -88,10 +91,10 @@ namespace Projektopgaven_BobedreMæglerneAS
                 //CLOSE CONNECTION
                 if (conn.State == System.Data.ConnectionState.Open)
                     conn.Close();
-
-                //RETURN
-                return ejendomsmægler;
             }
+
+            //RETURN
+            return ejendomsmægler;
         }
 
         public void GenerateEjendomsmægler()

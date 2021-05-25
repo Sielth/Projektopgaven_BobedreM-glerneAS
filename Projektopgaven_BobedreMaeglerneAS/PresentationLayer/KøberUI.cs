@@ -14,6 +14,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class KøberUI : Form
     {
+        KøberBLL køber;
+
         public KøberUI()
         {
             InitializeComponent();
@@ -21,20 +23,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void OpretKøber_knap_Click(object sender, EventArgs e)
         {
-            KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
-            KøberDAL køberDAL = new KøberDAL(køberBLL);
+            køber = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
 
-            køberDAL.OpretKøber(køberBLL);
+            try
+            {
+                køber.OpdaterKøber(køber);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             KøberUI_Load(sender, e);
         }
 
         private void FindKøber_knap_Click(object sender, EventArgs e)
         {
-            KøberBLL køberBLL = new KøberBLL(KøberID());
-            KøberDAL køberDAL = new KøberDAL(køberBLL);
+            køber = new KøberBLL(KøberID());
+
             try
             {
-                KøberBLL matchingkøber = køberDAL.FindKøber(køberBLL);
+                KøberBLL matchingkøber = KøberBLL.FindKøber(køber);
+
                 KøberVej_txt.Text = matchingkøber.Vej;
                 KøberPostnummer_txt.Text = matchingkøber.Postnummer.ToString();
                 KøberCPR_txt.Text = matchingkøber.CPR.ToString();
@@ -45,24 +55,41 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             }
+
             KøberUI_Load(sender, e);
         }
 
         private void OpdaterKøber_knap_Click(object sender, EventArgs e)
         {
             KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
-            KøberDAL køberDAL = new KøberDAL(køberBLL);
-            køberDAL.OpdaterKøber(køberBLL);
+
+            try
+            {
+                køber.OpdaterKøber(køber);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             KøberUI_Load(sender, e);
         }
 
         private void SletKøber_knap_Click(object sender, EventArgs e)
         {
-            KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
-            KøberDAL køberDAL = new KøberDAL(køberBLL);
-            køberDAL.SletKøber(køberBLL);
+            køber = new KøberBLL(KøberID());
+
+            try
+            {
+                køber.SletKøber(køber);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             KøberUI_Load(sender, e);
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
@@ -46,6 +47,34 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public override string ToString()
         {
             return $"{SælgerID} - {Fnavn} {Enavn}";
+        }
+
+        public void OpretSælger(SælgerBLL sælger)
+        {
+            SælgerDAL sælgerDAL = new SælgerDAL();
+            sælgerDAL.OpretSælger(sælger);
+        }
+
+        public static SælgerBLL HentSælgerViaID(SælgerBLL sælgerToFind)
+        {
+            return SælgerDAL.HentSælgerViaID(sælgerToFind);
+        }
+
+        public static SælgerBLL HentSælger(SælgerBLL sælgerToFind)
+        {
+            return SælgerDAL.HentSælger(sælgerToFind);
+        }
+
+        public void OpdaterSælger(SælgerBLL sælger)
+        {
+            SælgerDAL sælgerDAL = new SælgerDAL();
+            sælgerDAL.OpdaterSælger(sælger);
+        }
+
+        public void SletSælger(SælgerBLL sælger)
+        {
+            SælgerDAL sælgerDAL = new SælgerDAL();
+            sælgerDAL.SletSælger(sælger);
         }
     }
 }

@@ -53,7 +53,7 @@
     </Compile>
     <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
-    <Compile Include="BusinessLogicLayer\EjendomsmæglerOplysninger.cs" />
+    <Compile Include="DataAccessLayer\EjendomsmæglerOplysninger.cs" />
     <Compile Include="BusinessLogicLayer\HandelBLL.cs" />
     <Compile Include="BusinessLogicLayer\IPerson.cs" />
     <Compile Include="BusinessLogicLayer\KøberBLL.cs" />
