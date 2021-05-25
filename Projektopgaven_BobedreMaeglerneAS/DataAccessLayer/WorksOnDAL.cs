@@ -25,8 +25,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public void IndsætTimer(WorksOnBLL worksOn)
         {
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
-            {
+
                 //SQL QUERY
                 string sqlCommandWorksOn = "INSERT INTO WORKS_ON (@HandelID, @TotHours)";
 
@@ -59,7 +58,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 //CLOSE CONNECTION
                 if (conn.State == System.Data.ConnectionState.Open)
                     conn.Close();
-            }
+
         }
 
         public EjendomsmæglerBLL HentMægler(int sagsid, int handelid)
@@ -130,8 +129,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             //INITIALIZATION OF INT PRIS
             int pris = 0;
 
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
-            {
+
                 //SQL QUERY
                 string sqlCommand = "select Handel.Salgspris from Handel, Sag where Handel.SagsID = @SagsID";
 
@@ -170,7 +168,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 //CLOSE CONNECTION
                 if (conn.State == System.Data.ConnectionState.Open)
                     conn.Close();
-            }
+           
 
             return pris;
         }

@@ -20,6 +20,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class BoligUI : Form
     {
+        BoligBLL bolig;
+
         public BoligUI()
         {
             InitializeComponent();
@@ -63,13 +65,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_OpretBolig_Click(object sender, EventArgs e)
         {
             //initializes BoligBLL and BoligDAL
-            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
-            //BoligDAL boligDAL = new BoligDAL(boligBLL);
+            bolig = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
 
             try
             {
                 //creates a new BoligBLL in DB
-                boligBLL.OpretBolig(boligBLL);
+                bolig.OpretBolig(bolig);
             }
             catch (Exception ex)
             {
@@ -79,7 +80,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             try
             {
                 //retrieves Bolig ID from DB
-                BoligBLL matchingbolig = boligDAL.HentBolig(boligBLL);
+                BoligBLL matchingbolig = BoligBLL.HentBolig(bolig);
 
                 //shows BoligID in TextBox
                 boligID_txt.Text = matchingbolig.BoligID.ToString();
@@ -126,13 +127,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_HentBolig_Click(object sender, EventArgs e)
         {
             //initializes BoligBLL and BoligDAL
-            BoligBLL boligBLL = new BoligBLL(BoligID());
-            BoligDAL boligDAL = new BoligDAL(boligBLL);
+            bolig = new BoligBLL(BoligID());
 
             try
             {
                 //retrieve a BoligBLL from DB using BoligID
-                BoligBLL matchingbolig = boligDAL.HentBoligViaID(boligBLL);
+                BoligBLL matchingbolig = BoligBLL.HentBoligViaID(bolig);
                 
                 //shows retrieved Bolig from DB on TextBoxes
                 boligVej_txt.Text = matchingbolig.Vej.ToString();
@@ -148,7 +148,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
             //disable BoligID TextBox
@@ -169,13 +169,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void saveChanges_btn_Click(object sender, EventArgs e)
         {
             //initializes BoligBLL and BoligDAL
-            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligUdbudspris(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
-            BoligDAL boligDAL = new BoligDAL(boligBLL);
+            bolig = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligUdbudspris(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
 
             try
             {
                 //updates a Bolig record
-                boligDAL.OpdaterBolig(boligBLL);
+                bolig.OpdaterBolig(bolig);
 
                 //henter en bolig
                 btn_HentBolig_Click(sender, e);
@@ -255,13 +254,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_SletBolig_Click(object sender, EventArgs e)
         {
             //initializes BoligBLL and BoligDAL
-            BoligBLL boligBLL = new BoligBLL(BoligID(), BoligVej(), BoligPostnr(), BoligType(), BoligVærelser(), BoligEtager(), BoligKvm(), BoligHave(), BoligBygningsÅr(), BoligRenoveringsÅr());
-            BoligDAL boligDAL = new BoligDAL(boligBLL);
+            bolig = new BoligBLL(BoligID());
 
             try
             {
                 //delete a Bolig from DB
-                boligDAL.SletBolig(boligBLL);
+                bolig.SletBolig(bolig);
             }
             catch (Exception ex)
             {
@@ -657,6 +655,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
         #endregion
-
     }
 }

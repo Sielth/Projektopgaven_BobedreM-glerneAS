@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
@@ -51,6 +52,29 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             string[] køber = input.Split(' ');
 
             return new KøberBLL(Convert.ToInt32(køber[0]), køber[2], køber[3]);
+        }
+
+        public void OpretKøber(KøberBLL køber)
+        {
+            KøberDAL køberDAL = new KøberDAL();
+            køberDAL.OpretKøber(køber);
+        }
+
+        public static KøberBLL FindKøber(KøberBLL køberToFind)
+        {
+            return KøberDAL.FindKøber(køberToFind);
+        }
+
+        public void OpdaterKøber(KøberBLL køber)
+        {
+            KøberDAL køberDAL = new KøberDAL();
+            køberDAL.OpdaterKøber(køber);
+        }
+
+        public void SletKøber(KøberBLL køber)
+        {
+            KøberDAL køberDAL = new KøberDAL();
+            køberDAL.SletKøber(køber);
         }
     }
 }

@@ -109,16 +109,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private int HandelSagsID()
         {
-            var selected = handelSalgsID_cbox.SelectedItem;
-            string[] sagsID_txt = handelSalgsID_cbox.SelectedItem.ToString().Split(' ');
-            int.TryParse(sagsID_txt[0], out int sagsID);
-            return sagsID;
+            if (handelSalgsID_cbox.SelectedItem != null)
+            {
+                var selected = handelSalgsID_cbox.SelectedItem;
+                string[] sagsID_txt = handelSalgsID_cbox.SelectedItem.ToString().Split(' ');
+                int.TryParse(sagsID_txt[0], out int sagsID);
+                return sagsID;
+            }
+            else
+            {
+                int.TryParse(handelSalgsID_cbox.Text, out int sagsID);
+                return sagsID;
+            }
         }
 
         public int HandelKøberID()
         {
             var selected = handelKøberID_cbox.SelectedItem;
-            string[] køberID_txt = handelKøberID_cbox.SelectedItem.ToString().Split(' ');
+            string[] køberID_txt = handelKøberID_cbox.Text.ToString().Split(' ');
             int.TryParse(køberID_txt[0], out int køberID);
             return køberID;
         }
