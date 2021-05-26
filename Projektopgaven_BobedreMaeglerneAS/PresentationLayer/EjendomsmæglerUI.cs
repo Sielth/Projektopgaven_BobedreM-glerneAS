@@ -16,6 +16,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class EjendomsmæglerUI : Form
     {
+        EjendomsmæglerBLL ejendomsmægler;
+
         public EjendomsmæglerUI()
         {
             InitializeComponent();
@@ -23,11 +25,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_OpretEjendomsmægler_Click(object sender, EventArgs e)
         {
-            EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
-            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
+            ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: OpretEjendomsmægler
-            ejendomsmæglerDAL.OpretEjendomsmægler(ejendomsmæglerBLL);
+            //ejendomsmæglerDAL.OpretEjendomsmægler(ejendomsmæglerBLL);
+
+            try
+            {
+                ejendomsmægler.OpretEjendomsmægler(ejendomsmægler);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             //Loader data fra databasen ind i datagridview -
             EjendomsmæglerUI_Load(sender, e);
@@ -36,12 +47,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_HentEjendomsmægler_Click(object sender, EventArgs e) 
         {
-            EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
-            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
+            ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             try
             {
-                EjendomsmæglerBLL matchingejendomsmægler = ejendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerBLL);
+                EjendomsmæglerBLL matchingejendomsmægler = EjendomsmæglerBLL.HentEjendomsmægler(ejendomsmægler);
                 CPR_txt.Text = matchingejendomsmægler.CPR.ToString();
                 Telefon_txt.Text = matchingejendomsmægler.Telefon.ToString();
                 Email_txt.Text = matchingejendomsmægler.Email.ToString();
@@ -57,7 +68,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Kalder metoden: FindEjendomsmægler
-            ejendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerBLL);
+            //ejendomsmæglerDAL.FindEjendomsmægler(ejendomsmæglerBLL);
 
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
@@ -66,11 +77,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e)
         {
-            EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
-            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
+            ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: OpdaterEjendomsmægler
-            ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmæglerBLL);
+            //ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmæglerBLL);
 
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
@@ -80,10 +91,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_SletEjendomsmægler_Click(object sender, EventArgs e)
         {
             EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
-            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
+            //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: SletEjendomsmægler
-            ejendomsmæglerDAL.SletEjendomsmægler(ejendomsmæglerBLL);
+            //ejendomsmæglerDAL.SletEjendomsmægler(ejendomsmæglerBLL);
 
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);

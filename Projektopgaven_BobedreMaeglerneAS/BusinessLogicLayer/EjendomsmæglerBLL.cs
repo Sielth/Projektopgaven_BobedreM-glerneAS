@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projektopgaven_BobedreMæglerneAS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -80,6 +81,31 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
                         $"Telefon: {Telefon}\n" +
                         $"Email: {Email}");
             }
+        }
+
+
+        public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        {
+            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL();
+            ejendomsmæglerDAL.OpretEjendomsmægler(ejendomsmægler);
+
+        }
+
+        public static EjendomsmæglerBLL HentEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        {
+            return EjendomsmæglerDAL.HentEjendomsmægler(ejendomsmægler);   
+        }
+
+        public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        {
+            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL();
+            ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmægler);
+        }
+
+        public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
+        {
+            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL();
+            ejendomsmæglerDAL.SletEjendomsmægler(ejendomsmægler);
         }
     }
 }
