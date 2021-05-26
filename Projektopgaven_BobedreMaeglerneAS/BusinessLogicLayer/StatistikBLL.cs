@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
+using System.Windows.Forms;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
@@ -60,6 +61,35 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             {
                 Stream.Close();
             }
+        }
+        public List<StatistikBLL> SoldProperties(DateTime startdate, DateTime enddate)
+        {
+            StatistikDAL statistikdal = new StatistikDAL();
+            List<StatistikBLL> stats = statistikdal.SoldProperties(startdate, enddate);
+            return stats;
+            //foreach (StatistikBLL stat in stats)
+            //    Console.WriteLine(stat.ToString());
+
+            //var output = statistik_solgteboliger_lbox;
+
+            //output.Items.Add("Adresse\t\tPostnummer\tMægler\tPris\tHandelsdato");
+            //foreach (StatistikBLL stat in stats)
+            //    output.Items.Add(stat.ToString());  
+        }
+        public void SoldPropertiesToListbox(DateTime startdate, DateTime enddate, ListBox output)
+        {
+            StatistikBLL stat = new StatistikBLL();
+            List<StatistikBLL> stats = SoldProperties(startdate, enddate);
+            output.Items.Add("\t Tidsperiode: " + startdate.ToShortDateString() + " - " + enddate.ToShortDateString());
+            output.Items.Add("Adresse\t\tPostnummer\tMægler\tPris\tHandelsdato");
+            foreach (StatistikBLL s in stats)
+                output.Items.Add(s.ToString());
+
+            //var output = statistik_solgteboliger_lbox;
+
+            //output.Items.Add("Adresse\t\tPostnummer\tMægler\tPris\tHandelsdato");
+            //foreach (StatistikBLL stat in stats)
+            //    output.Items.Add(stat.ToString());
         }
 
         public override string ToString()
