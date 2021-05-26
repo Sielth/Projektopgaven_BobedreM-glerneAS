@@ -83,6 +83,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.statistik_solgteboliger_lbox = new System.Windows.Forms.ListBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.save = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,7 +114,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.Value = new System.DateTime(2000, 2, 2, 0, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2021, 5, 25, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // handelSalgspris_txt
             // 
@@ -416,21 +420,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.createToolStripMenuItem.Text = "Opret en ny Sag";
             this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // readToolStripMenuItem
             // 
             this.readToolStripMenuItem.Name = "readToolStripMenuItem";
-            this.readToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.readToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.readToolStripMenuItem.Text = "Hent og Opdater";
             this.readToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.deleteToolStripMenuItem.Text = "Slet en Sag";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -482,11 +486,31 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.dateTimePicker3.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker3.TabIndex = 17;
             // 
+            // statistik_solgteboliger_lbox
+            // 
+            this.statistik_solgteboliger_lbox.FormattingEnabled = true;
+            this.statistik_solgteboliger_lbox.Location = new System.Drawing.Point(599, 27);
+            this.statistik_solgteboliger_lbox.Name = "statistik_solgteboliger_lbox";
+            this.statistik_solgteboliger_lbox.Size = new System.Drawing.Size(455, 277);
+            this.statistik_solgteboliger_lbox.TabIndex = 18;
+            // 
+            // save
+            // 
+            this.save.Location = new System.Drawing.Point(599, 310);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(75, 23);
+            this.save.TabIndex = 19;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // HandelUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 554);
+            this.Controls.Add(this.save);
+            this.Controls.Add(this.statistik_solgteboliger_lbox);
             this.Controls.Add(this.dateTimePicker3);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.handelID_txt);
@@ -611,5 +635,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.ListBox statistik_solgteboliger_lbox;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button save;
     }
 }

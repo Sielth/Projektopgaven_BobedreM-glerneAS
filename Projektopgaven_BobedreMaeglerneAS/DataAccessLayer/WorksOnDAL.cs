@@ -25,8 +25,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         public void IndsætTimer(WorksOnBLL worksOn)
         {
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
-            {
+
                 //SQL QUERY
                 string sqlCommandWorksOn = "INSERT INTO WORKS_ON (@HandelID, @TotHours)";
 
@@ -59,20 +58,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 //CLOSE CONNECTION
                 if (conn.State == System.Data.ConnectionState.Open)
                     conn.Close();
-            }
+
         }
 
         public EjendomsmæglerBLL HentMægler(int sagsid, int handelid)
         {
-            EjendomsmæglerBLL ejendomsmægler = null;
+            EjendomsmæglerBLL ejendomsmægler = new EjendomsmæglerBLL();
 
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            using (conn)
             {
                 //SQL QUERY
                 string sqlCommand = "SELECT Sag.MæglerID, Ejendomsmægler.Fnavn, Ejendomsmægler.Enavn " +
                     "FROM Handel " +
                     "INNER JOIN Sag ON Sag.SagsID = Handel.SagsID " +
-                    "inner join Ejendomsmægler on Ejendomsmægler.MæglerID = Sag.MæglerID" +
+                    "inner join Ejendomsmægler on Ejendomsmægler.MæglerID = Sag.MæglerID " +
                     "WHERE Sag.SagsID = @SagsID " +
                     "AND Handel.HandelID = @HandelID " +
                     "AND sag.Status = 'Lukket (solgt bolig)'";
@@ -82,8 +81,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 cmd.Parameters.AddWithValue("@SagsID", sagsid);
                 cmd.Parameters.AddWithValue("@HandelID", handelid);
 
-                try
-                {
+                //try
+                //{
                     //OPEN CONNECTION
                     if (conn.State == System.Data.ConnectionState.Closed)
                         conn.Open();
@@ -91,9 +90,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     //BEGIN TRANSACTION
                     Transactions.BeginReadCommittedTransaction(conn);
 
-                    //EXECUTE READER (QUERY)
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
+                //EXECUTE READER (QUERY)
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    
                         //RETRIEVE BoligBLL AND SAVE IN matchingbolig
                         while (reader.Read())
                         {
@@ -104,18 +103,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
                         //CLOSE READER
                         reader.Close();
-                    }
+                    
 
                     //COMMIT OR ROLLBACK
                     if (!Transactions.Commit(conn))
                         Transactions.Rollback(conn);
 
-                    return ejendomsmægler;
-                }
-                catch (SqlException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                //}
+                //catch (SqlException ex)
+                //{
+                //    Console.WriteLine(ex.Message);
+                //}
 
                 //CLOSE CONNECTION
                 if (conn.State == System.Data.ConnectionState.Open)
@@ -131,8 +129,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             //INITIALIZATION OF INT PRIS
             int pris = 0;
 
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
-            {
+
                 //SQL QUERY
                 string sqlCommand = "select Handel.Salgspris from Handel, Sag where Handel.SagsID = @SagsID";
 
@@ -171,7 +168,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 //CLOSE CONNECTION
                 if (conn.State == System.Data.ConnectionState.Open)
                     conn.Close();
-            }
+           
 
             return pris;
         }

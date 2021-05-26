@@ -14,31 +14,53 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class SælgerUI : Form
     {
+        SælgerBLL sælger;
+
         public SælgerUI()
         {
             InitializeComponent();
         }
 
+        #region Opret Sælger
         private void btn_OpretSælger_Click(object sender, EventArgs e)
         {
-            SælgerBLL sælgerBLL = new SælgerBLL(SælgerID(), SælgerCPR(), SælgerTelefon(), SælgerEmail(), SælgerFornavn(), SælgerEfternavn(), SælgerVej(), SælgerPostnummer());
-            SælgerDAL sælgerDAL = new SælgerDAL(sælgerBLL);
+            sælger = new SælgerBLL(SælgerID(), SælgerCPR(), SælgerTelefon(), SælgerEmail(), SælgerFornavn(), SælgerEfternavn(), SælgerVej(), SælgerPostnummer());
 
             //Kalder metoden: OpretSælger
-            sælgerDAL.OpretSælger(sælgerBLL);
+            try
+            {
+                sælger.OpretSælger(sælger);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                SælgerBLL matchingsælger = SælgerBLL.HentSælger(sælger);
+
+                sælgerID_txt.Text = matchingsælger.SælgerID.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             //Loader data fra databasen ind i datagridview
             //SælgerUI_Load(sender, e);
         }
+        #endregion
 
+        #region Hent Sælger / Opdater Sælger
         private void btn_HentSælger_Click(object sender, EventArgs e) //MIGHT WORK?
         {
-            SælgerBLL sælgerBLL = new SælgerBLL(SælgerID(), SælgerCPR(), SælgerTelefon(), SælgerEmail(), SælgerFornavn(), SælgerEfternavn(), SælgerVej(), SælgerPostnummer());
-            SælgerDAL sælgerDAL = new SælgerDAL(sælgerBLL);
+            sælger = new SælgerBLL(SælgerID());
 
             try
             {
-                SælgerBLL matchingeSælger = sælgerDAL.HentSælger(sælgerBLL);
+                SælgerBLL matchingeSælger = SælgerBLL.HentSælgerViaID(sælger);
+
                 sælgerCPR_txt.Text = matchingeSælger.CPR.ToString();
                 sælgerTelefon_txt.Text = matchingeSælger.Telefon.ToString();
                 sælgerEmail_txt.Text = matchingeSælger.Email.ToString();
@@ -47,33 +69,46 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 sælgerVej_txt.Text = matchingeSælger.Vej.ToString();
                 sælgerPostnummer_txt.Text = matchingeSælger.Postnummer.ToString();
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
-            //Kalder metoden: HentSælger
-            sælgerDAL.HentSælger(sælgerBLL);
+            sælgerID_txt.Enabled = false;
         }
 
         private void btn_OpdaterSælger_Click(object sender, EventArgs e) //NOT WORKING YET
         {
-            SælgerBLL sælgerBLL = new SælgerBLL(SælgerID(), SælgerCPR(), SælgerTelefon(), SælgerEmail(), SælgerFornavn(), SælgerEfternavn(), SælgerVej(), SælgerPostnummer());
-            SælgerDAL sælgerDAL = new SælgerDAL(sælgerBLL);
+            sælger = new SælgerBLL(SælgerID(), SælgerCPR(), SælgerTelefon(), SælgerEmail(), SælgerFornavn(), SælgerEfternavn(), SælgerVej(), SælgerPostnummer());
 
-            //Kalder metoden: OpdaterSælger
-            sælgerDAL.OpdaterSælger(sælgerBLL);
+            try
+            {
+                sælger.OpdaterSælger(sælger);
+
+                btn_HentSælger_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+        #endregion
 
+        #region Slet Sælger
         private void btn_SletSælger_Click(object sender, EventArgs e)
         {
-            SælgerBLL sælgerBLL = new SælgerBLL(SælgerID(), SælgerCPR(), SælgerTelefon(), SælgerEmail(), SælgerFornavn(), SælgerEfternavn(), SælgerVej(), SælgerPostnummer());
-            SælgerDAL sælgerDAL = new SælgerDAL(sælgerBLL);
+            SælgerBLL sælgerBLL = new SælgerBLL(SælgerID());
 
-            //Kalder metoden: SletSælger
-            sælgerDAL.SletSælger(sælgerBLL);
+            try
+            {
+                sælger.SletSælger(sælger);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+        #endregion
 
         #region Convert Textboxes
         private int SælgerID()

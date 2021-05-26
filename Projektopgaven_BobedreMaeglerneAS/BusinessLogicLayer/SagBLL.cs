@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
@@ -45,6 +46,41 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public override string ToString()
         {
             return $"{SagsID} - {Status}";
+        }
+
+        public static SagBLL FromString(string input)
+        {
+            string[] sag = input.Split(' ');
+
+            return new SagBLL(Convert.ToInt32(sag[0]), sag[2]);
+        }
+
+        public void OpretSag(SagBLL sag)
+        {
+            SagDAL sagDAL = new SagDAL();
+            sagDAL.OpretSag(sag);
+        }
+
+        public static SagBLL HentSagViaID(SagBLL sagToFind)
+        {
+            return SagDAL.HentSagViaID(sagToFind);
+        }
+
+        public static SagBLL HentSag(SagBLL sagToFind)
+        {
+            return SagDAL.HentSag(sagToFind);
+        }
+
+        public void OpdaterSag(SagBLL sag)
+        {
+            SagDAL sagDAL = new SagDAL();
+            sagDAL.OpdaterSag(sag);
+        }
+
+        public void SletSag(SagBLL sag)
+        {
+            SagDAL sagDAL = new SagDAL();
+            sagDAL.SletSag(sag);
         }
     }
 }

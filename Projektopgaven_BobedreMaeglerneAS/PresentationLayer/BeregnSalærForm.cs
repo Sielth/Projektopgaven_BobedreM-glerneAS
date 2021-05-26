@@ -57,16 +57,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             WorksOnBLL worksOnBLL = new WorksOnBLL();
             WorksOnDAL worksOnDAL = new WorksOnDAL(worksOnBLL);
 
-            try
-            {
+            //try
+            //{
                 EjendomsmæglerBLL ejendomsmægler = worksOnDAL.HentMægler(SagsID(), HandelID());
 
                 beregn_mæglerID_cbox.Text = ejendomsmægler.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
 
@@ -111,6 +111,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private int SagsID()
         {
+            var selected = beregn_sagsID_cbox.SelectedItem;
             string[] sagsID_txt = beregn_sagsID_cbox.SelectedItem.ToString().Split(' ');
             int.TryParse(sagsID_txt[0], out int sagsID);
             return sagsID;

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMæglerneAS
 {
@@ -193,6 +194,34 @@ namespace Projektopgaven_BobedreMæglerneAS
             }
             else
                 return 0;
+        }
+
+        public void OpretBolig(BoligBLL bolig)
+        {
+            BoligDAL boligDAL = new BoligDAL();
+            boligDAL.OpretBolig(bolig);
+        }
+
+        public static BoligBLL HentBoligViaID(BoligBLL boligToFind)
+        {
+            return BoligDAL.HentBoligViaID(boligToFind);
+        }
+
+        public static BoligBLL HentBolig(BoligBLL boligToFind)
+        {
+            return BoligDAL.HentBolig(boligToFind);
+        }
+
+        public void OpdaterBolig(BoligBLL bolig)
+        {
+            BoligDAL boligDAL = new BoligDAL();
+            boligDAL.OpdaterBolig(bolig);
+        }
+
+        public void SletBolig(BoligBLL bolig)
+        {
+            BoligDAL boligDAL = new BoligDAL();
+            boligDAL.SletBolig(bolig);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         {
 
         }
-        public void StatsToText()
+        public static void StatsToText(DateTime startdate, DateTime Enddate)
         {
             //DateTime salgsdato;
             //int price;
@@ -35,26 +35,36 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             //string city;
             StatistikDAL StatistikDAL = new StatistikDAL();
             List<StatistikBLL> statistik = new List<StatistikBLL>();
-            //statistik = StatistikDAL.SoldProperties(/*startdate, Enddate*/);
+            statistik = StatistikDAL.SoldProperties(startdate, Enddate);
+
+            StreamWriter Stream = null;
+            string path = @"Resources/text.txt";
 
             try
             {
-                StreamWriter sw = new StreamWriter(@"Resources/");
-                sw.WriteLine("\t Tidsperiode:"); //tilføj tidsperiode man har sorteret efter
-                sw.WriteLine("Adresse\t Postnummer\t Mægler\t Pris\t Handelsdato");
+                Stream = new StreamWriter(path);
+
+                Stream.WriteLine("\t Tidsperiode:"); //tilføj tidsperiode man har sorteret efter
+                Stream.WriteLine("Adresse\t Postnummer\t Mægler\t Pris\t Handelsdato");
+                
                 foreach (StatistikBLL a in statistik)
                 {
-                    Console.WriteLine(a.ToString());
+                    Stream.WriteLine(a.ToString());
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            finally
+            {
+                Stream.Close();
+            }
         }
+
         public override string ToString()
         {
-            return $"{Vej}\t,{Postnummer}\t,{MæglerID}\t,{Salgspris}\t,{Handelsdato.ToShortDateString()}";
+            return $"{Vej}\t{Postnummer, 15}\t{MæglerID}\t{Salgspris}\t{Handelsdato.ToShortDateString()}";
         }
     }
 }

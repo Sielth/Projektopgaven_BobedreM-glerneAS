@@ -33,8 +33,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
             List<StatistikBLL> statistik = new List<StatistikBLL>();
 
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
-            {
+
                 //DateTime startdate = Handel.GetStartDate().Value;
                 //DateTime enddate = Handel.GetEndDate().Value;
                 //string sqlCommandStatistik = "SELECT * FROM Handel WHERE Handelsdato BETWEEN '" + startdate + "' AND '" + enddate + "+";
@@ -47,7 +46,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 SqlCommand cmd = new SqlCommand(sqlCommandStatistik, conn);
 
                 cmd.Parameters.AddWithValue("@date1", startdate);
-                cmd.Parameters.AddWithValue("@date2",enddate);
+                cmd.Parameters.AddWithValue("@date2", enddate);
 
                 try
                 {
@@ -85,7 +84,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 {
                     conn.Close();
                 }
-            }
+           
 
             return statistik;
         }

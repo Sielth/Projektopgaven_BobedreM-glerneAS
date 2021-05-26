@@ -13,35 +13,41 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
     class KøberDAL
     {
-        private KøberBLL KøberBLL;
-        private ConnectionSingleton s1;
-        private SqlConnection conn;
+        private static ConnectionSingleton s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+        private static SqlConnection conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
 
         private ComboBox output;
 
-        public KøberDAL(KøberBLL køberBLL)
+        public KøberDAL()
         {
-            this.KøberBLL = køberBLL;
-            this.s1 = ConnectionSingleton.Instance();
-            this.conn = s1.GetConnection();
+
         }
 
         #region Threads
         public KøberDAL(ComboBox cBox)
         {
             output = cBox;
-            this.s1 = ConnectionSingleton.Instance();
-            this.conn = s1.GetConnection();
         }
 
         private delegate void DisplayDelegate(List<KøberBLL> købere);
 
         private void DisplayKøber(List<KøberBLL> købere)
         {
-            output.Items.Clear();
+            if (output.Items.Count == 0)
+            {
+                foreach (KøberBLL køber in købere)
+                    output.Items.Add(køber.ToString());
+            }
+            else
+            {
+                KøberBLL lastIndexItem = KøberBLL.FromString(output.Items[output.Items.Count - 1].ToString());
 
-            foreach (KøberBLL køber in købere)
-                output.Items.Add(køber.ToString());
+                foreach (KøberBLL køber in købere)
+                {
+                    if (køber.KøberID > lastIndexItem.KøberID)
+                        output.Items.Add(køber.ToString());
+                }
+            } 
         }
 
         //Metode til at få alle KøberID vist i comboboksen i HandelUI
@@ -51,10 +57,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             //Initialisere liste af KøberBLL købere 
             List<KøberBLL> køber = new List<KøberBLL>();
 
-            using (var conn = new SqlConnection(ConnectionSingleton.ConnectionString))
+            using (var conn = new SqlConnection(s1.GetConnectionString()))
             {
                 //SQL QUERY
-                string sqlcommand = "SELECT * FROM Køber";
+                string sqlcommand = "SELECT * FROM Køber ORDER BY KøberID";
 
                 //SQL COMMAND
                 SqlCommand command = new SqlCommand(sqlcommand, conn);
@@ -78,7 +84,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                         }
 
                         //CLOSE READER
-                        reader.Close();
+                        if (reader != null)
+                            reader.Close();
                     }
 
                     //COMMIT OR ROLLBACK
@@ -93,10 +100,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 //CLOSE CONNECTION
                 if (conn.State == System.Data.ConnectionState.Open)
                     conn.Close();
-
-                //RETURN
-                return køber;
             }
+
+            //RETURN
+            return køber;
+            
         }
 
         public void GenerateKøber()
@@ -133,13 +141,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         }
 
         #endregion
-        public void OpretKøber(KøberBLL køber) //Opretter køber
-        {
-            //Connection string
-            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            //SqlConnection conn = s1.GetConnection();
 
+        #region Opret Køber
+        //method to create a new KøberBLL
+        public void OpretKøber(KøberBLL køber)
+        {
             string sqlCommandKøber = "INSERT INTO Køber VALUES (@CPR, @Telefon, @Email, @Fnavn, @Enavn, @Vej, @Postnummer)";
+            
             SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
             cmdKøber.Parameters.AddWithValue("@CPR", køber.CPR);
             cmdKøber.Parameters.AddWithValue("@Telefon", køber.Telefon);
@@ -148,49 +156,52 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdKøber.Parameters.AddWithValue("@Enavn", køber.Enavn);
             cmdKøber.Parameters.AddWithValue("@Vej", køber.Vej);
             cmdKøber.Parameters.AddWithValue("@Postnummer", køber.Postnummer);
+           
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+                
                 Transactions.BeginRepeatableReadTransaction(conn);
+                
                 cmdKøber.ExecuteNonQuery();
 
                 if (!Transactions.Commit(conn))
-                {
                     Transactions.Rollback(conn);
-                }
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }
-            //finally
-            //{
-            //    conn.Close();
-            //}
-            if (conn != null)
+
+            if (conn.State == System.Data.ConnectionState.Open)
                 conn.Close();
         }
+        #endregion
 
-        public KøberBLL FindKøber(KøberBLL køber)
+        #region Hent Køber
+        public static KøberBLL FindKøber(KøberBLL køberToFind)
         {
-            //Connection string
-            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            //SqlConnection conn = s1.GetConnection();
+            KøberBLL matchingkøber = null;
 
             string sqlCommandKøber = "SELECT * FROM Sælger WHERE SælgerID = @SæglerID";
 
             SqlCommand commandKøber = new SqlCommand(sqlCommandKøber, conn);
 
-            commandKøber.Parameters.AddWithValue("@KøberID", køber.KøberID);
+            commandKøber.Parameters.AddWithValue("@KøberID", køberToFind.KøberID);
+            
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+                
                 Transactions.BeginRepeatableReadTransaction(conn);
+                
                 using (SqlDataReader reader = commandKøber.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        KøberBLL matchingkøber = new KøberBLL((int)reader["KøberID"],
+                        matchingkøber = new KøberBLL((int)reader["KøberID"],
                             reader["Vej"].ToString(),
                             (int)reader["Postnummer"],
                             (int)reader["CPR"],
@@ -199,31 +210,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             reader["Email"].ToString(),
                             (int)reader["Telefon"]);
 
-                        return matchingkøber;
                     }
+
+                    if (reader != null)
+                        reader.Close();
                 }
+
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }
-            //finally
-            //{
-            //    conn.Close();
-            //}
-            if (conn != null)
-                conn.Close();
-            return null;
-        }
 
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            return matchingkøber;
+        }
+        #endregion
+
+        #region Opdater Køber
         public void OpdaterKøber(KøberBLL køber) //Opdaterer køber
         {
-            //Connection string
-            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            //SqlConnection conn = s1.GetConnection();
-
-            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
-
             //Tjekker om tekstboxe var tomme og undlader at opdaterer informationer for dem der er tomme
             string sqlCommandKøber = "UPDATE Køber SET" +
                 "CPR = IsNull(NullIf(@CPR, ''), CPR)," +
@@ -234,6 +244,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 "Vej = IsNull(NullIf(@Vej, ''), Vej)," +
                 "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer)," +
                 "WHERE KøberID = @KøberID";
+
             //Sender input til database for at opdatere
             SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber);
             cmdKøber.Parameters.AddWithValue("@CPR", køber.CPR);
@@ -243,60 +254,64 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             cmdKøber.Parameters.AddWithValue("@Enavn", køber.Enavn);
             cmdKøber.Parameters.AddWithValue("@Vej", køber.Vej);
             cmdKøber.Parameters.AddWithValue("@Postnummer", køber.Postnummer);
+            
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+                
                 Transactions.BeginRepeatableReadTransaction(conn);
+                
                 cmdKøber.ExecuteNonQuery();
 
+                //COMMIT OR ROLLBACK
                 if (!Transactions.Commit(conn))
-                {
                     Transactions.Rollback(conn);
-                }
             }
             catch (SqlException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
-            //finally
-            //{
-            //    conn.Close();
-            //}
-            if (conn != null)
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
                 conn.Close();
         }
+        #endregion
 
+        #region Slet Køber
         public void SletKøber(KøberBLL køber) //Sletter køber
         {
-            //Connection string
-            //ConnectionSingleton s1 = ConnectionSingleton.Instance();
-            //SqlConnection conn = s1.GetConnection();
-
             string sqlCommandKøber = "DELETE FROM Køber WHERE (@KøberID)";
+
             SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
             cmdKøber.Parameters.AddWithValue("@KøberID", køber.KøberID);
+
             try
             {
-                conn.Open();
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
                 Transactions.BeginRepeatableReadTransaction(conn);
+
+                //EXECUTE QUERY
                 cmdKøber.ExecuteNonQuery();
 
+                //COMMIT OR ROLLBACK
                 if (!Transactions.Commit(conn))
-                {
                     Transactions.Rollback(conn);
-                }
             }
             catch (SqlException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
-            //finally
-            //{
-            //    conn.Close();
-            //}
-            if (conn != null)
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
                 conn.Close();
         }
-        
+        #endregion
     }
 }

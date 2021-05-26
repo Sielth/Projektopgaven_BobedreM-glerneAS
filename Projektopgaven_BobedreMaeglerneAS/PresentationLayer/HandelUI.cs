@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
@@ -64,6 +65,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_opdaterhandel_Click(object sender, EventArgs e)
         {
             HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
+            
             HandelDAL handelDAL = new HandelDAL(handelBLL);
 
             //Kalder metoden: OpretHandel
@@ -86,7 +88,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
 
-        #region Konveter Tekstbokse
+        #region Konverter Tekstbokse
         public int HandelID()
         {
             int.TryParse(handelID_txt.Text, out int handelid);
@@ -95,8 +97,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         public DateTime Handelsdato()
         {
-            DateTime.TryParse(dateTimePicker1.Text, out DateTime handelsdato);
-            return handelsdato;
+            //DateTime.TryParse(dateTimePicker1.Text, out DateTime handelsdato);
+            return GetStartDate().Value;
         }
 
         public int HandelSalgspris()
@@ -105,16 +107,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return handelsalgspris;
         }
 
-        public int HandelSagsID()
+        private int HandelSagsID()
         {
-            int.TryParse(handelSalgsID_cbox.Text, out int handelsalgsid);
-            return handelsalgsid;
+            if (handelSalgsID_cbox.SelectedItem != null)
+            {
+                var selected = handelSalgsID_cbox.SelectedItem;
+                string[] sagsID_txt = handelSalgsID_cbox.SelectedItem.ToString().Split(' ');
+                int.TryParse(sagsID_txt[0], out int sagsID);
+                return sagsID;
+            }
+            else
+            {
+                int.TryParse(handelSalgsID_cbox.Text, out int sagsID);
+                return sagsID;
+            }
         }
 
         public int HandelKøberID()
         {
-            int.TryParse(handelKøberID_cbox.Text, out int handelkøberid);
-            return handelkøberid;
+            var selected = handelKøberID_cbox.SelectedItem;
+            string[] køberID_txt = handelKøberID_cbox.Text.ToString().Split(' ');
+            int.TryParse(køberID_txt[0], out int køberID);
+            return køberID;
         }
         #endregion
 
@@ -268,6 +282,38 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             foreach (StatistikBLL stat in stats)
                 Console.WriteLine(stat.ToString());
 
+            var output = statistik_solgteboliger_lbox;
+
+            output.Items.Add("Adresse\t\tPostnummer\tMægler\tPris\tHandelsdato");
+            foreach (StatistikBLL stat in stats)
+                output.Items.Add(stat.ToString());
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            //saveFileDialog1.Filter = "Txt File (*.txt)|*.txt|All files (*.*)|*.*";
+            //saveFileDialog1.Title = "Save a Text File";
+            //saveFileDialog1.RestoreDirectory = true;
+
+            //// If the file name is not an empty string open it for saving.
+            //if (saveFileDialog1.FileName != "")
+            //{
+            //    // Saves the File via a FileStream created by the OpenFile method.
+            //    System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();
+
+            //    fs.Close();
+            //}
+            //else if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    File.WriteAllText(saveFileDialog1.FileName, )
+            //}
+
+            StatistikBLL.StatsToText(dateTimePicker1.Value, dateTimePicker3.Value);
         }
     }
 }
