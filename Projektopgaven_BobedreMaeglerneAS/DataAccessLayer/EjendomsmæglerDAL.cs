@@ -21,9 +21,9 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         private ComboBox output;
 
-        public EjendomsmæglerDAL(EjendomsmæglerBLL ejendomsmæglerBLL)
+        public EjendomsmæglerDAL()
         {
-            this.EjendomsmæglerBLL = ejendomsmæglerBLL;
+            
         }
 
         #region Threads
@@ -173,7 +173,7 @@ namespace Projektopgaven_BobedreMæglerneAS
         #endregion
 
         #region Hent Ejendomsmægler
-        public EjendomsmæglerBLL FindEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Find/hent ejendomsmægler
+        public static EjendomsmæglerBLL HentEjendomsmægler(EjendomsmæglerBLL ejendomsmægler) //Find/hent ejendomsmægler
         {
             //Connection string
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
