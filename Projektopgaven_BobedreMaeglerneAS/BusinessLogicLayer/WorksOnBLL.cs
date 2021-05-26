@@ -3,20 +3,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
     class WorksOnBLL
     {
-        public int HandelID {get; private set;}
+        public int SagsID { get; private set; }
         public int TotHours { get; private set; }
 
-        public WorksOnBLL(int handelID, int totHours)
+        WorksOnDAL worksOnDAL;
+
+        public WorksOnBLL(int sagsID, int totHours)
         {
-            this.HandelID = handelID;
+            this.SagsID = sagsID;
             this.TotHours = totHours;
         }
 
         public WorksOnBLL() { }
+
+        public void IndsætTimer(WorksOnBLL worksOn)
+        {
+            worksOnDAL = new WorksOnDAL();
+            worksOnDAL.IndsætTimer(worksOn);
+        }
+
+        public static EjendomsmæglerBLL HentMægler(int sagsid, int handelid)
+        {
+            return WorksOnDAL.HentMægler(sagsid);
+        }
+
+        public static int HentSalgspris(string sagsid)
+        {
+            return WorksOnDAL.HentSalgspris(sagsid);
+        }
+
+        public bool HandelExists(int sagsid)
+        {
+            return worksOnDAL.HandelExists(sagsid);
+        }
+
+        public string BeregnSalær(int salgspris, int antalTimer)
+        {
+            int salær = antalTimer * 150;
+
+            salær += salgspris / 100 * 2;
+
+            return salær.ToString();
+        }
+
     }
 }

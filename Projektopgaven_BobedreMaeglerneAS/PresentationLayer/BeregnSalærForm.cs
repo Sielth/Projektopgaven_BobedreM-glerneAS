@@ -16,17 +16,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
     public partial class BeregnSalærForm : Form
     {
-        EjendomsmæglerDAL ejendomsmægler;
         SagDAL sag;
+
+        WorksOnBLL worksOn;
+        EjendomsmæglerBLL ejendomsmægler;
 
         public BeregnSalærForm()
         {
-            InitializeComponent();
-
-            ejendomsmægler = new EjendomsmæglerDAL(beregn_mæglerID_cbox);
-            Thread t1 = new Thread(new ThreadStart(ejendomsmægler.GenerateEjendomsmægler));
-            t1.IsBackground = true;
-            t1.Start();
+            InitializeComponent();;
 
             sag = new SagDAL(beregn_sagsID_cbox);
             Thread t2 = new Thread(new ThreadStart(sag.GenerateSag));
@@ -36,83 +33,41 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_indsæt_Click(object sender, EventArgs e)
         {
-            WorksOnBLL worksOnBLL = new WorksOnBLL(HandelID(), TotHours());
-            WorksOnDAL worksOnDAL = new WorksOnDAL(worksOnBLL);
+            worksOn = new WorksOnBLL(SagsID(), TotHours());
 
             try
             {
-                worksOnDAL.IndsætTimer(worksOnBLL);
+                worksOn.IndsætTimer(worksOn);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            result_txt.Text = BeregnSalær(worksOnDAL.HentSalgspris(SagsID().ToString()), TotHours());
-
+            if (worksOn.HandelExists(SagsID()))
+                result_txt.Text = worksOn.BeregnSalær(WorksOnBLL.HentSalgspris(SagsID().ToString()), TotHours());
+            else
+                result_txt.Text = worksOn.BeregnSalær(0, TotHours());
         }
 
         private void beregn_hentData_btn_Click(object sender, EventArgs e)
         {
-            WorksOnBLL worksOnBLL = new WorksOnBLL();
-            WorksOnDAL worksOnDAL = new WorksOnDAL(worksOnBLL);
+            try
+            {
+                ejendomsmægler = WorksOnDAL.HentMægler(SagsID());
 
-            //try
-            //{
-                EjendomsmæglerBLL ejendomsmægler = worksOnDAL.HentMægler(SagsID(), HandelID());
-
-                beregn_mæglerID_cbox.Text = ejendomsmægler.ToString();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+                beregn_mæglerID_txt.Text = ejendomsmægler.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
-
-        public string BeregnSalær(int salgspris, int antalTimer)
-        {
-            int salær = antalTimer * 150;
-
-            salær += salgspris / 100 * 2;
-
-            return salær.ToString();
-        }
-
-        //private void btn_beregnSalær_Click(object sender, EventArgs e)
-        //{
-        //    string sagsid = null;
-        //    handel = new HandelDAL();
-
-        //    if (sagID_txt != null)
-        //        sagsid = sagID_txt.Text;
-
-        //    int salgspris = handel.HentSalgsPris(sagsid);
-        //    int.TryParse(antalTimer_txt.Text, out int antaltimer);
-
-        //    resut_txt.Text = BeregnSalær(salgspris, antaltimer);
-
-        //}
 
         #region Convert TextBoxes
-        private int HandelID()
-        {
-            string[] handelID_txt = beregn_handleID_cbox.SelectedIndex.ToString().Split(' ');
-            int.TryParse(handelID_txt[0], out int handelID);
-            return handelID;
-        }
-
-        private int MæglerID()
-        {
-            string[] mælgerID_txt = beregn_mæglerID_cbox.SelectedItem.ToString().Split(' ');
-            int.TryParse(mælgerID_txt[0], out int mælgerID);
-            return mælgerID;
-        }
-
         private int SagsID()
         {
-            var selected = beregn_sagsID_cbox.SelectedItem;
-            string[] sagsID_txt = beregn_sagsID_cbox.SelectedItem.ToString().Split(' ');
+            string[] sagsID_txt = beregn_sagsID_cbox.Text.ToString().Split(' ');
             int.TryParse(sagsID_txt[0], out int sagsID);
             return sagsID;
         }
