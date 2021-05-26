@@ -19,6 +19,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
     {
         KøberDAL køber;
         SagDAL sag;
+
+        HandelBLL handel;
+
         StatistikBLL statistik = new StatistikBLL();
         StatistikDAL statistikdal = new StatistikDAL();
 
@@ -40,11 +43,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_oprethandel_Click(object sender, EventArgs e)
         {
-            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
-            HandelDAL handelDAL = new HandelDAL(handelBLL);
+            handel = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
 
             //Kalder metoden: OpretHandel
-            handelDAL.OpretHandel(handelBLL);
+            handel.OpretHandel(handel);
 
             ////Loader data fra databasen ind i datagridview -
             //HandelUI_Load(sender, e);
@@ -52,24 +54,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_findhandel_Click(object sender, EventArgs e)
         {
-            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
-            HandelDAL handelDAL = new HandelDAL(handelBLL);
-
+            handel = new HandelBLL(HandelID());
+            
+            HandelBLL matchinghandel = HandelBLL.FindHandel(handel);
             //Kalder metoden: OpretHandel
-            handelDAL.FindHandel(handelBLL);
 
+            handelSalgsID_cbox.Text = matchinghandel.SagsID.ToString();
+            handelKøberID_cbox.Text = matchinghandel.KøberID.ToString();
+            handelSalgspris_txt.Text = matchinghandel.Salgspris.ToString();
             ////Loader data fra databasen ind i datagridview -
             //HandelUI_Load(sender, e);
         }
 
         private void btn_opdaterhandel_Click(object sender, EventArgs e)
         {
-            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
-            
-            HandelDAL handelDAL = new HandelDAL(handelBLL);
+            handel = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
 
             //Kalder metoden: OpretHandel
-            handelDAL.OpdaterHandel(handelBLL);
+            handel.OpdaterHandel(handel);
 
             ////Loader data fra databasen ind i datagridview -
             //HandelUI_Load(sender, e);
@@ -77,11 +79,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_slethandel_Click(object sender, EventArgs e)
         {
-            HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
-            HandelDAL handelDAL = new HandelDAL(handelBLL);
+            HandelBLL handelBLL = new HandelBLL(HandelID());
 
             //Kalder metoden: OpretHandel
-            handelDAL.SletHandel(handelBLL);
+            handel.SletHandel(handel);
 
             ////Loader data fra databasen ind i datagridview -
             //HandelUI_Load(sender, e);
@@ -268,7 +269,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //statistik.StatsToText();
             //statistikdal.SoldProperties(dateTimePicker1.Value, dateTimePicker3.Value);
 
-            StatistikDAL statistikdal = new StatistikDAL();
+            StatistikBLL statistikbll = new StatistikBLL();
+            statistikbll.SoldPropertiesToListbox(dateTimePicker1.Value, dateTimePicker3.Value, statistik_solgteboliger_lbox);
 
             //DateTime from, to;
 
@@ -277,16 +279,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //    DateTime.ParseExact ("yyyy-MM-dd HH:mm:ss:fff", dateTimePicker1, )
             //}
 
-            List<StatistikBLL> stats = statistikdal.SoldProperties(dateTimePicker1.Value, dateTimePicker3.Value);
+            //List<StatistikBLL> stats = statistikdal.SoldProperties(dateTimePicker1.Value, dateTimePicker3.Value);
 
-            foreach (StatistikBLL stat in stats)
-                Console.WriteLine(stat.ToString());
+            //foreach (StatistikBLL stat in stats)
+            //    Console.WriteLine(stat.ToString());
 
-            var output = statistik_solgteboliger_lbox;
+            //var output = statistik_solgteboliger_lbox;
 
-            output.Items.Add("Adresse\t\tPostnummer\tMægler\tPris\tHandelsdato");
-            foreach (StatistikBLL stat in stats)
-                output.Items.Add(stat.ToString());
+            //output.Items.Add("Adresse\t\tPostnummer\tMægler\tPris\tHandelsdato");
+            //foreach (StatistikBLL stat in stats)
+            //    output.Items.Add(stat.ToString());
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

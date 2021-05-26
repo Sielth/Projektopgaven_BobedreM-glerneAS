@@ -30,6 +30,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         }
 
         public HandelBLL() { }
+
+        public void OpretHandel(HandelBLL handel)
+        {
+            HandelDAL handelDAL = new HandelDAL();
+            handelDAL.OpretHandel(handel);
+        }
+
+        public static HandelBLL FindHandel(HandelBLL handelToFind)
+        {
+            return HandelDAL.FindHandel(handelToFind);
+        }
+
+        public void OpdaterHandel(HandelBLL handel)
+        {
+            HandelDAL handelDAL = new HandelDAL();
+            handelDAL.OpdaterHandel(handel);
+        }
+
+        public void SletHandel(HandelBLL handel)
+        {
+            HandelDAL handelDAL = new HandelDAL();
+            handelDAL.SletHandel(handel);
+        }
+
         //Methods go here
         /*public void StatsToText()
         {
