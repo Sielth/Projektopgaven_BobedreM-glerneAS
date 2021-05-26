@@ -50,6 +50,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoligTest.cs" />
     <Compile Include="TestEjendomsmægler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Connectionstring.cs" />

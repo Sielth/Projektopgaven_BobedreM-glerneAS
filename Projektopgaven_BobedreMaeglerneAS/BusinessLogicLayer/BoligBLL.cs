@@ -9,7 +9,7 @@ using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMæglerneAS
 {
-    class BoligBLL : IComparable
+    public class BoligBLL : IComparable
     {
         public int BoligID { get; private set; }
         public string Vej { get; private set; }
