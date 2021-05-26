@@ -296,10 +296,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void save_Click(object sender, EventArgs e)
         {
-            //saveFileDialog1.Filter = "Txt File|*.txt";
+            //saveFileDialog1.Filter = "Txt File (*.txt)|*.txt|All files (*.*)|*.*";
             //saveFileDialog1.Title = "Save a Text File";
-
-            //saveFileDialog1.ShowDialog();
+            //saveFileDialog1.RestoreDirectory = true;
 
             //// If the file name is not an empty string open it for saving.
             //if (saveFileDialog1.FileName != "")
@@ -307,10 +306,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //    // Saves the File via a FileStream created by the OpenFile method.
             //    System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();
 
-
-
             //    fs.Close();
-
+            //}
+            //else if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    File.WriteAllText(saveFileDialog1.FileName, )
             //}
 
             StatistikBLL.StatsToText(dateTimePicker1.Value, dateTimePicker3.Value);
