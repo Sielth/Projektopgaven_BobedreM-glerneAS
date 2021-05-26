@@ -83,10 +83,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             }
         }
 
-
+        #region CRUD metoder
         public void OpretEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL();
+            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(); //Laver et nyt objekt
             ejendomsmæglerDAL.OpretEjendomsmægler(ejendomsmægler);
 
         }
@@ -98,14 +98,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 
         public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL();
+            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(); //Laver et nyt objekt
             ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmægler);
         }
 
         public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL();
+            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(); //Laver et nyt objekt
             ejendomsmæglerDAL.SletEjendomsmægler(ejendomsmægler);
         }
+        #endregion
     }
 }
