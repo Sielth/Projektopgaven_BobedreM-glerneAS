@@ -21,9 +21,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         SagDAL sag;
 
         HandelBLL handel;
-
-        StatistikBLL statistik = new StatistikBLL();
-        StatistikDAL statistikdal = new StatistikDAL();
+        StatistikBLL statistik;
 
         public HandelUI()
         {
@@ -79,7 +77,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_slethandel_Click(object sender, EventArgs e)
         {
-            HandelBLL handelBLL = new HandelBLL(HandelID());
+            handel = new HandelBLL(HandelID());
 
             //Kalder metoden: OpretHandel
             handel.SletHandel(handel);
@@ -269,8 +267,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //statistik.StatsToText();
             //statistikdal.SoldProperties(dateTimePicker1.Value, dateTimePicker3.Value);
 
-            StatistikBLL statistikbll = new StatistikBLL();
-            statistikbll.SoldPropertiesToListbox(dateTimePicker1.Value, dateTimePicker3.Value, statistik_solgteboliger_lbox);
+            statistik = new StatistikBLL();
+            statistik.SoldPropertiesToListbox(dateTimePicker1.Value, dateTimePicker3.Value, statistik_solgteboliger_lbox);
 
             //DateTime from, to;
 
@@ -291,30 +289,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //    output.Items.Add(stat.ToString());
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void save_Click(object sender, EventArgs e)
         {
-            //saveFileDialog1.Filter = "Txt File (*.txt)|*.txt|All files (*.*)|*.*";
-            //saveFileDialog1.Title = "Save a Text File";
-            //saveFileDialog1.RestoreDirectory = true;
+            statistik = new StatistikBLL();
 
-            //// If the file name is not an empty string open it for saving.
-            //if (saveFileDialog1.FileName != "")
-            //{
-            //    // Saves the File via a FileStream created by the OpenFile method.
-            //    System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();
-
-            //    fs.Close();
-            //}
-            //else if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-            //    File.WriteAllText(saveFileDialog1.FileName, )
-            //}
-
+            statistik.StatsToTextChooseFilePath(dateTimePicker1.Value, dateTimePicker3.Value, saveFileDialog1);
+            //OR
             StatistikBLL.StatsToText(dateTimePicker1.Value, dateTimePicker3.Value);
         }
     }

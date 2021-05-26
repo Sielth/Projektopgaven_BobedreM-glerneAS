@@ -31,6 +31,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 
         public HandelBLL() { }
 
+        public override string ToString()
+        {
+            return HandelID.ToString();
+        }
+
+        public static HandelBLL FromString(string input)
+        {
+            string[] handel = input.Split(' ');
+
+            return new HandelBLL(Convert.ToInt32(handel[0]));
+        }
+
         public void OpretHandel(HandelBLL handel)
         {
             HandelDAL handelDAL = new HandelDAL();

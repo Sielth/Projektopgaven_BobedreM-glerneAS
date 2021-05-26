@@ -10,166 +10,197 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 {
     class WorksOnDAL
     {
-        private WorksOnBLL WorksOnBLL;
+        private static ConnectionSingleton s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
+        private static SqlConnection conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
 
-        private ConnectionSingleton s1;
-        private SqlConnection conn;
-
-        public WorksOnDAL(WorksOnBLL worksOnBLL)
+        public WorksOnDAL()
         {
-            this.WorksOnBLL = worksOnBLL;
 
-            this.s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
-            this.conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
         }
 
+        //method to insert the amount of hour worked on a project
         public void IndsætTimer(WorksOnBLL worksOn)
         {
+            //SQL QUERY
+            string sqlCommandWorksOn = "INSERT INTO WORKS_ON VALUES(@SagsID, @TotHours)";
 
-                //SQL QUERY
-                string sqlCommandWorksOn = "INSERT INTO WORKS_ON (@HandelID, @TotHours)";
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmdWorksOn = new SqlCommand(sqlCommandWorksOn, conn);
 
-                //SQL COMMAND + PARAMETERS
-                SqlCommand cmdWorksOn = new SqlCommand(sqlCommandWorksOn, conn);
-                cmdWorksOn.Parameters.AddWithValue("@HandelID", worksOn.HandelID);
-                cmdWorksOn.Parameters.AddWithValue("@TotHours", worksOn.TotHours);
+            cmdWorksOn.Parameters.AddWithValue("@SagsID", worksOn.SagsID);
+            cmdWorksOn.Parameters.AddWithValue("@TotHours", worksOn.TotHours);
 
-                try
-                {
-                    //OPEN CONNECTION
-                    if (conn.State == System.Data.ConnectionState.Closed)
-                        conn.Open();
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
 
-                    //BEGIN TRANSACTION
-                    Transactions.BeginRepeatableReadTransaction(conn);
+                //BEGIN TRANSACTION
+                Transactions.BeginRepeatableReadTransaction(conn);
 
-                    //EXECUTE QUERY
-                    cmdWorksOn.ExecuteNonQuery();
+                //EXECUTE QUERY
+                cmdWorksOn.ExecuteNonQuery();
 
-                    //COMMIT OR ROLLBACK
-                    if (!Transactions.Commit(conn))
-                        Transactions.Rollback(conn);
-                }
-                catch (SqlException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-                //CLOSE CONNECTION
-                if (conn.State == System.Data.ConnectionState.Open)
-                    conn.Close();
-
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
         }
 
-        public EjendomsmæglerBLL HentMægler(int sagsid, int handelid)
+        //method to retrieve an ejendomsmægler given SagsID and HandelID parameters
+        public static EjendomsmæglerBLL HentMægler(int sagsid)
         {
-            EjendomsmæglerBLL ejendomsmægler = new EjendomsmæglerBLL();
+            EjendomsmæglerBLL ejendomsmægler = null;
 
-            using (conn)
+            //SQL QUERY
+            string sqlCommand = "SELECT Sag.MæglerID, Ejendomsmægler.Fnavn, Ejendomsmægler.Enavn " +
+                "FROM Sag " +
+                "INNER JOIN Ejendomsmægler ON Ejendomsmægler.MæglerID = Sag.MæglerID " +
+                "WHERE Sag.SagsID = @SagsID " +
+                "AND sag.Status = 'Lukket (solgt bolig)'";
+
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+            cmd.Parameters.AddWithValue("@SagsID", sagsid);
+
+            try
             {
-                //SQL QUERY
-                string sqlCommand = "SELECT Sag.MæglerID, Ejendomsmægler.Fnavn, Ejendomsmægler.Enavn " +
-                    "FROM Handel " +
-                    "INNER JOIN Sag ON Sag.SagsID = Handel.SagsID " +
-                    "inner join Ejendomsmægler on Ejendomsmægler.MæglerID = Sag.MæglerID " +
-                    "WHERE Sag.SagsID = @SagsID " +
-                    "AND Handel.HandelID = @HandelID " +
-                    "AND sag.Status = 'Lukket (solgt bolig)'";
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
 
-                //SQL COMMAND + PARAMETERS
-                SqlCommand cmd = new SqlCommand(sqlCommand, conn);
-                cmd.Parameters.AddWithValue("@SagsID", sagsid);
-                cmd.Parameters.AddWithValue("@HandelID", handelid);
-
-                //try
-                //{
-                    //OPEN CONNECTION
-                    if (conn.State == System.Data.ConnectionState.Closed)
-                        conn.Open();
-
-                    //BEGIN TRANSACTION
-                    Transactions.BeginReadCommittedTransaction(conn);
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
 
                 //EXECUTE READER (QUERY)
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    
-                        //RETRIEVE BoligBLL AND SAVE IN matchingbolig
-                        while (reader.Read())
-                        {
-                            ejendomsmægler = new EjendomsmæglerBLL((int)reader["MæglerID"],
-                                reader["Fnavn"].ToString(),
-                                reader["Enavn"].ToString());
-                        }
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    //RETRIEVE BoligBLL AND SAVE IN matchingbolig
+                    while (reader.Read())
+                    {
+                        ejendomsmægler = new EjendomsmæglerBLL((int)reader["MæglerID"],
+                            reader["Fnavn"].ToString(),
+                            reader["Enavn"].ToString());
+                    }
 
-                        //CLOSE READER
-                        reader.Close();
-                    
+                    //CLOSE READER
+                    reader.Close();
+                }
 
-                    //COMMIT OR ROLLBACK
-                    if (!Transactions.Commit(conn))
-                        Transactions.Rollback(conn);
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
 
-                //}
-                //catch (SqlException ex)
-                //{
-                //    Console.WriteLine(ex.Message);
-                //}
-
-                //CLOSE CONNECTION
-                if (conn.State == System.Data.ConnectionState.Open)
-                    conn.Close();
             }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
             //RETURN
             return ejendomsmægler;
 
         }
 
-        public int HentSalgspris(string sagsid)
+        public bool HandelExists(int sagsid)
+        {
+            int userCount = 0;
+
+            //SQL QUERY
+            string sqlcommand = "SELECT COUNT (*) FROM Handel WHERE SagsID like @SagsID";
+
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmd = new SqlCommand(sqlcommand, conn);
+            cmd.Parameters.AddWithValue("@SagsID", sagsid);
+
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                userCount = (int)cmd.ExecuteScalar();
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            if (userCount > 0)
+                return true;
+            else
+                return false;
+        }
+
+        //method to retrieve the price a house has been sold for
+        public static int HentSalgspris(string sagsid)
         {
             //INITIALIZATION OF INT PRIS
             int pris = 0;
 
+            //SQL QUERY
+            string sqlCommand = "SELECT Handel.Salgspris FROM Handel, Sag WHERE Handel.SagsID = @SagsID";
 
-                //SQL QUERY
-                string sqlCommand = "select Handel.Salgspris from Handel, Sag where Handel.SagsID = @SagsID";
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmd = new SqlCommand(sqlCommand, conn);
+            cmd.Parameters.AddWithValue("@SagsID", sagsid);
 
-                //SQL COMMAND + PARAMETERS
-                SqlCommand cmd = new SqlCommand(sqlCommand, conn);
-                cmd.Parameters.AddWithValue("@SagsID", sagsid);
-
-                try
-                {
-                    //OPEN CONNECTION
-                    if (conn.State == System.Data.ConnectionState.Closed)
-                        conn.Open();
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
                     
-                    //BEGIN TRANSACTION
-                    Transactions.BeginReadCommittedTransaction(conn);
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
 
-                    //RETRIEVE SALGSPRIS AND SAVE IN INT PRIS
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                            pris = reader.GetInt32(0);
-
-                        //CLOSE READER
-                        reader.Close();
-                    }
-
-                    //COMMIT OR ROLLBACK
-                    if (!Transactions.Commit(conn))
-                        Transactions.Rollback(conn);
-                }
-                catch (Exception ex)
+                //RETRIEVE SALGSPRIS AND SAVE IN INT PRIS
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    Console.WriteLine(ex.Message);
+                    while (reader.Read())
+                        pris = reader.GetInt32(0);
+
+                    //CLOSE READER
+                    reader.Close();
                 }
 
-                //CLOSE CONNECTION
-                if (conn.State == System.Data.ConnectionState.Open)
-                    conn.Close();
-           
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+           
             return pris;
         }
     }
