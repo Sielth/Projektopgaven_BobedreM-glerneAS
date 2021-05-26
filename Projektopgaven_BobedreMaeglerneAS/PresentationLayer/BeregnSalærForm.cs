@@ -70,7 +70,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
 
-        private string BeregnSalær(int salgspris, int antalTimer)
+        public string BeregnSalær(int salgspris, int antalTimer)
         {
             int salær = antalTimer * 150;
 
