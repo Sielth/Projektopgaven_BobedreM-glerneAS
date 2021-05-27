@@ -184,10 +184,17 @@ namespace Projektopgaven_BobedreMaeglerneAS
         {
             MenuBarKnapper.HandelSlet();
         }
+        
+        private void udtrækStatistikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.HandelStatistik();
+        }
 
         private void beregnSalærToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.BeregnSalærShow();
         }
+
+
     }
 }
