@@ -108,6 +108,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             ejendomsmæglerUI.GetOpretEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
+            ejendomsmæglerUI.GetCPRTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetTelefonTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetEmailTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetFnavnTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetEnavnTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetVejTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetPostnummerTekstboks().Enabled = false;
         }
 
         //public static void EjendomsmæglerOpdater()
