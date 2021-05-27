@@ -67,13 +67,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 if (ejendomsmægler != null)
                     beregn_mæglerID_txt.Text = ejendomsmægler.ToString();
                 else
-                    MessageBox.Show("Husk at lukke sagen, før at beregne din salær!");
+                    MessageBox.Show("Husk at lukke sagen, før at beregne din salær!" +
+                        "\nEller, prøv at vælge en sag fra boxen \"SagsID\"...");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+
 
         #region Convert TextBoxes
         private int SagsID()
@@ -90,9 +97,48 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
-        private void btn_Clear_Click(object sender, EventArgs e)
+        #region Validating AntalTimer
+        private void antalTimer_txt_Validating(object sender, CancelEventArgs e)
         {
-            ClearAll();
+            string errorMsg;
+
+            if (!ValidAntalTimer(antalTimer_txt.Text, out errorMsg))
+            {
+                //Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                antalTimer_txt.Select(0, antalTimer_txt.Text.Length);
+
+                //Set the ErrorProvider error with the text to display. 
+                this.errorProvider1.SetError(antalTimer_txt, errorMsg);
+            }
         }
+
+        private void antalTimer_txt_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(antalTimer_txt, "");
+        }
+
+        //Method to check whether AntalTimer is valid or not
+        //It must be only numbers
+        //It CAN be empty
+        //CANNOT be bigger than 4
+        public bool ValidAntalTimer(string antalTimer, out string errorMsg)
+        {
+            if (antalTimer.Length > 4)
+            {
+                errorMsg = "Indtast en antal timer mellem 1-999";
+                return false;
+            }
+
+            if (int.TryParse(antalTimer, out int result) || string.IsNullOrEmpty(antalTimer))
+            {
+                errorMsg = "";
+                return true;
+            }
+
+            errorMsg = "Antal timer kan kun indeholde numre, og den kan ikke være tom";
+            return false;
+        }
+        #endregion
     }
 }

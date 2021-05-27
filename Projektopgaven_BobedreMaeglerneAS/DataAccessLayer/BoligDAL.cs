@@ -437,5 +437,49 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 conn.Close();
         }
         #endregion
+
+        #region Check
+        //check if the recor with the SagsID passed as a parameter exists in the Sag table
+        public static bool BoligExists(int boligid)
+        {
+            int userCount = 0;
+
+            //SQL QUERY
+            string sqlcommand = "SELECT COUNT (*) FROM Bolig WHERE BoligID like @BoligID";
+
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmd = new SqlCommand(sqlcommand, conn);
+            cmd.Parameters.AddWithValue("@BoligID", boligid);
+
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                userCount = (int)cmd.ExecuteScalar();
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            if (userCount > 0)
+                return true;
+            else
+                return false;
+        }
+        #endregion
     }
 }

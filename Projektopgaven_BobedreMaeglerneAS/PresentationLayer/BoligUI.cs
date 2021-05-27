@@ -131,20 +131,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //retrieve a BoligBLL from DB using BoligID
-                BoligBLL matchingbolig = BoligBLL.HentBoligViaID(bolig);
-                
-                //shows retrieved Bolig from DB on TextBoxes
-                boligVej_txt.Text = matchingbolig.Vej.ToString();
-                boligPostnr_txt.Text = matchingbolig.Postnummer.ToString();
-                boligType_cbox.Text = matchingbolig.Type.ToString();
-                boligVærelser_tbar.Value = matchingbolig.Værelser;
-                boligEtager_tbar.Value = matchingbolig.Etager;
-                boligKvm_txt.Text = matchingbolig.Kvadratmeter.ToString();
-                boligHave_ckBox.Checked = matchingbolig.Have;
-                boligBygningsÅr_dtp.Value = matchingbolig.Bygningsår;
-                boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
-                boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
+                if (BoligBLL.BoligExists(BoligID()))
+                {
+                    //retrieve a BoligBLL from DB using BoligID
+                    BoligBLL matchingbolig = BoligBLL.HentBoligViaID(bolig);
+
+                    //shows retrieved Bolig from DB on TextBoxes
+                    boligVej_txt.Text = matchingbolig.Vej.ToString();
+                    boligPostnr_txt.Text = matchingbolig.Postnummer.ToString();
+                    boligType_cbox.Text = matchingbolig.Type.ToString();
+                    boligVærelser_tbar.Value = matchingbolig.Værelser;
+                    boligEtager_tbar.Value = matchingbolig.Etager;
+                    boligKvm_txt.Text = matchingbolig.Kvadratmeter.ToString();
+                    boligHave_ckBox.Checked = matchingbolig.Have;
+                    boligBygningsÅr_dtp.Value = matchingbolig.Bygningsår;
+                    boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
+                    boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
+                }
+                //JER ER STOPPET HERE**********************************************************************************************'
             }
             catch (Exception ex)
             {

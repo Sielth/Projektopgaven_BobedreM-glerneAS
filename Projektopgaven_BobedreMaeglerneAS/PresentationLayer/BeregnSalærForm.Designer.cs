@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.result_txt = new System.Windows.Forms.TextBox();
             this.antalTimer_lbl = new System.Windows.Forms.Label();
             this.antalTimer_txt = new System.Windows.Forms.TextBox();
@@ -46,6 +47,8 @@
             this.help_lbl2 = new System.Windows.Forms.Label();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.kr_lbl = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // result_txt
@@ -74,6 +77,8 @@
             this.antalTimer_txt.Name = "antalTimer_txt";
             this.antalTimer_txt.Size = new System.Drawing.Size(121, 20);
             this.antalTimer_txt.TabIndex = 20;
+            this.antalTimer_txt.Validating += new System.ComponentModel.CancelEventHandler(this.antalTimer_txt_Validating);
+            this.antalTimer_txt.Validated += new System.EventHandler(this.antalTimer_txt_Validated);
             // 
             // lommeregner_lbl
             // 
@@ -215,11 +220,16 @@
             this.kr_lbl.TabIndex = 40;
             this.kr_lbl.Text = "kr";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // BeregnSalærForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 339);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ClientSize = new System.Drawing.Size(410, 339);
             this.Controls.Add(this.kr_lbl);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.help_lbl2);
@@ -240,6 +250,7 @@
             this.Controls.Add(this.antalTimer_txt);
             this.Name = "BeregnSalærForm";
             this.Text = "BeregnSalærForm";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +284,7 @@
             antalTimer_txt.Clear();
             result_txt.Clear();
         }
+
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
