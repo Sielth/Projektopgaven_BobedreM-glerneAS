@@ -23,6 +23,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             InitializeComponent();
         }
 
+        #region Opret Ejendomsmægler
         private void btn_OpretEjendomsmægler_Click(object sender, EventArgs e)
         {
             ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
@@ -43,8 +44,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Loader data fra databasen ind i datagridview -
             EjendomsmæglerUI_Load(sender, e);
         }
+        #endregion
 
-
+        #region Hent Ejendomsmægler
         private void btn_HentEjendomsmægler_Click(object sender, EventArgs e) 
         {
             ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
@@ -73,8 +75,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
         }
+        #endregion
 
-
+        #region Opdater Ejendomsmægler
         private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e)
         {
             ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
@@ -95,8 +98,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
         }
+        #endregion
 
-
+        #region Slet Ejendomsmægler
         private void btn_SletEjendomsmægler_Click(object sender, EventArgs e)
         {
             ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
@@ -117,7 +121,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
         }
+        #endregion
 
+        private void EjendomsmæglerUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'ejendomsmægler_bobedredbDataSet.Ejendomsmægler' table. You can move, or remove it, as needed.
+            this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
+
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+
+        private void MæglerRediger_btn_Click(object sender, EventArgs e)
+        {
+            EnableAll();
+        }
 
         #region Konveter Tekstbokse
         public int MælgerID()
@@ -165,22 +186,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
-        private void EjendomsmæglerUI_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'ejendomsmægler_bobedredbDataSet.Ejendomsmægler' table. You can move, or remove it, as needed.
-            this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
+        #region Validering af MæglerID
 
-        }
+        #endregion
 
-        private void Clear_Click(object sender, EventArgs e)
-        {
-            ClearAll();
-        }
-
-        private void MæglerRediger_btn_Click(object sender, EventArgs e)
-        {
-            EnableAll();
-        }
 
         #region MENUBAREN
         //MENUBAREN
