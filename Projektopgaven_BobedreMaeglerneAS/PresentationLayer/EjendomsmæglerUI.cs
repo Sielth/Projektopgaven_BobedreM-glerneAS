@@ -81,7 +81,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: OpdaterEjendomsmægler
-            ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
+            //ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
+
+            try
+            {
+                ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
@@ -90,11 +99,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_SletEjendomsmægler_Click(object sender, EventArgs e)
         {
-            EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: SletEjendomsmægler
             //ejendomsmæglerDAL.SletEjendomsmægler(ejendomsmæglerBLL);
+
+            try
+            {
+                ejendomsmægler.SletEjendomsmægler(ejendomsmægler);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
