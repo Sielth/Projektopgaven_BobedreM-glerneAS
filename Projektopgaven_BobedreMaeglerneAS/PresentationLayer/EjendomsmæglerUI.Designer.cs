@@ -92,7 +92,7 @@
             this.deleteToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.ejendomsmæglerTableAdapter = new Projektopgaven_BobedreMaeglerneAS.ejendomsmægler_bobedredbDataSetTableAdapters.EjendomsmæglerTableAdapter();
             this.Clear = new System.Windows.Forms.Button();
-            this.MæglerRediger_btn = new System.Windows.Forms.Button();
+            this.btn_MæglerRediger = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ejendomsmæglerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ejendomsmægler_bobedredbDataSet)).BeginInit();
@@ -650,22 +650,22 @@
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
-            // MæglerRediger_btn
+            // btn_MæglerRediger
             // 
-            this.MæglerRediger_btn.Location = new System.Drawing.Point(736, 140);
-            this.MæglerRediger_btn.Name = "MæglerRediger_btn";
-            this.MæglerRediger_btn.Size = new System.Drawing.Size(122, 35);
-            this.MæglerRediger_btn.TabIndex = 92;
-            this.MæglerRediger_btn.Text = "Rediger";
-            this.MæglerRediger_btn.UseVisualStyleBackColor = true;
-            this.MæglerRediger_btn.Click += new System.EventHandler(this.MæglerRediger_btn_Click);
+            this.btn_MæglerRediger.Location = new System.Drawing.Point(736, 140);
+            this.btn_MæglerRediger.Name = "btn_MæglerRediger";
+            this.btn_MæglerRediger.Size = new System.Drawing.Size(122, 35);
+            this.btn_MæglerRediger.TabIndex = 92;
+            this.btn_MæglerRediger.Text = "Rediger";
+            this.btn_MæglerRediger.UseVisualStyleBackColor = true;
+            this.btn_MæglerRediger.Click += new System.EventHandler(this.MæglerRediger_btn_Click);
             // 
             // EjendomsmæglerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.MæglerRediger_btn);
+            this.Controls.Add(this.btn_MæglerRediger);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_SletEjendomsmægler);
@@ -807,6 +807,11 @@
         {
             return btn_SletEjendomsmægler;
         }
+
+        public System.Windows.Forms.Button GetRedigerKnap()
+        {
+            return btn_MæglerRediger;
+        }
         #endregion
 
         #region Clear tekstbokse
@@ -877,6 +882,6 @@
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem5;
-        private System.Windows.Forms.Button MæglerRediger_btn;
+        private System.Windows.Forms.Button btn_MæglerRediger;
     }
 }
