@@ -7,7 +7,7 @@ using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
-    class WorksOnBLL
+    public class WorksOnBLL
     {
         public int SagsID { get; private set; }
         public int TotHours { get; private set; }

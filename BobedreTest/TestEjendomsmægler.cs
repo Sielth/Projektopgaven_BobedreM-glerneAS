@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projektopgaven_BobedreMaeglerneAS.PresentationLayer;
+using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 
 namespace BobedreTest
 {
@@ -16,7 +17,9 @@ namespace BobedreTest
 
             string expected = "35000";
 
-            BeregnSalærForm Salær = new BeregnSalærForm();
+            WorksOnBLL Salær = new WorksOnBLL();
+
+            //BeregnSalærForm Salær = new BeregnSalærForm();
 
             //Act
             string actual = Salær.BeregnSalær(salgspris, antalTimer);

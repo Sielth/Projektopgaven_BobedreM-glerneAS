@@ -19,7 +19,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //}
             KøberUI køberUI = new KøberUI();
             køberUI.Show();
-            køberUI.KøberID_txt.Enabled = true;
+            køberUI.KøberID_txt.Enabled = false;
             køberUI.KøberCPR_txt.Enabled = true;
             køberUI.KøberFornavn_txt.Enabled = true;
             køberUI.KøberEfternavn_txt.Enabled = true;
@@ -27,10 +27,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.KøberTelefon_txt.Enabled = true;
             køberUI.KøberVej_txt.Enabled = true;
             køberUI.KøberPostnummer_txt.Enabled = true;
-            //køberUI.OpretKøber_knap.Visible = true;
-            //køberUI.SletKøber_knap.Visible = false;
-            //køberUI.OpdaterKøber_knap.Visible = false;
-            //køberUI.FindKøber_knap.Visible = false;
+            køberUI.OpretKøber_knap.Visible = true;
+            køberUI.SletKøber_knap.Visible = false;
+            køberUI.OpdaterKøber_knap.Visible = false;
+            køberUI.FindKøber_knap.Visible = false;
         }
         public static void KøberRead()
         {
@@ -44,27 +44,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.KøberTelefon_txt.Enabled = true;
             køberUI.KøberVej_txt.Enabled = true;
             køberUI.KøberPostnummer_txt.Enabled = true;
-            //køberUI.OpretKøber_knap.Visible = false;
-            //køberUI.SletKøber_knap.Visible = false;
-            //køberUI.OpdaterKøber_knap.Visible = false;
-            //køberUI.FindKøber_knap.Visible = true;
+            køberUI.OpretKøber_knap.Visible = false;
+            køberUI.SletKøber_knap.Visible = false;
+            køberUI.OpdaterKøber_knap.Visible = false;
+            køberUI.FindKøber_knap.Visible = true;
         }
         public static void KøberDelete()
         {
             KøberUI køberUI = new KøberUI();
             køberUI.Show();
             køberUI.KøberID_txt.Enabled = true;
-            køberUI.KøberCPR_txt.Enabled = true;
-            køberUI.KøberFornavn_txt.Enabled = true;
-            køberUI.KøberEfternavn_txt.Enabled = true;
-            køberUI.KøberEmail_txt.Enabled = true;
-            køberUI.KøberTelefon_txt.Enabled = true;
-            køberUI.KøberVej_txt.Enabled = true;
-            køberUI.KøberPostnummer_txt.Enabled = true;
-            //køberUI.OpretKøber_knap.Visible = false;
-            //køberUI.SletKøber_knap.Visible = true;
-            //køberUI.OpdaterKøber_knap.Visible = false;
-            //køberUI.FindKøber_knap.Visible = false;
+            køberUI.KøberCPR_txt.Enabled = false;
+            køberUI.KøberFornavn_txt.Enabled = false;
+            køberUI.KøberEfternavn_txt.Enabled = false;
+            køberUI.KøberEmail_txt.Enabled = false;
+            køberUI.KøberTelefon_txt.Enabled = false;
+            køberUI.KøberVej_txt.Enabled = false;
+            køberUI.KøberPostnummer_txt.Enabled = false;
+            køberUI.OpretKøber_knap.Visible = false;
+            køberUI.SletKøber_knap.Visible = true;
+            køberUI.OpdaterKøber_knap.Visible = false;
+            køberUI.FindKøber_knap.Visible = false;
         }
         public static void KøberUpdate()
         {
@@ -78,10 +78,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.KøberTelefon_txt.Enabled = true;
             køberUI.KøberVej_txt.Enabled = true;
             køberUI.KøberPostnummer_txt.Enabled = true;
-            //køberUI.OpretKøber_knap.Visible = false;
-            //køberUI.SletKøber_knap.Visible = false;
-            //køberUI.OpdaterKøber_knap.Visible = true;
-            //køberUI.FindKøber_knap.Visible = false;
+            køberUI.OpretKøber_knap.Visible = false;
+            køberUI.SletKøber_knap.Visible = false;
+            køberUI.OpdaterKøber_knap.Visible = true;
+            køberUI.FindKøber_knap.Visible = false;
         }
 
         public static void EjendomsmælgerOpret()
@@ -95,10 +95,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.GetHentEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetOpdaterEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
+            ejendomsmæglerUI.GetRedigerKnap().Visible = false;
             ejendomsmæglerUI.GetMæglerIDTekstboks().Enabled = false;
         }
 
-        public static void EjendomsmæglerHent()
+        public static void EjendomsmæglerHentOpdater()
         {
             // Opretter en ny instans af EjendomsmæglerUI klassen
             EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
@@ -107,22 +108,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.Show();
 
             ejendomsmæglerUI.GetOpretEjendomsmæglerKnap().Visible = false;
-            ejendomsmæglerUI.GetOpdaterEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
+            ejendomsmæglerUI.GetCPRTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetTelefonTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetEmailTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetFnavnTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetEnavnTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetVejTekstboks().Enabled = false;
+            ejendomsmæglerUI.GetPostnummerTekstboks().Enabled = false;
         }
 
-        public static void EjendomsmæglerOpdater()
-        {
-            // Opretter en ny instans af EjendomsmæglerUI klassen
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+        //public static void EjendomsmæglerOpdater()
+        //{
+        //    // Opretter en ny instans af EjendomsmæglerUI klassen
+        //    EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
 
-            // Show the settings form
-            ejendomsmæglerUI.Show();
+        //    // Show the settings form
+        //    ejendomsmæglerUI.Show();
 
-            ejendomsmæglerUI.GetOpretEjendomsmæglerKnap().Visible = false;
-            ejendomsmæglerUI.GetHentEjendomsmæglerKnap().Visible = false;
-            ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
-        }
+        //    ejendomsmæglerUI.GetOpretEjendomsmæglerKnap().Visible = false;
+        //    ejendomsmæglerUI.GetHentEjendomsmæglerKnap().Visible = false;
+        //    ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
+        //}
 
         public static void EjendomsmæglerSlet()
         {
@@ -136,6 +143,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.GetOpretEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetHentEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetOpdaterEjendomsmæglerKnap().Visible = false;
+            ejendomsmæglerUI.GetRedigerKnap().Visible = false;
             ejendomsmæglerUI.GetCPRTekstboks().Enabled = false;
             ejendomsmæglerUI.GetTelefonTekstboks().Enabled = false;
             ejendomsmæglerUI.GetEmailTekstboks().Enabled = false;

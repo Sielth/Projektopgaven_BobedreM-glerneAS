@@ -540,13 +540,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MenuBarKnapper.EjendomsmæglerHent();
+            MenuBarKnapper.EjendomsmæglerHentOpdater();
         }
 
-        private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.EjendomsmæglerOpdater();
-        }
+        //private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    MenuBarKnapper.EjendomsmæglerOpdater();
+        //}
 
         private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -659,5 +659,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
 
         #endregion
+
+  
     }
 }

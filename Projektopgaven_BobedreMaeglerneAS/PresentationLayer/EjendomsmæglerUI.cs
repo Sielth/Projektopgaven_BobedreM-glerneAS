@@ -81,7 +81,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: OpdaterEjendomsmægler
-            //ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmæglerBLL);
+            //ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
+
+            try
+            {
+                ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
@@ -90,11 +99,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void btn_SletEjendomsmægler_Click(object sender, EventArgs e)
         {
-            EjendomsmæglerBLL ejendomsmæglerBLL = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: SletEjendomsmægler
             //ejendomsmæglerDAL.SletEjendomsmægler(ejendomsmæglerBLL);
+
+            try
+            {
+                ejendomsmægler.SletEjendomsmægler(ejendomsmægler);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
@@ -159,6 +177,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ClearAll();
         }
 
+        private void MæglerRediger_btn_Click(object sender, EventArgs e)
+        {
+            EnableAll();
+        }
 
         #region MENUBAREN
         //MENUBAREN
@@ -170,13 +192,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void readToolStripMenuItem_Click(object sender, EventArgs e) //Find/hent ejendomsmægler
         {
-            MenuBarKnapper.EjendomsmæglerHent();
+            MenuBarKnapper.EjendomsmæglerHentOpdater();
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater ejendomsmægler
-        {
-            MenuBarKnapper.EjendomsmæglerOpdater();
-        }
+        //private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater ejendomsmægler
+        //{
+        //    MenuBarKnapper.EjendomsmæglerOpdater();
+        //}
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet ejendomsmægler
         {
@@ -288,6 +310,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.ÅbentHus();
         }
+
         #endregion
 
 
