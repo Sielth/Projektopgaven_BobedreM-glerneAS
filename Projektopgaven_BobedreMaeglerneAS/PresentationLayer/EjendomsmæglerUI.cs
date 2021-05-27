@@ -11,6 +11,7 @@ using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 using Projektopgaven_BobedreMæglerneAS;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -186,8 +187,66 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
-        #region Validering af MæglerID
+        #region Tjek tekstboks værdier
+        private bool TjekMægleridVærdi()
+        {
+            if (!int.TryParse(MæglerID_txt.Text, out int i))
+            {
+                return false;
+            }
 
+            return true;
+        }
+
+        private bool TjekCPRVærdi()
+        {
+            if (!int.TryParse(CPR_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TjekTelefonVærdi()
+        {
+            if(!int.TryParse(Telefon_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool TjekEmailVærdi(string input)
+        {
+            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]+@"));
+        }
+
+        public bool TjekFnavnVærdi(string input)
+        {
+            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]"));
+        }
+
+        public bool TjekEnavnVærdi(string input)
+        {
+            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]"));
+        }
+
+        public bool TjekVejVærdi(string input)
+        {
+            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]"));
+        }
+
+        public bool TjekPostnummerVærdi()
+        {
+            if (!int.TryParse(Postnummer_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
         #endregion
 
 
