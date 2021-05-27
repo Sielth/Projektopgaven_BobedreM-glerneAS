@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
-    class EjendomsmæglerBLL : IPerson 
+    public class EjendomsmæglerBLL : IPerson 
     {
         public int MæglerID { get; set; }
         public int CPR { get; set; }

@@ -800,6 +800,10 @@
         }
         #endregion
 
+        #region Enable All
+
+        #endregion
+
         private ejendomsmægler_bobedredbDataSet ejendomsmægler_bobedredbDataSet;
         private System.Windows.Forms.BindingSource ejendomsmæglerBindingSource;
         private ejendomsmægler_bobedredbDataSetTableAdapters.EjendomsmæglerTableAdapter ejendomsmæglerTableAdapter;
