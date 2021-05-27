@@ -31,26 +31,32 @@
             this.result_txt = new System.Windows.Forms.TextBox();
             this.antalTimer_lbl = new System.Windows.Forms.Label();
             this.antalTimer_txt = new System.Windows.Forms.TextBox();
-            this.workhard_lbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lommeregner_lbl = new System.Windows.Forms.Label();
+            this.intro_lbl1 = new System.Windows.Forms.Label();
+            this.intro_lbl2 = new System.Windows.Forms.Label();
             this.beregn_sagsID_cbox = new System.Windows.Forms.ComboBox();
             this.mæglerID_lbl = new System.Windows.Forms.Label();
             this.sagsID_lbl = new System.Windows.Forms.Label();
             this.btn_indsæt = new System.Windows.Forms.Button();
             this.beregn_hentData_btn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.hentdata_lbl1 = new System.Windows.Forms.Label();
+            this.hentdata_lbl2 = new System.Windows.Forms.Label();
             this.beregn_mæglerID_txt = new System.Windows.Forms.TextBox();
-            this.helplabel1 = new System.Windows.Forms.Label();
-            this.helplabel2 = new System.Windows.Forms.Label();
+            this.help_lbl1 = new System.Windows.Forms.Label();
+            this.help_lbl2 = new System.Windows.Forms.Label();
+            this.btn_Clear = new System.Windows.Forms.Button();
+            this.kr_lbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // result_txt
             // 
+            this.result_txt.BackColor = System.Drawing.SystemColors.Control;
+            this.result_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.result_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.result_txt.Location = new System.Drawing.Point(265, 239);
             this.result_txt.Name = "result_txt";
-            this.result_txt.Size = new System.Drawing.Size(121, 20);
+            this.result_txt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.result_txt.Size = new System.Drawing.Size(92, 15);
             this.result_txt.TabIndex = 22;
             // 
             // antalTimer_lbl
@@ -69,34 +75,34 @@
             this.antalTimer_txt.Size = new System.Drawing.Size(121, 20);
             this.antalTimer_txt.TabIndex = 20;
             // 
-            // workhard_lbl
+            // lommeregner_lbl
             // 
-            this.workhard_lbl.AutoSize = true;
-            this.workhard_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.workhard_lbl.ForeColor = System.Drawing.Color.Orange;
-            this.workhard_lbl.Location = new System.Drawing.Point(12, 9);
-            this.workhard_lbl.Name = "workhard_lbl";
-            this.workhard_lbl.Size = new System.Drawing.Size(148, 16);
-            this.workhard_lbl.TabIndex = 23;
-            this.workhard_lbl.Text = "I WORK HARD TOO!";
+            this.lommeregner_lbl.AutoSize = true;
+            this.lommeregner_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lommeregner_lbl.ForeColor = System.Drawing.Color.Orange;
+            this.lommeregner_lbl.Location = new System.Drawing.Point(12, 9);
+            this.lommeregner_lbl.Name = "lommeregner_lbl";
+            this.lommeregner_lbl.Size = new System.Drawing.Size(145, 16);
+            this.lommeregner_lbl.TabIndex = 23;
+            this.lommeregner_lbl.Text = "Salær lommeregner";
             // 
-            // label1
+            // intro_lbl1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Denne modul er til at beregne ejendomsmægleres salær";
+            this.intro_lbl1.AutoSize = true;
+            this.intro_lbl1.Location = new System.Drawing.Point(12, 25);
+            this.intro_lbl1.Name = "intro_lbl1";
+            this.intro_lbl1.Size = new System.Drawing.Size(269, 13);
+            this.intro_lbl1.TabIndex = 24;
+            this.intro_lbl1.Text = "Denne modul er til at beregne ejendomsmægleres salær";
             // 
-            // label2
+            // intro_lbl2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "efter de har solgt en bolig med stort indsats";
+            this.intro_lbl2.AutoSize = true;
+            this.intro_lbl2.Location = new System.Drawing.Point(12, 38);
+            this.intro_lbl2.Name = "intro_lbl2";
+            this.intro_lbl2.Size = new System.Drawing.Size(208, 13);
+            this.intro_lbl2.TabIndex = 25;
+            this.intro_lbl2.Text = "efter de har solgt en bolig med stort indsats";
             // 
             // beregn_sagsID_cbox
             // 
@@ -144,23 +150,23 @@
             this.beregn_hentData_btn.UseVisualStyleBackColor = true;
             this.beregn_hentData_btn.Click += new System.EventHandler(this.beregn_hentData_btn_Click);
             // 
-            // label3
+            // hentdata_lbl1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(181, 13);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Tryk på \"Hent Data\" for at tjekke om";
+            this.hentdata_lbl1.AutoSize = true;
+            this.hentdata_lbl1.Location = new System.Drawing.Point(12, 108);
+            this.hentdata_lbl1.Name = "hentdata_lbl1";
+            this.hentdata_lbl1.Size = new System.Drawing.Size(181, 13);
+            this.hentdata_lbl1.TabIndex = 34;
+            this.hentdata_lbl1.Text = "Tryk på \"Hent Data\" for at tjekke om";
             // 
-            // label4
+            // hentdata_lbl2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(238, 13);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "du er den rigtig medarbejde, der har lukket sagen";
+            this.hentdata_lbl2.AutoSize = true;
+            this.hentdata_lbl2.Location = new System.Drawing.Point(12, 121);
+            this.hentdata_lbl2.Name = "hentdata_lbl2";
+            this.hentdata_lbl2.Size = new System.Drawing.Size(238, 13);
+            this.hentdata_lbl2.TabIndex = 35;
+            this.hentdata_lbl2.Text = "du er den rigtig medarbejde, der har lukket sagen";
             // 
             // beregn_mæglerID_txt
             // 
@@ -169,44 +175,66 @@
             this.beregn_mæglerID_txt.Size = new System.Drawing.Size(121, 20);
             this.beregn_mæglerID_txt.TabIndex = 36;
             // 
-            // helplabel1
+            // help_lbl1
             // 
-            this.helplabel1.AutoSize = true;
-            this.helplabel1.ForeColor = System.Drawing.Color.Red;
-            this.helplabel1.Location = new System.Drawing.Point(12, 280);
-            this.helplabel1.Name = "helplabel1";
-            this.helplabel1.Size = new System.Drawing.Size(361, 13);
-            this.helplabel1.TabIndex = 37;
-            this.helplabel1.Text = "Hvis din MæglerID ikke dukker op når du vælger den sag du har arbejdet i,";
+            this.help_lbl1.AutoSize = true;
+            this.help_lbl1.ForeColor = System.Drawing.Color.Red;
+            this.help_lbl1.Location = new System.Drawing.Point(12, 304);
+            this.help_lbl1.Name = "help_lbl1";
+            this.help_lbl1.Size = new System.Drawing.Size(361, 13);
+            this.help_lbl1.TabIndex = 37;
+            this.help_lbl1.Text = "Hvis din MæglerID ikke dukker op når du vælger den sag du har arbejdet i,";
             // 
-            // helplabel2
+            // help_lbl2
             // 
-            this.helplabel2.AutoSize = true;
-            this.helplabel2.ForeColor = System.Drawing.Color.Red;
-            this.helplabel2.Location = new System.Drawing.Point(12, 293);
-            this.helplabel2.Name = "helplabel2";
-            this.helplabel2.Size = new System.Drawing.Size(339, 13);
-            this.helplabel2.TabIndex = 38;
-            this.helplabel2.Text = "eller du har indtastet en forkert antal timer, venligst kontakt sekretæren";
+            this.help_lbl2.AutoSize = true;
+            this.help_lbl2.ForeColor = System.Drawing.Color.Red;
+            this.help_lbl2.Location = new System.Drawing.Point(12, 317);
+            this.help_lbl2.Name = "help_lbl2";
+            this.help_lbl2.Size = new System.Drawing.Size(142, 13);
+            this.help_lbl2.TabIndex = 38;
+            this.help_lbl2.Text = "venligst kontakt sekretæren.";
+            // 
+            // btn_Clear
+            // 
+            this.btn_Clear.Location = new System.Drawing.Point(265, 267);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(121, 23);
+            this.btn_Clear.TabIndex = 39;
+            this.btn_Clear.Text = "Clear";
+            this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
+            // 
+            // kr_lbl
+            // 
+            this.kr_lbl.AutoSize = true;
+            this.kr_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kr_lbl.Location = new System.Drawing.Point(363, 239);
+            this.kr_lbl.Name = "kr_lbl";
+            this.kr_lbl.Size = new System.Drawing.Size(21, 16);
+            this.kr_lbl.TabIndex = 40;
+            this.kr_lbl.Text = "kr";
             // 
             // BeregnSalærForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 315);
-            this.Controls.Add(this.helplabel2);
-            this.Controls.Add(this.helplabel1);
+            this.ClientSize = new System.Drawing.Size(398, 339);
+            this.Controls.Add(this.kr_lbl);
+            this.Controls.Add(this.btn_Clear);
+            this.Controls.Add(this.help_lbl2);
+            this.Controls.Add(this.help_lbl1);
             this.Controls.Add(this.beregn_mæglerID_txt);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.hentdata_lbl2);
+            this.Controls.Add(this.hentdata_lbl1);
             this.Controls.Add(this.beregn_hentData_btn);
             this.Controls.Add(this.btn_indsæt);
             this.Controls.Add(this.sagsID_lbl);
             this.Controls.Add(this.mæglerID_lbl);
             this.Controls.Add(this.beregn_sagsID_cbox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.workhard_lbl);
+            this.Controls.Add(this.intro_lbl2);
+            this.Controls.Add(this.intro_lbl1);
+            this.Controls.Add(this.lommeregner_lbl);
             this.Controls.Add(this.result_txt);
             this.Controls.Add(this.antalTimer_lbl);
             this.Controls.Add(this.antalTimer_txt);
@@ -222,18 +250,28 @@
         private System.Windows.Forms.TextBox result_txt;
         private System.Windows.Forms.Label antalTimer_lbl;
         private System.Windows.Forms.TextBox antalTimer_txt;
-        private System.Windows.Forms.Label workhard_lbl;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lommeregner_lbl;
+        private System.Windows.Forms.Label intro_lbl1;
+        private System.Windows.Forms.Label intro_lbl2;
         private System.Windows.Forms.ComboBox beregn_sagsID_cbox;
         private System.Windows.Forms.Label mæglerID_lbl;
         private System.Windows.Forms.Label sagsID_lbl;
         private System.Windows.Forms.Button btn_indsæt;
         private System.Windows.Forms.Button beregn_hentData_btn;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label hentdata_lbl1;
+        private System.Windows.Forms.Label hentdata_lbl2;
         private System.Windows.Forms.TextBox beregn_mæglerID_txt;
-        private System.Windows.Forms.Label helplabel1;
-        private System.Windows.Forms.Label helplabel2;
+        private System.Windows.Forms.Label help_lbl1;
+        private System.Windows.Forms.Label help_lbl2;
+        private System.Windows.Forms.Button btn_Clear;
+        private System.Windows.Forms.Label kr_lbl;
+
+        public void ClearAll()
+        {
+            beregn_sagsID_cbox.SelectedItem = null;
+            beregn_mæglerID_txt.Clear();
+            antalTimer_txt.Clear();
+            result_txt.Clear();
+        }
     }
 }
