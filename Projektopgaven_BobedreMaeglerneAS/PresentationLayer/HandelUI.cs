@@ -163,13 +163,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void ejendomsmægler_readToolStripMenuItem_Click(object sender, EventArgs e) //Hent ejendomsmægler
         {
-            MenuBarKnapper.EjendomsmæglerHent();
+            MenuBarKnapper.EjendomsmæglerHentOpdater();
         }
 
-        private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater ejendomsmægler
-        {
-            MenuBarKnapper.EjendomsmæglerOpdater();
-        }
+        //private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater ejendomsmægler
+        //{
+        //    MenuBarKnapper.EjendomsmæglerOpdater();
+        //}
 
         private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet ejendomsmægler
         {
