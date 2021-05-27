@@ -11,6 +11,7 @@ using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 using Projektopgaven_BobedreMæglerneAS;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -23,6 +24,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             InitializeComponent();
         }
 
+        #region Opret Ejendomsmægler
         private void btn_OpretEjendomsmægler_Click(object sender, EventArgs e)
         {
             ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
@@ -43,8 +45,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Loader data fra databasen ind i datagridview -
             EjendomsmæglerUI_Load(sender, e);
         }
+        #endregion
 
-
+        #region Hent Ejendomsmægler
         private void btn_HentEjendomsmægler_Click(object sender, EventArgs e) 
         {
             ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
@@ -73,8 +76,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
         }
+        #endregion
 
-
+        #region Opdater Ejendomsmægler
         private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e)
         {
             ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
@@ -95,8 +99,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
         }
+        #endregion
 
-
+        #region Slet Ejendomsmægler
         private void btn_SletEjendomsmægler_Click(object sender, EventArgs e)
         {
             ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
@@ -117,7 +122,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
         }
+        #endregion
 
+        private void EjendomsmæglerUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'ejendomsmægler_bobedredbDataSet.Ejendomsmægler' table. You can move, or remove it, as needed.
+            this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
+
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+
+        private void MæglerRediger_btn_Click(object sender, EventArgs e)
+        {
+            EnableAll();
+        }
 
         #region Konveter Tekstbokse
         public int MælgerID()
@@ -165,22 +187,68 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
-        private void EjendomsmæglerUI_Load(object sender, EventArgs e)
+        #region Tjek tekstboks værdier
+        private bool TjekMægleridVærdi()
         {
-            // TODO: This line of code loads data into the 'ejendomsmægler_bobedredbDataSet.Ejendomsmægler' table. You can move, or remove it, as needed.
-            this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
+            if (!int.TryParse(MæglerID_txt.Text, out int i))
+            {
+                return false;
+            }
 
+            return true;
         }
 
-        private void Clear_Click(object sender, EventArgs e)
+        private bool TjekCPRVærdi()
         {
-            ClearAll();
+            if (!int.TryParse(CPR_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
         }
 
-        private void MæglerRediger_btn_Click(object sender, EventArgs e)
+        private bool TjekTelefonVærdi()
         {
-            EnableAll();
+            if(!int.TryParse(Telefon_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
         }
+
+        public bool TjekEmailVærdi(string input)
+        {
+            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]+@"));
+        }
+
+        public bool TjekFnavnVærdi(string input)
+        {
+            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]"));
+        }
+
+        public bool TjekEnavnVærdi(string input)
+        {
+            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]"));
+        }
+
+        public bool TjekVejVærdi(string input)
+        {
+            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]"));
+        }
+
+        public bool TjekPostnummerVærdi()
+        {
+            if (!int.TryParse(Postnummer_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
+
 
         #region MENUBAREN
         //MENUBAREN

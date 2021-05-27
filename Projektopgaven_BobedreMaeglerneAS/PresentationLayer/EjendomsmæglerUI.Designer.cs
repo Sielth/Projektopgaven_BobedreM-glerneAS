@@ -198,7 +198,7 @@
             // btn_SletEjendomsmægler
             // 
             this.btn_SletEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_SletEjendomsmægler.Location = new System.Drawing.Point(736, 278);
+            this.btn_SletEjendomsmægler.Location = new System.Drawing.Point(52, 278);
             this.btn_SletEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_SletEjendomsmægler.Name = "btn_SletEjendomsmægler";
             this.btn_SletEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -210,7 +210,7 @@
             // btn_OpdaterEjendomsmægler
             // 
             this.btn_OpdaterEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(508, 278);
+            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(303, 278);
             this.btn_OpdaterEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpdaterEjendomsmægler.Name = "btn_OpdaterEjendomsmægler";
             this.btn_OpdaterEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -222,7 +222,7 @@
             // btn_HentEjendomsmægler
             // 
             this.btn_HentEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_HentEjendomsmægler.Location = new System.Drawing.Point(280, 278);
+            this.btn_HentEjendomsmægler.Location = new System.Drawing.Point(52, 278);
             this.btn_HentEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_HentEjendomsmægler.Name = "btn_HentEjendomsmægler";
             this.btn_HentEjendomsmægler.Size = new System.Drawing.Size(220, 35);
@@ -401,7 +401,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ejendomsmæglerToolStripMenuItem,
