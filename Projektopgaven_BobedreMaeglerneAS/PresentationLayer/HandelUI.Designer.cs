@@ -111,7 +111,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.dateTimePicker1.Size = new System.Drawing.Size(224, 26);
             this.dateTimePicker1.TabIndex = 3;
             this.dateTimePicker1.Value = new System.DateTime(2021, 5, 25, 0, 0, 0, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // handelSalgspris_txt
             // 
