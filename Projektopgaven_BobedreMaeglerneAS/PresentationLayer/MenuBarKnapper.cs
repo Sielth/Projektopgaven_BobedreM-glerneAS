@@ -98,7 +98,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.GetMæglerIDTekstboks().Enabled = false;
         }
 
-        public static void EjendomsmæglerHent()
+        public static void EjendomsmæglerHentOpdater()
         {
             // Opretter en ny instans af EjendomsmæglerUI klassen
             EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
@@ -107,22 +107,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.Show();
 
             ejendomsmæglerUI.GetOpretEjendomsmæglerKnap().Visible = false;
-            ejendomsmæglerUI.GetOpdaterEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
         }
 
-        public static void EjendomsmæglerOpdater()
-        {
-            // Opretter en ny instans af EjendomsmæglerUI klassen
-            EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
+        //public static void EjendomsmæglerOpdater()
+        //{
+        //    // Opretter en ny instans af EjendomsmæglerUI klassen
+        //    EjendomsmæglerUI ejendomsmæglerUI = new EjendomsmæglerUI();
 
-            // Show the settings form
-            ejendomsmæglerUI.Show();
+        //    // Show the settings form
+        //    ejendomsmæglerUI.Show();
 
-            ejendomsmæglerUI.GetOpretEjendomsmæglerKnap().Visible = false;
-            ejendomsmæglerUI.GetHentEjendomsmæglerKnap().Visible = false;
-            ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
-        }
+        //    ejendomsmæglerUI.GetOpretEjendomsmæglerKnap().Visible = false;
+        //    ejendomsmæglerUI.GetHentEjendomsmæglerKnap().Visible = false;
+        //    ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
+        //}
 
         public static void EjendomsmæglerSlet()
         {

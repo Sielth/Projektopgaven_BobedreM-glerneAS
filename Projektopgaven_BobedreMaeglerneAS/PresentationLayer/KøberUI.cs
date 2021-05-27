@@ -104,13 +104,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void readToolStripMenuItem_Click(object sender, EventArgs e) //Hent ejendomsmægler
         {
-            MenuBarKnapper.EjendomsmæglerHent();
+            MenuBarKnapper.EjendomsmæglerHentOpdater();
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater ejendomsmælger
-        {
-            MenuBarKnapper.EjendomsmæglerOpdater();
-        }
+        //private void updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater ejendomsmælger
+        //{
+        //    MenuBarKnapper.EjendomsmæglerOpdater();
+        //}
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet ejendomsmægler
         {
@@ -272,5 +272,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.køberTableAdapter.Fill(this.køber_bobedredbDataSet.Køber);
 
         }
+
+
     }
 }
