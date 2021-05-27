@@ -66,6 +66,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             handelDAL.SletHandel(handel);
         }
 
+        public static bool HandelExists(int sagsid)
+        {
+            return HandelDAL.HandelExists(sagsid);
+        }
+
         //Methods go here
         /*public void StatsToText()
         {

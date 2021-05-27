@@ -223,5 +223,11 @@ namespace Projektopgaven_BobedreMæglerneAS
             BoligDAL boligDAL = new BoligDAL();
             boligDAL.SletBolig(bolig);
         }
+
+        public static bool BoligExists(int boligid)
+        {
+            return BoligDAL.BoligExists(boligid);
+        }
+
     }
 }
