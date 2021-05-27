@@ -358,7 +358,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetSælgerVejTekstboks().Enabled = false;
             sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
-
+        #region HandelUI
         public static void HandelOpret()
         {
             // Opretter en ny instans af HandelUI klassen
@@ -371,6 +371,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetOpdaterHandelKnap().Visible = false;
             handelUI.GetSletHandelKnap().Visible = false;
             handelUI.GetHandelIDTekstboks().Enabled = false;
+            handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            handelUI.GetStatistikKnap().Visible = false;
+            handelUI.GetSaveStatistikKnap().Visible = false;
+            handelUI.GetStatistikListbox().Visible = false;
         }
 
         public static void HandelHent()
@@ -384,6 +388,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetOpretHandelKnap().Visible = false;
             handelUI.GetOpdaterHandelKnap().Visible = false;
             handelUI.GetSletHandelKnap().Visible = false;
+            //handelUI.GetHandelsdatoDatetime().Visible = false;
+            handelUI.GetHandelsdatoDatetime().Enabled = false; //Skal datoen ændres når vi henter?
+            handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            handelUI.GetStatistikKnap().Visible = false;
+            handelUI.GetSaveStatistikKnap().Visible = false;
+            handelUI.GetStatistikListbox().Visible = false;
+            handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
+            handelUI.GetHandelSagsIDComboboks().Enabled = false;
+            handelUI.GetHandelKøberIDComboboks().Enabled = false;
+
         }
 
         public static void HandelOpdater()
@@ -397,6 +411,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetOpretHandelKnap().Visible = false;
             handelUI.GetFindHandelKnap().Visible = false;
             handelUI.GetSletHandelKnap().Visible = false;
+            handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            handelUI.GetStatistikKnap().Visible = false;
+            handelUI.GetSaveStatistikKnap().Visible = false;
+            handelUI.GetStatistikListbox().Visible = false;
         }
 
         public static void HandelSlet()
@@ -414,6 +432,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
             handelUI.GetHandelSagsIDComboboks().Enabled = false;
             handelUI.GetHandelKøberIDComboboks().Enabled = false;
+            handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            handelUI.GetStatistikKnap().Visible = false;
+            handelUI.GetSaveStatistikKnap().Visible = false;
+            handelUI.GetStatistikListbox().Visible = false;
+        }
+        public static void HandelStatistik()
+        {
+            HandelUI handelUI = new HandelUI();
+
+            handelUI.Show();
+
+            handelUI.GetOpretHandelKnap().Visible = false;
+            handelUI.GetFindHandelKnap().Visible = false;
+            handelUI.GetOpdaterHandelKnap().Visible = false;
+            handelUI.GetSletHandelKnap().Visible = false;
+
+            //handelUI.GetHandelsdatoDatetime().Enabled = false;
+            handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
+            handelUI.GetHandelSagsIDComboboks().Enabled = false;
+            handelUI.GetHandelKøberIDComboboks().Enabled = false;
+            //handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            //handelUI.GetStatistikKnap().Visible = false;
+            //handelUI.GetSaveStatistikKnap().Visible = false;
+            //handelUI.GetStatistikListbox().Visible = false;
         }
 
         public static void ÅbentHus()
@@ -435,6 +477,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             handelUI.GetHandelSagsIDComboboks().Text = sagsid;
         }
+        #endregion
 
         public static void BeregnSalærShow()
         {
