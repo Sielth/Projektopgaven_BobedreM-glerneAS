@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
-    class WorksOnBLL
+    public class WorksOnBLL
     {
         public int HandelID {get; private set;}
         public int TotHours { get; private set; }
