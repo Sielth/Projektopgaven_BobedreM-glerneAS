@@ -801,7 +801,31 @@
         #endregion
 
         #region Enable All
+        public void EnableAll()
+        {
+            MæglerID_txt.Enabled = true;
+            CPR_txt.Enabled = true;
+            Telefon_txt.Enabled = true;
+            Email_txt.Enabled = true;
+            Fornavn_txt.Enabled = true;
+            Efternavn_txt.Enabled = true;
+            Vej_txt.Enabled = true;
+            Postnummer_txt.Enabled = true;
+        }
+        #endregion
 
+        #region Disable ALL
+        public void DisableALL()
+        {
+            MæglerID_txt.Enabled = false;
+            CPR_txt.Enabled = false;
+            Telefon_txt.Enabled = false;
+            Email_txt.Enabled = false;
+            Fornavn_txt.Enabled = false;
+            Efternavn_txt.Enabled = false;
+            Vej_txt.Enabled = false;
+            Postnummer_txt.Enabled = false;
+        }
         #endregion
 
         private ejendomsmægler_bobedredbDataSet ejendomsmægler_bobedredbDataSet;
