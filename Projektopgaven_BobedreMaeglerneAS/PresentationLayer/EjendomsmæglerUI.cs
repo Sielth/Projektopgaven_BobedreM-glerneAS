@@ -81,7 +81,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: OpdaterEjendomsmægler
-            //ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmæglerBLL);
+            ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
 
             //Loader data fra databasen ind i datagridview
             EjendomsmæglerUI_Load(sender, e);
@@ -159,6 +159,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ClearAll();
         }
 
+        private void MæglerRediger_btn_Click(object sender, EventArgs e)
+        {
+            EnableAll();
+        }
 
         #region MENUBAREN
         //MENUBAREN
@@ -288,6 +292,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.ÅbentHus();
         }
+
         #endregion
 
 
