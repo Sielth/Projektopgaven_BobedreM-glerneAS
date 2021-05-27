@@ -215,7 +215,7 @@
             this.btn_OpdaterEjendomsmægler.Name = "btn_OpdaterEjendomsmægler";
             this.btn_OpdaterEjendomsmægler.Size = new System.Drawing.Size(220, 35);
             this.btn_OpdaterEjendomsmægler.TabIndex = 87;
-            this.btn_OpdaterEjendomsmægler.Text = "Opdater Ejendomsmægler";
+            this.btn_OpdaterEjendomsmægler.Text = "Gem og opdater";
             this.btn_OpdaterEjendomsmægler.UseVisualStyleBackColor = true;
             this.btn_OpdaterEjendomsmægler.Click += new System.EventHandler(this.btn_OpdaterEjendomsmægler_Click);
             // 
@@ -227,7 +227,7 @@
             this.btn_HentEjendomsmægler.Name = "btn_HentEjendomsmægler";
             this.btn_HentEjendomsmægler.Size = new System.Drawing.Size(220, 35);
             this.btn_HentEjendomsmægler.TabIndex = 86;
-            this.btn_HentEjendomsmægler.Text = "Hent Ejendomsmægler";
+            this.btn_HentEjendomsmægler.Text = "Hent";
             this.btn_HentEjendomsmægler.UseVisualStyleBackColor = true;
             this.btn_HentEjendomsmægler.Click += new System.EventHandler(this.btn_HentEjendomsmægler_Click);
             // 
@@ -652,7 +652,7 @@
             // 
             // MæglerRediger_btn
             // 
-            this.MæglerRediger_btn.Location = new System.Drawing.Point(736, 125);
+            this.MæglerRediger_btn.Location = new System.Drawing.Point(736, 140);
             this.MæglerRediger_btn.Name = "MæglerRediger_btn";
             this.MæglerRediger_btn.Size = new System.Drawing.Size(122, 35);
             this.MæglerRediger_btn.TabIndex = 92;
