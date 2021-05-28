@@ -210,7 +210,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             SælgerBLL matchingsælger = null;
 
-            string sqlCommandSælger = "SELECT FROM Sælger WHERE " +
+            string sqlCommandSælger = "SELECT * FROM Sælger WHERE " +
                 "SælgerID LIKE @SælgerID OR " +
                 "CPR LIKE @CPR AND " +
                 "Telefon LIKE @Telefon AND " +
@@ -285,7 +285,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 "Fnavn = IsNull(NullIf(@Fnavn, ''), Fnavn), " +
                 "Enavn = IsNull(NullIf(@Enavn, ''), Enavn), " +
                 "Vej = IsNull(NullIf(@Vej, ''), Vej), " +
-                "Postnummer = IsNull(NullId(@Postnummer, ''), Postnummer) " +
+                "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer) " +
                 "WHERE SælgerID = @SælgerID";
 
             SqlCommand cmdSælger = new SqlCommand(sqlCommandSælger, conn);

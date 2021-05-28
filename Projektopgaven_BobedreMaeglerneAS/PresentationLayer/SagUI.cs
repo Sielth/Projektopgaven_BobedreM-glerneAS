@@ -54,7 +54,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (SagBLL.BoligExistsISag(SagsBoligID()))
+                if (!SagBLL.BoligExistsISag(SagsBoligID()))
                 {
                     //creates a new SagBLL in DB
                     sag.OpretSag(sag);

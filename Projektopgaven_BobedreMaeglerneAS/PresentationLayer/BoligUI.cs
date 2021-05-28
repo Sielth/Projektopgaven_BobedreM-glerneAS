@@ -168,6 +168,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //disable BoligID TextBox
             boligID_txt.Enabled = false;
+            boligRenoveringsÅr_dtp.Enabled = false;
+            boligUdbudspris_txt.Enabled = false;
         }
 
         //method to confirm the changes in a Bolig (UPDATE)
