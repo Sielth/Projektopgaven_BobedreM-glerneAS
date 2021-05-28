@@ -196,6 +196,12 @@ namespace Projektopgaven_BobedreMæglerneAS
                 return 0;
         }
 
+        public static bool BoligExists(int boligid)
+        {
+            return BoligDAL.BoligExists(boligid);
+        }
+
+        #region CRUD Bolig
         public void OpretBolig(BoligBLL bolig)
         {
             BoligDAL boligDAL = new BoligDAL();
@@ -223,11 +229,6 @@ namespace Projektopgaven_BobedreMæglerneAS
             BoligDAL boligDAL = new BoligDAL();
             boligDAL.SletBolig(bolig);
         }
-
-        public static bool BoligExists(int boligid)
-        {
-            return BoligDAL.BoligExists(boligid);
-        }
-
+        #endregion
     }
 }

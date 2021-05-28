@@ -49,9 +49,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             handelDAL.OpretHandel(handel);
         }
 
-        public static HandelBLL FindHandel(HandelBLL handelToFind)
+        public static HandelBLL FindHandelViaID(HandelBLL handelToFind)
         {
-            return HandelDAL.FindHandel(handelToFind);
+            return HandelDAL.FindHandelViaID(handelToFind);
         }
 
         public void OpdaterHandel(HandelBLL handel)
@@ -69,6 +69,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public static bool HandelExists(int sagsid)
         {
             return HandelDAL.HandelExists(sagsid);
+        }
+
+        public static HandelBLL FindHandel(HandelBLL handel)
+        {
+            return HandelDAL.FindHandel(handel);
         }
 
         //Methods go here

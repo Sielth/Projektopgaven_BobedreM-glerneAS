@@ -118,14 +118,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //retrieve a SagBLL from DB using SagsID
-                SagBLL matchingesag = SagBLL.HentSagViaID(sag);
-                
-                //shows retrieved Sag from DB on TextBoxes
-                sagStatus_cbox.Text = matchingesag.Status.ToString();
-                sag_boligID_cbox.Text = matchingesag.BoligID.ToString();
-                sag_sælgerID_cbox.Text = matchingesag.SælgerID.ToString();
-                sag_ejendomsmæglerID_cbox.Text = matchingesag.MæglerID.ToString();
+                if (SagBLL.SagExists(SagsID()))
+                {
+                    //retrieve a SagBLL from DB using SagsID
+                    SagBLL matchingesag = SagBLL.HentSagViaID(sag);
+
+                    //shows retrieved Sag from DB on TextBoxes
+                    sagStatus_cbox.Text = matchingesag.Status.ToString();
+                    sag_boligID_cbox.Text = matchingesag.BoligID.ToString();
+                    sag_sælgerID_cbox.Text = matchingesag.SælgerID.ToString();
+                    sag_ejendomsmæglerID_cbox.Text = matchingesag.MæglerID.ToString();
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
@@ -156,25 +161,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //updates a Sag record
-                sag.OpdaterSag(sag);
+                if (SagBLL.SagExists(SagsID()))
+                {
+                    //updates a Sag record
+                    sag.OpdaterSag(sag);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            //save SagsID in a string
-            string sagsid = null;
-
-            if (sagID_txt != null)
-                sagsid = sagID_txt.Text;
-
             //if Sag is beign closed because a house has been sold
-            if (sagStatus_cbox.SelectedItem.ToString() == "Lukket (solgt bolig)")
+            if (sagStatus_cbox.SelectedItem.ToString() == "Lukket (solgt bolig)" && !HandelBLL.HandelExists(SagsID()))
             {
                 //user must create a new Handle
-                MenuBarKnapper.HandlenCreate(sagsid);
+                MenuBarKnapper.HandlenCreate(SagsID().ToString());
             }
 
             //Loader data fra databasen ind i datagridview
@@ -207,8 +211,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //delete a Sag from DB
-                sag.SletSag(sag);
+                if (SagBLL.SagExists(SagsID()))
+                {
+                    //delete a Sag from DB
+                    sag.SletSag(sag);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {

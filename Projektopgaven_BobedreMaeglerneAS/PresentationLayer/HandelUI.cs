@@ -22,6 +22,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         HandelBLL handel;
         StatistikBLL statistik;
+        SagBLL sagBLL;
 
         public HandelUI()
         {
@@ -42,9 +43,31 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void btn_oprethandel_Click(object sender, EventArgs e)
         {
             handel = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
+            sagBLL = new SagBLL(HandelSagsID());
 
-            //Kalder metoden: OpretHandel
-            handel.OpretHandel(handel);
+            try
+            {
+                //Kalder metoden: OpretHandel
+                handel.OpretHandel(handel);
+
+                if (SagBLL.SagExists(HandelSagsID()))
+                    sagBLL.LukSag(sagBLL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                HandelBLL matchinghandel = HandelBLL.FindHandel(handel);
+
+                handelID_txt.Text = matchinghandel.HandelID.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             ////Loader data fra databasen ind i datagridview -
             //HandelUI_Load(sender, e);

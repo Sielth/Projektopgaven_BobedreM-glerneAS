@@ -148,7 +148,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
                     boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
                 }
-                //JER ER STOPPET HERE**********************************************************************************************'
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
@@ -177,11 +178,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //updates a Bolig record
-                bolig.OpdaterBolig(bolig);
+                if (BoligBLL.BoligExists(BoligID()))
+                {
+                    //updates a Bolig record
+                    bolig.OpdaterBolig(bolig);
 
-                //henter en bolig
-                btn_HentBolig_Click(sender, e);
+                    //henter en bolig
+                    btn_HentBolig_Click(sender, e);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
+
             }
             catch (Exception ex)
             {
@@ -262,8 +269,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //delete a Bolig from DB
-                bolig.SletBolig(bolig);
+                if (BoligBLL.BoligExists(BoligID()))
+                {
+                    //delete a Bolig from DB
+                    bolig.SletBolig(bolig);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
@@ -487,7 +499,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             if (boligType_cbox.SelectedItem != null)
                 return boligType_cbox.SelectedItem.ToString();
             else
-                return null;
+                return "Bolig";
         }
 
         private int BoligVærelser()

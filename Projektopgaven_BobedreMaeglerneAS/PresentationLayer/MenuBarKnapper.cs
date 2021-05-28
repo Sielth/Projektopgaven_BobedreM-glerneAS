@@ -375,6 +375,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
             handelUI.GetStatistikListbox().Visible = false;
+
+            handelUI.Get_udtrækstat_lbl1().Visible = false;
+            handelUI.Get_udtrækstat_lbl2().Visible = false;
+            handelUI.Get_udtrækstat_lbl3().Visible = false;
+            handelUI.Get_udtrækstat_lbl4().Visible = false;
+            handelUI.Get_udtrækstat_lbl7().Visible = false;
+            handelUI.Get_udtrækstat_lbl6().Visible = false;
+            handelUI.Get_udtrækstat_lbl5().Visible = false;
+            handelUI.Get_udtrækstat_lbl8().Visible = false;
+            handelUI.Get_stats_lbl().Visible = false;
         }
 
         public static void HandelHent()
@@ -397,6 +407,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
             handelUI.GetHandelSagsIDComboboks().Enabled = false;
             handelUI.GetHandelKøberIDComboboks().Enabled = false;
+
+            handelUI.Get_udtrækstat_lbl1().Visible = false;
+            handelUI.Get_udtrækstat_lbl2().Visible = false;
+            handelUI.Get_udtrækstat_lbl3().Visible = false;
+            handelUI.Get_udtrækstat_lbl4().Visible = false;
+            handelUI.Get_udtrækstat_lbl7().Visible = false;
+            handelUI.Get_udtrækstat_lbl6().Visible = false;
+            handelUI.Get_udtrækstat_lbl5().Visible = false;
+            handelUI.Get_udtrækstat_lbl8().Visible = false;
+            handelUI.Get_stats_lbl().Visible = false;
 
         }
 
@@ -436,6 +456,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
             handelUI.GetStatistikListbox().Visible = false;
+
+            handelUI.Get_udtrækstat_lbl1().Visible = false;
+            handelUI.Get_udtrækstat_lbl2().Visible = false;
+            handelUI.Get_udtrækstat_lbl3().Visible = false;
+            handelUI.Get_udtrækstat_lbl4().Visible = false;
+            handelUI.Get_udtrækstat_lbl7().Visible = false;
+            handelUI.Get_udtrækstat_lbl6().Visible = false;
+            handelUI.Get_udtrækstat_lbl5().Visible = false;
+            handelUI.Get_udtrækstat_lbl8().Visible = false;
+            handelUI.Get_stats_lbl().Visible = false;
         }
         public static void HandelStatistik()
         {
@@ -456,6 +486,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //handelUI.GetStatistikKnap().Visible = false;
             //handelUI.GetSaveStatistikKnap().Visible = false;
             //handelUI.GetStatistikListbox().Visible = false;
+
+            handelUI.GetGridView().Visible = false;
         }
 
         public static void ÅbentHus()
