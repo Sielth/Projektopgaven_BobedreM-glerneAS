@@ -46,7 +46,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.KøberPostnummer_txt.Enabled = true;
             køberUI.OpretKøber_knap.Visible = false;
             køberUI.SletKøber_knap.Visible = false;
-            køberUI.OpdaterKøber_knap.Visible = false;
+            køberUI.OpdaterKøber_knap.Visible = true;
             køberUI.FindKøber_knap.Visible = true;
         }
         public static void KøberDelete()
