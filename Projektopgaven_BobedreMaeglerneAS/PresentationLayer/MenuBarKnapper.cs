@@ -313,7 +313,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetSælgerIDTekstboks().Enabled = false;
         }
 
-        public static void SælgerHent()
+        public static void SælgerHentOpdater()
         {
             // Create a new instance of the SælgerUI class
             SælgerUI sælgerUI = new SælgerUI();
@@ -322,22 +322,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.Show();
 
             sælgerUI.GetOpretSælgerKnap().Visible = false;
-            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
             sælgerUI.GetSletSælgerKnap().Visible = false;
+            sælgerUI.GetSælgerCPRTekstboks().Enabled = false;
+            sælgerUI.GetSælgerTelefonTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEmailTekstboks().Enabled = false;
+            sælgerUI.GetSælgerFnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerVejTekstboks().Enabled = false;
+            sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
 
-        public static void SælgerOpdater()
-        {
-            // Create a new instance of the SælgerUI class
-            SælgerUI sælgerUI = new SælgerUI();
+        //public static void SælgerOpdater()
+        //{
+        //    // Create a new instance of the SælgerUI class
+        //    SælgerUI sælgerUI = new SælgerUI();
 
-            // Show the settings form
-            sælgerUI.Show();
+        //    // Show the settings form
+        //    sælgerUI.Show();
 
-            sælgerUI.GetOpretSælgerKnap().Visible = false;
-            sælgerUI.GetHentSælgerKnap().Visible = false;
-            sælgerUI.GetSletSælgerKnap().Visible = false;
-        }
+        //    sælgerUI.GetOpretSælgerKnap().Visible = false;
+        //    sælgerUI.GetHentSælgerKnap().Visible = false;
+        //    sælgerUI.GetSletSælgerKnap().Visible = false;
+        //}
 
         public static void SælgerSlet()
         {
