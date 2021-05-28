@@ -24,38 +24,48 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void OpretKøber_knap_Click(object sender, EventArgs e)
         {
             køber = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
-
-            try
+            if (CPRvalidering() && FornavnValidering() && EfternavnValidering() && EmailValidering() && TelefonValidering() && VejValidering() && PostnummerValidering())
             {
-                køber.OpdaterKøber(køber);
+                try
+                {
+                    køber.OpdaterKøber(køber);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
             KøberUI_Load(sender, e);
         }
 
         private void FindKøber_knap_Click(object sender, EventArgs e)
         {
             køber = new KøberBLL(KøberID());
-
-            try
+            if (CPRvalidering())
             {
-                KøberBLL matchingkøber = KøberBLL.FindKøber(køber);
+                try
+                {
+                    KøberBLL matchingkøber = KøberBLL.FindKøber(køber);
 
-                KøberVej_txt.Text = matchingkøber.Vej;
-                KøberPostnummer_txt.Text = matchingkøber.Postnummer.ToString();
-                KøberCPR_txt.Text = matchingkøber.CPR.ToString();
-                KøberFornavn_txt.Text = matchingkøber.Fnavn;
-                KøberEfternavn_txt.Text = matchingkøber.Enavn;
-                KøberEmail_txt.Text = matchingkøber.Email;
-                KøberTelefon_txt.Text = matchingkøber.Telefon.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                    KøberVej_txt.Text = matchingkøber.Vej;
+                    KøberVej_txt.Enabled = false;
+                    KøberPostnummer_txt.Text = matchingkøber.Postnummer.ToString();
+                    KøberPostnummer_txt.Enabled = false;
+                    KøberCPR_txt.Text = matchingkøber.CPR.ToString();
+                    KøberCPR_txt.Enabled = false;
+                    KøberFornavn_txt.Text = matchingkøber.Fnavn;
+                    KøberFornavn_txt.Enabled = false;
+                    KøberEfternavn_txt.Text = matchingkøber.Enavn;
+                    KøberEfternavn_txt.Enabled = false;
+                    KøberEmail_txt.Text = matchingkøber.Email;
+                    KøberEmail_txt.Enabled = false;
+                    KøberTelefon_txt.Text = matchingkøber.Telefon.ToString();
+                    KøberTelefon_txt.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
             KøberUI_Load(sender, e);
@@ -64,14 +74,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void OpdaterKøber_knap_Click(object sender, EventArgs e)
         {
             KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
-
-            try
+            if (CPRvalidering() && FornavnValidering() && EfternavnValidering() && EmailValidering() && TelefonValidering() && VejValidering() && PostnummerValidering())
             {
-                køber.OpdaterKøber(køber);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    køber.OpdaterKøber(køber);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
             KøberUI_Load(sender, e);
@@ -92,7 +104,36 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             KøberUI_Load(sender, e);
         }
-
+        private void TilladRedigering_knap_Click(object sender, EventArgs e)
+        {
+            KøberID_txt.Enabled = false;
+            KøberVej_txt.Enabled = true;
+            KøberPostnummer_txt.Enabled = true;
+            KøberCPR_txt.Enabled = true;
+            KøberFornavn_txt.Enabled = true;
+            KøberEfternavn_txt.Enabled = true;
+            KøberEmail_txt.Enabled = true;
+            KøberTelefon_txt.Enabled = true;
+        }
+        private void Clear_knap_Click(object sender, EventArgs e)
+        {
+            KøberID_txt.Enabled = true;
+            KøberID_txt.Clear();
+            KøberVej_txt.Enabled = false;
+            KøberVej_txt.Clear();
+            KøberPostnummer_txt.Enabled = false;
+            KøberPostnummer_txt.Clear();
+            KøberCPR_txt.Enabled = false;
+            KøberCPR_txt.Clear();
+            KøberFornavn_txt.Enabled = false;
+            KøberFornavn_txt.Clear();
+            KøberEfternavn_txt.Enabled = false;
+            KøberEfternavn_txt.Clear();
+            KøberEmail_txt.Enabled = false;
+            KøberEmail_txt.Clear();
+            KøberTelefon_txt.Enabled = false;
+            KøberTelefon_txt.Clear();
+        }
 
         #region MENUBAREN
         //MENUBAREN
@@ -277,5 +318,135 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.køberTableAdapter.Fill(this.køber_bobedredbDataSet.Køber);
 
         }
+        #region inputvalidering
+        private bool IsLetters(string text)
+        {
+            foreach (char c in text)
+            {
+                if (!Char.IsLetter(c) && c != ' ')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool IsDigits(string tal)
+        {
+            foreach (char c in tal)
+            {
+                if (!Char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool IsLettersOrDigits(string text)
+        {
+            foreach (char c in text)
+            {
+                if (!Char.IsLetterOrDigit(c) && c != ' ')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool IDvalidering()
+        {
+            if (!IsDigits(KøberID_txt.Text))
+            {
+                MessageBox.Show("ID må kun indeholde tal");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool CPRvalidering()
+        {
+            if (!IsDigits(KøberCPR_txt.Text) && KøberCPR_txt.Text.Length != 10)
+            {
+                MessageBox.Show("CPR skal være ti (10) tal langt");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool FornavnValidering()
+        {
+            if (!IsLetters(KøberFornavn_txt.Text))
+            {
+                MessageBox.Show("Fornavn må kun indeholde bogstaver");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool EfternavnValidering()
+        {
+            if (!IsLetters(KøberEfternavn_txt.Text))
+            {
+                MessageBox.Show("Efternavn må kun indeholde bogstaver");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool EmailValidering()
+        {
+            foreach (char c in KøberEmail_txt.Text)
+            {
+                if (!Char.IsLetterOrDigit(c) && c != '@' && c != '.')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool TelefonValidering()
+        {
+            if (!IsDigits(KøberTelefon_txt.Text) && KøberTelefon_txt.Text.Length != 8)
+            {
+                MessageBox.Show("Telefon skal være otte (8) tal langt");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool VejValidering()
+        {
+            if (!IsLettersOrDigits(KøberVej_txt.Text))
+            {
+                MessageBox.Show("Vej må kun indeholde bogstaver og tal");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool PostnummerValidering()
+        {
+            if (!IsDigits(KøberPostnummer_txt.Text))
+            {
+                MessageBox.Show("Postnummer må kun indeholde tal");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        #endregion
     }
 }
