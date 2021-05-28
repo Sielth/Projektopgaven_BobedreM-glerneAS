@@ -295,5 +295,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             ClearAll();
         }
+
+        private void btn_SælgerRediger_Click(object sender, EventArgs e)
+        {
+            EnableAll();
+        }
     }
 }
