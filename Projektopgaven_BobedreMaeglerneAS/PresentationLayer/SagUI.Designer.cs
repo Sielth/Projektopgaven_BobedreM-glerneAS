@@ -290,7 +290,6 @@
             this.sælger_updateToolStripMenuItem.Name = "sælger_updateToolStripMenuItem";
             this.sælger_updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.sælger_updateToolStripMenuItem.Text = "Update";
-            this.sælger_updateToolStripMenuItem.Click += new System.EventHandler(this.sælger_updateToolStripMenuItem_Click);
             // 
             // sælger_deleteToolStripMenuItem
             // 
