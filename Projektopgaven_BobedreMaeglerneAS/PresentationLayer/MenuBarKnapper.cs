@@ -276,6 +276,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sagUI.GetOpretSagKnap().Visible = false;
             sagUI.GetHentSagKnap().Visible = false;
             sagUI.GetSletSagKnap().Visible = false;
+
         }
 
         public static void SagSlet()
@@ -376,9 +377,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.Show();
 
             handelUI.GetFindHandelKnap().Visible = false;
-            handelUI.GetOpdaterHandelKnap().Visible = false;
             handelUI.GetSletHandelKnap().Visible = false;
-            handelUI.GetHandelIDTekstboks().Enabled = false;
+            handelUI.GetClearOpdater().Visible = false;
+            handelUI.GetAllowRedigering().Visible = false;
+            handelUI.GetOpdaterHandelKnap().Visible = false;
+
             handelUI.GetHandelsslutdatoDatetime().Visible = false;
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
@@ -393,6 +396,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.Get_udtrækstat_lbl5().Visible = false;
             handelUI.Get_udtrækstat_lbl8().Visible = false;
             handelUI.Get_stats_lbl().Visible = false;
+
+            handelUI.GetHandelIDTekstboks().Enabled = false;
         }
 
         public static void HandelHent()
@@ -403,18 +408,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // Show the settings form
             handelUI.Show();
 
-            handelUI.GetOpretHandelKnap().Visible = false;
-            //handelUI.GetOpdaterHandelKnap().Visible = false;
-            handelUI.GetSletHandelKnap().Visible = false;
-            //handelUI.GetHandelsdatoDatetime().Visible = false;
             handelUI.GetHandelsdatoDatetime().Enabled = false; //Skal datoen ændres når vi henter?
+            handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
+            handelUI.GetHandelSagsIDComboboks().Enabled = false;
+            handelUI.GetHandelKøberIDComboboks().Enabled = false;
+
+            handelUI.GetOpretHandelKnap().Visible = false;
+            handelUI.GetSletHandelKnap().Visible = false;
+            handelUI.GetClearOpret().Visible = false;
+
             handelUI.GetHandelsslutdatoDatetime().Visible = false;
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
             handelUI.GetStatistikListbox().Visible = false;
-            handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
-            handelUI.GetHandelSagsIDComboboks().Enabled = false;
-            handelUI.GetHandelKøberIDComboboks().Enabled = false;
 
             handelUI.Get_udtrækstat_lbl1().Visible = false;
             handelUI.Get_udtrækstat_lbl2().Visible = false;
@@ -453,13 +459,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // Show the settings form
             handelUI.Show();
 
-            handelUI.GetOpretHandelKnap().Visible = false;
-            handelUI.GetFindHandelKnap().Visible = false;
-            handelUI.GetOpdaterHandelKnap().Visible = false;
             handelUI.GetHandelsdatoDatetime().Enabled = false;
             handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
             handelUI.GetHandelSagsIDComboboks().Enabled = false;
             handelUI.GetHandelKøberIDComboboks().Enabled = false;
+
+            handelUI.GetOpretHandelKnap().Visible = false;
+            handelUI.GetFindHandelKnap().Visible = false;
+            handelUI.GetOpdaterHandelKnap().Visible = false;
+            handelUI.GetClearOpret().Visible = false;
+            handelUI.GetClearOpdater().Visible = false;
+            handelUI.GetAllowRedigering().Visible = false;
+
             handelUI.GetHandelsslutdatoDatetime().Visible = false;
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
@@ -485,6 +496,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetFindHandelKnap().Visible = false;
             handelUI.GetOpdaterHandelKnap().Visible = false;
             handelUI.GetSletHandelKnap().Visible = false;
+            handelUI.GetClearOpdater().Visible = false;
+            handelUI.GetClearOpret().Visible = false;
+            handelUI.GetAllowRedigering().Visible = false;
 
             //handelUI.GetHandelsdatoDatetime().Enabled = false;
             handelUI.GetHandelSalgsprisTekstboks().Enabled = false;

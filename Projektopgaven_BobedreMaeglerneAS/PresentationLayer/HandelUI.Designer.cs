@@ -93,6 +93,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.udtrækstat_lbl5 = new System.Windows.Forms.Label();
             this.udtrækstat_lbl8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.allowRedigering_btn = new System.Windows.Forms.Button();
+            this.clearOpret_btn = new System.Windows.Forms.Button();
+            this.clearOpdater_btn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +120,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "";
             this.dateTimePicker1.Location = new System.Drawing.Point(262, 60);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -184,7 +188,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // btn_findhandel
             // 
-            this.btn_findhandel.Location = new System.Drawing.Point(470, 88);
+            this.btn_findhandel.Location = new System.Drawing.Point(470, 60);
             this.btn_findhandel.Margin = new System.Windows.Forms.Padding(2);
             this.btn_findhandel.Name = "btn_findhandel";
             this.btn_findhandel.Size = new System.Drawing.Size(106, 24);
@@ -195,7 +199,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // btn_opdaterhandel
             // 
-            this.btn_opdaterhandel.Location = new System.Drawing.Point(470, 116);
+            this.btn_opdaterhandel.Location = new System.Drawing.Point(470, 146);
             this.btn_opdaterhandel.Margin = new System.Windows.Forms.Padding(2);
             this.btn_opdaterhandel.Name = "btn_opdaterhandel";
             this.btn_opdaterhandel.Size = new System.Drawing.Size(106, 24);
@@ -206,7 +210,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // btn_slethandel
             // 
-            this.btn_slethandel.Location = new System.Drawing.Point(470, 144);
+            this.btn_slethandel.Location = new System.Drawing.Point(470, 60);
             this.btn_slethandel.Margin = new System.Windows.Forms.Padding(2);
             this.btn_slethandel.Name = "btn_slethandel";
             this.btn_slethandel.Size = new System.Drawing.Size(106, 24);
@@ -302,21 +306,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // sælger_createToolStripMenuItem
             // 
             this.sælger_createToolStripMenuItem.Name = "sælger_createToolStripMenuItem";
-            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
+            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.sælger_createToolStripMenuItem.Text = "Opret en sælger";
             this.sælger_createToolStripMenuItem.Click += new System.EventHandler(this.sælger_createToolStripMenuItem_Click);
             // 
             // sælger_readToolStripMenuItem
             // 
             this.sælger_readToolStripMenuItem.Name = "sælger_readToolStripMenuItem";
-            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
+            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.sælger_readToolStripMenuItem.Text = "Hent og opdater en sælger";
             this.sælger_readToolStripMenuItem.Click += new System.EventHandler(this.sælger_readToolStripMenuItem_Click);
             // 
             // sælger_deleteToolStripMenuItem
             // 
             this.sælger_deleteToolStripMenuItem.Name = "sælger_deleteToolStripMenuItem";
-            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
+            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.sælger_deleteToolStripMenuItem.Text = "Slet en sælger";
             this.sælger_deleteToolStripMenuItem.Click += new System.EventHandler(this.sælger_deleteToolStripMenuItem_Click);
             // 
@@ -333,21 +337,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // køber_createToolStripMenuItem1
             // 
             this.køber_createToolStripMenuItem1.Name = "køber_createToolStripMenuItem1";
-            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.køber_createToolStripMenuItem1.Text = "Create";
             this.køber_createToolStripMenuItem1.Click += new System.EventHandler(this.køber_createToolStripMenuItem1_Click);
             // 
             // køber_readToolStripMenuItem1
             // 
             this.køber_readToolStripMenuItem1.Name = "køber_readToolStripMenuItem1";
-            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.køber_readToolStripMenuItem1.Text = "Read og Update";
             this.køber_readToolStripMenuItem1.Click += new System.EventHandler(this.køber_readToolStripMenuItem1_Click);
             // 
             // køber_deleteToolStripMenuItem1
             // 
             this.køber_deleteToolStripMenuItem1.Name = "køber_deleteToolStripMenuItem1";
-            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.køber_deleteToolStripMenuItem1.Text = "Delete";
             this.køber_deleteToolStripMenuItem1.Click += new System.EventHandler(this.køber_deleteToolStripMenuItem1_Click);
             // 
@@ -578,11 +582,44 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.dataGridView1.Size = new System.Drawing.Size(564, 310);
             this.dataGridView1.TabIndex = 29;
             // 
+            // allowRedigering_btn
+            // 
+            this.allowRedigering_btn.Location = new System.Drawing.Point(470, 118);
+            this.allowRedigering_btn.Name = "allowRedigering_btn";
+            this.allowRedigering_btn.Size = new System.Drawing.Size(106, 23);
+            this.allowRedigering_btn.TabIndex = 30;
+            this.allowRedigering_btn.Text = "Allow redigering";
+            this.allowRedigering_btn.UseVisualStyleBackColor = true;
+            this.allowRedigering_btn.Click += new System.EventHandler(this.allowRedigering_btn_Click);
+            // 
+            // clearOpret_btn
+            // 
+            this.clearOpret_btn.Location = new System.Drawing.Point(470, 89);
+            this.clearOpret_btn.Name = "clearOpret_btn";
+            this.clearOpret_btn.Size = new System.Drawing.Size(106, 23);
+            this.clearOpret_btn.TabIndex = 31;
+            this.clearOpret_btn.Text = "Clear";
+            this.clearOpret_btn.UseVisualStyleBackColor = true;
+            this.clearOpret_btn.Click += new System.EventHandler(this.clearOpret_btn_Click);
+            // 
+            // clearOpdater_btn
+            // 
+            this.clearOpdater_btn.Location = new System.Drawing.Point(470, 89);
+            this.clearOpdater_btn.Name = "clearOpdater_btn";
+            this.clearOpdater_btn.Size = new System.Drawing.Size(106, 23);
+            this.clearOpdater_btn.TabIndex = 32;
+            this.clearOpdater_btn.Text = "Clear";
+            this.clearOpdater_btn.UseVisualStyleBackColor = true;
+            this.clearOpdater_btn.Click += new System.EventHandler(this.clearOpdater_btn_Click);
+            // 
             // HandelUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 509);
+            this.Controls.Add(this.clearOpdater_btn);
+            this.Controls.Add(this.clearOpret_btn);
+            this.Controls.Add(this.allowRedigering_btn);
             this.Controls.Add(this.udtrækstat_lbl8);
             this.Controls.Add(this.udtrækstat_lbl7);
             this.Controls.Add(this.udtrækstat_lbl6);
@@ -639,89 +676,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.TextBox handelID_txt;
         private System.Windows.Forms.ComboBox handelKøberID_cbox;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-
-        #region Get knapper
-        public System.Windows.Forms.Button GetOpretHandelKnap()
-        {
-            return btn_oprethandel;
-        }
-
-        public System.Windows.Forms.Button GetFindHandelKnap()
-        {
-            return btn_findhandel;
-        }
-
-        public System.Windows.Forms.Button GetStatistikKnap()
-        {
-            return button1;
-        }
-
-        public System.Windows.Forms.Button GetOpdaterHandelKnap()
-        {
-            return btn_opdaterhandel;
-        }
-
-        public System.Windows.Forms.Button GetSletHandelKnap()
-        {
-            return btn_slethandel;
-        }
-
-        public System.Windows.Forms.Button GetSaveStatistikKnap()
-        {
-            return save;
-        }
-        #endregion
-
-        #region Get tekstbokse og combobokse
-        public System.Windows.Forms.TextBox GetHandelIDTekstboks()
-        {
-            return handelID_txt;
-        }
-
-        public System.Windows.Forms.DateTimePicker GetHandelsdatoDatetime()
-        {
-            return dateTimePicker1;
-        }
-
-        public System.Windows.Forms.DateTimePicker GetHandelsslutdatoDatetime()
-        {
-            return dateTimePicker3;
-        }
-
-        public System.Windows.Forms.TextBox GetHandelSalgsprisTekstboks()
-        {
-            return handelSalgspris_txt;
-        }
-
-        public System.Windows.Forms.ComboBox GetHandelSagsIDComboboks()
-        {
-            return handelSalgsID_cbox;
-        }
-
-        public System.Windows.Forms.ComboBox GetHandelKøberIDComboboks()
-        {
-            return handelKøberID_cbox;
-        }
-
-        public System.Windows.Forms.Label Get_udtrækstat_lbl1() { return udtrækstat_lbl1; }
-        public System.Windows.Forms.Label Get_udtrækstat_lbl2() { return udtrækstat_lbl2; }
-        public System.Windows.Forms.Label Get_udtrækstat_lbl3() { return udtrækstat_lbl3; }
-        public System.Windows.Forms.Label Get_udtrækstat_lbl4() { return udtrækstat_lbl4; }
-        public System.Windows.Forms.Label Get_udtrækstat_lbl7() { return udtrækstat_lbl7; }
-        public System.Windows.Forms.Label Get_udtrækstat_lbl6() { return udtrækstat_lbl6; }
-        public System.Windows.Forms.Label Get_udtrækstat_lbl5() { return udtrækstat_lbl5; }
-        public System.Windows.Forms.Label Get_udtrækstat_lbl8() { return udtrækstat_lbl8; }
-        public System.Windows.Forms.Label Get_stats_lbl() { return stats_lbl; }
-        public System.Windows.Forms.DataGridView GetGridView() { return dataGridView1; }
-        #endregion
-
-        #region GetListBox
-        public System.Windows.Forms.ListBox GetStatistikListbox()
-        {
-            return statistik_solgteboliger_lbox;
-        }
-        #endregion
-
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ejendomsmæglerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ejendomsmægler_createToolStripMenuItem;
@@ -763,5 +717,131 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Label udtrækstat_lbl5;
         private System.Windows.Forms.Label udtrækstat_lbl8;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button allowRedigering_btn;
+        private System.Windows.Forms.Button clearOpret_btn;
+        private System.Windows.Forms.Button clearOpdater_btn;
+
+        #region Get knapper
+        public System.Windows.Forms.Button GetOpretHandelKnap()
+        {
+            return btn_oprethandel;
+        }
+
+        public System.Windows.Forms.Button GetFindHandelKnap()
+        {
+            return btn_findhandel;
+        }
+
+        public System.Windows.Forms.Button GetStatistikKnap()
+        {
+            return button1;
+        }
+
+        public System.Windows.Forms.Button GetOpdaterHandelKnap()
+        {
+            return btn_opdaterhandel;
+        }
+
+        public System.Windows.Forms.Button GetSletHandelKnap()
+        {
+            return btn_slethandel;
+        }
+
+        public System.Windows.Forms.Button GetSaveStatistikKnap()
+        {
+            return save;
+        }
+
+        public System.Windows.Forms.Button GetClearOpdater()
+        {
+            return clearOpdater_btn;
+        }
+
+        public System.Windows.Forms.Button GetClearOpret()
+        {
+            return clearOpret_btn;
+        }
+
+        public System.Windows.Forms.Button GetAllowRedigering()
+        {
+            return allowRedigering_btn;
+        }
+        #endregion
+
+        #region Get tekstbokse og combobokse
+        public System.Windows.Forms.TextBox GetHandelIDTekstboks()
+        {
+            return handelID_txt;
+        }
+
+        public System.Windows.Forms.DateTimePicker GetHandelsdatoDatetime()
+        {
+            return dateTimePicker1;
+        }
+
+        public System.Windows.Forms.DateTimePicker GetHandelsslutdatoDatetime()
+        {
+            return dateTimePicker3;
+        }
+
+        public System.Windows.Forms.TextBox GetHandelSalgsprisTekstboks()
+        {
+            return handelSalgspris_txt;
+        }
+
+        public System.Windows.Forms.ComboBox GetHandelSagsIDComboboks()
+        {
+            return handelSalgsID_cbox;
+        }
+
+        public System.Windows.Forms.ComboBox GetHandelKøberIDComboboks()
+        {
+            return handelKøberID_cbox;
+        }
+        #endregion
+
+        #region GetListBox
+        public System.Windows.Forms.ListBox GetStatistikListbox()
+        {
+            return statistik_solgteboliger_lbox;
+        }
+        #endregion
+
+        #region Get Labels
+        public System.Windows.Forms.Label Get_udtrækstat_lbl1() { return udtrækstat_lbl1; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl2() { return udtrækstat_lbl2; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl3() { return udtrækstat_lbl3; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl4() { return udtrækstat_lbl4; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl7() { return udtrækstat_lbl7; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl6() { return udtrækstat_lbl6; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl5() { return udtrækstat_lbl5; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl8() { return udtrækstat_lbl8; }
+        public System.Windows.Forms.Label Get_stats_lbl() { return stats_lbl; }
+        public System.Windows.Forms.DataGridView GetGridView() { return dataGridView1; }
+        #endregion
+
+        public void ClearAll()
+        {
+            handelID_txt.Text = null;
+            handelSalgspris_txt.Text = null;
+            handelSalgsID_cbox.SelectedItem = null;
+            handelKøberID_cbox.SelectedItem = null;
+        }
+
+        public void EnableAll()
+        {
+            handelID_txt.Enabled = true;
+            handelSalgspris_txt.Enabled = true;
+            handelSalgsID_cbox.Enabled = true;
+            handelKøberID_cbox.Enabled = true;
+        }
+
+        public void DisableAll()
+        {
+            handelID_txt.Enabled = false;
+            handelSalgspris_txt.Enabled = false;
+            handelSalgsID_cbox.Enabled = false;
+            handelKøberID_cbox.Enabled = false;
+        }
     }
 }

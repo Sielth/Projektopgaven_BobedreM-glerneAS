@@ -40,6 +40,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             t2.Start();
         }
 
+        #region Opret Handel
         private void btn_oprethandel_Click(object sender, EventArgs e)
         {
             handel = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
@@ -47,68 +48,165 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //Kalder metoden: OpretHandel
-                handel.OpretHandel(handel);
+                if (!HandelBLL.HandelExists(HandelSagsID())) //if there is no handel with the chosen SagsID
+                {
+                    //OpretHandel
+                    handel.OpretHandel(handel);
 
-                if (SagBLL.SagExists(HandelSagsID()))
-                    sagBLL.LukSag(sagBLL);
+                    //retireve HandelID from DB
+                    HandelBLL matchinghandel = HandelBLL.FindHandel(handel);
+
+                    handelID_txt.Text = matchinghandel.HandelID.ToString();
+
+                    //Luk sagen
+                    if (SagBLL.SagExists(HandelSagsID()))
+                        sagBLL.LukSag(sagBLL);
+                }
+                else
+                {
+                    MessageBox.Show("En faktura (handel) for denne sag har allerede været oprettet.");
+                }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            ////Loader data fra databasen ind i datagridview -
+            //HandelUI_Load(sender, e);
+
+            //disable all TextBoxes
+            DisableAll();
+        }
+
+        private void clearOpret_btn_Click(object sender, EventArgs e)
+        {
+            //clear all TextBoxes
+            ClearAll();
+
+            //enable all TextBoxes
+            EnableAll();
+
+            //disable BoligID, RenoveringsÅr, Udbudspris TextBoxes
+            handelID_txt.Enabled = false;
+        }
+        #endregion
+
+        #region Hent Handel / Opdater Handel
+        private void btn_findhandel_Click(object sender, EventArgs e)
+        {
+            handel = new HandelBLL(HandelID());
 
             try
             {
-                HandelBLL matchinghandel = HandelBLL.FindHandel(handel);
+                if (HandelBLL.HandelIDExists(HandelID()))
+                {
+                    HandelBLL matchinghandel = HandelBLL.FindHandelViaID(handel);
+                    //Kalder metoden: OpretHandel
 
-                handelID_txt.Text = matchinghandel.HandelID.ToString();
+                    handelSalgsID_cbox.Text = matchinghandel.SagsID.ToString();
+                    handelKøberID_cbox.Text = matchinghandel.KøberID.ToString();
+                    handelSalgspris_txt.Text = matchinghandel.Salgspris.ToString();
+                    dateTimePicker1.Value = matchinghandel.Handelsdato;
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen handel i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            handelID_txt.Enabled = false;
 
             ////Loader data fra databasen ind i datagridview -
             //HandelUI_Load(sender, e);
         }
 
-        private void btn_findhandel_Click(object sender, EventArgs e)
+        private void allowRedigering_btn_Click(object sender, EventArgs e)
         {
-            handel = new HandelBLL(HandelID());
-            
-            HandelBLL matchinghandel = HandelBLL.FindHandel(handel);
-            //Kalder metoden: OpretHandel
+            //enable all TextBoxes
+            EnableAll();
 
-            handelSalgsID_cbox.Text = matchinghandel.SagsID.ToString();
-            handelKøberID_cbox.Text = matchinghandel.KøberID.ToString();
-            handelSalgspris_txt.Text = matchinghandel.Salgspris.ToString();
-            ////Loader data fra databasen ind i datagridview -
-            //HandelUI_Load(sender, e);
+            //disable BoligID TextBox
+            handelID_txt.Enabled = false;
         }
 
         private void btn_opdaterhandel_Click(object sender, EventArgs e)
         {
             handel = new HandelBLL(HandelID(), Handelsdato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
 
-            //Kalder metoden: OpretHandel
-            handel.OpdaterHandel(handel);
+            try
+            {
+                if (HandelBLL.HandelIDExists(HandelID()))
+                {
+                    handel.OpdaterHandel(handel);
+
+                    btn_findhandel_Click(sender, e);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen handel i database med dette ID. Prøv venligst med en anden ID.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             ////Loader data fra databasen ind i datagridview -
             //HandelUI_Load(sender, e);
+
+            //disable all TextBoxes
+            DisableAll();
         }
 
+        private void clearOpdater_btn_Click(object sender, EventArgs e)
+        {
+            //clear all TextBoxes
+            ClearAll();
+
+            //disable all TextBoxes
+            DisableAll();
+
+            //enable BoligID TextBox
+            handelID_txt.Enabled = true;
+        }
+        #endregion
+
+        #region Slet Handel
         private void btn_slethandel_Click(object sender, EventArgs e)
         {
             handel = new HandelBLL(HandelID());
 
-            //Kalder metoden: OpretHandel
-            handel.SletHandel(handel);
+            try
+            {
+                if (HandelBLL.HandelIDExists(HandelID()))
+                {
+                    //Kalder metoden: OpretHandel
+                    handel.SletHandel(handel);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen handel i database med dette ID. Prøv venligst med en anden ID.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            ////Loader data fra databasen ind i datagridview -
+            //Loader data fra databasen ind i datagridview -
             //HandelUI_Load(sender, e);
+
+            //clear all TextBoxes
+            ClearAll();
+
+            //disable all TextBoxes
+            DisableAll();
+
+            //enable BoligID TextBox
+            handelID_txt.Enabled = true;
         }
 
+        #endregion
 
         #region Konverter Tekstbokse
         public int HandelID()

@@ -54,21 +54,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //creates a new SagBLL in DB
-                sag.OpretSag(sag);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                if (SagBLL.BoligExistsISag(SagsBoligID()))
+                {
+                    //creates a new SagBLL in DB
+                    sag.OpretSag(sag);
 
-            try
-            {
-                //retrieves Sags ID from DB
-                SagBLL matchingsag = SagBLL.HentSag(sag);
+                    //retrieves Sags ID from DB
+                    SagBLL matchingsag = SagBLL.HentSag(sag);
 
-                //show SagsID in TextBox
-                sagID_txt.Text = matchingsag.SagsID.ToString();
+                    //show SagsID in TextBox
+                    sagID_txt.Text = matchingsag.SagsID.ToString();
+                }
+                else
+                    MessageBox.Show("Der findes allerede en sag med denne bolig ID. Vælg venligst en anden bolig.");
             }
             catch (Exception ex)
             {
@@ -151,6 +149,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //disable BoligID TextBox
             sagID_txt.Enabled = false;
+            sag_boligID_cbox.Enabled = false;
         }
 
         //method to update a Sag
