@@ -100,72 +100,72 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // handelSalgsID_cbox
             // 
             this.handelSalgsID_cbox.FormattingEnabled = true;
-            this.handelSalgsID_cbox.Location = new System.Drawing.Point(90, 108);
-            this.handelSalgsID_cbox.Margin = new System.Windows.Forms.Padding(2);
+            this.handelSalgsID_cbox.Location = new System.Drawing.Point(120, 133);
+            this.handelSalgsID_cbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.handelSalgsID_cbox.Name = "handelSalgsID_cbox";
-            this.handelSalgsID_cbox.Size = new System.Drawing.Size(92, 21);
+            this.handelSalgsID_cbox.Size = new System.Drawing.Size(121, 24);
             this.handelSalgsID_cbox.TabIndex = 0;
             // 
             // handelKøberID_cbox
             // 
             this.handelKøberID_cbox.FormattingEnabled = true;
-            this.handelKøberID_cbox.Location = new System.Drawing.Point(90, 133);
-            this.handelKøberID_cbox.Margin = new System.Windows.Forms.Padding(2);
+            this.handelKøberID_cbox.Location = new System.Drawing.Point(120, 164);
+            this.handelKøberID_cbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.handelKøberID_cbox.Name = "handelKøberID_cbox";
-            this.handelKøberID_cbox.Size = new System.Drawing.Size(92, 21);
+            this.handelKøberID_cbox.Size = new System.Drawing.Size(121, 24);
             this.handelKøberID_cbox.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(262, 60);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker1.Location = new System.Drawing.Point(349, 74);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 3;
             this.dateTimePicker1.Value = new System.DateTime(2021, 5, 28, 0, 0, 0, 0);
             // 
             // handelSalgspris_txt
             // 
-            this.handelSalgspris_txt.Location = new System.Drawing.Point(90, 84);
-            this.handelSalgspris_txt.Margin = new System.Windows.Forms.Padding(2);
+            this.handelSalgspris_txt.Location = new System.Drawing.Point(120, 103);
+            this.handelSalgspris_txt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.handelSalgspris_txt.Name = "handelSalgspris_txt";
-            this.handelSalgspris_txt.Size = new System.Drawing.Size(92, 20);
+            this.handelSalgspris_txt.Size = new System.Drawing.Size(121, 22);
             this.handelSalgspris_txt.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 111);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(59, 137);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.Size = new System.Drawing.Size(53, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "SagsID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 87);
+            this.label2.Location = new System.Drawing.Point(48, 107);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(66, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Salgspris";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 136);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(53, 167);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.Size = new System.Drawing.Size(59, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "KøberID";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(470, 274);
+            this.button1.Location = new System.Drawing.Point(627, 337);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.Size = new System.Drawing.Size(141, 28);
             this.button1.TabIndex = 9;
             this.button1.Text = "Udtræk Statistik";
             this.button1.UseVisualStyleBackColor = true;
@@ -173,10 +173,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // btn_oprethandel
             // 
-            this.btn_oprethandel.Location = new System.Drawing.Point(470, 60);
-            this.btn_oprethandel.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_oprethandel.Location = new System.Drawing.Point(627, 74);
+            this.btn_oprethandel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_oprethandel.Name = "btn_oprethandel";
-            this.btn_oprethandel.Size = new System.Drawing.Size(106, 24);
+            this.btn_oprethandel.Size = new System.Drawing.Size(141, 30);
             this.btn_oprethandel.TabIndex = 10;
             this.btn_oprethandel.Text = "Opret handel";
             this.btn_oprethandel.UseVisualStyleBackColor = true;
@@ -184,10 +184,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // btn_findhandel
             // 
-            this.btn_findhandel.Location = new System.Drawing.Point(470, 88);
-            this.btn_findhandel.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_findhandel.Location = new System.Drawing.Point(627, 108);
+            this.btn_findhandel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_findhandel.Name = "btn_findhandel";
-            this.btn_findhandel.Size = new System.Drawing.Size(106, 24);
+            this.btn_findhandel.Size = new System.Drawing.Size(141, 30);
             this.btn_findhandel.TabIndex = 11;
             this.btn_findhandel.Text = "Find handel";
             this.btn_findhandel.UseVisualStyleBackColor = true;
@@ -195,10 +195,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // btn_opdaterhandel
             // 
-            this.btn_opdaterhandel.Location = new System.Drawing.Point(470, 116);
-            this.btn_opdaterhandel.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_opdaterhandel.Location = new System.Drawing.Point(627, 143);
+            this.btn_opdaterhandel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_opdaterhandel.Name = "btn_opdaterhandel";
-            this.btn_opdaterhandel.Size = new System.Drawing.Size(106, 24);
+            this.btn_opdaterhandel.Size = new System.Drawing.Size(141, 30);
             this.btn_opdaterhandel.TabIndex = 12;
             this.btn_opdaterhandel.Text = "Opdater handel";
             this.btn_opdaterhandel.UseVisualStyleBackColor = true;
@@ -206,10 +206,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // btn_slethandel
             // 
-            this.btn_slethandel.Location = new System.Drawing.Point(470, 144);
-            this.btn_slethandel.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_slethandel.Location = new System.Drawing.Point(627, 177);
+            this.btn_slethandel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_slethandel.Name = "btn_slethandel";
-            this.btn_slethandel.Size = new System.Drawing.Size(106, 24);
+            this.btn_slethandel.Size = new System.Drawing.Size(141, 30);
             this.btn_slethandel.TabIndex = 13;
             this.btn_slethandel.Text = "Slet handel";
             this.btn_slethandel.UseVisualStyleBackColor = true;
@@ -218,19 +218,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 63);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(45, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(66, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "HandelID";
             // 
             // handelID_txt
             // 
-            this.handelID_txt.Location = new System.Drawing.Point(90, 60);
-            this.handelID_txt.Margin = new System.Windows.Forms.Padding(2);
+            this.handelID_txt.Location = new System.Drawing.Point(120, 74);
+            this.handelID_txt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.handelID_txt.Name = "handelID_txt";
-            this.handelID_txt.Size = new System.Drawing.Size(92, 20);
+            this.handelID_txt.Size = new System.Drawing.Size(121, 22);
             this.handelID_txt.TabIndex = 15;
             // 
             // dateTimePicker2
@@ -238,7 +237,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.dateTimePicker2.Location = new System.Drawing.Point(45, 270);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker2.TabIndex = 10;
             // 
             // menuStrip1
@@ -253,8 +252,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.handelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(598, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(797, 28);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -265,27 +264,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.ejendomsmægler_readToolStripMenuItem,
             this.ejendomsmægler_deleteToolStripMenuItem});
             this.ejendomsmæglerToolStripMenuItem.Name = "ejendomsmæglerToolStripMenuItem";
-            this.ejendomsmæglerToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+            this.ejendomsmæglerToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.ejendomsmæglerToolStripMenuItem.Text = "Ejendomsmægler";
             // 
             // ejendomsmægler_createToolStripMenuItem
             // 
             this.ejendomsmægler_createToolStripMenuItem.Name = "ejendomsmægler_createToolStripMenuItem";
-            this.ejendomsmægler_createToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.ejendomsmægler_createToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
             this.ejendomsmægler_createToolStripMenuItem.Text = "Opret en ejendomsmægler";
             this.ejendomsmægler_createToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_createToolStripMenuItem_Click);
             // 
             // ejendomsmægler_readToolStripMenuItem
             // 
             this.ejendomsmægler_readToolStripMenuItem.Name = "ejendomsmægler_readToolStripMenuItem";
-            this.ejendomsmægler_readToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.ejendomsmægler_readToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
             this.ejendomsmægler_readToolStripMenuItem.Text = "Hent og opdater en ejendomsmægler";
             this.ejendomsmægler_readToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_readToolStripMenuItem_Click);
             // 
             // ejendomsmægler_deleteToolStripMenuItem
             // 
             this.ejendomsmægler_deleteToolStripMenuItem.Name = "ejendomsmægler_deleteToolStripMenuItem";
-            this.ejendomsmægler_deleteToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.ejendomsmægler_deleteToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
             this.ejendomsmægler_deleteToolStripMenuItem.Text = "Slet en ejendomsmægler";
             this.ejendomsmægler_deleteToolStripMenuItem.Click += new System.EventHandler(this.ejendomsmægler_deleteToolStripMenuItem_Click);
             // 
@@ -296,7 +295,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.sælger_readToolStripMenuItem,
             this.sælger_deleteToolStripMenuItem});
             this.sælgerToolStripMenuItem.Name = "sælgerToolStripMenuItem";
-            this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.sælgerToolStripMenuItem.Text = "Sælger";
             // 
             // sælger_createToolStripMenuItem
@@ -327,28 +326,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.køber_readToolStripMenuItem1,
             this.køber_deleteToolStripMenuItem1});
             this.køberToolStripMenuItem.Name = "køberToolStripMenuItem";
-            this.køberToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.køberToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
             this.køberToolStripMenuItem.Text = "Køber";
             // 
             // køber_createToolStripMenuItem1
             // 
             this.køber_createToolStripMenuItem1.Name = "køber_createToolStripMenuItem1";
-            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.køber_createToolStripMenuItem1.Text = "Create";
+            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(245, 26);
+            this.køber_createToolStripMenuItem1.Text = "Opret Køber";
             this.køber_createToolStripMenuItem1.Click += new System.EventHandler(this.køber_createToolStripMenuItem1_Click);
             // 
             // køber_readToolStripMenuItem1
             // 
             this.køber_readToolStripMenuItem1.Name = "køber_readToolStripMenuItem1";
-            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.køber_readToolStripMenuItem1.Text = "Read og Update";
+            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(245, 26);
+            this.køber_readToolStripMenuItem1.Text = "Find og Opdater Køber";
             this.køber_readToolStripMenuItem1.Click += new System.EventHandler(this.køber_readToolStripMenuItem1_Click);
             // 
             // køber_deleteToolStripMenuItem1
             // 
             this.køber_deleteToolStripMenuItem1.Name = "køber_deleteToolStripMenuItem1";
-            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.køber_deleteToolStripMenuItem1.Text = "Delete";
+            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(245, 26);
+            this.køber_deleteToolStripMenuItem1.Text = "Slet Køber";
             this.køber_deleteToolStripMenuItem1.Click += new System.EventHandler(this.køber_deleteToolStripMenuItem1_Click);
             // 
             // boligToolStripMenuItem
@@ -359,34 +358,34 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.bolig_deleteToolStripMenuItem2,
             this.komTilÅbentHusToolStripMenuItem});
             this.boligToolStripMenuItem.Name = "boligToolStripMenuItem";
-            this.boligToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.boligToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.boligToolStripMenuItem.Text = "Bolig";
             // 
             // bolig_createToolStripMenuItem2
             // 
             this.bolig_createToolStripMenuItem2.Name = "bolig_createToolStripMenuItem2";
-            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
+            this.bolig_createToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.bolig_createToolStripMenuItem2.Text = "Opret en ny Bolig";
             this.bolig_createToolStripMenuItem2.Click += new System.EventHandler(this.bolig_createToolStripMenuItem2_Click);
             // 
             // bolig_readToolStripMenuItem2
             // 
             this.bolig_readToolStripMenuItem2.Name = "bolig_readToolStripMenuItem2";
-            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
+            this.bolig_readToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.bolig_readToolStripMenuItem2.Text = "Hent og Opdater";
             this.bolig_readToolStripMenuItem2.Click += new System.EventHandler(this.bolig_readToolStripMenuItem2_Click);
             // 
             // bolig_deleteToolStripMenuItem2
             // 
             this.bolig_deleteToolStripMenuItem2.Name = "bolig_deleteToolStripMenuItem2";
-            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
+            this.bolig_deleteToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.bolig_deleteToolStripMenuItem2.Text = "Slet en Bolig";
             this.bolig_deleteToolStripMenuItem2.Click += new System.EventHandler(this.bolig_deleteToolStripMenuItem2_Click);
             // 
             // komTilÅbentHusToolStripMenuItem
             // 
             this.komTilÅbentHusToolStripMenuItem.Name = "komTilÅbentHusToolStripMenuItem";
-            this.komTilÅbentHusToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.komTilÅbentHusToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.komTilÅbentHusToolStripMenuItem.Text = "Kom til Åbent Hus!";
             this.komTilÅbentHusToolStripMenuItem.Click += new System.EventHandler(this.komTilÅbentHusToolStripMenuItem_Click);
             // 
@@ -397,27 +396,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.readToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.sagToolStripMenuItem.Name = "sagToolStripMenuItem";
-            this.sagToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sagToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
             this.sagToolStripMenuItem.Text = "Sag";
             // 
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.createToolStripMenuItem.Text = "Opret en ny Sag";
             this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // readToolStripMenuItem
             // 
             this.readToolStripMenuItem.Name = "readToolStripMenuItem";
-            this.readToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.readToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.readToolStripMenuItem.Text = "Hent og Opdater";
             this.readToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.deleteToolStripMenuItem.Text = "Slet en Sag";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -429,59 +428,62 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.deleteToolStripMenuItem1,
             this.udtrækStatistikToolStripMenuItem});
             this.handelToolStripMenuItem.Name = "handelToolStripMenuItem";
-            this.handelToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.handelToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.handelToolStripMenuItem.Text = "Handel";
             // 
             // createToolStripMenuItem1
             // 
             this.createToolStripMenuItem1.Name = "createToolStripMenuItem1";
-            this.createToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
-            this.createToolStripMenuItem1.Text = "Create";
+            this.createToolStripMenuItem1.Size = new System.Drawing.Size(253, 26);
+            this.createToolStripMenuItem1.Text = "Opret Handel";
             this.createToolStripMenuItem1.Click += new System.EventHandler(this.createToolStripMenuItem1_Click);
             // 
             // readToolStripMenuItem1
             // 
             this.readToolStripMenuItem1.Name = "readToolStripMenuItem1";
-            this.readToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
-            this.readToolStripMenuItem1.Text = "Read og Update";
+            this.readToolStripMenuItem1.Size = new System.Drawing.Size(253, 26);
+            this.readToolStripMenuItem1.Text = "Find og Opdater Handel";
             this.readToolStripMenuItem1.Click += new System.EventHandler(this.readToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
-            this.deleteToolStripMenuItem1.Text = "Delete";
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(253, 26);
+            this.deleteToolStripMenuItem1.Text = "Slet Handel";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
             // 
             // udtrækStatistikToolStripMenuItem
             // 
             this.udtrækStatistikToolStripMenuItem.Name = "udtrækStatistikToolStripMenuItem";
-            this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
             this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click_1);
             // 
             // dateTimePicker3
             // 
             this.dateTimePicker3.CustomFormat = "";
-            this.dateTimePicker3.Location = new System.Drawing.Point(262, 84);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker3.Location = new System.Drawing.Point(349, 103);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePicker3.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker3.TabIndex = 17;
             // 
             // statistik_solgteboliger_lbox
             // 
             this.statistik_solgteboliger_lbox.FormattingEnabled = true;
-            this.statistik_solgteboliger_lbox.Location = new System.Drawing.Point(12, 219);
+            this.statistik_solgteboliger_lbox.ItemHeight = 16;
+            this.statistik_solgteboliger_lbox.Location = new System.Drawing.Point(16, 270);
+            this.statistik_solgteboliger_lbox.Margin = new System.Windows.Forms.Padding(4);
             this.statistik_solgteboliger_lbox.Name = "statistik_solgteboliger_lbox";
-            this.statistik_solgteboliger_lbox.Size = new System.Drawing.Size(401, 277);
+            this.statistik_solgteboliger_lbox.Size = new System.Drawing.Size(533, 340);
             this.statistik_solgteboliger_lbox.TabIndex = 18;
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(470, 378);
+            this.save.Location = new System.Drawing.Point(627, 465);
+            this.save.Margin = new System.Windows.Forms.Padding(4);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(106, 23);
+            this.save.Size = new System.Drawing.Size(141, 28);
             this.save.TabIndex = 19;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
@@ -492,97 +494,108 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.stats_lbl.AutoSize = true;
             this.stats_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.stats_lbl.ForeColor = System.Drawing.Color.Orange;
-            this.stats_lbl.Location = new System.Drawing.Point(9, 186);
+            this.stats_lbl.Location = new System.Drawing.Point(12, 229);
+            this.stats_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stats_lbl.Name = "stats_lbl";
-            this.stats_lbl.Size = new System.Drawing.Size(583, 16);
+            this.stats_lbl.Size = new System.Drawing.Size(728, 20);
             this.stats_lbl.TabIndex = 20;
             this.stats_lbl.Text = "Statistik_________________________________________________________________";
             // 
             // udtrækstat_lbl1
             // 
             this.udtrækstat_lbl1.AutoSize = true;
-            this.udtrækstat_lbl1.Location = new System.Drawing.Point(473, 219);
+            this.udtrækstat_lbl1.Location = new System.Drawing.Point(631, 270);
+            this.udtrækstat_lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.udtrækstat_lbl1.Name = "udtrækstat_lbl1";
-            this.udtrækstat_lbl1.Size = new System.Drawing.Size(103, 13);
+            this.udtrækstat_lbl1.Size = new System.Drawing.Size(136, 17);
             this.udtrækstat_lbl1.TabIndex = 21;
             this.udtrækstat_lbl1.Text = "Tryk denne knap for";
             // 
             // udtrækstat_lbl2
             // 
             this.udtrækstat_lbl2.AutoSize = true;
-            this.udtrækstat_lbl2.Location = new System.Drawing.Point(449, 232);
+            this.udtrækstat_lbl2.Location = new System.Drawing.Point(599, 286);
+            this.udtrækstat_lbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.udtrækstat_lbl2.Name = "udtrækstat_lbl2";
-            this.udtrækstat_lbl2.Size = new System.Drawing.Size(127, 13);
+            this.udtrækstat_lbl2.Size = new System.Drawing.Size(170, 17);
             this.udtrækstat_lbl2.TabIndex = 22;
             this.udtrækstat_lbl2.Text = "at få vist de solgte boliger";
             // 
             // udtrækstat_lbl3
             // 
             this.udtrækstat_lbl3.AutoSize = true;
-            this.udtrækstat_lbl3.Location = new System.Drawing.Point(474, 245);
+            this.udtrækstat_lbl3.Location = new System.Drawing.Point(632, 302);
+            this.udtrækstat_lbl3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.udtrækstat_lbl3.Name = "udtrækstat_lbl3";
-            this.udtrækstat_lbl3.Size = new System.Drawing.Size(102, 13);
+            this.udtrækstat_lbl3.Size = new System.Drawing.Size(137, 17);
             this.udtrækstat_lbl3.TabIndex = 23;
             this.udtrækstat_lbl3.Text = "i en bestemt periode";
             // 
             // udtrækstat_lbl4
             // 
             this.udtrækstat_lbl4.AutoSize = true;
-            this.udtrækstat_lbl4.Location = new System.Drawing.Point(463, 258);
+            this.udtrækstat_lbl4.Location = new System.Drawing.Point(617, 318);
+            this.udtrækstat_lbl4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.udtrækstat_lbl4.Name = "udtrækstat_lbl4";
-            this.udtrækstat_lbl4.Size = new System.Drawing.Size(113, 13);
+            this.udtrækstat_lbl4.Size = new System.Drawing.Size(150, 17);
             this.udtrækstat_lbl4.TabIndex = 24;
             this.udtrækstat_lbl4.Text = "over i boxen til venstre";
             // 
             // udtrækstat_lbl7
             // 
             this.udtrækstat_lbl7.AutoSize = true;
-            this.udtrækstat_lbl7.Location = new System.Drawing.Point(474, 349);
+            this.udtrækstat_lbl7.Location = new System.Drawing.Point(632, 430);
+            this.udtrækstat_lbl7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.udtrækstat_lbl7.Name = "udtrækstat_lbl7";
-            this.udtrækstat_lbl7.Size = new System.Drawing.Size(102, 13);
+            this.udtrækstat_lbl7.Size = new System.Drawing.Size(137, 17);
             this.udtrækstat_lbl7.TabIndex = 27;
             this.udtrækstat_lbl7.Text = "i en bestemt periode";
             // 
             // udtrækstat_lbl6
             // 
             this.udtrækstat_lbl6.AutoSize = true;
-            this.udtrækstat_lbl6.Location = new System.Drawing.Point(442, 336);
+            this.udtrækstat_lbl6.Location = new System.Drawing.Point(589, 414);
+            this.udtrækstat_lbl6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.udtrækstat_lbl6.Name = "udtrækstat_lbl6";
-            this.udtrækstat_lbl6.Size = new System.Drawing.Size(134, 13);
+            this.udtrækstat_lbl6.Size = new System.Drawing.Size(180, 17);
             this.udtrækstat_lbl6.TabIndex = 26;
             this.udtrækstat_lbl6.Text = "at få gemt de solgte boliger";
             // 
             // udtrækstat_lbl5
             // 
             this.udtrækstat_lbl5.AutoSize = true;
-            this.udtrækstat_lbl5.Location = new System.Drawing.Point(473, 323);
+            this.udtrækstat_lbl5.Location = new System.Drawing.Point(631, 398);
+            this.udtrækstat_lbl5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.udtrækstat_lbl5.Name = "udtrækstat_lbl5";
-            this.udtrækstat_lbl5.Size = new System.Drawing.Size(103, 13);
+            this.udtrækstat_lbl5.Size = new System.Drawing.Size(136, 17);
             this.udtrækstat_lbl5.TabIndex = 25;
             this.udtrækstat_lbl5.Text = "Tryk denne knap for";
             // 
             // udtrækstat_lbl8
             // 
             this.udtrækstat_lbl8.AutoSize = true;
-            this.udtrækstat_lbl8.Location = new System.Drawing.Point(522, 362);
+            this.udtrækstat_lbl8.Location = new System.Drawing.Point(696, 446);
+            this.udtrækstat_lbl8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.udtrækstat_lbl8.Name = "udtrækstat_lbl8";
-            this.udtrækstat_lbl8.Size = new System.Drawing.Size(54, 13);
+            this.udtrækstat_lbl8.Size = new System.Drawing.Size(71, 17);
             this.udtrækstat_lbl8.TabIndex = 28;
             this.udtrækstat_lbl8.Text = "i en text fil";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 186);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 229);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(564, 310);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(752, 382);
             this.dataGridView1.TabIndex = 29;
             // 
             // HandelUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 509);
+            this.ClientSize = new System.Drawing.Size(797, 626);
             this.Controls.Add(this.udtrækstat_lbl8);
             this.Controls.Add(this.udtrækstat_lbl7);
             this.Controls.Add(this.udtrækstat_lbl6);
@@ -611,7 +624,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.handelKøberID_cbox);
             this.Controls.Add(this.handelSalgsID_cbox);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HandelUI";
             this.Text = "HandelUI";
             this.menuStrip1.ResumeLayout(false);
