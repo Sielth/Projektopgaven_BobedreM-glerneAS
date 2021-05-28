@@ -573,13 +573,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MenuBarKnapper.SælgerHent();
+            MenuBarKnapper.SælgerHentOpdater();
         }
 
-        private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.SælgerOpdater();
-        }
+        //private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    MenuBarKnapper.SælgerOpdater();
+        //}
 
         private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {

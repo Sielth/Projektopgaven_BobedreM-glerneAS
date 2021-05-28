@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
@@ -110,6 +111,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
+
+        private void btn_SælgerClear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+
+        private void btn_SælgerRediger_Click(object sender, EventArgs e)
+        {
+            EnableAll();
+        }
+
         #region Convert Textboxes
         private int SælgerID()
         {
@@ -156,6 +168,56 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
+        #region Tjek Tekstboks Værdier
+        private bool TjekSælgeridVærdi()
+        {
+            if(!int.TryParse(sælgerID_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TjekSælgeCPRdVærdi()
+        {
+            if (!int.TryParse(sælgerCPR_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TjekSælgerTelefonVærdi()
+        {
+            if (!int.TryParse(sælgerTelefon_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool TjekEmailVærdi()
+        {
+            return Regex.IsMatch(sælgerEmail_txt.Text, ("^[a-zA-z æøåÆØÅ-]+@"));
+        }
+
+
+
+
+        private bool TjekSælgerPostnummerVærdi()
+        {
+            if (!int.TryParse(sælgerPostnummer_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
+
         #region MENUBAREN
         //SÆLGER MENUBARKNAPPER - I SÆLGER MENU
         private void sælger_createToolStripMenuItem_Click(object sender, EventArgs e) //Opret sælger
@@ -165,13 +227,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e) //Find/hent sælger
         {
-            MenuBarKnapper.SælgerHent();
+            MenuBarKnapper.SælgerHentOpdater();
         }
 
-        private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sælger
-        {
-            MenuBarKnapper.SælgerOpdater();
-        }
+        //private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sælger
+        //{
+        //    MenuBarKnapper.SælgerOpdater();
+        //}
 
         private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet sælger
         {
