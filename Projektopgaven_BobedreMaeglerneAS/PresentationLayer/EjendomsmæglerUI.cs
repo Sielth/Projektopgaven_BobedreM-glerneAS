@@ -403,10 +403,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.KøberRead();
         }
 
-        private void updateToolStripMenuItem2_Click(object sender, EventArgs e) //Opdater køber
+        /*private void updateToolStripMenuItem2_Click(object sender, EventArgs e) //Opdater køber
         {
             MenuBarKnapper.KøberUpdate();
-        }
+        }*/
 
         private void deleteToolStripMenuItem2_Click(object sender, EventArgs e) //Slet køber
         {

@@ -31,6 +31,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.SletKøber_knap.Visible = false;
             køberUI.OpdaterKøber_knap.Visible = false;
             køberUI.FindKøber_knap.Visible = false;
+            køberUI.TilladRedigering_knap.Visible = false;
+            køberUI.Clear_knap.Visible = false;
         }
         public static void KøberRead()
         {
@@ -65,8 +67,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.SletKøber_knap.Visible = true;
             køberUI.OpdaterKøber_knap.Visible = false;
             køberUI.FindKøber_knap.Visible = false;
+            køberUI.TilladRedigering_knap.Visible = false;
+            køberUI.Clear_knap.Visible = false;
         }
-        public static void KøberUpdate()
+        /*public static void KøberUpdate()
         {
             KøberUI køberUI = new KøberUI();
             køberUI.Show();
@@ -82,7 +86,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             køberUI.SletKøber_knap.Visible = false;
             køberUI.OpdaterKøber_knap.Visible = true;
             køberUI.FindKøber_knap.Visible = false;
-        }
+        }*/
 
         public static void EjendomsmælgerOpret()
         {

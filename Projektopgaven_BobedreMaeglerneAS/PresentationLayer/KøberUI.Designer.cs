@@ -464,22 +464,22 @@
             // createToolStripMenuItem2
             // 
             this.createToolStripMenuItem2.Name = "createToolStripMenuItem2";
-            this.createToolStripMenuItem2.Size = new System.Drawing.Size(205, 26);
-            this.createToolStripMenuItem2.Text = "Create";
+            this.createToolStripMenuItem2.Size = new System.Drawing.Size(249, 26);
+            this.createToolStripMenuItem2.Text = "Opret Køber";
             this.createToolStripMenuItem2.Click += new System.EventHandler(this.createToolStripMenuItem2_Click);
             // 
             // readToolStripMenuItem2
             // 
             this.readToolStripMenuItem2.Name = "readToolStripMenuItem2";
-            this.readToolStripMenuItem2.Size = new System.Drawing.Size(205, 26);
-            this.readToolStripMenuItem2.Text = "Hent og Opdater";
+            this.readToolStripMenuItem2.Size = new System.Drawing.Size(249, 26);
+            this.readToolStripMenuItem2.Text = "Hent og Opdater Køber";
             this.readToolStripMenuItem2.Click += new System.EventHandler(this.readToolStripMenuItem2_Click);
             // 
             // deleteToolStripMenuItem2
             // 
             this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
-            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(205, 26);
-            this.deleteToolStripMenuItem2.Text = "Delete";
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(249, 26);
+            this.deleteToolStripMenuItem2.Text = "Slet Køber";
             this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.deleteToolStripMenuItem2_Click);
             // 
             // boligToolStripMenuItem
@@ -495,22 +495,22 @@
             // createToolStripMenuItem3
             // 
             this.createToolStripMenuItem3.Name = "createToolStripMenuItem3";
-            this.createToolStripMenuItem3.Size = new System.Drawing.Size(206, 26);
-            this.createToolStripMenuItem3.Text = "Create";
+            this.createToolStripMenuItem3.Size = new System.Drawing.Size(240, 26);
+            this.createToolStripMenuItem3.Text = "Opret Bolig";
             this.createToolStripMenuItem3.Click += new System.EventHandler(this.createToolStripMenuItem3_Click);
             // 
             // readToolStripMenuItem3
             // 
             this.readToolStripMenuItem3.Name = "readToolStripMenuItem3";
-            this.readToolStripMenuItem3.Size = new System.Drawing.Size(206, 26);
-            this.readToolStripMenuItem3.Text = "Read and update";
+            this.readToolStripMenuItem3.Size = new System.Drawing.Size(240, 26);
+            this.readToolStripMenuItem3.Text = "Find og Opdater Bolig";
             this.readToolStripMenuItem3.Click += new System.EventHandler(this.readToolStripMenuItem3_Click);
             // 
             // deleteToolStripMenuItem3
             // 
             this.deleteToolStripMenuItem3.Name = "deleteToolStripMenuItem3";
-            this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(206, 26);
-            this.deleteToolStripMenuItem3.Text = "Delete";
+            this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(240, 26);
+            this.deleteToolStripMenuItem3.Text = "Slet Bolig";
             this.deleteToolStripMenuItem3.Click += new System.EventHandler(this.deleteToolStripMenuItem3_Click);
             // 
             // sagToolStripMenuItem
@@ -526,21 +526,21 @@
             // createToolStripMenuItem4
             // 
             this.createToolStripMenuItem4.Name = "createToolStripMenuItem4";
-            this.createToolStripMenuItem4.Size = new System.Drawing.Size(205, 26);
+            this.createToolStripMenuItem4.Size = new System.Drawing.Size(224, 26);
             this.createToolStripMenuItem4.Text = "Opret en ny Sag";
             this.createToolStripMenuItem4.Click += new System.EventHandler(this.createToolStripMenuItem4_Click);
             // 
             // readToolStripMenuItem4
             // 
             this.readToolStripMenuItem4.Name = "readToolStripMenuItem4";
-            this.readToolStripMenuItem4.Size = new System.Drawing.Size(205, 26);
+            this.readToolStripMenuItem4.Size = new System.Drawing.Size(224, 26);
             this.readToolStripMenuItem4.Text = "Hent og Opdater";
             this.readToolStripMenuItem4.Click += new System.EventHandler(this.readToolStripMenuItem4_Click);
             // 
             // deleteToolStripMenuItem4
             // 
             this.deleteToolStripMenuItem4.Name = "deleteToolStripMenuItem4";
-            this.deleteToolStripMenuItem4.Size = new System.Drawing.Size(205, 26);
+            this.deleteToolStripMenuItem4.Size = new System.Drawing.Size(224, 26);
             this.deleteToolStripMenuItem4.Text = "Slet en Sag";
             this.deleteToolStripMenuItem4.Click += new System.EventHandler(this.deleteToolStripMenuItem4_Click);
             // 
@@ -558,28 +558,28 @@
             // createToolStripMenuItem5
             // 
             this.createToolStripMenuItem5.Name = "createToolStripMenuItem5";
-            this.createToolStripMenuItem5.Size = new System.Drawing.Size(201, 26);
-            this.createToolStripMenuItem5.Text = "Create";
+            this.createToolStripMenuItem5.Size = new System.Drawing.Size(253, 26);
+            this.createToolStripMenuItem5.Text = "Opret Handel";
             this.createToolStripMenuItem5.Click += new System.EventHandler(this.createToolStripMenuItem5_Click);
             // 
             // readToolStripMenuItem5
             // 
             this.readToolStripMenuItem5.Name = "readToolStripMenuItem5";
-            this.readToolStripMenuItem5.Size = new System.Drawing.Size(201, 26);
-            this.readToolStripMenuItem5.Text = "Read og Update";
+            this.readToolStripMenuItem5.Size = new System.Drawing.Size(253, 26);
+            this.readToolStripMenuItem5.Text = "Find og Opdater Handel";
             this.readToolStripMenuItem5.Click += new System.EventHandler(this.readToolStripMenuItem5_Click);
             // 
             // deleteToolStripMenuItem5
             // 
             this.deleteToolStripMenuItem5.Name = "deleteToolStripMenuItem5";
-            this.deleteToolStripMenuItem5.Size = new System.Drawing.Size(201, 26);
-            this.deleteToolStripMenuItem5.Text = "Delete";
+            this.deleteToolStripMenuItem5.Size = new System.Drawing.Size(253, 26);
+            this.deleteToolStripMenuItem5.Text = "Slet Handel";
             this.deleteToolStripMenuItem5.Click += new System.EventHandler(this.deleteToolStripMenuItem5_Click);
             // 
             // udtrækStatistikToolStripMenuItem
             // 
             this.udtrækStatistikToolStripMenuItem.Name = "udtrækStatistikToolStripMenuItem";
-            this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
             this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click);
             // 
@@ -710,7 +710,7 @@
         internal System.Windows.Forms.Button FindKøber_knap;
         internal System.Windows.Forms.Button OpretKøber_knap;
         private System.Windows.Forms.ToolStripMenuItem udtrækStatistikToolStripMenuItem;
-        private System.Windows.Forms.Button TilladRedigering_knap;
-        private System.Windows.Forms.Button Clear_knap;
+        internal System.Windows.Forms.Button TilladRedigering_knap;
+        internal System.Windows.Forms.Button Clear_knap;
     }
 }
