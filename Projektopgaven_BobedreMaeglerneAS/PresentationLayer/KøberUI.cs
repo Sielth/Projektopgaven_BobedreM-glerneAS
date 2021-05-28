@@ -209,14 +209,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.HandelHent();
         }
 
-        private void updateToolStripMenuItem5_Click(object sender, EventArgs e) //Opdater handel
-        {
-            MenuBarKnapper.HandelOpdater();
-        }
+        //private void updateToolStripMenuItem5_Click(object sender, EventArgs e) //Opdater handel
+        //{
+        //    MenuBarKnapper.HandelOpdater();
+        //}
 
         private void deleteToolStripMenuItem5_Click(object sender, EventArgs e) //Slet handel
         {
             MenuBarKnapper.HandelSlet();
+        }
+
+        private void udtrækStatistikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.HandelStatistik();
         }
         #endregion
 
@@ -272,7 +277,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.køberTableAdapter.Fill(this.køber_bobedredbDataSet.Køber);
 
         }
-
-
     }
 }

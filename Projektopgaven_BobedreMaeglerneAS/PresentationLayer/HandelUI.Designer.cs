@@ -79,12 +79,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.handelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.readToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.statistik_solgteboliger_lbox = new System.Windows.Forms.ListBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.save = new System.Windows.Forms.Button();
+            this.udtrækStatistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -432,8 +432,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.handelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createToolStripMenuItem1,
             this.readToolStripMenuItem1,
-            this.updateToolStripMenuItem1,
-            this.deleteToolStripMenuItem1});
+            this.deleteToolStripMenuItem1,
+            this.udtrækStatistikToolStripMenuItem});
             this.handelToolStripMenuItem.Name = "handelToolStripMenuItem";
             this.handelToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.handelToolStripMenuItem.Text = "Handel";
@@ -449,15 +449,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             this.readToolStripMenuItem1.Name = "readToolStripMenuItem1";
             this.readToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.readToolStripMenuItem1.Text = "Read";
+            this.readToolStripMenuItem1.Text = "Read og Update";
             this.readToolStripMenuItem1.Click += new System.EventHandler(this.readToolStripMenuItem1_Click);
-            // 
-            // updateToolStripMenuItem1
-            // 
-            this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
-            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.updateToolStripMenuItem1.Text = "Update";
-            this.updateToolStripMenuItem1.Click += new System.EventHandler(this.updateToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
@@ -495,6 +488,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
+            // 
+            // udtrækStatistikToolStripMenuItem
+            // 
+            this.udtrækStatistikToolStripMenuItem.Name = "udtrækStatistikToolStripMenuItem";
+            this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
+            this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click_1);
             // 
             // HandelUI
             // 
@@ -645,11 +645,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem handelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.ListBox statistik_solgteboliger_lbox;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button save;
+        private System.Windows.Forms.ToolStripMenuItem udtrækStatistikToolStripMenuItem;
     }
 }

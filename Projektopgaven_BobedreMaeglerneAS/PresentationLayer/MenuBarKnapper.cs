@@ -386,7 +386,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.Show();
 
             handelUI.GetOpretHandelKnap().Visible = false;
-            handelUI.GetOpdaterHandelKnap().Visible = false;
+            //handelUI.GetOpdaterHandelKnap().Visible = false;
             handelUI.GetSletHandelKnap().Visible = false;
             //handelUI.GetHandelsdatoDatetime().Visible = false;
             handelUI.GetHandelsdatoDatetime().Enabled = false; //Skal datoen ændres når vi henter?
@@ -400,7 +400,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         }
 
-        public static void HandelOpdater()
+        /*public static void HandelOpdater()
         {
             // Opretter en ny instans af HandelUI klassen
             HandelUI handelUI = new HandelUI();
@@ -415,7 +415,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
             handelUI.GetStatistikListbox().Visible = false;
-        }
+        }*/
 
         public static void HandelSlet()
         {

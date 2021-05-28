@@ -363,14 +363,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.HandelHent();
         }
 
-        private void updateToolStripMenuItem3_Click(object sender, EventArgs e) //Opdater handel
-        {
-            MenuBarKnapper.HandelOpdater();
-        }
+        //private void updateToolStripMenuItem3_Click(object sender, EventArgs e) //Opdater handel
+        //{
+        //    MenuBarKnapper.HandelOpdater();
+        //}
 
         private void deleteToolStripMenuItem5_Click(object sender, EventArgs e) //Slet handel
         {
             MenuBarKnapper.HandelSlet();
+        }
+
+        private void udtrækStatistikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.HandelStatistik();
         }
 
         //ÅBENT HUS MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
@@ -379,8 +384,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.ÅbentHus();
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

@@ -175,10 +175,10 @@ namespace Projektopgaven_BobedreMaeglerneAS
             MenuBarKnapper.HandelHent();
         }
 
-        private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater handel
-        {
-            MenuBarKnapper.HandelOpdater();
-        }
+        //private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater handel
+        //{
+        //    MenuBarKnapper.HandelOpdater();
+        //}
 
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet handel
         {
