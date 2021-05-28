@@ -79,6 +79,8 @@
             this.readToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.udtrækStatistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_SælgerClear = new System.Windows.Forms.Button();
+            this.btn_SælgerRediger = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -310,7 +312,6 @@
             this.handelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
             this.menuStrip1.TabIndex = 106;
             this.menuStrip1.Text = "menuStrip1";
@@ -525,11 +526,32 @@
             this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
             this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click);
             // 
+            // btn_SælgerClear
+            // 
+            this.btn_SælgerClear.Location = new System.Drawing.Point(799, 203);
+            this.btn_SælgerClear.Name = "btn_SælgerClear";
+            this.btn_SælgerClear.Size = new System.Drawing.Size(95, 35);
+            this.btn_SælgerClear.TabIndex = 107;
+            this.btn_SælgerClear.Text = "Clear";
+            this.btn_SælgerClear.UseVisualStyleBackColor = true;
+            this.btn_SælgerClear.Click += new System.EventHandler(this.btn_SælgerClear_Click);
+            // 
+            // btn_SælgerRediger
+            // 
+            this.btn_SælgerRediger.Location = new System.Drawing.Point(799, 144);
+            this.btn_SælgerRediger.Name = "btn_SælgerRediger";
+            this.btn_SælgerRediger.Size = new System.Drawing.Size(95, 35);
+            this.btn_SælgerRediger.TabIndex = 108;
+            this.btn_SælgerRediger.Text = "Rediger";
+            this.btn_SælgerRediger.UseVisualStyleBackColor = true;
+            // 
             // SælgerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.btn_SælgerRediger);
+            this.Controls.Add(this.btn_SælgerClear);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btn_SletSælger);
@@ -651,6 +673,30 @@
         {
             return btn_SletSælger;
         }
+
+        public System.Windows.Forms.Button GetClearAllKnap()
+        {
+            return btn_SælgerClear;
+        }
+
+        public System.Windows.Forms.Button GetRedigerSælgerKnap()
+        {
+            return btn_SælgerRediger;
+        }
+        #endregion
+
+        #region Clear All
+        public void ClearAll()
+        {
+            sælgerID_txt.Clear();
+            sælgerCPR_txt.Clear();
+            sælgerTelefon_txt.Clear();
+            sælgerEmail_txt.Clear();
+            sælgerFornavn_txt.Clear();
+            sælgerEfternavn_txt.Clear();
+            sælgerVej_txt.Clear();
+            sælgerPostnummer_txt.Clear();
+        }
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -681,5 +727,7 @@
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem udtrækStatistikToolStripMenuItem;
+        private System.Windows.Forms.Button btn_SælgerClear;
+        private System.Windows.Forms.Button btn_SælgerRediger;
     }
 }
