@@ -131,20 +131,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //retrieve a BoligBLL from DB using BoligID
-                BoligBLL matchingbolig = BoligBLL.HentBoligViaID(bolig);
-                
-                //shows retrieved Bolig from DB on TextBoxes
-                boligVej_txt.Text = matchingbolig.Vej.ToString();
-                boligPostnr_txt.Text = matchingbolig.Postnummer.ToString();
-                boligType_cbox.Text = matchingbolig.Type.ToString();
-                boligVærelser_tbar.Value = matchingbolig.Værelser;
-                boligEtager_tbar.Value = matchingbolig.Etager;
-                boligKvm_txt.Text = matchingbolig.Kvadratmeter.ToString();
-                boligHave_ckBox.Checked = matchingbolig.Have;
-                boligBygningsÅr_dtp.Value = matchingbolig.Bygningsår;
-                boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
-                boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
+                if (BoligBLL.BoligExists(BoligID()))
+                {
+                    //retrieve a BoligBLL from DB using BoligID
+                    BoligBLL matchingbolig = BoligBLL.HentBoligViaID(bolig);
+
+                    //shows retrieved Bolig from DB on TextBoxes
+                    boligVej_txt.Text = matchingbolig.Vej.ToString();
+                    boligPostnr_txt.Text = matchingbolig.Postnummer.ToString();
+                    boligType_cbox.Text = matchingbolig.Type.ToString();
+                    boligVærelser_tbar.Value = matchingbolig.Værelser;
+                    boligEtager_tbar.Value = matchingbolig.Etager;
+                    boligKvm_txt.Text = matchingbolig.Kvadratmeter.ToString();
+                    boligHave_ckBox.Checked = matchingbolig.Have;
+                    boligBygningsÅr_dtp.Value = matchingbolig.Bygningsår;
+                    boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
+                    boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
+                }
+                //JER ER STOPPET HERE**********************************************************************************************'
             }
             catch (Exception ex)
             {
@@ -557,13 +561,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MenuBarKnapper.SælgerHent();
+            MenuBarKnapper.SælgerHentOpdater();
         }
 
-        private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.SælgerOpdater();
-        }
+        //private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    MenuBarKnapper.SælgerOpdater();
+        //}
 
         private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -644,18 +648,23 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.HandelHent();
         }
 
-        private void updateToolStripMenuItem_Click_1(object sender, EventArgs e) //Opdater handel
-        {
-            MenuBarKnapper.HandelOpdater();
-        }
+        //private void updateToolStripMenuItem_Click_1(object sender, EventArgs e) //Opdater handel
+        //{
+        //    MenuBarKnapper.HandelOpdater();
+        //}
 
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet handel
         {
             MenuBarKnapper.HandelSlet();
         }
 
+        private void udtrækStatistikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.HandelStatistik();
+        }
+
+
         #endregion
 
-  
     }
 }

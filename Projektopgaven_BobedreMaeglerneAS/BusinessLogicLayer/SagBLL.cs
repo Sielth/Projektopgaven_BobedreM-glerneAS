@@ -82,5 +82,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             SagDAL sagDAL = new SagDAL();
             sagDAL.SletSag(sag);
         }
+
+        public static bool SagExists(int sagsid)
+        {
+            return SagDAL.SagExists(sagsid);
+        }
     }
 }

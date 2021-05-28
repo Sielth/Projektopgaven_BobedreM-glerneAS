@@ -313,7 +313,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetSælgerIDTekstboks().Enabled = false;
         }
 
-        public static void SælgerHent()
+        public static void SælgerHentOpdater()
         {
             // Create a new instance of the SælgerUI class
             SælgerUI sælgerUI = new SælgerUI();
@@ -322,22 +322,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.Show();
 
             sælgerUI.GetOpretSælgerKnap().Visible = false;
-            sælgerUI.GetOpdaterSælgerKnap().Visible = false;
             sælgerUI.GetSletSælgerKnap().Visible = false;
+            sælgerUI.GetSælgerCPRTekstboks().Enabled = false;
+            sælgerUI.GetSælgerTelefonTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEmailTekstboks().Enabled = false;
+            sælgerUI.GetSælgerFnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerEnavnTekstboks().Enabled = false;
+            sælgerUI.GetSælgerVejTekstboks().Enabled = false;
+            sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
 
-        public static void SælgerOpdater()
-        {
-            // Create a new instance of the SælgerUI class
-            SælgerUI sælgerUI = new SælgerUI();
+        //public static void SælgerOpdater()
+        //{
+        //    // Create a new instance of the SælgerUI class
+        //    SælgerUI sælgerUI = new SælgerUI();
 
-            // Show the settings form
-            sælgerUI.Show();
+        //    // Show the settings form
+        //    sælgerUI.Show();
 
-            sælgerUI.GetOpretSælgerKnap().Visible = false;
-            sælgerUI.GetHentSælgerKnap().Visible = false;
-            sælgerUI.GetSletSælgerKnap().Visible = false;
-        }
+        //    sælgerUI.GetOpretSælgerKnap().Visible = false;
+        //    sælgerUI.GetHentSælgerKnap().Visible = false;
+        //    sælgerUI.GetSletSælgerKnap().Visible = false;
+        //}
 
         public static void SælgerSlet()
         {
@@ -358,7 +364,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetSælgerVejTekstboks().Enabled = false;
             sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
-
+        #region HandelUI
         public static void HandelOpret()
         {
             // Opretter en ny instans af HandelUI klassen
@@ -371,6 +377,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetOpdaterHandelKnap().Visible = false;
             handelUI.GetSletHandelKnap().Visible = false;
             handelUI.GetHandelIDTekstboks().Enabled = false;
+            handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            handelUI.GetStatistikKnap().Visible = false;
+            handelUI.GetSaveStatistikKnap().Visible = false;
+            handelUI.GetStatistikListbox().Visible = false;
         }
 
         public static void HandelHent()
@@ -382,11 +392,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.Show();
 
             handelUI.GetOpretHandelKnap().Visible = false;
-            handelUI.GetOpdaterHandelKnap().Visible = false;
+            //handelUI.GetOpdaterHandelKnap().Visible = false;
             handelUI.GetSletHandelKnap().Visible = false;
+            //handelUI.GetHandelsdatoDatetime().Visible = false;
+            handelUI.GetHandelsdatoDatetime().Enabled = false; //Skal datoen ændres når vi henter?
+            handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            handelUI.GetStatistikKnap().Visible = false;
+            handelUI.GetSaveStatistikKnap().Visible = false;
+            handelUI.GetStatistikListbox().Visible = false;
+            handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
+            handelUI.GetHandelSagsIDComboboks().Enabled = false;
+            handelUI.GetHandelKøberIDComboboks().Enabled = false;
+
         }
 
-        public static void HandelOpdater()
+        /*public static void HandelOpdater()
         {
             // Opretter en ny instans af HandelUI klassen
             HandelUI handelUI = new HandelUI();
@@ -397,7 +417,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetOpretHandelKnap().Visible = false;
             handelUI.GetFindHandelKnap().Visible = false;
             handelUI.GetSletHandelKnap().Visible = false;
-        }
+            handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            handelUI.GetStatistikKnap().Visible = false;
+            handelUI.GetSaveStatistikKnap().Visible = false;
+            handelUI.GetStatistikListbox().Visible = false;
+        }*/
 
         public static void HandelSlet()
         {
@@ -414,6 +438,30 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
             handelUI.GetHandelSagsIDComboboks().Enabled = false;
             handelUI.GetHandelKøberIDComboboks().Enabled = false;
+            handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            handelUI.GetStatistikKnap().Visible = false;
+            handelUI.GetSaveStatistikKnap().Visible = false;
+            handelUI.GetStatistikListbox().Visible = false;
+        }
+        public static void HandelStatistik()
+        {
+            HandelUI handelUI = new HandelUI();
+
+            handelUI.Show();
+
+            handelUI.GetOpretHandelKnap().Visible = false;
+            handelUI.GetFindHandelKnap().Visible = false;
+            handelUI.GetOpdaterHandelKnap().Visible = false;
+            handelUI.GetSletHandelKnap().Visible = false;
+
+            //handelUI.GetHandelsdatoDatetime().Enabled = false;
+            handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
+            handelUI.GetHandelSagsIDComboboks().Enabled = false;
+            handelUI.GetHandelKøberIDComboboks().Enabled = false;
+            //handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            //handelUI.GetStatistikKnap().Visible = false;
+            //handelUI.GetSaveStatistikKnap().Visible = false;
+            //handelUI.GetStatistikListbox().Visible = false;
         }
 
         public static void ÅbentHus()
@@ -435,6 +483,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             handelUI.GetHandelSagsIDComboboks().Text = sagsid;
         }
+        #endregion
 
         public static void BeregnSalærShow()
         {

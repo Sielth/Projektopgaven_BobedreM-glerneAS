@@ -125,13 +125,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void readToolStripMenuItem1_Click(object sender, EventArgs e) //Hent sælger
         {
-            MenuBarKnapper.SælgerHent();
+            MenuBarKnapper.SælgerHentOpdater();
         }
 
-        private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater sælger
-        {
-            MenuBarKnapper.SælgerOpdater();
-        }
+        //private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater sælger
+        //{
+        //    MenuBarKnapper.SælgerOpdater();
+        //}
 
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet sælger
         {
@@ -209,14 +209,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.HandelHent();
         }
 
-        private void updateToolStripMenuItem5_Click(object sender, EventArgs e) //Opdater handel
-        {
-            MenuBarKnapper.HandelOpdater();
-        }
+        //private void updateToolStripMenuItem5_Click(object sender, EventArgs e) //Opdater handel
+        //{
+        //    MenuBarKnapper.HandelOpdater();
+        //}
 
         private void deleteToolStripMenuItem5_Click(object sender, EventArgs e) //Slet handel
         {
             MenuBarKnapper.HandelSlet();
+        }
+
+        private void udtrækStatistikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.HandelStatistik();
         }
         #endregion
 
@@ -272,7 +277,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.køberTableAdapter.Fill(this.køber_bobedredbDataSet.Køber);
 
         }
-
-
     }
 }

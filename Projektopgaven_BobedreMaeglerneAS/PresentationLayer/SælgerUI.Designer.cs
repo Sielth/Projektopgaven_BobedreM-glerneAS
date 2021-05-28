@@ -59,7 +59,6 @@
             this.sælgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sælger_createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sælger_readToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sælger_updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sælger_deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.køberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.køber_createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,8 +77,8 @@
             this.handelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.readToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.udtrækStatistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -112,7 +111,7 @@
             // 
             this.sælgerPostnummer_lbl.AutoSize = true;
             this.sælgerPostnummer_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.sælgerPostnummer_lbl.Location = new System.Drawing.Point(494, 217);
+            this.sælgerPostnummer_lbl.Location = new System.Drawing.Point(494, 218);
             this.sælgerPostnummer_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sælgerPostnummer_lbl.Name = "sælgerPostnummer_lbl";
             this.sælgerPostnummer_lbl.Size = new System.Drawing.Size(99, 20);
@@ -156,7 +155,7 @@
             // 
             this.sælgerEfternavn_lbl.AutoSize = true;
             this.sælgerEfternavn_lbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.sælgerEfternavn_lbl.Location = new System.Drawing.Point(38, 217);
+            this.sælgerEfternavn_lbl.Location = new System.Drawing.Point(38, 218);
             this.sælgerEfternavn_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sælgerEfternavn_lbl.Name = "sælgerEfternavn_lbl";
             this.sælgerEfternavn_lbl.Size = new System.Drawing.Size(78, 20);
@@ -300,6 +299,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ejendomsmæglerToolStripMenuItem,
@@ -310,8 +310,8 @@
             this.handelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
             this.menuStrip1.TabIndex = 106;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -351,7 +351,6 @@
             this.sælgerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sælger_createToolStripMenuItem,
             this.sælger_readToolStripMenuItem,
-            this.sælger_updateToolStripMenuItem,
             this.sælger_deleteToolStripMenuItem});
             this.sælgerToolStripMenuItem.Name = "sælgerToolStripMenuItem";
             this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(83, 29);
@@ -360,29 +359,22 @@
             // sælger_createToolStripMenuItem
             // 
             this.sælger_createToolStripMenuItem.Name = "sælger_createToolStripMenuItem";
-            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
-            this.sælger_createToolStripMenuItem.Text = "Create";
+            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(329, 34);
+            this.sælger_createToolStripMenuItem.Text = "Opret en sælger";
             this.sælger_createToolStripMenuItem.Click += new System.EventHandler(this.sælger_createToolStripMenuItem_Click);
             // 
             // sælger_readToolStripMenuItem
             // 
             this.sælger_readToolStripMenuItem.Name = "sælger_readToolStripMenuItem";
-            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
-            this.sælger_readToolStripMenuItem.Text = "Read";
+            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(329, 34);
+            this.sælger_readToolStripMenuItem.Text = "Hent og opdater en sælger";
             this.sælger_readToolStripMenuItem.Click += new System.EventHandler(this.sælger_readToolStripMenuItem_Click);
-            // 
-            // sælger_updateToolStripMenuItem
-            // 
-            this.sælger_updateToolStripMenuItem.Name = "sælger_updateToolStripMenuItem";
-            this.sælger_updateToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
-            this.sælger_updateToolStripMenuItem.Text = "Update";
-            this.sælger_updateToolStripMenuItem.Click += new System.EventHandler(this.sælger_updateToolStripMenuItem_Click);
             // 
             // sælger_deleteToolStripMenuItem
             // 
             this.sælger_deleteToolStripMenuItem.Name = "sælger_deleteToolStripMenuItem";
-            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
-            this.sælger_deleteToolStripMenuItem.Text = "Delete";
+            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(329, 34);
+            this.sælger_deleteToolStripMenuItem.Text = "Slet en sælger";
             this.sælger_deleteToolStripMenuItem.Click += new System.EventHandler(this.sælger_deleteToolStripMenuItem_Click);
             // 
             // køberToolStripMenuItem
@@ -499,8 +491,8 @@
             this.handelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createToolStripMenuItem1,
             this.readToolStripMenuItem1,
-            this.updateToolStripMenuItem1,
-            this.deleteToolStripMenuItem1});
+            this.deleteToolStripMenuItem1,
+            this.udtrækStatistikToolStripMenuItem});
             this.handelToolStripMenuItem.Name = "handelToolStripMenuItem";
             this.handelToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
             this.handelToolStripMenuItem.Text = "Handel";
@@ -508,30 +500,30 @@
             // createToolStripMenuItem1
             // 
             this.createToolStripMenuItem1.Name = "createToolStripMenuItem1";
-            this.createToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.createToolStripMenuItem1.Size = new System.Drawing.Size(243, 34);
             this.createToolStripMenuItem1.Text = "Create";
             this.createToolStripMenuItem1.Click += new System.EventHandler(this.createToolStripMenuItem1_Click);
             // 
             // readToolStripMenuItem1
             // 
             this.readToolStripMenuItem1.Name = "readToolStripMenuItem1";
-            this.readToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
-            this.readToolStripMenuItem1.Text = "Read";
+            this.readToolStripMenuItem1.Size = new System.Drawing.Size(243, 34);
+            this.readToolStripMenuItem1.Text = "Read og Update";
             this.readToolStripMenuItem1.Click += new System.EventHandler(this.readToolStripMenuItem1_Click);
-            // 
-            // updateToolStripMenuItem1
-            // 
-            this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
-            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
-            this.updateToolStripMenuItem1.Text = "Update";
-            this.updateToolStripMenuItem1.Click += new System.EventHandler(this.updateToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(172, 34);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(243, 34);
             this.deleteToolStripMenuItem1.Text = "Delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
+            // 
+            // udtrækStatistikToolStripMenuItem
+            // 
+            this.udtrækStatistikToolStripMenuItem.Name = "udtrækStatistikToolStripMenuItem";
+            this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
+            this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click);
             // 
             // SælgerUI
             // 
@@ -669,7 +661,6 @@
         private System.Windows.Forms.ToolStripMenuItem sælgerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sælger_createToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sælger_readToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sælger_updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sælger_deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem køberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem køber_createToolStripMenuItem1;
@@ -688,7 +679,7 @@
         private System.Windows.Forms.ToolStripMenuItem handelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem udtrækStatistikToolStripMenuItem;
     }
 }

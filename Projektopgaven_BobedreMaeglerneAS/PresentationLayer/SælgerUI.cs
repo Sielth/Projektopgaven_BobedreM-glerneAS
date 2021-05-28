@@ -165,13 +165,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void sælger_readToolStripMenuItem_Click(object sender, EventArgs e) //Find/hent sælger
         {
-            MenuBarKnapper.SælgerHent();
+            MenuBarKnapper.SælgerHentOpdater();
         }
 
-        private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sælger
-        {
-            MenuBarKnapper.SælgerOpdater();
-        }
+        //private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e) //Opdater sælger
+        //{
+        //    MenuBarKnapper.SælgerOpdater();
+        //}
 
         private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e) //Slet sælger
         {
@@ -274,17 +274,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.HandelHent();
         }
 
-        private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater handel
-        {
-            MenuBarKnapper.HandelOpdater();
-        }
+        //private void updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater handel
+        //{
+        //    MenuBarKnapper.HandelOpdater();
+        //}
 
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet handel
         {
             MenuBarKnapper.HandelSlet();
         }
-        #endregion
 
+        private void udtrækStatistikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuBarKnapper.HandelStatistik();
+        }
+
+        #endregion
 
     }
 }

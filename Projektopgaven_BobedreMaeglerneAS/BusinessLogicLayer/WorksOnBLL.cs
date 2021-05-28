@@ -38,9 +38,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             return WorksOnDAL.HentSalgspris(sagsid);
         }
 
-        public bool HandelExists(int sagsid)
+        public static bool RecordExists(int sagsid)
         {
-            return worksOnDAL.HandelExists(sagsid);
+            return WorksOnDAL.RecordExists(sagsid);
+        }
+
+        public void Update(WorksOnBLL worksOn)
+        {
+            worksOnDAL = new WorksOnDAL();
+            worksOnDAL.Update(worksOn);
         }
 
         public string BeregnSalær(int salgspris, int antalTimer)
