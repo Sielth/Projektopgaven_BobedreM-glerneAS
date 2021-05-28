@@ -35,7 +35,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                ejendomsmægler.OpretEjendomsmægler(ejendomsmægler);
+                if (TjekVærdierOpret())
+                {
+                    ejendomsmægler.OpretEjendomsmægler(ejendomsmægler);
+                }
+      
             }
             catch (Exception ex)
             {
@@ -55,14 +59,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                EjendomsmæglerBLL matchingejendomsmægler = EjendomsmæglerBLL.HentEjendomsmægler(ejendomsmægler);
-                CPR_txt.Text = matchingejendomsmægler.CPR.ToString();
-                Telefon_txt.Text = matchingejendomsmægler.Telefon.ToString();
-                Email_txt.Text = matchingejendomsmægler.Email.ToString();
-                Fornavn_txt.Text = matchingejendomsmægler.Fnavn.ToString();
-                Efternavn_txt.Text = matchingejendomsmægler.Enavn.ToString();
-                Vej_txt.Text = matchingejendomsmægler.Vej.ToString();
-                Postnummer_txt.Text = matchingejendomsmægler.Postnummer.ToString();
+                if (TjekMægleridVærdi())
+                {
+                    EjendomsmæglerBLL matchingejendomsmægler = EjendomsmæglerBLL.HentEjendomsmægler(ejendomsmægler);
+
+                    CPR_txt.Text = matchingejendomsmægler.CPR.ToString();
+                    Telefon_txt.Text = matchingejendomsmægler.Telefon.ToString();
+                    Email_txt.Text = matchingejendomsmægler.Email.ToString();
+                    Fornavn_txt.Text = matchingejendomsmægler.Fnavn.ToString();
+                    Efternavn_txt.Text = matchingejendomsmægler.Enavn.ToString();
+                    Vej_txt.Text = matchingejendomsmægler.Vej.ToString();
+                    Postnummer_txt.Text = matchingejendomsmægler.Postnummer.ToString();
+                }
             }
 
             catch (Exception ex)
@@ -89,7 +97,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
+                if (TjekVærdierOpdater())
+                {
+                    ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
+                }
             }
             catch (Exception ex)
             {
@@ -112,7 +123,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                ejendomsmægler.SletEjendomsmægler(ejendomsmægler);
+                if (TjekMægleridVærdi())
+                {
+                    ejendomsmægler.SletEjendomsmægler(ejendomsmægler);
+                }
             }
             catch (Exception ex)
             {
@@ -192,6 +206,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             if (!int.TryParse(MæglerID_txt.Text, out int i))
             {
+                MessageBox.Show("Ugyldigt ID");
                 return false;
             }
 
@@ -202,6 +217,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             if (!int.TryParse(CPR_txt.Text, out int i))
             {
+                MessageBox.Show("Ugylidgt CPR");
                 return false;
             }
 
@@ -212,44 +228,105 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             if(!int.TryParse(Telefon_txt.Text, out int i))
             {
+                MessageBox.Show("Ugyldigt telefon nummer");
                 return false;
             }
 
             return true;
         }
 
-        public bool TjekEmailVærdi(string input)
+        public bool TjekEmailVærdi()
         {
-            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]+@"));
+            if (!Regex.IsMatch(Email_txt.Text, ("^[a-zA-z æøåÆØÅ@.-]+$")))
+            {
+                MessageBox.Show("Ugyldig Email");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-        public bool TjekFnavnVærdi(string input)
+        public bool TjekFnavnVærdi()
         {
-            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]"));
+            if (Regex.IsMatch(Fornavn_txt.Text, ("^[a-zA-Z æøåÆØÅ-]+$")))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Ugyldigt Fornavn");
+                return false;
+
+            }
         }
 
-        public bool TjekEnavnVærdi(string input)
+        public bool TjekEnavnVærdi()
         {
-            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]"));
+            if (Regex.IsMatch(Efternavn_txt.Text, ("^[a-zA-z æøåÆØÅ-]+$")))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Ugylidgt Efternavn");
+                return false;
+            }
         }
 
-        public bool TjekVejVærdi(string input)
+        public bool TjekVejVærdi()
         {
-            return Regex.IsMatch(input, ("^[a-zA-z æøåÆØÅ-]"));
+            if (!Regex.IsMatch(Vej_txt.Text, ("^[a-zA-z æøåÆØÅ-]+$")))
+            {
+                return true;
+
+            }
+            else
+            {
+                MessageBox.Show("Ugyldig Vej");
+                return false;
+            }
         }
 
         public bool TjekPostnummerVærdi()
         {
             if (!int.TryParse(Postnummer_txt.Text, out int i))
             {
+                MessageBox.Show("Ugylidgt Postnummer");
                 return false;
             }
 
             return true;
         }
+
+        //Tjekker alle værdier i det tekstbokse som bruges til at oprette en ejendomsmægler
+        public bool TjekVærdierOpret()
+        {
+            if (TjekCPRVærdi() && TjekTelefonVærdi() && TjekEmailVærdi() && TjekFnavnVærdi() && TjekEnavnVærdi() && TjekVejVærdi() && TjekPostnummerVærdi())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Tjekker alle værdier - bruges til at opdatere en ejendomsmægler
+        public bool TjekVærdierOpdater()
+        {
+            if (TjekMægleridVærdi() && TjekCPRVærdi() && TjekTelefonVærdi() && TjekEmailVærdi() && TjekFnavnVærdi() && TjekEnavnVærdi() && TjekVejVærdi() && TjekPostnummerVærdi())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
         
-
         #region MENUBAREN
         //MENUBAREN
         //EJENDOMSMÆGLER MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
