@@ -291,5 +291,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         #endregion
 
+        private void btn_SælgerClear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
     }
 }

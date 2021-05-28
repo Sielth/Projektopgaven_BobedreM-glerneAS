@@ -310,6 +310,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetHentSælgerKnap().Visible = false;
             sælgerUI.GetOpdaterSælgerKnap().Visible = false;
             sælgerUI.GetSletSælgerKnap().Visible = false;
+            sælgerUI.GetRedigerSælgerKnap().Visible = false;
             sælgerUI.GetSælgerIDTekstboks().Enabled = false;
         }
 
@@ -356,6 +357,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetOpretSælgerKnap().Visible = false;
             sælgerUI.GetHentSælgerKnap().Visible = false;
             sælgerUI.GetOpdaterSælgerKnap().Visible = false;
+            sælgerUI.GetRedigerSælgerKnap().Visible = false;
             sælgerUI.GetSælgerCPRTekstboks().Enabled = false;
             sælgerUI.GetSælgerTelefonTekstboks().Enabled = false;
             sælgerUI.GetSælgerEmailTekstboks().Enabled = false;
