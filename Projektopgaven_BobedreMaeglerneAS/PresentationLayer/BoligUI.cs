@@ -597,10 +597,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.KøberRead();
         }
 
-        private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e)
+        /*private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.KøberUpdate();
-        }
+        }*/
 
         private void køber_deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
