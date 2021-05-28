@@ -660,7 +660,6 @@
             this.udtrækStatistikToolStripMenuItem.Name = "udtrækStatistikToolStripMenuItem";
             this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
-            this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click);
             // 
             // EjendomsmæglerUI
             // 

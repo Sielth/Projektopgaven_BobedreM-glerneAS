@@ -248,7 +248,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return true;
         }
         #endregion
-
+        
 
         #region MENUBAREN
         //MENUBAREN
@@ -373,19 +373,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.HandelSlet();
         }
 
-        private void udtrækStatistikToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.HandelStatistik();
-        }
-
         //ÅBENT HUS MENUBARKNAPPER - I EJENDOMSMÆGLER MENU
         private void komTilÅbentHusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.ÅbentHus();
         }
 
-
         #endregion
+
 
     }
 }
