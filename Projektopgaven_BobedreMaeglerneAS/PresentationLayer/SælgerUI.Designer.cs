@@ -240,10 +240,10 @@
             // btn_SletSælger
             // 
             this.btn_SletSælger.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_SletSælger.Location = new System.Drawing.Point(724, 282);
+            this.btn_SletSælger.Location = new System.Drawing.Point(40, 281);
             this.btn_SletSælger.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_SletSælger.Name = "btn_SletSælger";
-            this.btn_SletSælger.Size = new System.Drawing.Size(220, 35);
+            this.btn_SletSælger.Size = new System.Drawing.Size(170, 35);
             this.btn_SletSælger.TabIndex = 104;
             this.btn_SletSælger.Text = "Slet Sælger";
             this.btn_SletSælger.UseVisualStyleBackColor = true;
@@ -252,24 +252,24 @@
             // btn_OpdaterSælger
             // 
             this.btn_OpdaterSælger.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_OpdaterSælger.Location = new System.Drawing.Point(496, 282);
+            this.btn_OpdaterSælger.Location = new System.Drawing.Point(239, 281);
             this.btn_OpdaterSælger.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpdaterSælger.Name = "btn_OpdaterSælger";
-            this.btn_OpdaterSælger.Size = new System.Drawing.Size(220, 35);
+            this.btn_OpdaterSælger.Size = new System.Drawing.Size(170, 35);
             this.btn_OpdaterSælger.TabIndex = 103;
-            this.btn_OpdaterSælger.Text = "Opdater Sælger";
+            this.btn_OpdaterSælger.Text = "Gem og opdater";
             this.btn_OpdaterSælger.UseVisualStyleBackColor = true;
             this.btn_OpdaterSælger.Click += new System.EventHandler(this.btn_OpdaterSælger_Click);
             // 
             // btn_HentSælger
             // 
             this.btn_HentSælger.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_HentSælger.Location = new System.Drawing.Point(268, 282);
+            this.btn_HentSælger.Location = new System.Drawing.Point(40, 281);
             this.btn_HentSælger.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_HentSælger.Name = "btn_HentSælger";
-            this.btn_HentSælger.Size = new System.Drawing.Size(220, 35);
+            this.btn_HentSælger.Size = new System.Drawing.Size(170, 35);
             this.btn_HentSælger.TabIndex = 102;
-            this.btn_HentSælger.Text = "Hent Sælger";
+            this.btn_HentSælger.Text = "Hent";
             this.btn_HentSælger.UseVisualStyleBackColor = true;
             this.btn_HentSælger.Click += new System.EventHandler(this.btn_HentSælger_Click);
             // 
@@ -279,7 +279,7 @@
             this.btn_OpretSælger.Location = new System.Drawing.Point(40, 282);
             this.btn_OpretSælger.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpretSælger.Name = "btn_OpretSælger";
-            this.btn_OpretSælger.Size = new System.Drawing.Size(220, 35);
+            this.btn_OpretSælger.Size = new System.Drawing.Size(170, 35);
             this.btn_OpretSælger.TabIndex = 101;
             this.btn_OpretSælger.Text = "Opret Sælger";
             this.btn_OpretSælger.UseVisualStyleBackColor = true;
@@ -544,6 +544,7 @@
             this.btn_SælgerRediger.TabIndex = 108;
             this.btn_SælgerRediger.Text = "Rediger";
             this.btn_SælgerRediger.UseVisualStyleBackColor = true;
+            this.btn_SælgerRediger.Click += new System.EventHandler(this.btn_SælgerRediger_Click);
             // 
             // SælgerUI
             // 
@@ -696,6 +697,20 @@
             sælgerEfternavn_txt.Clear();
             sælgerVej_txt.Clear();
             sælgerPostnummer_txt.Clear();
+        }
+        #endregion
+
+        #region Enable All
+        public void EnableAll()
+        {
+            sælgerID_txt.Enabled = true;
+            sælgerCPR_txt.Enabled = true;
+            sælgerTelefon_txt.Enabled = true;
+            sælgerEmail_txt.Enabled = true;
+            sælgerFornavn_txt.Enabled = true;
+            sælgerEfternavn_txt.Enabled = true;
+            sælgerVej_txt.Enabled = true;
+            sælgerPostnummer_txt.Enabled = true;
         }
         #endregion
 

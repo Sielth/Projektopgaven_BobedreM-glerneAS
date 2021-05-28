@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
@@ -110,6 +111,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
+
+        private void btn_SælgerClear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+
+        private void btn_SælgerRediger_Click(object sender, EventArgs e)
+        {
+            EnableAll();
+        }
+
         #region Convert Textboxes
         private int SælgerID()
         {
@@ -153,6 +165,56 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             int.TryParse(sælgerPostnummer_txt.Text, out int sælgerpostnummer);
             return sælgerpostnummer;
+        }
+        #endregion
+
+        #region Tjek Tekstboks Værdier
+        private bool TjekSælgeridVærdi()
+        {
+            if(!int.TryParse(sælgerID_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TjekSælgeCPRdVærdi()
+        {
+            if (!int.TryParse(sælgerCPR_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TjekSælgerTelefonVærdi()
+        {
+            if (!int.TryParse(sælgerTelefon_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool TjekEmailVærdi()
+        {
+            return Regex.IsMatch(sælgerEmail_txt.Text, ("^[a-zA-z æøåÆØÅ-]+@"));
+        }
+
+
+
+
+        private bool TjekSælgerPostnummerVærdi()
+        {
+            if (!int.TryParse(sælgerPostnummer_txt.Text, out int i))
+            {
+                return false;
+            }
+
+            return true;
         }
         #endregion
 
@@ -291,9 +353,5 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         #endregion
 
-        private void btn_SælgerClear_Click(object sender, EventArgs e)
-        {
-            ClearAll();
-        }
     }
 }

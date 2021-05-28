@@ -201,7 +201,7 @@
             this.btn_SletEjendomsmægler.Location = new System.Drawing.Point(52, 278);
             this.btn_SletEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_SletEjendomsmægler.Name = "btn_SletEjendomsmægler";
-            this.btn_SletEjendomsmægler.Size = new System.Drawing.Size(220, 35);
+            this.btn_SletEjendomsmægler.Size = new System.Drawing.Size(189, 35);
             this.btn_SletEjendomsmægler.TabIndex = 88;
             this.btn_SletEjendomsmægler.Text = "Slet Ejendomsmægler";
             this.btn_SletEjendomsmægler.UseVisualStyleBackColor = true;
@@ -210,10 +210,10 @@
             // btn_OpdaterEjendomsmægler
             // 
             this.btn_OpdaterEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(303, 278);
+            this.btn_OpdaterEjendomsmægler.Location = new System.Drawing.Point(267, 278);
             this.btn_OpdaterEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpdaterEjendomsmægler.Name = "btn_OpdaterEjendomsmægler";
-            this.btn_OpdaterEjendomsmægler.Size = new System.Drawing.Size(220, 35);
+            this.btn_OpdaterEjendomsmægler.Size = new System.Drawing.Size(189, 35);
             this.btn_OpdaterEjendomsmægler.TabIndex = 87;
             this.btn_OpdaterEjendomsmægler.Text = "Gem og opdater";
             this.btn_OpdaterEjendomsmægler.UseVisualStyleBackColor = true;
@@ -225,7 +225,7 @@
             this.btn_HentEjendomsmægler.Location = new System.Drawing.Point(52, 278);
             this.btn_HentEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_HentEjendomsmægler.Name = "btn_HentEjendomsmægler";
-            this.btn_HentEjendomsmægler.Size = new System.Drawing.Size(220, 35);
+            this.btn_HentEjendomsmægler.Size = new System.Drawing.Size(189, 35);
             this.btn_HentEjendomsmægler.TabIndex = 86;
             this.btn_HentEjendomsmægler.Text = "Hent";
             this.btn_HentEjendomsmægler.UseVisualStyleBackColor = true;
@@ -237,7 +237,7 @@
             this.btn_OpretEjendomsmægler.Location = new System.Drawing.Point(52, 278);
             this.btn_OpretEjendomsmægler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_OpretEjendomsmægler.Name = "btn_OpretEjendomsmægler";
-            this.btn_OpretEjendomsmægler.Size = new System.Drawing.Size(220, 35);
+            this.btn_OpretEjendomsmægler.Size = new System.Drawing.Size(189, 35);
             this.btn_OpretEjendomsmægler.TabIndex = 85;
             this.btn_OpretEjendomsmægler.Text = "Opret Ejendomsmægler";
             this.btn_OpretEjendomsmægler.UseVisualStyleBackColor = true;
@@ -412,7 +412,6 @@
             this.handelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
             this.menuStrip1.TabIndex = 90;
             this.menuStrip1.Text = "menuStrip1";
@@ -633,10 +632,10 @@
             // Clear
             // 
             this.Clear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Clear.Location = new System.Drawing.Point(736, 194);
+            this.Clear.Location = new System.Drawing.Point(736, 198);
             this.Clear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(122, 35);
+            this.Clear.Size = new System.Drawing.Size(111, 35);
             this.Clear.TabIndex = 91;
             this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = true;
@@ -644,10 +643,10 @@
             // 
             // btn_MæglerRediger
             // 
-            this.btn_MæglerRediger.Location = new System.Drawing.Point(736, 140);
+            this.btn_MæglerRediger.Location = new System.Drawing.Point(736, 145);
             this.btn_MæglerRediger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_MæglerRediger.Name = "btn_MæglerRediger";
-            this.btn_MæglerRediger.Size = new System.Drawing.Size(122, 35);
+            this.btn_MæglerRediger.Size = new System.Drawing.Size(111, 35);
             this.btn_MæglerRediger.TabIndex = 92;
             this.btn_MæglerRediger.Text = "Rediger";
             this.btn_MæglerRediger.UseVisualStyleBackColor = true;
