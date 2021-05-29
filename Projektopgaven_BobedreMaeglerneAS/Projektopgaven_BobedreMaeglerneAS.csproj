@@ -68,11 +68,6 @@
     <Compile Include="DataAccessLayer\Transactions.cs" />
     <Compile Include="DataAccessLayer\WorksOnDAL.cs" />
     <Compile Include="DataAccessLayer\ÅbentHusDAL.cs" />
-    <Compile Include="ejendomsmægler_bobedredbDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="køber_bobedredbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,17 +167,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="ejendomsmægler_bobedredbDataSet1.xsc">
-      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="ejendomsmægler_bobedredbDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ejendomsmægler_bobedredbDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ejendomsmægler_bobedredbDataSet1.xss">
-      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
-    </None>
     <None Include="køber_bobedredbDataSet.xsc">
       <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
     </None>

@@ -30,16 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mæglerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fnavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vejDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ejendomsmæglerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ejendomsmægler_bobedredbDataSet = new Projektopgaven_BobedreMaeglerneAS.ejendomsmægler_bobedredbDataSet();
             this.btn_SletEjendomsmægler = new System.Windows.Forms.Button();
             this.btn_OpdaterEjendomsmægler = new System.Windows.Forms.Button();
             this.btn_HentEjendomsmægler = new System.Windows.Forms.Button();
@@ -88,12 +78,9 @@
             this.readToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.udtrækStatistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ejendomsmæglerTableAdapter = new Projektopgaven_BobedreMaeglerneAS.ejendomsmægler_bobedredbDataSetTableAdapters.EjendomsmæglerTableAdapter();
             this.Clear = new System.Windows.Forms.Button();
             this.btn_MæglerRediger = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ejendomsmæglerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ejendomsmægler_bobedredbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -102,98 +89,13 @@
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeight = 34;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.mæglerIDDataGridViewTextBoxColumn,
-            this.cPRDataGridViewTextBoxColumn,
-            this.telefonDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.fnavnDataGridViewTextBoxColumn,
-            this.enavnDataGridViewTextBoxColumn,
-            this.vejDataGridViewTextBoxColumn,
-            this.postnummerDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.ejendomsmæglerBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(45, 279);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(873, 234);
             this.dataGridView1.TabIndex = 89;
-            // 
-            // mæglerIDDataGridViewTextBoxColumn
-            // 
-            this.mæglerIDDataGridViewTextBoxColumn.DataPropertyName = "MæglerID";
-            this.mæglerIDDataGridViewTextBoxColumn.HeaderText = "MæglerID";
-            this.mæglerIDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.mæglerIDDataGridViewTextBoxColumn.Name = "mæglerIDDataGridViewTextBoxColumn";
-            this.mæglerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mæglerIDDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cPRDataGridViewTextBoxColumn
-            // 
-            this.cPRDataGridViewTextBoxColumn.DataPropertyName = "CPR";
-            this.cPRDataGridViewTextBoxColumn.HeaderText = "CPR";
-            this.cPRDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.cPRDataGridViewTextBoxColumn.Name = "cPRDataGridViewTextBoxColumn";
-            this.cPRDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // telefonDataGridViewTextBoxColumn
-            // 
-            this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
-            this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
-            this.telefonDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
-            this.telefonDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // fnavnDataGridViewTextBoxColumn
-            // 
-            this.fnavnDataGridViewTextBoxColumn.DataPropertyName = "Fnavn";
-            this.fnavnDataGridViewTextBoxColumn.HeaderText = "Fnavn";
-            this.fnavnDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fnavnDataGridViewTextBoxColumn.Name = "fnavnDataGridViewTextBoxColumn";
-            this.fnavnDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // enavnDataGridViewTextBoxColumn
-            // 
-            this.enavnDataGridViewTextBoxColumn.DataPropertyName = "Enavn";
-            this.enavnDataGridViewTextBoxColumn.HeaderText = "Enavn";
-            this.enavnDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.enavnDataGridViewTextBoxColumn.Name = "enavnDataGridViewTextBoxColumn";
-            this.enavnDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // vejDataGridViewTextBoxColumn
-            // 
-            this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
-            this.vejDataGridViewTextBoxColumn.HeaderText = "Vej";
-            this.vejDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
-            this.vejDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // postnummerDataGridViewTextBoxColumn
-            // 
-            this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
-            this.postnummerDataGridViewTextBoxColumn.HeaderText = "Postnummer";
-            this.postnummerDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
-            this.postnummerDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // ejendomsmæglerBindingSource
-            // 
-            this.ejendomsmæglerBindingSource.DataMember = "Ejendomsmægler";
-            this.ejendomsmæglerBindingSource.DataSource = this.ejendomsmægler_bobedredbDataSet;
-            // 
-            // ejendomsmægler_bobedredbDataSet
-            // 
-            this.ejendomsmægler_bobedredbDataSet.DataSetName = "ejendomsmægler_bobedredbDataSet";
-            this.ejendomsmægler_bobedredbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
+            //
             // btn_SletEjendomsmægler
             // 
             this.btn_SletEjendomsmægler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -616,10 +518,6 @@
             this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
             // 
-            // ejendomsmæglerTableAdapter
-            // 
-            this.ejendomsmæglerTableAdapter.ClearBeforeFill = true;
-            // 
             // Clear
             // 
             this.Clear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -678,8 +576,6 @@
             this.Text = "EjendomsmæglerUI";
             this.Load += new System.EventHandler(this.EjendomsmæglerUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ejendomsmæglerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ejendomsmægler_bobedredbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -837,17 +733,6 @@
         }
         #endregion
 
-        private ejendomsmægler_bobedredbDataSet ejendomsmægler_bobedredbDataSet;
-        private System.Windows.Forms.BindingSource ejendomsmæglerBindingSource;
-        private ejendomsmægler_bobedredbDataSetTableAdapters.EjendomsmæglerTableAdapter ejendomsmæglerTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mæglerIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPRDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fnavnDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enavnDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btn_HentEjendomsmægler;
         private System.Windows.Forms.Button btn_OpretEjendomsmægler;
         private System.Windows.Forms.Button btn_SletEjendomsmægler;

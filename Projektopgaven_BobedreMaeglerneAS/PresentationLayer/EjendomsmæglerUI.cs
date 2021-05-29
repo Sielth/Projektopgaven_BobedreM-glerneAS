@@ -141,7 +141,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void EjendomsmæglerUI_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'ejendomsmægler_bobedredbDataSet.Ejendomsmægler' table. You can move, or remove it, as needed.
-            this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
+            //this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
 
         }
 
