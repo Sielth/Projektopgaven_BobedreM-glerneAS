@@ -30,6 +30,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         //method to refresh DataGridView
         private void BoligUI_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'boligDataSet.Bolig' table. You can move, or remove it, as needed.
+            this.boligTableAdapter.Fill(this.boligDataSet.Bolig);
             // TODO: This line of code loads data into the 'bolig_bobedredbDataSet.Bolig' table. You can move, or remove it, as needed.
             //this.boligTableAdapter.Fill(this.bolig_bobedredbDataSet.Bolig);
         }

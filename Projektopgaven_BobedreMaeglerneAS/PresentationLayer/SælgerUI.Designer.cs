@@ -79,8 +79,23 @@
             this.udtrækStatistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_SælgerClear = new System.Windows.Forms.Button();
             this.btn_SælgerRediger = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.sælgerDataSet = new Projektopgaven_BobedreMaeglerneAS.sælgerDataSet();
+            this.sælgerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sælgerTableAdapter = new Projektopgaven_BobedreMaeglerneAS.sælgerDataSetTableAdapters.SælgerTableAdapter();
+            this.sælgerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fnavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vejDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sælgerDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sælgerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // sælgerVej_txt
@@ -489,7 +504,7 @@
             // btn_SælgerClear
             // 
             this.btn_SælgerClear.Location = new System.Drawing.Point(532, 132);
-            this.btn_SælgerClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_SælgerClear.Margin = new System.Windows.Forms.Padding(2);
             this.btn_SælgerClear.Name = "btn_SælgerClear";
             this.btn_SælgerClear.Size = new System.Drawing.Size(63, 23);
             this.btn_SælgerClear.TabIndex = 107;
@@ -500,7 +515,7 @@
             // btn_SælgerRediger
             // 
             this.btn_SælgerRediger.Location = new System.Drawing.Point(532, 93);
-            this.btn_SælgerRediger.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_SælgerRediger.Margin = new System.Windows.Forms.Padding(2);
             this.btn_SælgerRediger.Name = "btn_SælgerRediger";
             this.btn_SælgerRediger.Size = new System.Drawing.Size(63, 23);
             this.btn_SælgerRediger.TabIndex = 108;
@@ -508,11 +523,97 @@
             this.btn_SælgerRediger.UseVisualStyleBackColor = true;
             this.btn_SælgerRediger.Click += new System.EventHandler(this.btn_SælgerRediger_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sælgerIDDataGridViewTextBoxColumn,
+            this.cPRDataGridViewTextBoxColumn,
+            this.telefonDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.fnavnDataGridViewTextBoxColumn,
+            this.enavnDataGridViewTextBoxColumn,
+            this.vejDataGridViewTextBoxColumn,
+            this.postnummerDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.sælgerBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 213);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(776, 225);
+            this.dataGridView1.TabIndex = 109;
+            // 
+            // sælgerDataSet
+            // 
+            this.sælgerDataSet.DataSetName = "sælgerDataSet";
+            this.sælgerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sælgerBindingSource
+            // 
+            this.sælgerBindingSource.DataMember = "Sælger";
+            this.sælgerBindingSource.DataSource = this.sælgerDataSet;
+            // 
+            // sælgerTableAdapter
+            // 
+            this.sælgerTableAdapter.ClearBeforeFill = true;
+            // 
+            // sælgerIDDataGridViewTextBoxColumn
+            // 
+            this.sælgerIDDataGridViewTextBoxColumn.DataPropertyName = "SælgerID";
+            this.sælgerIDDataGridViewTextBoxColumn.HeaderText = "SælgerID";
+            this.sælgerIDDataGridViewTextBoxColumn.Name = "sælgerIDDataGridViewTextBoxColumn";
+            this.sælgerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cPRDataGridViewTextBoxColumn
+            // 
+            this.cPRDataGridViewTextBoxColumn.DataPropertyName = "CPR";
+            this.cPRDataGridViewTextBoxColumn.HeaderText = "CPR";
+            this.cPRDataGridViewTextBoxColumn.Name = "cPRDataGridViewTextBoxColumn";
+            // 
+            // telefonDataGridViewTextBoxColumn
+            // 
+            this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // fnavnDataGridViewTextBoxColumn
+            // 
+            this.fnavnDataGridViewTextBoxColumn.DataPropertyName = "Fnavn";
+            this.fnavnDataGridViewTextBoxColumn.HeaderText = "Fnavn";
+            this.fnavnDataGridViewTextBoxColumn.Name = "fnavnDataGridViewTextBoxColumn";
+            // 
+            // enavnDataGridViewTextBoxColumn
+            // 
+            this.enavnDataGridViewTextBoxColumn.DataPropertyName = "Enavn";
+            this.enavnDataGridViewTextBoxColumn.HeaderText = "Enavn";
+            this.enavnDataGridViewTextBoxColumn.Name = "enavnDataGridViewTextBoxColumn";
+            // 
+            // vejDataGridViewTextBoxColumn
+            // 
+            this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
+            this.vejDataGridViewTextBoxColumn.HeaderText = "Vej";
+            this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
+            // 
+            // postnummerDataGridViewTextBoxColumn
+            // 
+            this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
+            this.postnummerDataGridViewTextBoxColumn.HeaderText = "Postnummer";
+            this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
+            // 
             // SælgerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_SælgerRediger);
             this.Controls.Add(this.btn_SælgerClear);
             this.Controls.Add(this.menuStrip1);
@@ -538,9 +639,13 @@
             this.Controls.Add(this.sælgerID_txt);
             this.Name = "SælgerUI";
             this.Text = "SælgerUI";
+            this.Load += new System.EventHandler(this.SælgerUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sælgerDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sælgerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -702,5 +807,17 @@
         private System.Windows.Forms.ToolStripMenuItem udtrækStatistikToolStripMenuItem;
         private System.Windows.Forms.Button btn_SælgerClear;
         private System.Windows.Forms.Button btn_SælgerRediger;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private sælgerDataSet sælgerDataSet;
+        private System.Windows.Forms.BindingSource sælgerBindingSource;
+        private sælgerDataSetTableAdapters.SælgerTableAdapter sælgerTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sælgerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPRDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fnavnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enavnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
     }
 }

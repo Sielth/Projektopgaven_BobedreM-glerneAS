@@ -37,6 +37,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.handelSalgsID_cbox = new System.Windows.Forms.ComboBox();
             this.handelKøberID_cbox = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -96,15 +97,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.allowRedigering_btn = new System.Windows.Forms.Button();
             this.clearOpret_btn = new System.Windows.Forms.Button();
             this.clearOpdater_btn = new System.Windows.Forms.Button();
+            this.handelDataSet = new Projektopgaven_BobedreMaeglerneAS.handelDataSet();
+            this.handelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.handelTableAdapter = new Projektopgaven_BobedreMaeglerneAS.handelDataSetTableAdapters.HandelTableAdapter();
+            this.handelIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.handelsdatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salgsprisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sagsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.køberIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.handelDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.handelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // handelSalgsID_cbox
             // 
             this.handelSalgsID_cbox.FormattingEnabled = true;
             this.handelSalgsID_cbox.Location = new System.Drawing.Point(90, 108);
-            this.handelSalgsID_cbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.handelSalgsID_cbox.Margin = new System.Windows.Forms.Padding(2);
             this.handelSalgsID_cbox.Name = "handelSalgsID_cbox";
             this.handelSalgsID_cbox.Size = new System.Drawing.Size(92, 21);
             this.handelSalgsID_cbox.TabIndex = 0;
@@ -113,7 +124,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             this.handelKøberID_cbox.FormattingEnabled = true;
             this.handelKøberID_cbox.Location = new System.Drawing.Point(90, 133);
-            this.handelKøberID_cbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.handelKøberID_cbox.Margin = new System.Windows.Forms.Padding(2);
             this.handelKøberID_cbox.Name = "handelKøberID_cbox";
             this.handelKøberID_cbox.Size = new System.Drawing.Size(92, 21);
             this.handelKøberID_cbox.TabIndex = 2;
@@ -131,7 +142,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // handelSalgspris_txt
             // 
             this.handelSalgspris_txt.Location = new System.Drawing.Point(90, 84);
-            this.handelSalgspris_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.handelSalgspris_txt.Margin = new System.Windows.Forms.Padding(2);
             this.handelSalgspris_txt.Name = "handelSalgspris_txt";
             this.handelSalgspris_txt.Size = new System.Drawing.Size(92, 20);
             this.handelSalgspris_txt.TabIndex = 4;
@@ -178,7 +189,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // btn_oprethandel
             // 
             this.btn_oprethandel.Location = new System.Drawing.Point(470, 60);
-            this.btn_oprethandel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_oprethandel.Margin = new System.Windows.Forms.Padding(2);
             this.btn_oprethandel.Name = "btn_oprethandel";
             this.btn_oprethandel.Size = new System.Drawing.Size(106, 24);
             this.btn_oprethandel.TabIndex = 10;
@@ -232,7 +243,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // handelID_txt
             // 
             this.handelID_txt.Location = new System.Drawing.Point(90, 60);
-            this.handelID_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.handelID_txt.Margin = new System.Windows.Forms.Padding(2);
             this.handelID_txt.Name = "handelID_txt";
             this.handelID_txt.Size = new System.Drawing.Size(92, 20);
             this.handelID_txt.TabIndex = 15;
@@ -468,7 +479,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             this.dateTimePicker3.CustomFormat = "";
             this.dateTimePicker3.Location = new System.Drawing.Point(248, 84);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker3.TabIndex = 17;
@@ -576,9 +587,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.handelIDDataGridViewTextBoxColumn,
+            this.handelsdatoDataGridViewTextBoxColumn,
+            this.salgsprisDataGridViewTextBoxColumn,
+            this.sagsIDDataGridViewTextBoxColumn,
+            this.køberIDDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.handelBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 186);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(564, 310);
             this.dataGridView1.TabIndex = 29;
@@ -586,7 +608,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // allowRedigering_btn
             // 
             this.allowRedigering_btn.Location = new System.Drawing.Point(470, 111);
-            this.allowRedigering_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.allowRedigering_btn.Margin = new System.Windows.Forms.Padding(2);
             this.allowRedigering_btn.Name = "allowRedigering_btn";
             this.allowRedigering_btn.Size = new System.Drawing.Size(106, 19);
             this.allowRedigering_btn.TabIndex = 30;
@@ -597,7 +619,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // clearOpret_btn
             // 
             this.clearOpret_btn.Location = new System.Drawing.Point(470, 88);
-            this.clearOpret_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clearOpret_btn.Margin = new System.Windows.Forms.Padding(2);
             this.clearOpret_btn.Name = "clearOpret_btn";
             this.clearOpret_btn.Size = new System.Drawing.Size(106, 19);
             this.clearOpret_btn.TabIndex = 31;
@@ -608,13 +630,58 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // clearOpdater_btn
             // 
             this.clearOpdater_btn.Location = new System.Drawing.Point(470, 88);
-            this.clearOpdater_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clearOpdater_btn.Margin = new System.Windows.Forms.Padding(2);
             this.clearOpdater_btn.Name = "clearOpdater_btn";
             this.clearOpdater_btn.Size = new System.Drawing.Size(106, 19);
             this.clearOpdater_btn.TabIndex = 32;
             this.clearOpdater_btn.Text = "Clear";
             this.clearOpdater_btn.UseVisualStyleBackColor = true;
             this.clearOpdater_btn.Click += new System.EventHandler(this.clearOpdater_btn_Click);
+            // 
+            // handelDataSet
+            // 
+            this.handelDataSet.DataSetName = "handelDataSet";
+            this.handelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // handelBindingSource
+            // 
+            this.handelBindingSource.DataMember = "Handel";
+            this.handelBindingSource.DataSource = this.handelDataSet;
+            // 
+            // handelTableAdapter
+            // 
+            this.handelTableAdapter.ClearBeforeFill = true;
+            // 
+            // handelIDDataGridViewTextBoxColumn
+            // 
+            this.handelIDDataGridViewTextBoxColumn.DataPropertyName = "HandelID";
+            this.handelIDDataGridViewTextBoxColumn.HeaderText = "HandelID";
+            this.handelIDDataGridViewTextBoxColumn.Name = "handelIDDataGridViewTextBoxColumn";
+            this.handelIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // handelsdatoDataGridViewTextBoxColumn
+            // 
+            this.handelsdatoDataGridViewTextBoxColumn.DataPropertyName = "Handelsdato";
+            this.handelsdatoDataGridViewTextBoxColumn.HeaderText = "Handelsdato";
+            this.handelsdatoDataGridViewTextBoxColumn.Name = "handelsdatoDataGridViewTextBoxColumn";
+            // 
+            // salgsprisDataGridViewTextBoxColumn
+            // 
+            this.salgsprisDataGridViewTextBoxColumn.DataPropertyName = "Salgspris";
+            this.salgsprisDataGridViewTextBoxColumn.HeaderText = "Salgspris";
+            this.salgsprisDataGridViewTextBoxColumn.Name = "salgsprisDataGridViewTextBoxColumn";
+            // 
+            // sagsIDDataGridViewTextBoxColumn
+            // 
+            this.sagsIDDataGridViewTextBoxColumn.DataPropertyName = "SagsID";
+            this.sagsIDDataGridViewTextBoxColumn.HeaderText = "SagsID";
+            this.sagsIDDataGridViewTextBoxColumn.Name = "sagsIDDataGridViewTextBoxColumn";
+            // 
+            // køberIDDataGridViewTextBoxColumn
+            // 
+            this.køberIDDataGridViewTextBoxColumn.DataPropertyName = "KøberID";
+            this.køberIDDataGridViewTextBoxColumn.HeaderText = "KøberID";
+            this.køberIDDataGridViewTextBoxColumn.Name = "køberIDDataGridViewTextBoxColumn";
             // 
             // HandelUI
             // 
@@ -652,12 +719,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.Controls.Add(this.handelKøberID_cbox);
             this.Controls.Add(this.handelSalgsID_cbox);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HandelUI";
             this.Text = "HandelUI";
+            this.Load += new System.EventHandler(this.HandelUI_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.handelDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.handelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -847,5 +917,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelSalgsID_cbox.Enabled = false;
             handelKøberID_cbox.Enabled = false;
         }
+
+        private handelDataSet handelDataSet;
+        private System.Windows.Forms.BindingSource handelBindingSource;
+        private handelDataSetTableAdapters.HandelTableAdapter handelTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn handelIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn handelsdatoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salgsprisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sagsIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn køberIDDataGridViewTextBoxColumn;
     }
 }

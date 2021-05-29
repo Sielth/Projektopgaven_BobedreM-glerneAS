@@ -92,11 +92,27 @@
             this.readToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.udtrækStatistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.boligDataSet = new Projektopgaven_BobedreMaeglerneAS.boligDataSet();
+            this.boligBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boligTableAdapter = new Projektopgaven_BobedreMaeglerneAS.boligDataSetTableAdapters.BoligTableAdapter();
+            this.boligIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vejDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.værelserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etagerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kvadratmeterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.udbudsprisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.haveFlagDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bygningsårDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.renoveringsÅrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bolig_DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligEtager_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boligVærelser_tbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.boligDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boligBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // saveChanges_btn
@@ -297,7 +313,21 @@
             // 
             this.bolig_DataGridView.AllowUserToAddRows = false;
             this.bolig_DataGridView.AllowUserToDeleteRows = false;
+            this.bolig_DataGridView.AutoGenerateColumns = false;
             this.bolig_DataGridView.ColumnHeadersHeight = 34;
+            this.bolig_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.boligIDDataGridViewTextBoxColumn,
+            this.vejDataGridViewTextBoxColumn,
+            this.postnummerDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn,
+            this.værelserDataGridViewTextBoxColumn,
+            this.etagerDataGridViewTextBoxColumn,
+            this.kvadratmeterDataGridViewTextBoxColumn,
+            this.udbudsprisDataGridViewTextBoxColumn,
+            this.haveFlagDataGridViewCheckBoxColumn,
+            this.bygningsårDataGridViewTextBoxColumn,
+            this.renoveringsÅrDataGridViewTextBoxColumn});
+            this.bolig_DataGridView.DataSource = this.boligBindingSource;
             this.bolig_DataGridView.Location = new System.Drawing.Point(14, 266);
             this.bolig_DataGridView.Name = "bolig_DataGridView";
             this.bolig_DataGridView.ReadOnly = true;
@@ -682,6 +712,97 @@
             this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
             this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click);
             // 
+            // boligDataSet
+            // 
+            this.boligDataSet.DataSetName = "boligDataSet";
+            this.boligDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // boligBindingSource
+            // 
+            this.boligBindingSource.DataMember = "Bolig";
+            this.boligBindingSource.DataSource = this.boligDataSet;
+            // 
+            // boligTableAdapter
+            // 
+            this.boligTableAdapter.ClearBeforeFill = true;
+            // 
+            // boligIDDataGridViewTextBoxColumn
+            // 
+            this.boligIDDataGridViewTextBoxColumn.DataPropertyName = "BoligID";
+            this.boligIDDataGridViewTextBoxColumn.HeaderText = "BoligID";
+            this.boligIDDataGridViewTextBoxColumn.Name = "boligIDDataGridViewTextBoxColumn";
+            this.boligIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vejDataGridViewTextBoxColumn
+            // 
+            this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
+            this.vejDataGridViewTextBoxColumn.HeaderText = "Vej";
+            this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
+            this.vejDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // postnummerDataGridViewTextBoxColumn
+            // 
+            this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
+            this.postnummerDataGridViewTextBoxColumn.HeaderText = "Postnummer";
+            this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
+            this.postnummerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // værelserDataGridViewTextBoxColumn
+            // 
+            this.værelserDataGridViewTextBoxColumn.DataPropertyName = "Værelser";
+            this.værelserDataGridViewTextBoxColumn.HeaderText = "Værelser";
+            this.værelserDataGridViewTextBoxColumn.Name = "værelserDataGridViewTextBoxColumn";
+            this.værelserDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // etagerDataGridViewTextBoxColumn
+            // 
+            this.etagerDataGridViewTextBoxColumn.DataPropertyName = "Etager";
+            this.etagerDataGridViewTextBoxColumn.HeaderText = "Etager";
+            this.etagerDataGridViewTextBoxColumn.Name = "etagerDataGridViewTextBoxColumn";
+            this.etagerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kvadratmeterDataGridViewTextBoxColumn
+            // 
+            this.kvadratmeterDataGridViewTextBoxColumn.DataPropertyName = "Kvadratmeter";
+            this.kvadratmeterDataGridViewTextBoxColumn.HeaderText = "Kvadratmeter";
+            this.kvadratmeterDataGridViewTextBoxColumn.Name = "kvadratmeterDataGridViewTextBoxColumn";
+            this.kvadratmeterDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // udbudsprisDataGridViewTextBoxColumn
+            // 
+            this.udbudsprisDataGridViewTextBoxColumn.DataPropertyName = "Udbudspris";
+            this.udbudsprisDataGridViewTextBoxColumn.HeaderText = "Udbudspris";
+            this.udbudsprisDataGridViewTextBoxColumn.Name = "udbudsprisDataGridViewTextBoxColumn";
+            this.udbudsprisDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // haveFlagDataGridViewCheckBoxColumn
+            // 
+            this.haveFlagDataGridViewCheckBoxColumn.DataPropertyName = "HaveFlag";
+            this.haveFlagDataGridViewCheckBoxColumn.HeaderText = "HaveFlag";
+            this.haveFlagDataGridViewCheckBoxColumn.Name = "haveFlagDataGridViewCheckBoxColumn";
+            this.haveFlagDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // bygningsårDataGridViewTextBoxColumn
+            // 
+            this.bygningsårDataGridViewTextBoxColumn.DataPropertyName = "Bygningsår";
+            this.bygningsårDataGridViewTextBoxColumn.HeaderText = "Bygningsår";
+            this.bygningsårDataGridViewTextBoxColumn.Name = "bygningsårDataGridViewTextBoxColumn";
+            this.bygningsårDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // renoveringsÅrDataGridViewTextBoxColumn
+            // 
+            this.renoveringsÅrDataGridViewTextBoxColumn.DataPropertyName = "RenoveringsÅr";
+            this.renoveringsÅrDataGridViewTextBoxColumn.HeaderText = "RenoveringsÅr";
+            this.renoveringsÅrDataGridViewTextBoxColumn.Name = "renoveringsÅrDataGridViewTextBoxColumn";
+            this.renoveringsÅrDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // BoligUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -732,6 +853,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.boligDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boligBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -910,5 +1033,19 @@
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem udtrækStatistikToolStripMenuItem;
+        private boligDataSet boligDataSet;
+        private System.Windows.Forms.BindingSource boligBindingSource;
+        private boligDataSetTableAdapters.BoligTableAdapter boligTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn boligIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn værelserDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etagerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kvadratmeterDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn udbudsprisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn haveFlagDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bygningsårDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn renoveringsÅrDataGridViewTextBoxColumn;
     }
 }

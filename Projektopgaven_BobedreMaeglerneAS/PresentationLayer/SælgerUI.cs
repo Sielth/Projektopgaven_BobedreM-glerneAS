@@ -353,5 +353,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         #endregion
 
+        private void SælgerUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sælgerDataSet.Sælger' table. You can move, or remove it, as needed.
+            this.sælgerTableAdapter.Fill(this.sælgerDataSet.Sælger);
+
+        }
     }
 }

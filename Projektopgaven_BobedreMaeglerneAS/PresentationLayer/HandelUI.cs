@@ -422,5 +422,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //OR
             StatistikBLL.StatsToText(dateTimePicker1.Value, dateTimePicker3.Value);
         }
+
+        private void HandelUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'handelDataSet.Handel' table. You can move, or remove it, as needed.
+            this.handelTableAdapter.Fill(this.handelDataSet.Handel);
+
+        }
     }
 }
