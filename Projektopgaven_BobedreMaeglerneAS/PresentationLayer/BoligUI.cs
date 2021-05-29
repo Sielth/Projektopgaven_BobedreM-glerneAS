@@ -212,39 +212,39 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             switch (input)
             {
-                case "Bolig ID":
-                    this.boligBindingSource.Filter = string.Format("Convert(BoligID, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Adresse":
-                    this.boligBindingSource.Filter = string.Format("Vej LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Postnummer":
-                    this.boligBindingSource.Filter = string.Format("Convert(Postnummer, 'System.String') LIKE '%{0}%'", search_txt.Text);
-                    break;
-                case "Bolig Type":
-                    this.boligBindingSource.Filter = string.Format("Type LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Værelser":
-                    this.boligBindingSource.Filter = string.Format("Convert(Værelser, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Etager":
-                    this.boligBindingSource.Filter = string.Format("Convert(Etager, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Kvadratmeter":
-                    this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Bygningsår":
-                    this.boligBindingSource.Filter = string.Format("Convert(Bygningsår, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Renoveringsår":
-                    this.boligBindingSource.Filter = string.Format("Convert(RenoveringsÅr, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                    break;
-                case "Udbudspris (lower than)":
-                    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') <= '*{0}*'", search_txt.Text);
-                    break;
-                case "Udbudspris (higher than)": 
-                    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') >= '*{0}*'", search_txt.Text);
-                    break;
+                //case "Bolig ID":
+                //    this.boligBindingSource.Filter = string.Format("Convert(BoligID, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Adresse":
+                //    this.boligBindingSource.Filter = string.Format("Vej LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Postnummer":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Postnummer, 'System.String') LIKE '%{0}%'", search_txt.Text);
+                //    break;
+                //case "Bolig Type":
+                //    this.boligBindingSource.Filter = string.Format("Type LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Værelser":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Værelser, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Etager":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Etager, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Kvadratmeter":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Bygningsår":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Bygningsår, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Renoveringsår":
+                //    this.boligBindingSource.Filter = string.Format("Convert(RenoveringsÅr, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Udbudspris (lower than)":
+                //    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') <= '*{0}*'", search_txt.Text);
+                //    break;
+                //case "Udbudspris (higher than)": 
+                //    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') >= '*{0}*'", search_txt.Text);
+                //    break;
             }
         }
 

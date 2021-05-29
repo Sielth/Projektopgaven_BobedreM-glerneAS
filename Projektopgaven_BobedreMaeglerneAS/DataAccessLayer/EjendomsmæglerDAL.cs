@@ -17,8 +17,6 @@ namespace Projektopgaven_BobedreMæglerneAS
         private static ConnectionSingleton s1 = ConnectionSingleton.Instance(); //creates a new instance of ConnectionSingleton via method Instance
         private static SqlConnection conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
 
-        private EjendomsmæglerBLL EjendomsmæglerBLL;
-
         private ComboBox output;
 
         public EjendomsmæglerDAL()

@@ -46,11 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bolig_bobedredbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
     <Compile Include="DataAccessLayer\EjendomsmæglerOplysninger.cs" />
@@ -177,17 +172,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="bolig_bobedredbDataSet.xsc">
-      <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="bolig_bobedredbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bolig_bobedredbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bolig_bobedredbDataSet.xss">
-      <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
-    </None>
     <None Include="ejendomsmægler_bobedredbDataSet1.xsc">
       <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
     </None>
