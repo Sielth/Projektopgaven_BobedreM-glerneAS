@@ -162,9 +162,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return mæglerid;
         }
 
-        public int MæglerCPR()
+        public long MæglerCPR()
         {
-            int.TryParse(CPR_txt.Text, out int mæglercpr);
+            Int64.TryParse(CPR_txt.Text, out long mæglercpr);
             return mæglercpr;
         }
 
@@ -215,7 +215,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private bool TjekCPRVærdi()
         {
-            if (!int.TryParse(CPR_txt.Text, out int i))
+            if (!Int64.TryParse(CPR_txt.Text, out long i))
             {
                 MessageBox.Show("Ugylidgt CPR");
                 return false;

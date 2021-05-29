@@ -217,7 +217,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                     while (reader.Read())
                     {
                         EjendomsmæglerBLL matchingejendomsmægler = new EjendomsmæglerBLL((int)reader["MæglerID"],
-                            (int)reader["CPR"],
+                            (long)reader["CPR"],
                             (int)reader["Telefon"],
                             reader["Email"].ToString(),
                             reader["Fnavn"].ToString(),

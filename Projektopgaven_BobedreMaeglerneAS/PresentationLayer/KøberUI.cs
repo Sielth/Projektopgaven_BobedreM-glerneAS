@@ -300,9 +300,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return købertelefon;
         }
 
-        public int KøberCPR()
+        public long KøberCPR()
         {
-            int.TryParse(KøberCPR_txt.Text, out int køberCPR);
+            Int64.TryParse(KøberCPR_txt.Text, out long køberCPR);
             return køberCPR;
         }
 

@@ -176,7 +176,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     while (reader.Read())
                     {
                         matchingsælger = new SælgerBLL((int)reader["SælgerID"],
-                            (int)reader["CPR"],
+                            (long)reader["CPR"],
                             (int)reader["Telefon"],
                             reader["Email"].ToString(),
                             reader["Fnavn"].ToString(),
@@ -243,7 +243,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     while (reader.Read())
                     {
                         matchingsælger = new SælgerBLL((int)reader["SælgerID"],
-                            (int)reader["CPR"],
+                            (long)reader["CPR"],
                             (int)reader["Telefon"],
                             reader["Email"].ToString(),
                             reader["Fnavn"].ToString(),

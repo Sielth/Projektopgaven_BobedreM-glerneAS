@@ -12,13 +12,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public int KøberID { get; set; }
         public string Vej { get; set; }
         public int Postnummer { get; set; }
-        public int CPR { get; set; }
+        public long CPR { get; set; }
         public string Fnavn { get; set; }
         public string Enavn { get; set; }
         public string Email { get; set; }
         public int Telefon { get; set; }
 
-        public KøberBLL(int Køberid, string Vej, int Postnummer, int CPR, string Fnavn, string Enavn, string Email, int Telefon)
+        public KøberBLL(int Køberid, string Vej, int Postnummer, long CPR, string Fnavn, string Enavn, string Email, int Telefon)
         {
             this.KøberID = Køberid;
             this.Vej = Vej;

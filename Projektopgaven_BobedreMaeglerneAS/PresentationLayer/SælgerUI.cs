@@ -129,9 +129,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return sælgerid;
         }
 
-        private int SælgerCPR()
+        private long SælgerCPR()
         {
-            int.TryParse(sælgerCPR_txt.Text, out int sælgercpr);
+            Int64.TryParse(sælgerCPR_txt.Text, out long sælgercpr);
             return sælgercpr;
         }
 
@@ -181,7 +181,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private bool TjekSælgeCPRdVærdi()
         {
-            if (!int.TryParse(sælgerCPR_txt.Text, out int i))
+            if (!Int64.TryParse(sælgerCPR_txt.Text, out long i))
             {
                 return false;
             }

@@ -10,7 +10,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
     class SælgerBLL : IPerson
     {
         public int SælgerID { get; set; }
-        public int CPR { get; set; }
+        public long CPR { get; set; }
         public int Telefon { get; set; }
         public string Email { get; set; }
         public string Fnavn { get; set; }
@@ -18,7 +18,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public string Vej { get; set; }
         public int Postnummer { get; set; }
 
-        public SælgerBLL(int sælgerid, int cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer)
+        public SælgerBLL(int sælgerid, long cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer)
         {
             this.SælgerID = sælgerid;
             this.CPR = cpr;
