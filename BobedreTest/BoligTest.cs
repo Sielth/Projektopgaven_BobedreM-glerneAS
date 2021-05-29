@@ -28,20 +28,5 @@ namespace BobedreTest
 
             Assert.AreEqual(expected, actual, 0.001, "Price not calculated correctly");
         }
-
-        [TestMethod]
-        public void CalculateSalær()
-        {
-            int salgspris = 382100;
-            int antaltimer = 12;
-
-            string expected = "9422";
-
-            BeregnSalærForm f1 = new BeregnSalærForm();
-            string actual = f1.BeregnSalær(salgspris, antaltimer);
-
-            Assert.AreEqual(expected, actual);
-
-        }
     }
 }

@@ -533,6 +533,29 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // Show the settings form
             handelUI.Show();
 
+            handelUI.GetFindHandelKnap().Visible = false;
+            handelUI.GetSletHandelKnap().Visible = false;
+            handelUI.GetClearOpdater().Visible = false;
+            handelUI.GetAllowRedigering().Visible = false;
+            handelUI.GetOpdaterHandelKnap().Visible = false;
+
+            handelUI.GetHandelsslutdatoDatetime().Visible = false;
+            handelUI.GetStatistikKnap().Visible = false;
+            handelUI.GetSaveStatistikKnap().Visible = false;
+            handelUI.GetStatistikListbox().Visible = false;
+
+            handelUI.Get_udtrækstat_lbl1().Visible = false;
+            handelUI.Get_udtrækstat_lbl2().Visible = false;
+            handelUI.Get_udtrækstat_lbl3().Visible = false;
+            handelUI.Get_udtrækstat_lbl4().Visible = false;
+            handelUI.Get_udtrækstat_lbl7().Visible = false;
+            handelUI.Get_udtrækstat_lbl6().Visible = false;
+            handelUI.Get_udtrækstat_lbl5().Visible = false;
+            handelUI.Get_udtrækstat_lbl8().Visible = false;
+            handelUI.Get_stats_lbl().Visible = false;
+
+            handelUI.GetHandelIDTekstboks().Enabled = false;
+
             handelUI.GetHandelSagsIDComboboks().Text = sagsid;
         }
         #endregion
