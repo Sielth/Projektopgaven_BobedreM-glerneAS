@@ -34,16 +34,6 @@
             this.FindKøber_knap = new System.Windows.Forms.Button();
             this.OpretKøber_knap = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.køberIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fnavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vejDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.køberBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.køber_bobedredbDataSet = new Projektopgaven_BobedreMaeglerneAS.køber_bobedredbDataSet();
             this.KøberPostnummer_txt = new System.Windows.Forms.TextBox();
             this.KøberVej_txt = new System.Windows.Forms.TextBox();
             this.KøberTelefon_txt = new System.Windows.Forms.TextBox();
@@ -86,12 +76,9 @@
             this.readToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.udtrækStatistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.køberTableAdapter = new Projektopgaven_BobedreMaeglerneAS.køber_bobedredbDataSetTableAdapters.KøberTableAdapter();
             this.TilladRedigering_knap = new System.Windows.Forms.Button();
             this.Clear_knap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.køberBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.køber_bobedredbDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,16 +130,6 @@
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.køberIDDataGridViewTextBoxColumn,
-            this.cPRDataGridViewTextBoxColumn,
-            this.telefonDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.fnavnDataGridViewTextBoxColumn,
-            this.enavnDataGridViewTextBoxColumn,
-            this.vejDataGridViewTextBoxColumn,
-            this.postnummerDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.køberBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(60, 233);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -160,81 +137,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(948, 276);
             this.dataGridView1.TabIndex = 40;
-            // 
-            // køberIDDataGridViewTextBoxColumn
-            // 
-            this.køberIDDataGridViewTextBoxColumn.DataPropertyName = "KøberID";
-            this.køberIDDataGridViewTextBoxColumn.HeaderText = "KøberID";
-            this.køberIDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.køberIDDataGridViewTextBoxColumn.Name = "køberIDDataGridViewTextBoxColumn";
-            this.køberIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.køberIDDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cPRDataGridViewTextBoxColumn
-            // 
-            this.cPRDataGridViewTextBoxColumn.DataPropertyName = "CPR";
-            this.cPRDataGridViewTextBoxColumn.HeaderText = "CPR";
-            this.cPRDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.cPRDataGridViewTextBoxColumn.Name = "cPRDataGridViewTextBoxColumn";
-            this.cPRDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // telefonDataGridViewTextBoxColumn
-            // 
-            this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
-            this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
-            this.telefonDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
-            this.telefonDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // fnavnDataGridViewTextBoxColumn
-            // 
-            this.fnavnDataGridViewTextBoxColumn.DataPropertyName = "Fnavn";
-            this.fnavnDataGridViewTextBoxColumn.HeaderText = "Fnavn";
-            this.fnavnDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fnavnDataGridViewTextBoxColumn.Name = "fnavnDataGridViewTextBoxColumn";
-            this.fnavnDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // enavnDataGridViewTextBoxColumn
-            // 
-            this.enavnDataGridViewTextBoxColumn.DataPropertyName = "Enavn";
-            this.enavnDataGridViewTextBoxColumn.HeaderText = "Enavn";
-            this.enavnDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.enavnDataGridViewTextBoxColumn.Name = "enavnDataGridViewTextBoxColumn";
-            this.enavnDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // vejDataGridViewTextBoxColumn
-            // 
-            this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
-            this.vejDataGridViewTextBoxColumn.HeaderText = "Vej";
-            this.vejDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
-            this.vejDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // postnummerDataGridViewTextBoxColumn
-            // 
-            this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
-            this.postnummerDataGridViewTextBoxColumn.HeaderText = "Postnummer";
-            this.postnummerDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
-            this.postnummerDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // køberBindingSource
-            // 
-            this.køberBindingSource.DataMember = "Køber";
-            this.køberBindingSource.DataSource = this.køber_bobedredbDataSet;
-            // 
-            // køber_bobedredbDataSet
-            // 
-            this.køber_bobedredbDataSet.DataSetName = "køber_bobedredbDataSet";
-            this.køber_bobedredbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // KøberPostnummer_txt
             // 
@@ -582,11 +484,7 @@
             this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
             this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click);
-            // 
-            // køberTableAdapter
-            // 
-            this.køberTableAdapter.ClearBeforeFill = true;
-            // 
+            //  
             // TilladRedigering_knap
             // 
             this.TilladRedigering_knap.Location = new System.Drawing.Point(648, 72);
@@ -642,8 +540,6 @@
             this.Text = "KøberUI";
             this.Load += new System.EventHandler(this.KøberUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.køberBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.køber_bobedredbDataSet)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -686,17 +582,6 @@
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem3;
-        private køber_bobedredbDataSet køber_bobedredbDataSet;
-        private System.Windows.Forms.BindingSource køberBindingSource;
-        private køber_bobedredbDataSetTableAdapters.KøberTableAdapter køberTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn køberIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPRDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fnavnDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enavnDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem sagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem4;
