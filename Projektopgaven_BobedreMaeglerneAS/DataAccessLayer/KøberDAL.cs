@@ -204,7 +204,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                         matchingkøber = new KøberBLL((int)reader["KøberID"],
                             reader["Vej"].ToString(),
                             (int)reader["Postnummer"],
-                            (int)reader["CPR"],
+                            (long)reader["CPR"],
                             reader["Fnavn"].ToString(),
                             reader["Enavn"].ToString(),
                             reader["Email"].ToString(),

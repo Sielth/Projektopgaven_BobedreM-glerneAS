@@ -439,7 +439,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         #endregion
 
         #region Check
-        //check if the recor with the SagsID passed as a parameter exists in the Sag table
         public static bool BoligExists(int boligid)
         {
             int userCount = 0;

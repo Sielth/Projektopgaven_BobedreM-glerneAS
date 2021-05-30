@@ -54,21 +54,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //creates a new SagBLL in DB
-                sag.OpretSag(sag);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                if (!SagBLL.BoligExistsISag(SagsBoligID()))
+                {
+                    //creates a new SagBLL in DB
+                    sag.OpretSag(sag);
 
-            try
-            {
-                //retrieves Sags ID from DB
-                SagBLL matchingsag = SagBLL.HentSag(sag);
+                    //retrieves Sags ID from DB
+                    SagBLL matchingsag = SagBLL.HentSag(sag);
 
-                //show SagsID in TextBox
-                sagID_txt.Text = matchingsag.SagsID.ToString();
+                    //show SagsID in TextBox
+                    sagID_txt.Text = matchingsag.SagsID.ToString();
+                }
+                else
+                    MessageBox.Show("Der findes allerede en sag med denne bolig ID. Vælg venligst en anden bolig.");
             }
             catch (Exception ex)
             {
@@ -89,7 +87,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
+            SagUI_Load(sender, e);
 
             //disable alle TextBoxes
             DisableAll();
@@ -118,22 +116,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //retrieve a SagBLL from DB using SagsID
-                SagBLL matchingesag = SagBLL.HentSagViaID(sag);
-                
-                //shows retrieved Sag from DB on TextBoxes
-                sagStatus_cbox.Text = matchingesag.Status.ToString();
-                sag_boligID_cbox.Text = matchingesag.BoligID.ToString();
-                sag_sælgerID_cbox.Text = matchingesag.SælgerID.ToString();
-                sag_ejendomsmæglerID_cbox.Text = matchingesag.MæglerID.ToString();
+                if (SagBLL.SagExists(SagsID()))
+                {
+                    //retrieve a SagBLL from DB using SagsID
+                    SagBLL matchingesag = SagBLL.HentSagViaID(sag);
+
+                    //shows retrieved Sag from DB on TextBoxes
+                    sagStatus_cbox.Text = matchingesag.Status.ToString();
+                    sag_boligID_cbox.Text = matchingesag.BoligID.ToString();
+                    sag_sælgerID_cbox.Text = matchingesag.SælgerID.ToString();
+                    sag_ejendomsmæglerID_cbox.Text = matchingesag.MæglerID.ToString();
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
-            //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
 
             sagID_txt.Enabled = false;
         }
@@ -146,6 +146,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //disable BoligID TextBox
             sagID_txt.Enabled = false;
+            sag_boligID_cbox.Enabled = false;
         }
 
         //method to update a Sag
@@ -156,29 +157,28 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //updates a Sag record
-                sag.OpdaterSag(sag);
+                if (SagBLL.SagExists(SagsID()))
+                {
+                    //updates a Sag record
+                    sag.OpdaterSag(sag);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            //save SagsID in a string
-            string sagsid = null;
-
-            if (sagID_txt != null)
-                sagsid = sagID_txt.Text;
-
             //if Sag is beign closed because a house has been sold
-            if (sagStatus_cbox.SelectedItem.ToString() == "Lukket (solgt bolig)")
+            if (sagStatus_cbox.SelectedItem.ToString() == "Lukket (solgt bolig)" && !HandelBLL.HandelExists(SagsID()))
             {
                 //user must create a new Handle
-                MenuBarKnapper.HandlenCreate(sagsid);
+                MenuBarKnapper.HandlenCreate(SagsID().ToString());
             }
 
             //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
+            SagUI_Load(sender, e);
 
             //disable all TextBoxes
             DisableAll();
@@ -207,8 +207,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //delete a Sag from DB
-                sag.SletSag(sag);
+                if (SagBLL.SagExists(SagsID()))
+                {
+                    //delete a Sag from DB
+                    sag.SletSag(sag);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
@@ -216,7 +221,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
+            SagUI_Load(sender, e);
 
             //clear all TextBoxes
             ClearAll();
@@ -386,10 +391,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.KøberRead();
         }
 
-        private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater køber
+        /*private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater køber
         {
             MenuBarKnapper.KøberUpdate();
-        }
+        }*/
 
         private void køber_deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet køber
         {
@@ -445,5 +450,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
+        private void SagUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sagDataSet.Sag' table. You can move, or remove it, as needed.
+            this.sagTableAdapter.Fill(this.sagDataSet.Sag);
+
+        }
     }
 }

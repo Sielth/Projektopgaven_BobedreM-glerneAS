@@ -229,6 +229,68 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             HandelBLL matchinghandel = null;
 
+            string sqlCommandHandel = "SELECT * FROM Handel WHERE " +
+                "HandelID LIKE @HandelID OR " +
+                "Handelsdato LIKE @Handelsdato AND " +
+                "Salgspris LIKE @Salgspris AND " +
+                "SagsID LIKE @SagsID AND " +
+                "KøberID LIKE @KøberID ";
+
+            SqlCommand commandHandel = new SqlCommand(sqlCommandHandel, conn);
+            commandHandel.Parameters.AddWithValue("@HandelID", handel.HandelID);
+            commandHandel.Parameters.AddWithValue("@Handelsdato", handel.Handelsdato);
+            commandHandel.Parameters.AddWithValue("@Salgspris", handel.Salgspris);
+            commandHandel.Parameters.AddWithValue("@SagsID", handel.SagsID);
+            commandHandel.Parameters.AddWithValue("@KøberID", handel.KøberID);
+
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                //EXECUTE READER (QUERY)
+                using (SqlDataReader reader = commandHandel.ExecuteReader())
+                {
+                    //RETRIEVE SagBLL AND SAVE IN matchingsag
+                    while (reader.Read())
+                    {
+                        matchinghandel = new HandelBLL((int)reader["HandelID"],
+                            (DateTime)reader["Handelsdato"],
+                            (int)reader["Salgspris"],
+                            (int)reader["SagsID"],
+                            (int)reader["KøberID"]);
+                    }
+
+                    //CLOSE READER
+                    if (reader != null)
+                        reader.Close();
+                }
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            //RETURN
+            return matchinghandel;
+        }
+
+        public static HandelBLL FindHandelViaID(HandelBLL handel)
+        {
+            HandelBLL matchinghandel = null;
+
             string sqlCommandHandel = "SELECT * FROM Handel WHERE HandelID = @HandelID";
 
             SqlCommand commandHandel = new SqlCommand(sqlCommandHandel, conn);
@@ -353,6 +415,47 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             //SQL COMMAND + PARAMETERS
             SqlCommand cmd = new SqlCommand(sqlcommand, conn);
             cmd.Parameters.AddWithValue("@SagsID", sagsid);
+
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                userCount = (int)cmd.ExecuteScalar();
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            if (userCount > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public static bool HandelIDExists(int handelid)
+        {
+            int userCount = 0;
+
+            //SQL QUERY
+            string sqlcommand = "SELECT COUNT (*) FROM Handel WHERE HandelID like @HandelID";
+
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmd = new SqlCommand(sqlcommand, conn);
+            cmd.Parameters.AddWithValue("@HandelID", handelid);
 
             try
             {

@@ -49,7 +49,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview
-            //SælgerUI_Load(sender, e);
+            SælgerUI_Load(sender, e);
+
+            //disable all TextBoxes
+            DisableAll();
+        }
+
+        private void btn_SælgerClear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+
+            EnableAll();
+
+            sælgerID_txt.Enabled = false;
         }
         #endregion
 
@@ -60,20 +72,32 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                SælgerBLL matchingeSælger = SælgerBLL.HentSælgerViaID(sælger);
+                if (SælgerBLL.SælgerExists(SælgerID()))
+                {
+                    SælgerBLL matchingeSælger = SælgerBLL.HentSælgerViaID(sælger);
 
-                sælgerCPR_txt.Text = matchingeSælger.CPR.ToString();
-                sælgerTelefon_txt.Text = matchingeSælger.Telefon.ToString();
-                sælgerEmail_txt.Text = matchingeSælger.Email.ToString();
-                sælgerFornavn_txt.Text = matchingeSælger.Fnavn.ToString();
-                sælgerEfternavn_txt.Text = matchingeSælger.Enavn.ToString();
-                sælgerVej_txt.Text = matchingeSælger.Vej.ToString();
-                sælgerPostnummer_txt.Text = matchingeSælger.Postnummer.ToString();
+                    sælgerCPR_txt.Text = matchingeSælger.CPR.ToString();
+                    sælgerTelefon_txt.Text = matchingeSælger.Telefon.ToString();
+                    sælgerEmail_txt.Text = matchingeSælger.Email.ToString();
+                    sælgerFornavn_txt.Text = matchingeSælger.Fnavn.ToString();
+                    sælgerEfternavn_txt.Text = matchingeSælger.Enavn.ToString();
+                    sælgerVej_txt.Text = matchingeSælger.Vej.ToString();
+                    sælgerPostnummer_txt.Text = matchingeSælger.Postnummer.ToString();
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen sælger i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
+            sælgerID_txt.Enabled = false;
+        }
+
+        private void btn_SælgerRediger_Click(object sender, EventArgs e)
+        {
+            EnableAll();
 
             sælgerID_txt.Enabled = false;
         }
@@ -84,43 +108,63 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                sælger.OpdaterSælger(sælger);
+                if (SælgerBLL.SælgerExists(SælgerID()))
+                {
+                    sælger.OpdaterSælger(sælger);
 
-                btn_HentSælger_Click(sender, e);
+                    btn_HentSælger_Click(sender, e);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen sælger i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            SælgerUI_Load(sender, e);
+
+            DisableAll();
+        }
+
+        private void btn_SælgerClearHent_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+
+            DisableAll();
+
+            sælgerID_txt.Enabled = true;
         }
         #endregion
 
         #region Slet Sælger
         private void btn_SletSælger_Click(object sender, EventArgs e)
         {
-            SælgerBLL sælgerBLL = new SælgerBLL(SælgerID());
+            sælger = new SælgerBLL(SælgerID());
 
             try
             {
-                sælger.SletSælger(sælger);
+                if (SælgerBLL.SælgerExists(SælgerID()))
+                {
+                    sælger.SletSælger(sælger);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen sælger i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            SælgerUI_Load(sender, e);
+
+            ClearAll();
+
+            DisableAll();
+
+            sælgerID_txt.Enabled = true;
         }
         #endregion
-
-
-        private void btn_SælgerClear_Click(object sender, EventArgs e)
-        {
-            ClearAll();
-        }
-
-        private void btn_SælgerRediger_Click(object sender, EventArgs e)
-        {
-            EnableAll();
-        }
 
         #region Convert Textboxes
         private int SælgerID()
@@ -129,9 +173,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return sælgerid;
         }
 
-        private int SælgerCPR()
+        private long SælgerCPR()
         {
-            int.TryParse(sælgerCPR_txt.Text, out int sælgercpr);
+            Int64.TryParse(sælgerCPR_txt.Text, out long sælgercpr);
             return sælgercpr;
         }
 
@@ -181,7 +225,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private bool TjekSælgeCPRdVærdi()
         {
-            if (!int.TryParse(sælgerCPR_txt.Text, out int i))
+            if (!Int64.TryParse(sælgerCPR_txt.Text, out long i))
             {
                 return false;
             }
@@ -272,10 +316,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.KøberRead();
         }
 
-        private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater køber
+        /*private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater køber
         {
             MenuBarKnapper.KøberUpdate();
-        }
+        }*/
 
         private void køber_deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet køber
         {
@@ -353,5 +397,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         #endregion
 
+        private void SælgerUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sælgerDataSet.Sælger' table. You can move, or remove it, as needed.
+            this.sælgerTableAdapter.Fill(this.sælgerDataSet.Sælger);
+
+        }
     }
 }

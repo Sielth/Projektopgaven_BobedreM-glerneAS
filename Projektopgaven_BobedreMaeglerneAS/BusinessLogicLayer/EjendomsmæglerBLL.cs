@@ -10,7 +10,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
     public class EjendomsmæglerBLL : IPerson 
     {
         public int MæglerID { get; set; }
-        public int CPR { get; set; }
+        public long CPR { get; set; }
         public int Telefon { get; set; }
         public string Email { get; set; }
         public string Fnavn { get; set; }
@@ -18,7 +18,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public string Vej { get; set; }
         public int Postnummer { get; set; }
 
-        public EjendomsmæglerBLL(int mæglerID, int cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer)
+        public EjendomsmæglerBLL(int mæglerID, long cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer)
         {
             this.MæglerID = mæglerID;
             this.CPR = cpr;

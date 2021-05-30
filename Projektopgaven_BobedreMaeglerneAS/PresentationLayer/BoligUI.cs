@@ -30,6 +30,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         //method to refresh DataGridView
         private void BoligUI_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'boligDataSet.Bolig' table. You can move, or remove it, as needed.
+            this.boligTableAdapter.Fill(this.boligDataSet.Bolig);
             // TODO: This line of code loads data into the 'bolig_bobedredbDataSet.Bolig' table. You can move, or remove it, as needed.
             //this.boligTableAdapter.Fill(this.bolig_bobedredbDataSet.Bolig);
         }
@@ -148,7 +150,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
                     boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
                 }
-                //JER ER STOPPET HERE**********************************************************************************************'
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
@@ -167,6 +170,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //disable BoligID TextBox
             boligID_txt.Enabled = false;
+            boligRenoveringsÅr_dtp.Enabled = false;
+            boligUdbudspris_txt.Enabled = false;
         }
 
         //method to confirm the changes in a Bolig (UPDATE)
@@ -177,11 +182,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //updates a Bolig record
-                bolig.OpdaterBolig(bolig);
+                if (BoligBLL.BoligExists(BoligID()))
+                {
+                    //updates a Bolig record
+                    bolig.OpdaterBolig(bolig);
 
-                //henter en bolig
-                btn_HentBolig_Click(sender, e);
+                    //henter en bolig
+                    btn_HentBolig_Click(sender, e);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
+
             }
             catch (Exception ex)
             {
@@ -198,8 +209,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         //method to search and filter DataGridView
         private void search_txt_TextChanged(object sender, EventArgs e)
         {
-            //filter criteria from ComboBox
-            string input = filterCriteria_cbox.SelectedItem.ToString();
+            string input = "";
+
+            if (filterCriteria_cbox.SelectedItem != null)
+            {
+                //filter criteria from ComboBox
+                input = filterCriteria_cbox.SelectedItem.ToString();
+            }
+            else
+                MessageBox.Show("Husk at vælge en kriteria, du gerne vil filtrere boligerne efter!");
 
             switch (input)
             {
@@ -231,10 +249,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     this.boligBindingSource.Filter = string.Format("Convert(RenoveringsÅr, 'System.String') LIKE '*{0}*'", search_txt.Text);
                     break;
                 case "Udbudspris (lower than)":
-                    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') <= '*{0}*'", search_txt.Text);
+                    this.boligBindingSource.Filter = $"Udbudspris <= {Search()}";
                     break;
-                case "Udbudspris (higher than)": 
-                    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') >= '*{0}*'", search_txt.Text);
+                case "Udbudspris (higher than)":
+                    this.boligBindingSource.Filter = $"Udbudspris >= {Search()}";
                     break;
             }
         }
@@ -262,8 +280,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //delete a Bolig from DB
-                bolig.SletBolig(bolig);
+                if (BoligBLL.BoligExists(BoligID()))
+                {
+                    //delete a Bolig from DB
+                    bolig.SletBolig(bolig);
+                }
+                else
+                    MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
             }
             catch (Exception ex)
             {
@@ -487,7 +510,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             if (boligType_cbox.SelectedItem != null)
                 return boligType_cbox.SelectedItem.ToString();
             else
-                return null;
+                return "Bolig";
         }
 
         private int BoligVærelser()
@@ -529,6 +552,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             int.TryParse(boligUdbudspris_txt.Text, out int boligudbudspris);
             return boligudbudspris;
         }
+
+        private int Search()
+        {
+            if (search_txt.Text.Length > 9)
+            {
+                MessageBox.Show("Indtast et gyldigt tal mellem 1-999999999");
+                return 0;
+            }
+            else if (int.TryParse(search_txt.Text, out int result))
+            {
+                return result;
+            }
+            else
+                return 0;
+        }
         #endregion
 
         #region Links to Other Windows
@@ -542,11 +580,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.EjendomsmæglerHentOpdater();
         }
-
-        //private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    MenuBarKnapper.EjendomsmæglerOpdater();
-        //}
 
         private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -564,11 +597,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.SælgerHentOpdater();
         }
 
-        //private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    MenuBarKnapper.SælgerOpdater();
-        //}
-
         private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.SælgerSlet();
@@ -583,11 +611,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void køber_readToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.KøberRead();
-        }
-
-        private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.KøberUpdate();
         }
 
         private void køber_deleteToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -627,11 +650,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.SagHent();
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.SagOpdater();
-        }
-
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.SagSlet();
@@ -648,11 +666,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.HandelHent();
         }
 
-        //private void updateToolStripMenuItem_Click_1(object sender, EventArgs e) //Opdater handel
-        //{
-        //    MenuBarKnapper.HandelOpdater();
-        //}
-
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet handel
         {
             MenuBarKnapper.HandelSlet();
@@ -662,8 +675,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.HandelStatistik();
         }
-
-
         #endregion
 
     }
