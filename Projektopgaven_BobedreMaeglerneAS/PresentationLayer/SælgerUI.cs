@@ -30,7 +30,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Kalder metoden: OpretSælger
             try
             {
-                sælger.OpretSælger(sælger);
+                if (TjekSælgerVærdierOpret())
+                {
+                    sælger.OpretSælger(sælger);
+                }
             }
             catch (Exception ex)
             {
@@ -72,7 +75,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (SælgerBLL.SælgerExists(SælgerID()))
+                if (SælgerBLL.SælgerExists(SælgerID()) && TjekSælgeridVærdi())
                 {
                     SælgerBLL matchingeSælger = SælgerBLL.HentSælgerViaID(sælger);
 
@@ -108,7 +111,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (SælgerBLL.SælgerExists(SælgerID()))
+                if (SælgerBLL.SælgerExists(SælgerID()) && TjekSælgerVærdierOpdater())
                 {
                     sælger.OpdaterSælger(sælger);
 
@@ -144,7 +147,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (SælgerBLL.SælgerExists(SælgerID()))
+                if (SælgerBLL.SælgerExists(SælgerID()) && TjekSælgeridVærdi())
                 {
                     sælger.SletSælger(sælger);
                 }
@@ -217,6 +220,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             if(!int.TryParse(sælgerID_txt.Text, out int i))
             {
+                MessageBox.Show("Ugyldigt ID");
                 return false;
             }
 
@@ -227,6 +231,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             if (!Int64.TryParse(sælgerCPR_txt.Text, out long i))
             {
+                MessageBox.Show("Ugyldigt CPR");
                 return false;
             }
 
@@ -237,29 +242,104 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             if (!int.TryParse(sælgerTelefon_txt.Text, out int i))
             {
+                MessageBox.Show("Ugyldigt telefon nummer");
+
                 return false;
             }
 
             return true;
         }
 
-        public bool TjekEmailVærdi()
+        public bool TjekSælgerEmailVærdi()
         {
-            return Regex.IsMatch(sælgerEmail_txt.Text, ("^[a-zA-z æøåÆØÅ-]+@"));
+            if (Regex.IsMatch(sælgerEmail_txt.Text, ("^[a-zA-z æøåÆØÅ@.-]+$")))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Ugyldig Email");
+                return false;
+            }
         }
 
+        public bool TjekSælgerFnavnVærdi()
+        {
+            if (Regex.IsMatch(sælgerFornavn_txt.Text, ("^[a-zA-z æøåÆØÅ-]+$")))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Ugyldigt fornavn");
+                return false;
+            }
+        }
 
+        public bool TjekSælgerEnavnVærdi()
+        {
+            if (Regex.IsMatch(sælgerEfternavn_txt.Text, ("^[a-zA-z æøåÆØÅ-]+$")))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Ugyldigt efternavn");
+                return false;
+            }
+        }
 
+        public bool TjekSælgerVejVærdi()
+        {
+            if (Regex.IsMatch(sælgerVej_txt.Text, ("^[a-zA-z æøåÆØÅ 0-9-]+$")))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Ugyldig vej");
+                return false;
+            }
+        }
 
         private bool TjekSælgerPostnummerVærdi()
         {
             if (!int.TryParse(sælgerPostnummer_txt.Text, out int i))
             {
+                MessageBox.Show("Ugyldigt postnummer");
+
                 return false;
             }
 
             return true;
         }
+
+        //Tjekker alle værdier i det tekstbokse som bruges til at oprette en sælger
+        public bool TjekSælgerVærdierOpret()
+        {
+            if (TjekSælgeCPRdVærdi() && TjekSælgerTelefonVærdi() && TjekSælgerEmailVærdi() && TjekSælgerFnavnVærdi() && TjekSælgerEnavnVærdi() && TjekSælgerVejVærdi() && TjekSælgerPostnummerVærdi())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool TjekSælgerVærdierOpdater()
+        {
+            if (TjekSælgeridVærdi() && TjekSælgeCPRdVærdi() && TjekSælgerTelefonVærdi() &&TjekSælgerEmailVærdi() && TjekSælgerFnavnVærdi() && TjekSælgerEnavnVærdi() && TjekSælgerVejVærdi() && TjekSælgerPostnummerVærdi())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         #endregion
 
         #region MENUBAREN
