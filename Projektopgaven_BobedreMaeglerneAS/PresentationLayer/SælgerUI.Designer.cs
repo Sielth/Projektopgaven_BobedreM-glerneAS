@@ -77,12 +77,9 @@
             this.readToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.udtrækStatistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_SælgerClear = new System.Windows.Forms.Button();
+            this.btn_SælgerClearOpret = new System.Windows.Forms.Button();
             this.btn_SælgerRediger = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sælgerDataSet = new Projektopgaven_BobedreMaeglerneAS.sælgerDataSet();
-            this.sælgerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sælgerTableAdapter = new Projektopgaven_BobedreMaeglerneAS.sælgerDataSetTableAdapters.SælgerTableAdapter();
             this.sælgerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,11 +88,15 @@
             this.enavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vejDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postnummerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sælgerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sælgerDataSet = new Projektopgaven_BobedreMaeglerneAS.sælgerDataSet();
+            this.sælgerTableAdapter = new Projektopgaven_BobedreMaeglerneAS.sælgerDataSetTableAdapters.SælgerTableAdapter();
+            this.btn_SælgerClearHent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sælgerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sælgerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sælgerDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // sælgerVej_txt
@@ -501,16 +502,16 @@
             this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
             this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click);
             // 
-            // btn_SælgerClear
+            // btn_SælgerClearOpret
             // 
-            this.btn_SælgerClear.Location = new System.Drawing.Point(532, 132);
-            this.btn_SælgerClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_SælgerClear.Name = "btn_SælgerClear";
-            this.btn_SælgerClear.Size = new System.Drawing.Size(63, 23);
-            this.btn_SælgerClear.TabIndex = 107;
-            this.btn_SælgerClear.Text = "Clear";
-            this.btn_SælgerClear.UseVisualStyleBackColor = true;
-            this.btn_SælgerClear.Click += new System.EventHandler(this.btn_SælgerClear_Click);
+            this.btn_SælgerClearOpret.Location = new System.Drawing.Point(532, 132);
+            this.btn_SælgerClearOpret.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_SælgerClearOpret.Name = "btn_SælgerClearOpret";
+            this.btn_SælgerClearOpret.Size = new System.Drawing.Size(63, 23);
+            this.btn_SælgerClearOpret.TabIndex = 107;
+            this.btn_SælgerClearOpret.Text = "Clear";
+            this.btn_SælgerClearOpret.UseVisualStyleBackColor = true;
+            this.btn_SælgerClearOpret.Click += new System.EventHandler(this.btn_SælgerClear_Click);
             // 
             // btn_SælgerRediger
             // 
@@ -545,20 +546,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 225);
             this.dataGridView1.TabIndex = 109;
             // 
-            // sælgerDataSet
-            // 
-            this.sælgerDataSet.DataSetName = "sælgerDataSet";
-            this.sælgerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sælgerBindingSource
-            // 
-            this.sælgerBindingSource.DataMember = "Sælger";
-            this.sælgerBindingSource.DataSource = this.sælgerDataSet;
-            // 
-            // sælgerTableAdapter
-            // 
-            this.sælgerTableAdapter.ClearBeforeFill = true;
-            // 
             // sælgerIDDataGridViewTextBoxColumn
             // 
             this.sælgerIDDataGridViewTextBoxColumn.DataPropertyName = "SælgerID";
@@ -571,51 +558,84 @@
             this.cPRDataGridViewTextBoxColumn.DataPropertyName = "CPR";
             this.cPRDataGridViewTextBoxColumn.HeaderText = "CPR";
             this.cPRDataGridViewTextBoxColumn.Name = "cPRDataGridViewTextBoxColumn";
+            this.cPRDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // telefonDataGridViewTextBoxColumn
             // 
             this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
             this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
             this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
+            this.telefonDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fnavnDataGridViewTextBoxColumn
             // 
             this.fnavnDataGridViewTextBoxColumn.DataPropertyName = "Fnavn";
             this.fnavnDataGridViewTextBoxColumn.HeaderText = "Fnavn";
             this.fnavnDataGridViewTextBoxColumn.Name = "fnavnDataGridViewTextBoxColumn";
+            this.fnavnDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // enavnDataGridViewTextBoxColumn
             // 
             this.enavnDataGridViewTextBoxColumn.DataPropertyName = "Enavn";
             this.enavnDataGridViewTextBoxColumn.HeaderText = "Enavn";
             this.enavnDataGridViewTextBoxColumn.Name = "enavnDataGridViewTextBoxColumn";
+            this.enavnDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // vejDataGridViewTextBoxColumn
             // 
             this.vejDataGridViewTextBoxColumn.DataPropertyName = "Vej";
             this.vejDataGridViewTextBoxColumn.HeaderText = "Vej";
             this.vejDataGridViewTextBoxColumn.Name = "vejDataGridViewTextBoxColumn";
+            this.vejDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // postnummerDataGridViewTextBoxColumn
             // 
             this.postnummerDataGridViewTextBoxColumn.DataPropertyName = "Postnummer";
             this.postnummerDataGridViewTextBoxColumn.HeaderText = "Postnummer";
             this.postnummerDataGridViewTextBoxColumn.Name = "postnummerDataGridViewTextBoxColumn";
+            this.postnummerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sælgerBindingSource
+            // 
+            this.sælgerBindingSource.DataMember = "Sælger";
+            this.sælgerBindingSource.DataSource = this.sælgerDataSet;
+            // 
+            // sælgerDataSet
+            // 
+            this.sælgerDataSet.DataSetName = "sælgerDataSet";
+            this.sælgerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sælgerTableAdapter
+            // 
+            this.sælgerTableAdapter.ClearBeforeFill = true;
+            // 
+            // btn_SælgerClearHent
+            // 
+            this.btn_SælgerClearHent.Location = new System.Drawing.Point(532, 132);
+            this.btn_SælgerClearHent.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_SælgerClearHent.Name = "btn_SælgerClearHent";
+            this.btn_SælgerClearHent.Size = new System.Drawing.Size(63, 23);
+            this.btn_SælgerClearHent.TabIndex = 110;
+            this.btn_SælgerClearHent.Text = "Clear";
+            this.btn_SælgerClearHent.UseVisualStyleBackColor = true;
+            this.btn_SælgerClearHent.Click += new System.EventHandler(this.btn_SælgerClearHent_Click);
             // 
             // SælgerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_SælgerClearHent);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_SælgerRediger);
-            this.Controls.Add(this.btn_SælgerClear);
+            this.Controls.Add(this.btn_SælgerClearOpret);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btn_SletSælger);
             this.Controls.Add(this.btn_OpdaterSælger);
@@ -644,8 +664,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sælgerDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sælgerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sælgerDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -741,12 +761,17 @@
 
         public System.Windows.Forms.Button GetClearAllKnap()
         {
-            return btn_SælgerClear;
+            return btn_SælgerClearOpret;
         }
 
         public System.Windows.Forms.Button GetRedigerSælgerKnap()
         {
             return btn_SælgerRediger;
+        }
+
+        public System.Windows.Forms.Button GetClearHentButton()
+        {
+            return btn_SælgerClearHent;
         }
         #endregion
 
@@ -778,6 +803,18 @@
         }
         #endregion
 
+        public void DisableAll()
+        {
+            sælgerID_txt.Enabled = false;
+            sælgerCPR_txt.Enabled = false;
+            sælgerTelefon_txt.Enabled = false;
+            sælgerEmail_txt.Enabled = false;
+            sælgerFornavn_txt.Enabled = false;
+            sælgerEfternavn_txt.Enabled = false;
+            sælgerVej_txt.Enabled = false;
+            sælgerPostnummer_txt.Enabled = false;
+        }
+
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ejendomsmæglerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ejendomsmægler_createToolStripMenuItem;
@@ -805,7 +842,7 @@
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem udtrækStatistikToolStripMenuItem;
-        private System.Windows.Forms.Button btn_SælgerClear;
+        private System.Windows.Forms.Button btn_SælgerClearOpret;
         private System.Windows.Forms.Button btn_SælgerRediger;
         private System.Windows.Forms.DataGridView dataGridView1;
         private sælgerDataSet sælgerDataSet;
@@ -819,5 +856,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn enavnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vejDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postnummerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btn_SælgerClearHent;
     }
 }

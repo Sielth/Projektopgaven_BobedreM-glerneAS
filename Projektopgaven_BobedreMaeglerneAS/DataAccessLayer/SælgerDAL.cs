@@ -359,5 +359,48 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 conn.Close();
         }
         #endregion
+
+        #region Check
+        public static bool SælgerExists(int sælgerid)
+        {
+            int userCount = 0;
+
+            //SQL QUERY
+            string sqlcommand = "SELECT COUNT (*) FROM Sælger WHERE SælgerID like @SælgerID";
+
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmd = new SqlCommand(sqlcommand, conn);
+            cmd.Parameters.AddWithValue("@SælgerID", sælgerid);
+
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                userCount = (int)cmd.ExecuteScalar();
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            if (userCount > 0)
+                return true;
+            else
+                return false;
+        }
+        #endregion
     }
 }

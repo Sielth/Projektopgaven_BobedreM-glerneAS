@@ -76,5 +76,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             SælgerDAL sælgerDAL = new SælgerDAL();
             sælgerDAL.SletSælger(sælger);
         }
+
+        public static bool SælgerExists(int sælgerid)
+        {
+            return SælgerDAL.SælgerExists(sælgerid);
+        }
     }
 }

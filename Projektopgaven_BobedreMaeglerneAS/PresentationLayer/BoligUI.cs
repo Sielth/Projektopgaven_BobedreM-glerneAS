@@ -209,44 +209,51 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         //method to search and filter DataGridView
         private void search_txt_TextChanged(object sender, EventArgs e)
         {
-            //filter criteria from ComboBox
-            string input = filterCriteria_cbox.SelectedItem.ToString();
+            string input = "";
+
+            if (filterCriteria_cbox.SelectedItem != null)
+            {
+                //filter criteria from ComboBox
+                input = filterCriteria_cbox.SelectedItem.ToString();
+            }
+            else
+                MessageBox.Show("Husk at vælge en kriteria, du gerne vil filtrere boligerne efter!");
 
             switch (input)
             {
-                //case "Bolig ID":
-                //    this.boligBindingSource.Filter = string.Format("Convert(BoligID, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //    break;
-                //case "Adresse":
-                //    this.boligBindingSource.Filter = string.Format("Vej LIKE '*{0}*'", search_txt.Text);
-                //    break;
-                //case "Postnummer":
-                //    this.boligBindingSource.Filter = string.Format("Convert(Postnummer, 'System.String') LIKE '%{0}%'", search_txt.Text);
-                //    break;
-                //case "Bolig Type":
-                //    this.boligBindingSource.Filter = string.Format("Type LIKE '*{0}*'", search_txt.Text);
-                //    break;
-                //case "Værelser":
-                //    this.boligBindingSource.Filter = string.Format("Convert(Værelser, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //    break;
-                //case "Etager":
-                //    this.boligBindingSource.Filter = string.Format("Convert(Etager, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //    break;
-                //case "Kvadratmeter":
-                //    this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //    break;
-                //case "Bygningsår":
-                //    this.boligBindingSource.Filter = string.Format("Convert(Bygningsår, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //    break;
-                //case "Renoveringsår":
-                //    this.boligBindingSource.Filter = string.Format("Convert(RenoveringsÅr, 'System.String') LIKE '*{0}*'", search_txt.Text);
-                //    break;
-                //case "Udbudspris (lower than)":
-                //    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') <= '*{0}*'", search_txt.Text);
-                //    break;
-                //case "Udbudspris (higher than)": 
-                //    this.boligBindingSource.Filter = string.Format("Convert(Udbudspris, 'System.String') >= '*{0}*'", search_txt.Text);
-                //    break;
+                case "Bolig ID":
+                    this.boligBindingSource.Filter = string.Format("Convert(BoligID, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Adresse":
+                    this.boligBindingSource.Filter = string.Format("Vej LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Postnummer":
+                    this.boligBindingSource.Filter = string.Format("Convert(Postnummer, 'System.String') LIKE '%{0}%'", search_txt.Text);
+                    break;
+                case "Bolig Type":
+                    this.boligBindingSource.Filter = string.Format("Type LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Værelser":
+                    this.boligBindingSource.Filter = string.Format("Convert(Værelser, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Etager":
+                    this.boligBindingSource.Filter = string.Format("Convert(Etager, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Kvadratmeter":
+                    this.boligBindingSource.Filter = string.Format("Convert(Kvadratmeter, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Bygningsår":
+                    this.boligBindingSource.Filter = string.Format("Convert(Bygningsår, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Renoveringsår":
+                    this.boligBindingSource.Filter = string.Format("Convert(RenoveringsÅr, 'System.String') LIKE '*{0}*'", search_txt.Text);
+                    break;
+                case "Udbudspris (lower than)":
+                    this.boligBindingSource.Filter = $"Udbudspris <= {Search()}";
+                    break;
+                case "Udbudspris (higher than)":
+                    this.boligBindingSource.Filter = $"Udbudspris >= {Search()}";
+                    break;
             }
         }
 
@@ -545,6 +552,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             int.TryParse(boligUdbudspris_txt.Text, out int boligudbudspris);
             return boligudbudspris;
         }
+
+        private int Search()
+        {
+            if (search_txt.Text.Length > 9)
+            {
+                MessageBox.Show("Indtast et gyldigt tal mellem 1-999999999");
+                return 0;
+            }
+            else if (int.TryParse(search_txt.Text, out int result))
+            {
+                return result;
+            }
+            else
+                return 0;
+        }
         #endregion
 
         #region Links to Other Windows
@@ -558,11 +580,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.EjendomsmæglerHentOpdater();
         }
-
-        //private void ejendomsmægler_updateToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    MenuBarKnapper.EjendomsmæglerOpdater();
-        //}
 
         private void ejendomsmægler_deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -580,11 +597,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.SælgerHentOpdater();
         }
 
-        //private void sælger_updateToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    MenuBarKnapper.SælgerOpdater();
-        //}
-
         private void sælger_deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.SælgerSlet();
@@ -600,11 +612,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.KøberRead();
         }
-
-        /*private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.KøberUpdate();
-        }*/
 
         private void køber_deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -643,11 +650,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.SagHent();
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuBarKnapper.SagOpdater();
-        }
-
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuBarKnapper.SagSlet();
@@ -664,11 +666,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.HandelHent();
         }
 
-        //private void updateToolStripMenuItem_Click_1(object sender, EventArgs e) //Opdater handel
-        //{
-        //    MenuBarKnapper.HandelOpdater();
-        //}
-
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet handel
         {
             MenuBarKnapper.HandelSlet();
@@ -678,8 +675,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             MenuBarKnapper.HandelStatistik();
         }
-
-
         #endregion
 
     }

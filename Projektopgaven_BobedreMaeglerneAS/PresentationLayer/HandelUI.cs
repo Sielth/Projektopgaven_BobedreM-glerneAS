@@ -40,6 +40,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             t2.Start();
         }
 
+        private void HandelUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'handelDataSet.Handel' table. You can move, or remove it, as needed.
+            this.handelTableAdapter.Fill(this.handelDataSet.Handel);
+
+        }
+
         #region Opret Handel
         private void btn_oprethandel_Click(object sender, EventArgs e)
         {
@@ -73,8 +80,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show(ex.Message);
             }
 
-            ////Loader data fra databasen ind i datagridview -
-            //HandelUI_Load(sender, e);
+            //Loader data fra databasen ind i datagridview -
+            HandelUI_Load(sender, e);
 
             //disable all TextBoxes
             DisableAll();
@@ -120,8 +127,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             handelID_txt.Enabled = false;
 
-            ////Loader data fra databasen ind i datagridview -
-            //HandelUI_Load(sender, e);
+            //Loader data fra databasen ind i datagridview -
+            HandelUI_Load(sender, e);
         }
 
         private void allowRedigering_btn_Click(object sender, EventArgs e)
@@ -153,8 +160,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show(ex.Message);
             }
 
-            ////Loader data fra databasen ind i datagridview -
-            //HandelUI_Load(sender, e);
+            //Loader data fra databasen ind i datagridview -
+            HandelUI_Load(sender, e);
 
             //disable all TextBoxes
             DisableAll();
@@ -194,7 +201,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview -
-            //HandelUI_Load(sender, e);
+            HandelUI_Load(sender, e);
 
             //clear all TextBoxes
             ClearAll();
@@ -385,6 +392,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
+        #region Statistik
         private void button1_Click(object sender, EventArgs e) //udtræk statistik
         {
             //HandelBLL handelBLL = new HandelBLL(HandelID(), Handelsddato(), HandelSalgspris(), HandelSagsID(), HandelKøberID());
@@ -422,12 +430,88 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //OR
             StatistikBLL.StatsToText(dateTimePicker1.Value, dateTimePicker3.Value);
         }
+        #endregion
 
-        private void HandelUI_Load(object sender, EventArgs e)
+        #region Validating HandelID
+        private void handelID_txt_Validating(object sender, CancelEventArgs e)
         {
-            // TODO: This line of code loads data into the 'handelDataSet.Handel' table. You can move, or remove it, as needed.
-            this.handelTableAdapter.Fill(this.handelDataSet.Handel);
+            string errorMsg;
 
+            if (!IsValidHandleID(handelID_txt.Text, out errorMsg))
+            {
+                //Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                handelID_txt.Select(0, handelID_txt.Text.Length);
+
+                //Set the ErrorProvider error with the text to display. 
+                this.errorProvider1.SetError(handelID_txt, errorMsg);
+            }
         }
+
+        private void handelID_txt_Validated(object sender, EventArgs e)
+        {
+            //If all conditions have been met, clear the ErrorProvider of errors.
+            errorProvider1.SetError(handelID_txt, "");
+        }
+
+        private bool IsValidHandleID(string handelid, out string errorMsg)
+        {
+            if (handelid.Length > 4)
+            {
+                errorMsg = "Indtast en Handel ID mellem 1-999";
+                return false;
+            }
+
+            if (int.TryParse(handelid, out int result) || string.IsNullOrEmpty(handelid))
+            {
+                errorMsg = "";
+                return true;
+            }
+
+            errorMsg = "Handel ID kan kun indeholde numre";
+            return false;
+        }
+        #endregion
+
+        #region Validating Salgspris
+        private void handelSalgspris_txt_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+
+            if (!IsValidSalgspris(handelSalgspris_txt.Text, out errorMsg))
+            {
+                //Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                handelSalgspris_txt.Select(0, handelSalgspris_txt.Text.Length);
+
+                //Set the ErrorProvider error with the text to display. 
+                this.errorProvider1.SetError(handelSalgspris_txt, errorMsg);
+            }
+        }
+
+        private void handelSalgspris_txt_Validated(object sender, EventArgs e)
+        {
+            //If all conditions have been met, clear the ErrorProvider of errors.
+            errorProvider1.SetError(handelSalgspris_txt, "");
+        }
+
+        private bool IsValidSalgspris(string salgspris, out string errorMsg)
+        {
+            if (salgspris.Length > 9)
+            {
+                errorMsg = "Indtast en salgspris mellem 1-999999999";
+                return false;
+            }
+
+            if (int.TryParse(salgspris, out int result) || string.IsNullOrEmpty(salgspris))
+            {
+                errorMsg = "";
+                return true;
+            }
+
+            errorMsg = "Handel ID kan kun indeholde numre";
+            return false;
+        }
+        #endregion
     }
 }

@@ -87,7 +87,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
+            SagUI_Load(sender, e);
 
             //disable alle TextBoxes
             DisableAll();
@@ -135,9 +135,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 Console.WriteLine(ex.Message);
             }
 
-            //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
-
             sagID_txt.Enabled = false;
         }
 
@@ -181,7 +178,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
+            SagUI_Load(sender, e);
 
             //disable all TextBoxes
             DisableAll();
@@ -224,7 +221,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
+            SagUI_Load(sender, e);
 
             //clear all TextBoxes
             ClearAll();
