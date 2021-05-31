@@ -162,7 +162,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             try
             {
                 if (conn.State == System.Data.ConnectionState.Closed)
-                conn.Open();
+                    conn.Open();
 
                 Transactions.BeginRepeatableReadTransaction(conn);
 

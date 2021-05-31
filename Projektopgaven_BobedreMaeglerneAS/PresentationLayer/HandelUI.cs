@@ -432,6 +432,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void resourcesSave_btn_Click(object sender, EventArgs e)
         {
             StatistikBLL.StatsToText(dateTimePicker1.Value, dateTimePicker3.Value);
+
+            if (Directory.Exists(StatistikBLL.Path()))
+            {
+                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
+                {
+                    Arguments = StatistikBLL.Path(),
+                    FileName = "explorer.exe"
+                };
+
+                System.Diagnostics.Process.Start(startInfo);
+            }
+            else
+                MessageBox.Show("Cannot find directory to open Salgsoversigt.");
         }
         #endregion
 

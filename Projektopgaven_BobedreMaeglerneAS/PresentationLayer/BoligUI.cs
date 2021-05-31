@@ -12,9 +12,7 @@ using System.Data.SqlClient;
 using Projektopgaven_BobedreMæglerneAS;
 using Projektopgaven_BobedreMaeglerneAS.DataAccessLayer;
 
-//MEMO
-//REMEMBER TO FIND A WAY TO SHOW SOME TRICKY ATTRIBUTES WHEN YOU PRESS HENT BUTTON
-//REMEMBER TO ADD TO THE SWITCH CASE SOME TRICKY FILTER CRITERIA
+//TODO: EXECUTE SCALAR ON POSTNUMMER
 
 namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 {
@@ -75,26 +73,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 {
                     //creates a new BoligBLL in DB
                     bolig.OpretBolig(bolig);
+
+                    DisableAll();
+
+                    //retrieves Bolig ID from DB
+                    BoligBLL matchingbolig = BoligBLL.HentBolig(bolig);
+
+                    if (matchingbolig != null)
+                    {
+                        //shows BoligID in TextBox
+                        boligID_txt.Text = matchingbolig.BoligID.ToString();
+                        boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
+                    }
                 }
                 else
-                    MessageBox.Show("Husk at indtaste et gyldigt postnummer!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
-                //retrieves Bolig ID from DB
-                BoligBLL matchingbolig = BoligBLL.HentBolig(bolig);
-
-                if (matchingbolig != null)
-                {
-                    //shows BoligID in TextBox
-                    boligID_txt.Text = matchingbolig.BoligID.ToString();
-                    boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
-                }
+                    MessageBox.Show("Vi kan desværre ikke oprette en ny bolig.\n" +
+                        "Husk at postnummeret skal være gyldigt i DK.");
             }
             catch (Exception ex)
             {
@@ -103,9 +97,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //load DataGridView
             BoligUI_Load(sender, e);
-
-            //disable all TextBoxes
-            DisableAll();
         }
 
         //method to clear all TextBoxes and enable/disable the ones we need/don't need
@@ -146,17 +137,20 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     //retrieve a BoligBLL from DB using BoligID
                     BoligBLL matchingbolig = BoligBLL.HentBoligViaID(bolig);
 
-                    //shows retrieved Bolig from DB on TextBoxes
-                    boligVej_txt.Text = matchingbolig.Vej.ToString();
-                    boligPostnr_txt.Text = matchingbolig.Postnummer.ToString();
-                    boligType_cbox.Text = matchingbolig.Type.ToString();
-                    boligVærelser_tbar.Value = matchingbolig.Værelser;
-                    boligEtager_tbar.Value = matchingbolig.Etager;
-                    boligKvm_txt.Text = matchingbolig.Kvadratmeter.ToString();
-                    boligHave_ckBox.Checked = matchingbolig.Have;
-                    boligBygningsÅr_dtp.Value = matchingbolig.Bygningsår;
-                    boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
-                    boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
+                    if (matchingbolig != null)
+                    {
+                        //shows retrieved Bolig from DB on TextBoxes
+                        boligVej_txt.Text = matchingbolig.Vej.ToString();
+                        boligPostnr_txt.Text = matchingbolig.Postnummer.ToString();
+                        boligType_cbox.Text = matchingbolig.Type.ToString();
+                        boligVærelser_tbar.Value = matchingbolig.Værelser;
+                        boligEtager_tbar.Value = matchingbolig.Etager;
+                        boligKvm_txt.Text = matchingbolig.Kvadratmeter.ToString();
+                        boligHave_ckBox.Checked = matchingbolig.Have;
+                        boligBygningsÅr_dtp.Value = matchingbolig.Bygningsår;
+                        boligRenoveringsÅr_dtp.Value = matchingbolig.RenoveringsÅr;
+                        boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
+                    }
                 }
                 else
                     MessageBox.Show("Der findes ikke nogen bolig i database med dette ID. Prøv venligst med en anden ID.");
@@ -195,6 +189,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     //updates a Bolig record
                     bolig.OpdaterBolig(bolig);
 
+                    //disable all TextBoxes
+                    DisableAll();
+
                     //henter en bolig
                     btn_HentBolig_Click(sender, e);
                 }
@@ -210,8 +207,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //load DataGridView
             BoligUI_Load(sender, e);
 
-            //disable all TextBoxes
-            DisableAll();
         }
 
         //method to search and filter DataGridView
@@ -435,7 +430,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             if (boligpostnr.Length > 4 || string.IsNullOrEmpty(boligpostnr))
             {
-                errorMsg = "Det indtastet postnummer er ikke gyldig i DK";
+                errorMsg = "Husk at indtaste et gyldigt postnummer!";
                 return false;
             }
 
@@ -445,7 +440,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 return true;
             }
 
-            errorMsg = "Postnummer kan kun indeholde numre";
+            errorMsg = "Postnummer kan kun indeholde numre.";
             return false;
         }
         #endregion

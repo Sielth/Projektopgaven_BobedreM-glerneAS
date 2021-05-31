@@ -378,6 +378,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             sælgerUI.GetSælgerVejTekstboks().Enabled = false;
             sælgerUI.GetSælgerPostnummerTekstboks().Enabled = false;
         }
+
         #region HandelUI
         public static void HandelOpret()
         {
@@ -397,6 +398,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
             handelUI.GetStatistikListbox().Visible = false;
+            handelUI.GetSaveResourcesKnap().Visible = false;
 
             handelUI.Get_udtrækstat_lbl1().Visible = false;
             handelUI.Get_udtrækstat_lbl2().Visible = false;
@@ -406,6 +408,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.Get_udtrækstat_lbl6().Visible = false;
             handelUI.Get_udtrækstat_lbl5().Visible = false;
             handelUI.Get_udtrækstat_lbl8().Visible = false;
+            handelUI.Get_udtrækstat_lbl9().Visible = false;
+            handelUI.Get_udtrækstat_lbl10().Visible = false;
+            handelUI.Get_udtrækstat_lbl11().Visible = false;
+            handelUI.Get_udtrækstat_lbl12().Visible = false;
+
             handelUI.Get_stats_lbl().Visible = false;
 
             handelUI.GetHandelIDTekstboks().Enabled = false;
@@ -432,6 +439,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
             handelUI.GetStatistikListbox().Visible = false;
+            handelUI.GetSaveResourcesKnap().Visible = false;
 
             handelUI.Get_udtrækstat_lbl1().Visible = false;
             handelUI.Get_udtrækstat_lbl2().Visible = false;
@@ -441,6 +449,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.Get_udtrækstat_lbl6().Visible = false;
             handelUI.Get_udtrækstat_lbl5().Visible = false;
             handelUI.Get_udtrækstat_lbl8().Visible = false;
+            handelUI.Get_udtrækstat_lbl9().Visible = false;
+            handelUI.Get_udtrækstat_lbl10().Visible = false;
+            handelUI.Get_udtrækstat_lbl11().Visible = false;
+            handelUI.Get_udtrækstat_lbl12().Visible = false;
             handelUI.Get_stats_lbl().Visible = false;
 
         }
@@ -486,6 +498,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
             handelUI.GetStatistikListbox().Visible = false;
+            handelUI.GetSaveResourcesKnap().Visible = false;
 
             handelUI.Get_udtrækstat_lbl1().Visible = false;
             handelUI.Get_udtrækstat_lbl2().Visible = false;
@@ -495,6 +508,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.Get_udtrækstat_lbl6().Visible = false;
             handelUI.Get_udtrækstat_lbl5().Visible = false;
             handelUI.Get_udtrækstat_lbl8().Visible = false;
+            handelUI.Get_udtrækstat_lbl9().Visible = false;
+            handelUI.Get_udtrækstat_lbl10().Visible = false;
+            handelUI.Get_udtrækstat_lbl11().Visible = false;
+            handelUI.Get_udtrækstat_lbl12().Visible = false;
             handelUI.Get_stats_lbl().Visible = false;
         }
         public static void HandelStatistik()
@@ -550,6 +567,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetStatistikKnap().Visible = false;
             handelUI.GetSaveStatistikKnap().Visible = false;
             handelUI.GetStatistikListbox().Visible = false;
+            handelUI.GetSaveResourcesKnap().Visible = false;
 
             handelUI.Get_udtrækstat_lbl1().Visible = false;
             handelUI.Get_udtrækstat_lbl2().Visible = false;
@@ -559,6 +577,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.Get_udtrækstat_lbl6().Visible = false;
             handelUI.Get_udtrækstat_lbl5().Visible = false;
             handelUI.Get_udtrækstat_lbl8().Visible = false;
+            handelUI.Get_udtrækstat_lbl9().Visible = false;
+            handelUI.Get_udtrækstat_lbl10().Visible = false;
+            handelUI.Get_udtrækstat_lbl11().Visible = false;
+            handelUI.Get_udtrækstat_lbl12().Visible = false;
             handelUI.Get_stats_lbl().Visible = false;
 
             handelUI.GetHandelIDTekstboks().Enabled = false;
