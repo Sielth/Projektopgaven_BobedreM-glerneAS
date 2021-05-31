@@ -100,6 +100,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.GetOpdaterEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetRedigerKnap().Visible = false;
+            ejendomsmæglerUI.GetClearAndDisableKnap().Visible = false;
             ejendomsmæglerUI.GetMæglerIDTekstboks().Enabled = false;
         }
 
@@ -113,6 +114,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             ejendomsmæglerUI.GetOpretEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetSletEjendomsmæglerKnap().Visible = false;
+            ejendomsmæglerUI.GetClearKnap().Visible = false;
             ejendomsmæglerUI.GetCPRTekstboks().Enabled = false;
             ejendomsmæglerUI.GetTelefonTekstboks().Enabled = false;
             ejendomsmæglerUI.GetEmailTekstboks().Enabled = false;
@@ -148,6 +150,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ejendomsmæglerUI.GetHentEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetOpdaterEjendomsmæglerKnap().Visible = false;
             ejendomsmæglerUI.GetRedigerKnap().Visible = false;
+            ejendomsmæglerUI.GetClearAndDisableKnap().Visible = false;
             ejendomsmæglerUI.GetCPRTekstboks().Enabled = false;
             ejendomsmæglerUI.GetTelefonTekstboks().Enabled = false;
             ejendomsmæglerUI.GetEmailTekstboks().Enabled = false;
