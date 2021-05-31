@@ -78,7 +78,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (SælgerBLL.SælgerExists(SælgerID()) && TjekSælgeridVærdi())
+                if (TjekSælgeridVærdi() && SælgerBLL.SælgerExists(SælgerID()))
                 {
                     SælgerBLL matchingeSælger = SælgerBLL.HentSælgerViaID(sælger);
 
@@ -114,7 +114,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (SælgerBLL.SælgerExists(SælgerID()) && TjekSælgerVærdierOpdater())
+                if (TjekSælgerVærdierOpdater() && SælgerBLL.SælgerExists(SælgerID()))
                 {
                     if (!SælgerBLL.SælgerCPRExists(SælgerCPR()))
                     {
@@ -155,7 +155,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (SælgerBLL.SælgerExists(SælgerID()) && TjekSælgeridVærdi())
+                if (TjekSælgeridVærdi() && SælgerBLL.SælgerExists(SælgerID()))
                 {
                     sælger.SletSælger(sælger);
                 }
