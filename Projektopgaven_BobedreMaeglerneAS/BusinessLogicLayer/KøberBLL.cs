@@ -76,5 +76,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             KøberDAL køberDAL = new KøberDAL();
             køberDAL.SletKøber(køber);
         }
+        public static bool KøberExists(int køberid)
+        {
+            return KøberDAL.KøberExists(køberid);
+        }
+        public static bool KøberCPRExists(long køberCPR)
+        {
+            return KøberDAL.KøberCPRExists(køberCPR);
+        }
     }
 }
