@@ -655,7 +655,7 @@
             // 
             // btn_ClearAndDisable
             // 
-            this.btn_ClearAndDisable.Location = new System.Drawing.Point(853, 199);
+            this.btn_ClearAndDisable.Location = new System.Drawing.Point(735, 198);
             this.btn_ClearAndDisable.Name = "btn_ClearAndDisable";
             this.btn_ClearAndDisable.Size = new System.Drawing.Size(111, 35);
             this.btn_ClearAndDisable.TabIndex = 93;
