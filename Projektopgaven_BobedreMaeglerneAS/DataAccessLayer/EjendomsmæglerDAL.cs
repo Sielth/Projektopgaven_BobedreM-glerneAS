@@ -336,6 +336,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
 
         #region Check
+        //Tjekker om mæglerid eksistere i databasen
         public static bool EjendomsmælgerExists(int mæglerid)
         {
             int userCount = 0;
@@ -377,6 +378,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                 return false;
         }
 
+        //Tjekker om cpr allerede er tilknyttet en ejendomsmægler
         public static bool EjendomsmælgerCPRExists(long cpr)
         {
             int userCount = 0;
