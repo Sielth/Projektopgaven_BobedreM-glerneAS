@@ -27,7 +27,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Opret Ejendomsmægler
         private void btn_OpretEjendomsmægler_Click(object sender, EventArgs e)
         {
-            ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            ejendomsmægler = new EjendomsmæglerBLL(MæglerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: OpretEjendomsmægler
@@ -35,11 +35,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (TjekVærdierOpret())
+                if (TjekVærdierOpret() && !EjendomsmæglerBLL.EjendomsmæglerCPRExists(MæglerCPR()))
                 {
                     ejendomsmægler.OpretEjendomsmægler(ejendomsmægler);
                 }
-      
+                else
+                {
+                    MessageBox.Show("CPR er allerede tilknyttet en ejendomsmægler");
+                }
+
             }
             catch (Exception ex)
             {
@@ -54,12 +58,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Hent Ejendomsmægler
         private void btn_HentEjendomsmægler_Click(object sender, EventArgs e) 
         {
-            ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            ejendomsmægler = new EjendomsmæglerBLL(MæglerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             try
             {
-                if (TjekMægleridVærdi())
+                if (TjekMægleridVærdi() && EjendomsmæglerBLL.EjendomsmæglerExists(MæglerID()))
                 {
                     EjendomsmæglerBLL matchingejendomsmægler = EjendomsmæglerBLL.HentEjendomsmægler(ejendomsmægler);
 
@@ -70,6 +74,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     Efternavn_txt.Text = matchingejendomsmægler.Enavn.ToString();
                     Vej_txt.Text = matchingejendomsmægler.Vej.ToString();
                     Postnummer_txt.Text = matchingejendomsmægler.Postnummer.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Der findes ikke nogen ejendomsmægler i databasen med dette ID. Prøv venligst med et andet ID");
                 }
             }
 
@@ -89,7 +97,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Opdater Ejendomsmægler
         private void btn_OpdaterEjendomsmægler_Click(object sender, EventArgs e)
         {
-            ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            ejendomsmægler = new EjendomsmæglerBLL(MæglerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: OpdaterEjendomsmægler
@@ -97,10 +105,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (TjekVærdierOpdater())
+                if (TjekVærdierOpdater() && EjendomsmæglerBLL.EjendomsmæglerExists(MæglerID()))
                 {
-                    ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
+                    if (!EjendomsmæglerBLL.EjendomsmæglerCPRExists(MæglerCPR()))
+                    {
+                        ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
+                    }
+                    else
+                    {
+                        MessageBox.Show("CPR er allerede tilknyttet en ejendomsmægler");
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Der findes ikke nogen ejendomsmægler i databasen med dette ID. Prøv venligst med et andet ID");
+                }
+
             }
             catch (Exception ex)
             {
@@ -115,7 +135,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Slet Ejendomsmægler
         private void btn_SletEjendomsmægler_Click(object sender, EventArgs e)
         {
-            ejendomsmægler = new EjendomsmæglerBLL(MælgerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
+            ejendomsmægler = new EjendomsmæglerBLL(MæglerID(), MæglerCPR(), MæglerTelefon(), MæglerEmail(), MæglerFnavn(), MæglerEnavn(), MæglerVej(), MæglerPostnummer());
             //EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(ejendomsmæglerBLL);
 
             //Kalder metoden: SletEjendomsmægler
@@ -123,9 +143,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (TjekMægleridVærdi())
+                if (TjekMægleridVærdi() && EjendomsmæglerBLL.EjendomsmæglerExists(MæglerID()))
                 {
                     ejendomsmægler.SletEjendomsmægler(ejendomsmægler);
+                }
+                else
+                {
+                    MessageBox.Show("Der findes ikke nogen ejendomsmægler i databasen med dette ID. Prøv venligst med et andet ID");
                 }
             }
             catch (Exception ex)
@@ -152,13 +176,18 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             ClearAll();
         }
 
+        private void btn_ClearAndDisable_Click(object sender, EventArgs e)
+        {
+            ClearAndDisable();
+        }
+
         private void MæglerRediger_btn_Click(object sender, EventArgs e)
         {
             EnableAll();
         }
 
         #region Konveter Tekstbokse
-        public int MælgerID()
+        public int MæglerID()
         {
             int.TryParse(MæglerID_txt.Text, out int mæglerid);
             return mæglerid;
@@ -293,7 +322,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         public bool TjekPostnummerVærdi()
         {
-            if (!int.TryParse(Postnummer_txt.Text, out int i))
+            if (Postnummer_txt.Text.Length != 4 || !int.TryParse(Postnummer_txt.Text, out int i))
             {
                 MessageBox.Show("Ugylidgt postnummer");
                 return false;
@@ -458,8 +487,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.ÅbentHus();
         }
 
-        #endregion
 
+        #endregion
 
     }
 }
