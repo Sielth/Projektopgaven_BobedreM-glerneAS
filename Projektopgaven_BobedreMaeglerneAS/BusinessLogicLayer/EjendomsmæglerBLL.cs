@@ -108,5 +108,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             ejendomsmæglerDAL.SletEjendomsmægler(ejendomsmægler);
         }
         #endregion
+
+
+        public static bool EjendomsmæglerExists(int mæglerid)
+        {
+            return EjendomsmæglerDAL.EjendomsmælgerExists(mæglerid);
+        }
+
+        public static bool EjendomsmæglerCPRExists(long cpr)
+        {
+            return EjendomsmæglerDAL.EjendomsmælgerCPRExists(cpr);
+        }
+
     }
 }
