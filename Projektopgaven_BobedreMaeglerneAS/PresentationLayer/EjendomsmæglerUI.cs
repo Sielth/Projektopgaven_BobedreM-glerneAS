@@ -140,8 +140,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void EjendomsmæglerUI_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'ejendomsmæglerDataSet.Ejendomsmægler' table. You can move, or remove it, as needed.
+            this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmæglerDataSet.Ejendomsmægler);
             // TODO: This line of code loads data into the 'ejendomsmægler_bobedredbDataSet.Ejendomsmægler' table. You can move, or remove it, as needed.
-            this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
+            //this.ejendomsmæglerTableAdapter.Fill(this.ejendomsmægler_bobedredbDataSet.Ejendomsmægler);
 
         }
 
@@ -162,9 +164,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return mæglerid;
         }
 
-        public int MæglerCPR()
+        public long MæglerCPR()
         {
-            int.TryParse(CPR_txt.Text, out int mæglercpr);
+            Int64.TryParse(CPR_txt.Text, out long mæglercpr);
             return mæglercpr;
         }
 
@@ -215,7 +217,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private bool TjekCPRVærdi()
         {
-            if (!int.TryParse(CPR_txt.Text, out int i))
+            if (!Int64.TryParse(CPR_txt.Text, out long i))
             {
                 MessageBox.Show("Ugylidgt CPR");
                 return false;
@@ -237,14 +239,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         public bool TjekEmailVærdi()
         {
-            if (!Regex.IsMatch(Email_txt.Text, ("^[a-zA-z æøåÆØÅ@.-]+$")))
+            if (Regex.IsMatch(Email_txt.Text, ("^[a-zA-z æøåÆØÅ@.-]+$")))
             {
-                MessageBox.Show("Ugyldig Email");
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                MessageBox.Show("Ugyldig email");
+                return false;
             }
         }
 
@@ -256,7 +258,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
             else
             {
-                MessageBox.Show("Ugyldigt Fornavn");
+                MessageBox.Show("Ugyldigt fornavn");
                 return false;
 
             }
@@ -270,21 +272,21 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
             else
             {
-                MessageBox.Show("Ugylidgt Efternavn");
+                MessageBox.Show("Ugylidgt efternavn");
                 return false;
             }
         }
 
         public bool TjekVejVærdi()
         {
-            if (!Regex.IsMatch(Vej_txt.Text, ("^[a-zA-z æøåÆØÅ-]+$")))
+            if (Regex.IsMatch(Vej_txt.Text, ("^[a-zA-z æøåÆØÅ 0-9-]+$")))
             {
                 return true;
 
             }
             else
             {
-                MessageBox.Show("Ugyldig Vej");
+                MessageBox.Show("Ugyldig vej");
                 return false;
             }
         }
@@ -293,7 +295,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             if (!int.TryParse(Postnummer_txt.Text, out int i))
             {
-                MessageBox.Show("Ugylidgt Postnummer");
+                MessageBox.Show("Ugylidgt postnummer");
                 return false;
             }
 
@@ -403,10 +405,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.KøberRead();
         }
 
-        private void updateToolStripMenuItem2_Click(object sender, EventArgs e) //Opdater køber
+        /*private void updateToolStripMenuItem2_Click(object sender, EventArgs e) //Opdater køber
         {
             MenuBarKnapper.KøberUpdate();
-        }
+        }*/
 
         private void deleteToolStripMenuItem2_Click(object sender, EventArgs e) //Slet køber
         {

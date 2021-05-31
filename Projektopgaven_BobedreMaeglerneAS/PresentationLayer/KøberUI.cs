@@ -300,9 +300,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return købertelefon;
         }
 
-        public int KøberCPR()
+        public long KøberCPR()
         {
-            int.TryParse(KøberCPR_txt.Text, out int køberCPR);
+            Int64.TryParse(KøberCPR_txt.Text, out long køberCPR);
             return køberCPR;
         }
 
@@ -314,8 +314,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void KøberUI_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'køberDataSet.Køber' table. You can move, or remove it, as needed.
+            this.køberTableAdapter.Fill(this.køberDataSet.Køber);
             // TODO: This line of code loads data into the 'køber_bobedredbDataSet.Køber' table. You can move, or remove it, as needed.
-            this.køberTableAdapter.Fill(this.køber_bobedredbDataSet.Køber);
+            //this.køberTableAdapter.Fill(this.køber_bobedredbDataSet.Køber);
 
         }
         #region inputvalidering

@@ -118,22 +118,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             }
             else if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string a = $"\t Tidsperiode: {startdate.ToShortDateString()} - {enddate.ToShortDateString()}";
+                string a = $"\tTidsperiode: {startdate.ToShortDateString()} - {enddate.ToShortDateString()}";
                 string b = $"Adresse\t\tPostnummer\tMægler\tPris\tHandelsdato";
 
                 File.AppendAllText(saveFileDialog1.FileName, a + Environment.NewLine);
-                File.AppendAllText(saveFileDialog1.FileName, b + Environment.NewLine);
+                File.AppendAllText(saveFileDialog1.FileName, b.PadRight(70) + Environment.NewLine);
 
                 foreach (StatistikBLL s in stats)
                 {
-                    File.AppendAllText(saveFileDialog1.FileName, s.ToString() + Environment.NewLine);
+                    File.AppendAllText(saveFileDialog1.FileName, s.ToString().PadRight(70) + Environment.NewLine);
                 }
             }
         }
 
         public override string ToString()
         {
-            return $"{Vej}\t{Postnummer, 15}\t{MæglerID}\t{Salgspris}\t{Handelsdato.ToShortDateString()}";
+            return $"{Vej}\t{Postnummer, 4}\t{MæglerID, 10}\t{Salgspris}\t{Handelsdato.ToShortDateString()}";
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
     interface IPerson
     {
-        int CPR { get; set; }
+        long CPR { get; set; }
         int Telefon { get; set; }
         string Email { get; set; }
         string Fnavn { get; set; }

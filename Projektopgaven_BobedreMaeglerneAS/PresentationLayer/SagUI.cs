@@ -54,21 +54,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //creates a new SagBLL in DB
-                sag.OpretSag(sag);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                if (!SagBLL.BoligExistsISag(SagsBoligID()))
+                {
+                    //creates a new SagBLL in DB
+                    sag.OpretSag(sag);
 
-            try
-            {
-                //retrieves Sags ID from DB
-                SagBLL matchingsag = SagBLL.HentSag(sag);
+                    //retrieves Sags ID from DB
+                    SagBLL matchingsag = SagBLL.HentSag(sag);
 
-                //show SagsID in TextBox
-                sagID_txt.Text = matchingsag.SagsID.ToString();
+                    //show SagsID in TextBox
+                    sagID_txt.Text = matchingsag.SagsID.ToString();
+                }
+                else
+                    MessageBox.Show("Der findes allerede en sag med denne bolig ID. Vælg venligst en anden bolig.");
             }
             catch (Exception ex)
             {
@@ -89,7 +87,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
+            SagUI_Load(sender, e);
 
             //disable alle TextBoxes
             DisableAll();
@@ -137,9 +135,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 Console.WriteLine(ex.Message);
             }
 
-            //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
-
             sagID_txt.Enabled = false;
         }
 
@@ -151,6 +146,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             //disable BoligID TextBox
             sagID_txt.Enabled = false;
+            sag_boligID_cbox.Enabled = false;
         }
 
         //method to update a Sag
@@ -182,7 +178,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
+            SagUI_Load(sender, e);
 
             //disable all TextBoxes
             DisableAll();
@@ -225,7 +221,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
 
             //Loader data fra databasen ind i datagridview
-            //SagsUI_Load(sender, e);
+            SagUI_Load(sender, e);
 
             //clear all TextBoxes
             ClearAll();
@@ -395,10 +391,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.KøberRead();
         }
 
-        private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater køber
+        /*private void køber_updateToolStripMenuItem1_Click(object sender, EventArgs e) //Opdater køber
         {
             MenuBarKnapper.KøberUpdate();
-        }
+        }*/
 
         private void køber_deleteToolStripMenuItem1_Click(object sender, EventArgs e) //Slet køber
         {
@@ -454,5 +450,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         #endregion
 
+        private void SagUI_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sagDataSet.Sag' table. You can move, or remove it, as needed.
+            this.sagTableAdapter.Fill(this.sagDataSet.Sag);
+
+        }
     }
 }

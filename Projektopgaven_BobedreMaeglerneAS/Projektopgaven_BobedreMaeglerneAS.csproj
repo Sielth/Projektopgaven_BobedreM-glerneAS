@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bolig_bobedredbDataSet.Designer.cs">
+    <Compile Include="boligDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
+      <DependentUpon>boligDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="BusinessLogicLayer\BoligBLL.cs" />
     <Compile Include="BusinessLogicLayer\EjendomsmæglerBLL.cs" />
@@ -73,15 +73,20 @@
     <Compile Include="DataAccessLayer\Transactions.cs" />
     <Compile Include="DataAccessLayer\WorksOnDAL.cs" />
     <Compile Include="DataAccessLayer\ÅbentHusDAL.cs" />
-    <Compile Include="ejendomsmægler_bobedredbDataSet1.Designer.cs">
+    <Compile Include="ejendomsmæglerDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
+      <DependentUpon>ejendomsmæglerDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="køber_bobedredbDataSet.Designer.cs">
+    <Compile Include="handelDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
+      <DependentUpon>handelDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="køberDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>køberDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\BeregnSalærForm.cs">
       <SubType>Form</SubType>
@@ -140,6 +145,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sagDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sagDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sælgerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sælgerDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="PresentationLayer\BeregnSalærForm.resx">
       <DependentUpon>BeregnSalærForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,38 +192,49 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="bolig_bobedredbDataSet.xsc">
-      <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
+    <None Include="boligDataSet.xsc">
+      <DependentUpon>boligDataSet.xsd</DependentUpon>
     </None>
-    <None Include="bolig_bobedredbDataSet.xsd">
+    <None Include="boligDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bolig_bobedredbDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>boligDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="bolig_bobedredbDataSet.xss">
-      <DependentUpon>bolig_bobedredbDataSet.xsd</DependentUpon>
+    <None Include="boligDataSet.xss">
+      <DependentUpon>boligDataSet.xsd</DependentUpon>
     </None>
-    <None Include="ejendomsmægler_bobedredbDataSet1.xsc">
-      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
+    <None Include="ejendomsmæglerDataSet.xsc">
+      <DependentUpon>ejendomsmæglerDataSet.xsd</DependentUpon>
     </None>
-    <None Include="ejendomsmægler_bobedredbDataSet1.xsd">
+    <None Include="ejendomsmæglerDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ejendomsmægler_bobedredbDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>ejendomsmæglerDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="ejendomsmægler_bobedredbDataSet1.xss">
-      <DependentUpon>ejendomsmægler_bobedredbDataSet1.xsd</DependentUpon>
+    <None Include="ejendomsmæglerDataSet.xss">
+      <DependentUpon>ejendomsmæglerDataSet.xsd</DependentUpon>
     </None>
-    <None Include="køber_bobedredbDataSet.xsc">
-      <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
+    <None Include="handelDataSet.xsc">
+      <DependentUpon>handelDataSet.xsd</DependentUpon>
     </None>
-    <None Include="køber_bobedredbDataSet.xsd">
+    <None Include="handelDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>køber_bobedredbDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>handelDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="køber_bobedredbDataSet.xss">
-      <DependentUpon>køber_bobedredbDataSet.xsd</DependentUpon>
+    <None Include="handelDataSet.xss">
+      <DependentUpon>handelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="køberDataSet.xsc">
+      <DependentUpon>køberDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="køberDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>køberDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="køberDataSet.xss">
+      <DependentUpon>køberDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -219,6 +245,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="sagDataSet.xsc">
+      <DependentUpon>sagDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="sagDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sagDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sagDataSet.xss">
+      <DependentUpon>sagDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="sælgerDataSet.xsc">
+      <DependentUpon>sælgerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="sælgerDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sælgerDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sælgerDataSet.xss">
+      <DependentUpon>sælgerDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

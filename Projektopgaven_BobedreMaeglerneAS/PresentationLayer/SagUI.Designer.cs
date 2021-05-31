@@ -51,12 +51,10 @@
             this.sælgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sælger_createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sælger_readToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sælger_updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sælger_deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.køberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.køber_createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.køber_readToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.køber_updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.køber_deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.boligToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bolig_createToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,9 +75,19 @@
             this.btn_Clear_HentSag = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.sagDataSet = new Projektopgaven_BobedreMaeglerneAS.sagDataSet();
+            this.sagBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sagTableAdapter = new Projektopgaven_BobedreMaeglerneAS.sagDataSetTableAdapters.SagTableAdapter();
+            this.sagsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boligIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sælgerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mæglerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sagDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sagBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // sagnr_lbl
@@ -265,7 +273,6 @@
             this.sælgerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sælger_createToolStripMenuItem,
             this.sælger_readToolStripMenuItem,
-            this.sælger_updateToolStripMenuItem,
             this.sælger_deleteToolStripMenuItem});
             this.sælgerToolStripMenuItem.Name = "sælgerToolStripMenuItem";
             this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
@@ -274,28 +281,22 @@
             // sælger_createToolStripMenuItem
             // 
             this.sælger_createToolStripMenuItem.Name = "sælger_createToolStripMenuItem";
-            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.sælger_createToolStripMenuItem.Text = "Create";
+            this.sælger_createToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.sælger_createToolStripMenuItem.Text = "Opret Sælger";
             this.sælger_createToolStripMenuItem.Click += new System.EventHandler(this.sælger_createToolStripMenuItem_Click);
             // 
             // sælger_readToolStripMenuItem
             // 
             this.sælger_readToolStripMenuItem.Name = "sælger_readToolStripMenuItem";
-            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.sælger_readToolStripMenuItem.Text = "Read";
+            this.sælger_readToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.sælger_readToolStripMenuItem.Text = "Find og Opdater Sælger";
             this.sælger_readToolStripMenuItem.Click += new System.EventHandler(this.sælger_readToolStripMenuItem_Click);
-            // 
-            // sælger_updateToolStripMenuItem
-            // 
-            this.sælger_updateToolStripMenuItem.Name = "sælger_updateToolStripMenuItem";
-            this.sælger_updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.sælger_updateToolStripMenuItem.Text = "Update";
             // 
             // sælger_deleteToolStripMenuItem
             // 
             this.sælger_deleteToolStripMenuItem.Name = "sælger_deleteToolStripMenuItem";
-            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.sælger_deleteToolStripMenuItem.Text = "Delete";
+            this.sælger_deleteToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.sælger_deleteToolStripMenuItem.Text = "Slet Sælger";
             this.sælger_deleteToolStripMenuItem.Click += new System.EventHandler(this.sælger_deleteToolStripMenuItem_Click);
             // 
             // køberToolStripMenuItem
@@ -303,7 +304,6 @@
             this.køberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.køber_createToolStripMenuItem1,
             this.køber_readToolStripMenuItem1,
-            this.køber_updateToolStripMenuItem1,
             this.køber_deleteToolStripMenuItem1});
             this.køberToolStripMenuItem.Name = "køberToolStripMenuItem";
             this.køberToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
@@ -312,29 +312,22 @@
             // køber_createToolStripMenuItem1
             // 
             this.køber_createToolStripMenuItem1.Name = "køber_createToolStripMenuItem1";
-            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
-            this.køber_createToolStripMenuItem1.Text = "Create";
+            this.køber_createToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
+            this.køber_createToolStripMenuItem1.Text = "Opret Køber";
             this.køber_createToolStripMenuItem1.Click += new System.EventHandler(this.køber_createToolStripMenuItem1_Click);
             // 
             // køber_readToolStripMenuItem1
             // 
             this.køber_readToolStripMenuItem1.Name = "køber_readToolStripMenuItem1";
-            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
-            this.køber_readToolStripMenuItem1.Text = "Read";
+            this.køber_readToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
+            this.køber_readToolStripMenuItem1.Text = "Find og Opdater Køber";
             this.køber_readToolStripMenuItem1.Click += new System.EventHandler(this.køber_readToolStripMenuItem1_Click);
-            // 
-            // køber_updateToolStripMenuItem1
-            // 
-            this.køber_updateToolStripMenuItem1.Name = "køber_updateToolStripMenuItem1";
-            this.køber_updateToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
-            this.køber_updateToolStripMenuItem1.Text = "Update";
-            this.køber_updateToolStripMenuItem1.Click += new System.EventHandler(this.køber_updateToolStripMenuItem1_Click);
             // 
             // køber_deleteToolStripMenuItem1
             // 
             this.køber_deleteToolStripMenuItem1.Name = "køber_deleteToolStripMenuItem1";
-            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
-            this.køber_deleteToolStripMenuItem1.Text = "Delete";
+            this.køber_deleteToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
+            this.køber_deleteToolStripMenuItem1.Text = "Slet Køber";
             this.køber_deleteToolStripMenuItem1.Click += new System.EventHandler(this.køber_deleteToolStripMenuItem1_Click);
             // 
             // boligToolStripMenuItem
@@ -421,28 +414,28 @@
             // createToolStripMenuItem1
             // 
             this.createToolStripMenuItem1.Name = "createToolStripMenuItem1";
-            this.createToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
-            this.createToolStripMenuItem1.Text = "Create";
+            this.createToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+            this.createToolStripMenuItem1.Text = "Opret Handel";
             this.createToolStripMenuItem1.Click += new System.EventHandler(this.createToolStripMenuItem1_Click);
             // 
             // readToolStripMenuItem1
             // 
             this.readToolStripMenuItem1.Name = "readToolStripMenuItem1";
-            this.readToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
-            this.readToolStripMenuItem1.Text = "Read og Update";
+            this.readToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+            this.readToolStripMenuItem1.Text = "Find og Opdater Handel";
             this.readToolStripMenuItem1.Click += new System.EventHandler(this.readToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
-            this.deleteToolStripMenuItem1.Text = "Delete";
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+            this.deleteToolStripMenuItem1.Text = "Slet Handel";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
             // 
             // udtrækStatistikToolStripMenuItem
             // 
             this.udtrækStatistikToolStripMenuItem.Name = "udtrækStatistikToolStripMenuItem";
-            this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.udtrækStatistikToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.udtrækStatistikToolStripMenuItem.Text = "Udtræk Statistik";
             this.udtrækStatistikToolStripMenuItem.Click += new System.EventHandler(this.udtrækStatistikToolStripMenuItem_Click);
             // 
@@ -482,12 +475,72 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sagsIDDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.boligIDDataGridViewTextBoxColumn,
+            this.sælgerIDDataGridViewTextBoxColumn,
+            this.mæglerIDDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.sagBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 182);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(686, 256);
             this.dataGridView1.TabIndex = 22;
+            // 
+            // sagDataSet
+            // 
+            this.sagDataSet.DataSetName = "sagDataSet";
+            this.sagDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sagBindingSource
+            // 
+            this.sagBindingSource.DataMember = "Sag";
+            this.sagBindingSource.DataSource = this.sagDataSet;
+            // 
+            // sagTableAdapter
+            // 
+            this.sagTableAdapter.ClearBeforeFill = true;
+            // 
+            // sagsIDDataGridViewTextBoxColumn
+            // 
+            this.sagsIDDataGridViewTextBoxColumn.DataPropertyName = "SagsID";
+            this.sagsIDDataGridViewTextBoxColumn.HeaderText = "SagsID";
+            this.sagsIDDataGridViewTextBoxColumn.Name = "sagsIDDataGridViewTextBoxColumn";
+            this.sagsIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // boligIDDataGridViewTextBoxColumn
+            // 
+            this.boligIDDataGridViewTextBoxColumn.DataPropertyName = "BoligID";
+            this.boligIDDataGridViewTextBoxColumn.HeaderText = "BoligID";
+            this.boligIDDataGridViewTextBoxColumn.Name = "boligIDDataGridViewTextBoxColumn";
+            this.boligIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sælgerIDDataGridViewTextBoxColumn
+            // 
+            this.sælgerIDDataGridViewTextBoxColumn.DataPropertyName = "SælgerID";
+            this.sælgerIDDataGridViewTextBoxColumn.HeaderText = "SælgerID";
+            this.sælgerIDDataGridViewTextBoxColumn.Name = "sælgerIDDataGridViewTextBoxColumn";
+            this.sælgerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mæglerIDDataGridViewTextBoxColumn
+            // 
+            this.mæglerIDDataGridViewTextBoxColumn.DataPropertyName = "MæglerID";
+            this.mæglerIDDataGridViewTextBoxColumn.HeaderText = "MæglerID";
+            this.mæglerIDDataGridViewTextBoxColumn.Name = "mæglerIDDataGridViewTextBoxColumn";
+            this.mæglerIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // SagUI
             // 
@@ -515,10 +568,13 @@
             this.Controls.Add(this.sagnr_lbl);
             this.Name = "SagUI";
             this.Text = "SagUI";
+            this.Load += new System.EventHandler(this.SagUI_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sagDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sagBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -646,12 +702,10 @@
         private System.Windows.Forms.ToolStripMenuItem sælgerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sælger_createToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sælger_readToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sælger_updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sælger_deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem køberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem køber_createToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem køber_readToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem køber_updateToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem køber_deleteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem boligToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bolig_createToolStripMenuItem2;
@@ -672,5 +726,13 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripMenuItem udtrækStatistikToolStripMenuItem;
+        private sagDataSet sagDataSet;
+        private System.Windows.Forms.BindingSource sagBindingSource;
+        private sagDataSetTableAdapters.SagTableAdapter sagTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sagsIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn boligIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sælgerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mæglerIDDataGridViewTextBoxColumn;
     }
 }
