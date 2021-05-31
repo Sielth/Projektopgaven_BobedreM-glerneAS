@@ -184,7 +184,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             KøberBLL matchingkøber = null;
 
-            string sqlCommandKøber = "SELECT * FROM Sælger WHERE SælgerID = @SæglerID";
+            string sqlCommandKøber = "SELECT * FROM Køber WHERE KøberID = @KøberID";
 
             SqlCommand commandKøber = new SqlCommand(sqlCommandKøber, conn);
 
@@ -209,7 +209,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             reader["Enavn"].ToString(),
                             reader["Email"].ToString(),
                             (int)reader["Telefon"]);
-
                     }
 
                     if (reader != null)
@@ -235,18 +234,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         public void OpdaterKøber(KøberBLL køber) //Opdaterer køber
         {
             //Tjekker om tekstboxe var tomme og undlader at opdaterer informationer for dem der er tomme
-            string sqlCommandKøber = "UPDATE Køber SET" +
-                "CPR = IsNull(NullIf(@CPR, ''), CPR)," +
-                "Telefon = IsNull(NullIf(@Telefon, ''), Telefon)," +
-                "Email = IsNull(NullIf(@Email, ''), Email)," +
-                "Fnavn = IsNull(NullIf(@Fnavn, ''), Fnavn)," +
-                "Enavn = IsNull(NullIf(@Enavn, ''), Enavn)," +
-                "Vej = IsNull(NullIf(@Vej, ''), Vej)," +
-                "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer)," +
+            string sqlCommandKøber = "UPDATE Køber SET " +
+                "CPR = IsNull(NullIf(@CPR, ''), CPR), " +
+                "Telefon = IsNull(NullIf(@Telefon, ''), Telefon), " +
+                "Email = IsNull(NullIf(@Email, ''), Email), " +
+                "Fnavn = IsNull(NullIf(@Fnavn, ''), Fnavn), " +
+                "Enavn = IsNull(NullIf(@Enavn, ''), Enavn), " +
+                "Vej = IsNull(NullIf(@Vej, ''), Vej), " +
+                "Postnummer = IsNull(NullIf(@Postnummer, ''), Postnummer) " +
                 "WHERE KøberID = @KøberID";
 
             //Sender input til database for at opdatere
-            SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber);
+            SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
+            cmdKøber.Parameters.AddWithValue("@KøberID", køber.KøberID);
             cmdKøber.Parameters.AddWithValue("@CPR", køber.CPR);
             cmdKøber.Parameters.AddWithValue("@Telefon", køber.Telefon);
             cmdKøber.Parameters.AddWithValue("@Email", køber.Email);
@@ -278,11 +278,93 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 conn.Close();
         }
         #endregion
+        #region KøberCheck
+        public static bool KøberExists(int køberid)
+        {
+            int userCount = 0;
+
+            //SQL QUERY
+            string sqlcommand = "SELECT COUNT (*) FROM Køber WHERE KøberID like @KøberID";
+
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmd = new SqlCommand(sqlcommand, conn);
+            cmd.Parameters.AddWithValue("@KøberID", køberid);
+
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                userCount = (int)cmd.ExecuteScalar();
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            if (userCount > 0)
+                return true;
+            else
+                return false;
+        }
+        public static bool KøberCPRExists(long køberCPR)
+        {
+            int userCount = 0;
+
+            //SQL QUERY
+            string sqlcommand = "SELECT COUNT (*) FROM Køber WHERE CPR like @køberCPR";
+
+            //SQL COMMAND + PARAMETERS
+            SqlCommand cmd = new SqlCommand(sqlcommand, conn);
+            cmd.Parameters.AddWithValue("@køberCPR", køberCPR);
+
+            try
+            {
+                //OPEN CONNECTION
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                //BEGIN TRANSACTION
+                Transactions.BeginReadCommittedTransaction(conn);
+
+                userCount = (int)cmd.ExecuteScalar();
+
+                //COMMIT OR ROLLBACK
+                if (!Transactions.Commit(conn))
+                    Transactions.Rollback(conn);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //CLOSE CONNECTION
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+
+            if (userCount > 0)
+                return true;
+            else
+                return false;
+        }
+        #endregion
 
         #region Slet Køber
         public void SletKøber(KøberBLL køber) //Sletter køber
         {
-            string sqlCommandKøber = "DELETE FROM Køber WHERE (@KøberID)";
+            string sqlCommandKøber = "DELETE FROM Køber WHERE KøberID = @KøberID";
 
             SqlCommand cmdKøber = new SqlCommand(sqlCommandKøber, conn);
             cmdKøber.Parameters.AddWithValue("@KøberID", køber.KøberID);

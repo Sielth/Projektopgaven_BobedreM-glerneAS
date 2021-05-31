@@ -106,6 +106,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.clearOpdater_btn = new System.Windows.Forms.Button();
             this.handelTableAdapter = new Projektopgaven_BobedreMaeglerneAS.handelDataSetTableAdapters.HandelTableAdapter();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.resourcesSave_btn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.handelBindingSource)).BeginInit();
@@ -504,7 +505,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(106, 23);
             this.save.TabIndex = 19;
-            this.save.Text = "Save";
+            this.save.Text = "Save As";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
@@ -697,11 +698,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // resourcesSave_btn
+            // 
+            this.resourcesSave_btn.Location = new System.Drawing.Point(470, 473);
+            this.resourcesSave_btn.Name = "resourcesSave_btn";
+            this.resourcesSave_btn.Size = new System.Drawing.Size(105, 23);
+            this.resourcesSave_btn.TabIndex = 33;
+            this.resourcesSave_btn.Text = "Save";
+            this.resourcesSave_btn.UseVisualStyleBackColor = true;
+            this.resourcesSave_btn.Click += new System.EventHandler(this.resourcesSave_btn_Click);
+            // 
             // HandelUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 508);
+            this.Controls.Add(this.resourcesSave_btn);
             this.Controls.Add(this.clearOpdater_btn);
             this.Controls.Add(this.clearOpret_btn);
             this.Controls.Add(this.allowRedigering_btn);
@@ -809,6 +821,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.Button allowRedigering_btn;
         private System.Windows.Forms.Button clearOpret_btn;
         private System.Windows.Forms.Button clearOpdater_btn;
+        private handelDataSet handelDataSet;
+        private System.Windows.Forms.BindingSource handelBindingSource;
+        private handelDataSetTableAdapters.HandelTableAdapter handelTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn handelIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn handelsdatoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salgsprisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sagsIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn køberIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button resourcesSave_btn;
 
         #region Get knapper
         public System.Windows.Forms.Button GetOpretHandelKnap()
@@ -854,6 +876,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         public System.Windows.Forms.Button GetAllowRedigering()
         {
             return allowRedigering_btn;
+        }
+
+        public System.Windows.Forms.Button GetSaveResourcesKnap()
+        {
+            return resourcesSave_btn;
         }
         #endregion
 
@@ -909,6 +936,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         public System.Windows.Forms.DataGridView GetGridView() { return dataGridView1; }
         #endregion
 
+        #region AllKnapper
         public void ClearAll()
         {
             handelID_txt.Text = null;
@@ -932,15 +960,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelSalgsID_cbox.Enabled = false;
             handelKøberID_cbox.Enabled = false;
         }
-
-        private handelDataSet handelDataSet;
-        private System.Windows.Forms.BindingSource handelBindingSource;
-        private handelDataSetTableAdapters.HandelTableAdapter handelTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn handelIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn handelsdatoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salgsprisDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sagsIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn køberIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        #endregion
     }
 }

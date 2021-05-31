@@ -427,7 +427,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             statistik = new StatistikBLL();
 
             statistik.StatsToTextChooseFilePath(dateTimePicker1.Value, dateTimePicker3.Value, saveFileDialog1);
-            //OR
+        }
+
+        private void resourcesSave_btn_Click(object sender, EventArgs e)
+        {
             StatistikBLL.StatsToText(dateTimePicker1.Value, dateTimePicker3.Value);
         }
         #endregion
@@ -513,5 +516,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             return false;
         }
         #endregion
+
     }
 }

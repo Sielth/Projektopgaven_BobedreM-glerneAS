@@ -28,7 +28,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 try
                 {
-                    køber.OpdaterKøber(køber);
+                    if (!KøberBLL.KøberCPRExists(KøberCPR()))
+                    {
+                        køber.OpretKøber(køber);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Person findes allerede i databasen");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -41,26 +48,33 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private void FindKøber_knap_Click(object sender, EventArgs e)
         {
             køber = new KøberBLL(KøberID());
-            if (CPRvalidering())
+            if (IDvalidering())
             {
                 try
                 {
-                    KøberBLL matchingkøber = KøberBLL.FindKøber(køber);
+                    if (KøberBLL.KøberExists(KøberID()))
+                    {
+                        KøberBLL matchingkøber = KøberBLL.FindKøber(køber);
 
-                    KøberVej_txt.Text = matchingkøber.Vej;
-                    KøberVej_txt.Enabled = false;
-                    KøberPostnummer_txt.Text = matchingkøber.Postnummer.ToString();
-                    KøberPostnummer_txt.Enabled = false;
-                    KøberCPR_txt.Text = matchingkøber.CPR.ToString();
-                    KøberCPR_txt.Enabled = false;
-                    KøberFornavn_txt.Text = matchingkøber.Fnavn;
-                    KøberFornavn_txt.Enabled = false;
-                    KøberEfternavn_txt.Text = matchingkøber.Enavn;
-                    KøberEfternavn_txt.Enabled = false;
-                    KøberEmail_txt.Text = matchingkøber.Email;
-                    KøberEmail_txt.Enabled = false;
-                    KøberTelefon_txt.Text = matchingkøber.Telefon.ToString();
-                    KøberTelefon_txt.Enabled = false;
+                        KøberVej_txt.Text = matchingkøber.Vej;
+                        KøberVej_txt.Enabled = false;
+                        KøberPostnummer_txt.Text = matchingkøber.Postnummer.ToString();
+                        KøberPostnummer_txt.Enabled = false;
+                        KøberCPR_txt.Text = matchingkøber.CPR.ToString();
+                        KøberCPR_txt.Enabled = false;
+                        KøberFornavn_txt.Text = matchingkøber.Fnavn;
+                        KøberFornavn_txt.Enabled = false;
+                        KøberEfternavn_txt.Text = matchingkøber.Enavn;
+                        KøberEfternavn_txt.Enabled = false;
+                        KøberEmail_txt.Text = matchingkøber.Email;
+                        KøberEmail_txt.Enabled = false;
+                        KøberTelefon_txt.Text = matchingkøber.Telefon.ToString();
+                        KøberTelefon_txt.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Køber findes ikke");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -73,19 +87,25 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private void OpdaterKøber_knap_Click(object sender, EventArgs e)
         {
-            KøberBLL køberBLL = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
+            køber = new KøberBLL(KøberID(), KøberVej(), KøberPostnummer(), KøberCPR(), KøberFornavn(), KøberEfternavn(), KøberEmail(), KøberTelefon());
             if (CPRvalidering() && FornavnValidering() && EfternavnValidering() && EmailValidering() && TelefonValidering() && VejValidering() && PostnummerValidering())
             {
                 try
                 {
-                    køber.OpdaterKøber(køber);
+                    if (KøberBLL.KøberExists(KøberID()) && !KøberBLL.KøberCPRExists(KøberCPR()))
+                    {
+                        køber.OpdaterKøber(køber);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Køber findes ikke");
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
-
             KøberUI_Load(sender, e);
         }
 
@@ -95,7 +115,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                køber.SletKøber(køber);
+                if (KøberBLL.KøberExists(KøberID()))
+                {
+                    køber.SletKøber(køber);
+                }
+                else
+                {
+                    MessageBox.Show("Køber findes ikke");
+                }
             }
             catch (Exception ex)
             {
@@ -415,7 +442,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         private bool TelefonValidering()
         {
-            if (!IsDigits(KøberTelefon_txt.Text) && KøberTelefon_txt.Text.Length != 8)
+            if (!IsDigits(KøberTelefon_txt.Text) || KøberTelefon_txt.Text.Length != 8)
             {
                 MessageBox.Show("Telefon skal være otte (8) tal langt");
                 return false;
@@ -439,9 +466,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         private bool PostnummerValidering()
         {
-            if (!IsDigits(KøberPostnummer_txt.Text))
+            if (!IsDigits(KøberPostnummer_txt.Text) || KøberPostnummer_txt.Text.Length != 4)
             {
-                MessageBox.Show("Postnummer må kun indeholde tal");
+                MessageBox.Show("Postnummer må kun indeholde tal som er fire (4) cifre langt");
                 return false;
             }
             else
@@ -450,5 +477,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
         }
         #endregion
+
+        private void KøberPostnummer_txt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

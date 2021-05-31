@@ -71,8 +71,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                //creates a new BoligBLL in DB
-                bolig.OpretBolig(bolig);
+                if (!string.IsNullOrEmpty(boligPostnr_txt.Text))
+                {
+                    //creates a new BoligBLL in DB
+                    bolig.OpretBolig(bolig);
+                }
+                else
+                    MessageBox.Show("Husk at indtaste et gyldigt postnummer!");
             }
             catch (Exception ex)
             {
@@ -84,9 +89,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 //retrieves Bolig ID from DB
                 BoligBLL matchingbolig = BoligBLL.HentBolig(bolig);
 
-                //shows BoligID in TextBox
-                boligID_txt.Text = matchingbolig.BoligID.ToString();
-                boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
+                if (matchingbolig != null)
+                {
+                    //shows BoligID in TextBox
+                    boligID_txt.Text = matchingbolig.BoligID.ToString();
+                    boligUdbudspris_txt.Text = matchingbolig.Udbudspris.ToString();
+                }
             }
             catch (Exception ex)
             {
@@ -421,17 +429,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         //Method to check whether BoligPostnr is valid or not
         //It must be only numbers
-        //It CAN be empty (be careful when casting to int)
+        //It CANNOT be empty (be careful when casting to int)
         //CANNOT be bigger than 4
         private bool ValidBoligPostnr(string boligpostnr, out string errorMsg)
         {
-            if (boligpostnr.Length > 4)
+            if (boligpostnr.Length > 4 || string.IsNullOrEmpty(boligpostnr))
             {
                 errorMsg = "Det indtastet postnummer er ikke gyldig i DK";
                 return false;
             }
 
-            if (int.TryParse(boligpostnr, out int result) || string.IsNullOrEmpty(boligpostnr))
+            if (int.TryParse(boligpostnr, out int result))
             {
                 errorMsg = "";
                 return true;
