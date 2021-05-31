@@ -209,7 +209,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             reader["Enavn"].ToString(),
                             reader["Email"].ToString(),
                             (int)reader["Telefon"]);
-
                     }
 
                     if (reader != null)

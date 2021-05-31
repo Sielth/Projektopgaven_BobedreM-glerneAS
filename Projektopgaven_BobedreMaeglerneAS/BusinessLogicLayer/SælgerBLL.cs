@@ -81,5 +81,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         {
             return SælgerDAL.SælgerExists(sælgerid);
         }
+
+        public static bool SælgerCPRExists(long cpr)
+        {
+            return SælgerDAL.SælgerCPRExists(cpr);
+        }
     }
 }

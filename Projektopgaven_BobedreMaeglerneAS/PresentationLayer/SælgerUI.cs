@@ -30,10 +30,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Kalder metoden: OpretSælger
             try
             {
-                if (TjekSælgerVærdierOpret())
+                if (TjekSælgerVærdierOpret() && !SælgerBLL.SælgerCPRExists(SælgerCPR()))
                 {
                     sælger.OpretSælger(sælger);
                 }
+                else
+                    MessageBox.Show("Sælgeren findes allerede i databasen! Prøv venligst med en anden CPR nummer.");
             }
             catch (Exception ex)
             {
@@ -44,7 +46,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 SælgerBLL matchingsælger = SælgerBLL.HentSælger(sælger);
 
-                sælgerID_txt.Text = matchingsælger.SælgerID.ToString();
+                if (matchingsælger != null)
+                    sælgerID_txt.Text = matchingsælger.SælgerID.ToString();
             }
             catch (Exception ex)
             {
@@ -113,9 +116,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 if (SælgerBLL.SælgerExists(SælgerID()) && TjekSælgerVærdierOpdater())
                 {
-                    sælger.OpdaterSælger(sælger);
+                    if (!SælgerBLL.SælgerCPRExists(SælgerCPR()))
+                    {
+                        sælger.OpdaterSælger(sælger);
 
-                    btn_HentSælger_Click(sender, e);
+                        btn_HentSælger_Click(sender, e);
+                    }
+                    else
+                        MessageBox.Show("Sælger kan ikke opdateres med dette CPR, da den findes allerede i database");
                 }
                 else
                     MessageBox.Show("Der findes ikke nogen sælger i database med dette ID. Prøv venligst med en anden ID.");
@@ -304,7 +312,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
         private bool TjekSælgerPostnummerVærdi()
         {
-            if (!int.TryParse(sælgerPostnummer_txt.Text, out int i))
+            if (sælgerPostnummer_txt.Text.Length != 4 || !int.TryParse(sælgerPostnummer_txt.Text, out int i))
             {
                 MessageBox.Show("Ugyldigt postnummer");
 
