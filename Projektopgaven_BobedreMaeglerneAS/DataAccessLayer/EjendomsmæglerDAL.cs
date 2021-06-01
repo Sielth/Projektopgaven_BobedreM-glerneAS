@@ -146,7 +146,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             try
             {
-                //if (conn.State == System.Data.ConnectionState.Closed)
+                if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
 
                 Transactions.BeginRepeatableReadTransaction(conn);
