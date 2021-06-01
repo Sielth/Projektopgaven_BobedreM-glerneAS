@@ -202,6 +202,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             */
             try
             {
+                if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
 
                 Transactions.BeginReadCommittedTransaction(conn);
@@ -274,6 +275,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             try
             {
+                if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
 
                 Transactions.BeginReadCommittedTransaction(conn);
@@ -285,14 +287,16 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             catch (SqlException ex)
             {
-                Console.WriteLine(ex);
+                throw;
             }
 
             finally
             {
-                if (conn != null)
-                    conn.Close();
+                Transactions.Rollback(conn);
             }
+
+            if (conn != null)
+                conn.Close();
         }
         #endregion
 
@@ -311,6 +315,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             try
             {
+                if (conn.State == System.Data.ConnectionState.Closed)
                 conn.Open();
 
                 Transactions.BeginRepeatableReadTransaction(conn);

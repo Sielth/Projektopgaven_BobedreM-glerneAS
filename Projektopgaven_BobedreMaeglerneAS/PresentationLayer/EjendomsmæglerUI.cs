@@ -107,14 +107,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 if (TjekVærdierOpdater() && EjendomsmæglerBLL.EjendomsmæglerExists(MæglerID()))
                 {
-                    if (!EjendomsmæglerBLL.EjendomsmæglerCPRExists(MæglerCPR()))
-                    {
+                    //if (!EjendomsmæglerBLL.EjendomsmæglerCPRExists(MæglerCPR()))
+                    //{
                         ejendomsmægler.OpdaterEjendomsmægler(ejendomsmægler);
-                    }
-                    else
-                    {
-                        MessageBox.Show("CPR er allerede tilknyttet en ejendomsmægler");
-                    }
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("CPR er allerede tilknyttet en ejendomsmægler");
+                    //}
                 }
                 else
                 {
@@ -124,7 +124,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Der opstod en fejl i databasen. Her er loggen:" + ex.Message);
             }
 
             //Loader data fra databasen ind i datagridview
