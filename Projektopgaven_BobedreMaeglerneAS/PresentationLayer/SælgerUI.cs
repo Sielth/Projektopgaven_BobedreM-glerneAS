@@ -30,7 +30,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Kalder metoden: OpretSælger
             try
             {
-                if (TjekSælgerVærdierOpret() && !SælgerBLL.SælgerCPRExists(SælgerCPR()))
+                if (TjekSælgerVærdierOpret() && !SælgerBLL.SælgerCPRExists(SælgerCPR(), SælgerID()))
                 {
                     sælger.OpretSælger(sælger);
 
@@ -112,8 +112,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 if (!SælgerBLL.SælgerExists(SælgerID()))
                     MessageBox.Show("Der findes ikke nogen sælger i database med dette ID. Prøv venligst med en anden ID.");
-                else if (SælgerBLL.SælgerCPRExists(SælgerCPR()))
-                    MessageBox.Show("Sælger kan ikke opdateres med dette CPR, da den findes allerede i database");
+                //else if (SælgerBLL.SælgerCPRExists(SælgerCPR(), SælgerID()))
+                //    MessageBox.Show("Sælger kan ikke opdateres med dette CPR, da den findes allerede i database");
                 else if (!TjekSælgerVærdierOpdater())
                     MessageBox.Show("Nogle af de input virker forkerte... Vil du tjekke en gang til?");
                 else
@@ -127,7 +127,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An error occurred in the database, here is the log:\n\n" + ex.Message);
             }
 
             SælgerUI_Load(sender, e);
