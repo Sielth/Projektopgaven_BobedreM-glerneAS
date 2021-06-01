@@ -98,8 +98,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 
         public void OpdaterEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
         {
-            EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(); //Laver et nyt objekt
-            ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmægler);
+            try
+            {
+                EjendomsmæglerDAL ejendomsmæglerDAL = new EjendomsmæglerDAL(); //Laver et nyt objekt
+                ejendomsmæglerDAL.OpdaterEjendomsmægler(ejendomsmægler);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void SletEjendomsmægler(EjendomsmæglerBLL ejendomsmægler)
