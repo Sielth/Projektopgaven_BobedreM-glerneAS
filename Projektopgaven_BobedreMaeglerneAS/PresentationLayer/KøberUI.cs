@@ -92,7 +92,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 try
                 {
-                    if (KøberBLL.KøberExists(KøberID()) && !KøberBLL.KøberCPRExists(KøberCPR()))
+                    if (KøberBLL.KøberExists(KøberID()) && KøberBLL.KøberCPRExists(KøberCPR()))
                     {
                         køber.OpdaterKøber(køber);
                     }
@@ -395,7 +395,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         }
         private bool CPRvalidering()
         {
-            if (!IsDigits(KøberCPR_txt.Text) && KøberCPR_txt.Text.Length != 10)
+            if (!IsDigits(KøberCPR_txt.Text) || KøberCPR_txt.Text.Length != 10)
             {
                 MessageBox.Show("CPR skal være ti (10) tal langt");
                 return false;
