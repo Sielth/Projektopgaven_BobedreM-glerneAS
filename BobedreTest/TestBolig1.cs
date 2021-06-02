@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projektopgaven_BobedreMæglerneAS;
-using Projektopgaven_BobedreMaeglerneAS.PresentationLayer;
 
 namespace BobedreTest
 {
     [TestClass]
-    class BoligTest
+    public class TestBolig1
     {
         [TestMethod]
-        public void CalculateUdbudsprisTest()
+        public void TestCalculateUdbudspris()
         {
             //Arrange
             BoligBLL bolig = new BoligBLL(1, "Bethaniavej 2", 7300, "Lejlighed", 3, 1, 45, false, new DateTime(1955, 1, 1), new DateTime(2017, 1, 1));
@@ -21,11 +16,9 @@ namespace BobedreTest
             int expected = 382100;
 
             //Act
-            bolig.CalculateUdbudsPris();
+            int actual = bolig.CalculateUdbudsPris();
 
             //Assert
-            int actual = bolig.Udbudspris;
-
             Assert.AreEqual(expected, actual, 0.001, "Price not calculated correctly");
         }
     }

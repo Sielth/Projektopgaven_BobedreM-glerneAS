@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 {
-    class ConnectionSingleton
+    public class ConnectionSingleton
     {
         private static ConnectionSingleton _instance = null;
         private static string ConnectionString = "Server=den1.mssql7.gear.host; Database=bobedredb; User ID=bobedredb; Password=Xw8gM?O3doQ_; MultipleActiveResultSets=false";
@@ -16,7 +16,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         // Constructor is 'protected'
         static ConnectionSingleton()
         {
-            
+             
         }
 
         private ConnectionSingleton()
