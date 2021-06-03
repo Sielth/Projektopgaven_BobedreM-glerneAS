@@ -133,8 +133,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
                 if (index == ejendomsmæglerne.Count)
                     index = 0;
 
-                //sleep for up to 6 seconds
-                Thread.Sleep(6000);
+                //sleep for up to 1 minut
+                Thread.Sleep(60000);
             }
         }
     }
