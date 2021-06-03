@@ -487,7 +487,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             MenuBarKnapper.ÅbentHus();
         }
 
-
         #endregion
 
     }
