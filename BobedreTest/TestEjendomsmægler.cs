@@ -6,10 +6,10 @@ using Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer;
 namespace BobedreTest
 {
     [TestClass]
-    public class UnitTest1
+    public class TestEjendomsmægler
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestBeregnSalær()
         {
             //Arrange
             int antalTimer = 100;

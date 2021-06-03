@@ -288,12 +288,8 @@ namespace Projektopgaven_BobedreMæglerneAS
 
             catch (SqlException ex)
             {
-                throw;
-            }
-
-            finally
-            {
                 Transactions.Rollback(conn);
+                throw;
             }
 
             if (conn != null)

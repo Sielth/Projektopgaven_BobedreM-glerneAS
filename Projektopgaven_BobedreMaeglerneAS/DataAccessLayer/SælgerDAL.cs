@@ -316,7 +316,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             catch (SqlException ex)
             {
-                Console.WriteLine(ex.Message);
+                Transactions.Rollback(conn);
+                throw ex;
             }
 
             //CLOSE CONNECTION
@@ -402,16 +403,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 return false;
         }
 
-        public static bool SælgerCPRExists(long cpr)
+        public static bool SælgerCPRExists(long cpr, int id)
         {
             int userCount = 0;
 
             //SQL QUERY
-            string sqlcommand = "SELECT COUNT (*) FROM Sælger WHERE CPR like @CPR";
+            string sqlcommand = "SELECT COUNT (*) FROM Sælger WHERE CPR like @CPR AND SælgerID = @SælgerID";
 
             //SQL COMMAND + PARAMETERS
             SqlCommand cmd = new SqlCommand(sqlcommand, conn);
             cmd.Parameters.AddWithValue("@CPR", cpr);
+            cmd.Parameters.AddWithValue("@SælgerID", id);
 
             try
             {

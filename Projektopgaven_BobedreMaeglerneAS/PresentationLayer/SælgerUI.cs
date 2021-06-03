@@ -30,9 +30,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //Kalder metoden: OpretSælger
             try
             {
-                if (TjekSælgerVærdierOpret() && !SælgerBLL.SælgerCPRExists(SælgerCPR()))
+                if (TjekSælgerVærdierOpret() && !SælgerBLL.SælgerCPRExists(SælgerCPR(), SælgerID()))
                 {
                     sælger.OpretSælger(sælger);
+
+                    DisableAll();
+
+                    SælgerBLL matchingsælger = SælgerBLL.HentSælger(sælger);
+                    
+                    if (matchingsælger != null)
+                        sælgerID_txt.Text = matchingsælger.SælgerID.ToString();
                 }
                 else
                     MessageBox.Show("Sælgeren findes allerede i databasen! Prøv venligst med en anden CPR nummer.");
@@ -42,23 +49,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show(ex.Message);
             }
 
-            try
-            {
-                SælgerBLL matchingsælger = SælgerBLL.HentSælger(sælger);
-
-                if (matchingsælger != null)
-                    sælgerID_txt.Text = matchingsælger.SælgerID.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
             //Loader data fra databasen ind i datagridview
             SælgerUI_Load(sender, e);
 
-            //disable all TextBoxes
-            DisableAll();
         }
 
         private void btn_SælgerClear_Click(object sender, EventArgs e)
@@ -82,13 +75,16 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 {
                     SælgerBLL matchingeSælger = SælgerBLL.HentSælgerViaID(sælger);
 
-                    sælgerCPR_txt.Text = matchingeSælger.CPR.ToString();
-                    sælgerTelefon_txt.Text = matchingeSælger.Telefon.ToString();
-                    sælgerEmail_txt.Text = matchingeSælger.Email.ToString();
-                    sælgerFornavn_txt.Text = matchingeSælger.Fnavn.ToString();
-                    sælgerEfternavn_txt.Text = matchingeSælger.Enavn.ToString();
-                    sælgerVej_txt.Text = matchingeSælger.Vej.ToString();
-                    sælgerPostnummer_txt.Text = matchingeSælger.Postnummer.ToString();
+                    if (matchingeSælger != null)
+                    {
+                        sælgerCPR_txt.Text = matchingeSælger.CPR.ToString();
+                        sælgerTelefon_txt.Text = matchingeSælger.Telefon.ToString();
+                        sælgerEmail_txt.Text = matchingeSælger.Email.ToString();
+                        sælgerFornavn_txt.Text = matchingeSælger.Fnavn.ToString();
+                        sælgerEfternavn_txt.Text = matchingeSælger.Enavn.ToString();
+                        sælgerVej_txt.Text = matchingeSælger.Vej.ToString();
+                        sælgerPostnummer_txt.Text = matchingeSælger.Postnummer.ToString();
+                    }
                 }
                 else
                     MessageBox.Show("Der findes ikke nogen sælger i database med dette ID. Prøv venligst med en anden ID.");
@@ -114,28 +110,27 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (TjekSælgerVærdierOpdater() && SælgerBLL.SælgerExists(SælgerID()))
-                {
-                    if (!SælgerBLL.SælgerCPRExists(SælgerCPR()))
-                    {
-                        sælger.OpdaterSælger(sælger);
-
-                        btn_HentSælger_Click(sender, e);
-                    }
-                    else
-                        MessageBox.Show("Sælger kan ikke opdateres med dette CPR, da den findes allerede i database");
-                }
-                else
+                if (!SælgerBLL.SælgerExists(SælgerID()))
                     MessageBox.Show("Der findes ikke nogen sælger i database med dette ID. Prøv venligst med en anden ID.");
+                //else if (SælgerBLL.SælgerCPRExists(SælgerCPR(), SælgerID()))
+                //    MessageBox.Show("Sælger kan ikke opdateres med dette CPR, da den findes allerede i database");
+                else if (!TjekSælgerVærdierOpdater())
+                    MessageBox.Show("Nogle af de input virker forkerte... Vil du tjekke en gang til?");
+                else
+                {
+                    sælger.OpdaterSælger(sælger);
+
+                    DisableAll();
+
+                    btn_HentSælger_Click(sender, e);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An error occurred in the database, here is the log:\n\n" + ex.Message);
             }
 
             SælgerUI_Load(sender, e);
-
-            DisableAll();
         }
 
         private void btn_SælgerClearHent_Click(object sender, EventArgs e)

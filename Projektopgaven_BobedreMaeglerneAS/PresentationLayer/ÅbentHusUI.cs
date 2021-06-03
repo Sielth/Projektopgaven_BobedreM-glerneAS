@@ -44,7 +44,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             //saving the selected item in a variable
             var text = åbentHus_boligListe_lbox.SelectedItem;
 
-            //initialization of a string[]
+            //initialization of a string[] that will contain a serie of Bolig ID
             string[] boligid;
             
             if (text != null)

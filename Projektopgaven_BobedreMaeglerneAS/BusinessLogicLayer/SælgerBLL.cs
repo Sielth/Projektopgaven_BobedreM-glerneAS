@@ -67,8 +67,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 
         public void OpdaterSælger(SælgerBLL sælger)
         {
-            SælgerDAL sælgerDAL = new SælgerDAL();
-            sælgerDAL.OpdaterSælger(sælger);
+            try
+            {
+                SælgerDAL sælgerDAL = new SælgerDAL();
+                sælgerDAL.OpdaterSælger(sælger);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void SletSælger(SælgerBLL sælger)
@@ -82,9 +89,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             return SælgerDAL.SælgerExists(sælgerid);
         }
 
-        public static bool SælgerCPRExists(long cpr)
+        public static bool SælgerCPRExists(long cpr, int id)
         {
-            return SælgerDAL.SælgerCPRExists(cpr);
+            return SælgerDAL.SælgerCPRExists(cpr, id);
         }
     }
 }

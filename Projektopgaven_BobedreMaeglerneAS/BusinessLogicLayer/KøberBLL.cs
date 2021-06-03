@@ -67,8 +67,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
 
         public void OpdaterKøber(KøberBLL køber)
         {
-            KøberDAL køberDAL = new KøberDAL();
-            køberDAL.OpdaterKøber(køber);
+            try 
+            { 
+                KøberDAL køberDAL = new KøberDAL();
+                køberDAL.OpdaterKøber(køber);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void SletKøber(KøberBLL køber)

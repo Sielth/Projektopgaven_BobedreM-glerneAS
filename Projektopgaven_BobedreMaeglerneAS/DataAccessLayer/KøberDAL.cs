@@ -268,9 +268,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 if (!Transactions.Commit(conn))
                     Transactions.Rollback(conn);
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                Console.WriteLine(ex.Message);
+                Transactions.Rollback(conn);
+                throw;
             }
 
             //CLOSE CONNECTION

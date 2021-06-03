@@ -107,6 +107,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.handelTableAdapter = new Projektopgaven_BobedreMaeglerneAS.handelDataSetTableAdapters.HandelTableAdapter();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.resourcesSave_btn = new System.Windows.Forms.Button();
+            this.udtrækstat_lbl9 = new System.Windows.Forms.Label();
+            this.udtrækstat_lbl10 = new System.Windows.Forms.Label();
+            this.udtrækstat_lbl11 = new System.Windows.Forms.Label();
+            this.udtrækstat_lbl12 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.handelBindingSource)).BeginInit();
@@ -708,11 +712,51 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             this.resourcesSave_btn.UseVisualStyleBackColor = true;
             this.resourcesSave_btn.Click += new System.EventHandler(this.resourcesSave_btn_Click);
             // 
+            // udtrækstat_lbl9
+            // 
+            this.udtrækstat_lbl9.AutoSize = true;
+            this.udtrækstat_lbl9.Location = new System.Drawing.Point(473, 418);
+            this.udtrækstat_lbl9.Name = "udtrækstat_lbl9";
+            this.udtrækstat_lbl9.Size = new System.Drawing.Size(103, 13);
+            this.udtrækstat_lbl9.TabIndex = 34;
+            this.udtrækstat_lbl9.Text = "Tryk denne knap for";
+            // 
+            // udtrækstat_lbl10
+            // 
+            this.udtrækstat_lbl10.AutoSize = true;
+            this.udtrækstat_lbl10.Location = new System.Drawing.Point(442, 431);
+            this.udtrækstat_lbl10.Name = "udtrækstat_lbl10";
+            this.udtrækstat_lbl10.Size = new System.Drawing.Size(134, 13);
+            this.udtrækstat_lbl10.TabIndex = 35;
+            this.udtrækstat_lbl10.Text = "at få gemt de solgte boliger";
+            // 
+            // udtrækstat_lbl11
+            // 
+            this.udtrækstat_lbl11.AutoSize = true;
+            this.udtrækstat_lbl11.Location = new System.Drawing.Point(474, 444);
+            this.udtrækstat_lbl11.Name = "udtrækstat_lbl11";
+            this.udtrækstat_lbl11.Size = new System.Drawing.Size(102, 13);
+            this.udtrækstat_lbl11.TabIndex = 36;
+            this.udtrækstat_lbl11.Text = "i en bestemt periode";
+            // 
+            // udtrækstat_lbl12
+            // 
+            this.udtrækstat_lbl12.AutoSize = true;
+            this.udtrækstat_lbl12.Location = new System.Drawing.Point(453, 457);
+            this.udtrækstat_lbl12.Name = "udtrækstat_lbl12";
+            this.udtrækstat_lbl12.Size = new System.Drawing.Size(123, 13);
+            this.udtrækstat_lbl12.TabIndex = 37;
+            this.udtrækstat_lbl12.Text = "i en autogenereret text fil";
+            // 
             // HandelUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 508);
+            this.Controls.Add(this.udtrækstat_lbl12);
+            this.Controls.Add(this.udtrækstat_lbl11);
+            this.Controls.Add(this.udtrækstat_lbl10);
+            this.Controls.Add(this.udtrækstat_lbl9);
             this.Controls.Add(this.resourcesSave_btn);
             this.Controls.Add(this.clearOpdater_btn);
             this.Controls.Add(this.clearOpret_btn);
@@ -831,6 +875,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn køberIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button resourcesSave_btn;
+        private System.Windows.Forms.Label udtrækstat_lbl12;
+        private System.Windows.Forms.Label udtrækstat_lbl11;
+        private System.Windows.Forms.Label udtrækstat_lbl10;
+        private System.Windows.Forms.Label udtrækstat_lbl9;
 
         #region Get knapper
         public System.Windows.Forms.Button GetOpretHandelKnap()
@@ -932,8 +980,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         public System.Windows.Forms.Label Get_udtrækstat_lbl6() { return udtrækstat_lbl6; }
         public System.Windows.Forms.Label Get_udtrækstat_lbl5() { return udtrækstat_lbl5; }
         public System.Windows.Forms.Label Get_udtrækstat_lbl8() { return udtrækstat_lbl8; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl9() { return udtrækstat_lbl9; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl10() { return udtrækstat_lbl10; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl11() { return udtrækstat_lbl11; }
+        public System.Windows.Forms.Label Get_udtrækstat_lbl12() { return udtrækstat_lbl12; }
         public System.Windows.Forms.Label Get_stats_lbl() { return stats_lbl; }
         public System.Windows.Forms.DataGridView GetGridView() { return dataGridView1; }
+
         #endregion
 
         #region AllKnapper

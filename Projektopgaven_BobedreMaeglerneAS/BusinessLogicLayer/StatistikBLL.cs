@@ -48,7 +48,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             //    output.Items.Add(stat.ToString());  
         }
 
-        public static void StatsToText(DateTime startdate, DateTime Enddate)
+        public static void StatsToText(DateTime startdate, DateTime enddate)
         {
             //DateTime salgsdato;
             //int price;
@@ -56,21 +56,24 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             //string city;
 
             StatistikDAL StatistikDAL = new StatistikDAL();
-            List<StatistikBLL> statistik = StatistikDAL.SoldProperties(startdate, Enddate);
+            List<StatistikBLL> statistik = StatistikDAL.SoldProperties(startdate, enddate);
 
             StreamWriter Stream = null;
-            string path = @"Resources/text.txt";
+            string path = @"Resources/Salgsoversigt.txt";
+
+            string a = $"\tTidsperiode: {startdate.ToShortDateString()} - {enddate.ToShortDateString()}";
+            string b = $"Adresse\t\tPostnummer\tMægler\tPris\tHandelsdato";
 
             try
             {
                 Stream = new StreamWriter(path);
 
-                Stream.WriteLine("\t Tidsperiode:"); //tilføj tidsperiode man har sorteret efter
-                Stream.WriteLine("Adresse\t Postnummer\t Mægler\t Pris\t Handelsdato");
+                Stream.WriteLine(a); //tilføj tidsperiode man har sorteret efter
+                Stream.WriteLine(b);
                 
-                foreach (StatistikBLL a in statistik)
+                foreach (StatistikBLL s in statistik)
                 {
-                    Stream.WriteLine(a.ToString());
+                    Stream.WriteLine(s.ToString().PadRight(70));
                 }
             }
             catch (Exception ex)
@@ -79,7 +82,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             }
             finally
             {
-                Stream.Close();
+                if (Stream != null)
+                    Stream.Close();
             }
         }
 
@@ -134,6 +138,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public override string ToString()
         {
             return $"{Vej}\t{Postnummer, 4}\t{MæglerID, 10}\t{Salgspris}\t{Handelsdato.ToShortDateString()}";
+        }
+
+        public static string Path()
+        {
+            return @"Resources\";
+
+            //C:\Users\sielt\Documents\UCL\2SEMESTER\Projektopgaven_BobedreMaeglerneAS\Projektopgaven_BobedreMaeglerneAS\Projektopgaven_BobedreMaeglerneAS\bin\Debug\Resources\
         }
     }
 }
