@@ -535,6 +535,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             handelUI.GetHandelSalgsprisTekstboks().Enabled = false;
             handelUI.GetHandelSagsIDComboboks().Enabled = false;
             handelUI.GetHandelKøberIDComboboks().Enabled = false;
+            handelUI.GetHandelIDTekstboks().Enabled = false;
             //handelUI.GetHandelsslutdatoDatetime().Visible = false;
             //handelUI.GetStatistikKnap().Visible = false;
             //handelUI.GetSaveStatistikKnap().Visible = false;
