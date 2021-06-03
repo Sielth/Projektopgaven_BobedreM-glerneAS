@@ -437,7 +437,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         {
             foreach (char c in KøberEmail_txt.Text)
             {
-                if (!Char.IsLetterOrDigit(c) && c != '@' && c != '.')
+                if (!Char.IsLetterOrDigit(c) && c != '@' && c != '.' && c != '-' && c != '_')
                 {
                     return false;
                 }
