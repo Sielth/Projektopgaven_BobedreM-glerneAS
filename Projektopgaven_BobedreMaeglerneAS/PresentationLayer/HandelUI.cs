@@ -55,7 +55,11 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
 
             try
             {
-                if (!HandelBLL.HandelExists(HandelSagsID())) //if there is no handel with the chosen SagsID
+                if (HandelBLL.HandelExists(HandelSagsID()))
+                    MessageBox.Show("En faktura (handel) for denne sag har allerede været oprettet.");
+                else if (!SagBLL.SagExists(HandelSagsID()))
+                    MessageBox.Show("Denne SagsID kan desværre ikke findes i databasen. Prøv venligst igen!");
+                else
                 {
                     //OpretHandel
                     handel.OpretHandel(handel);
@@ -69,10 +73,13 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     if (SagBLL.SagExists(HandelSagsID()))
                         sagBLL.LukSag(sagBLL);
                 }
+<<<<<<< Updated upstream
                 else
                 {
                     MessageBox.Show("En faktura (handel) for denne sag har allerede været oprettet.");
                 }
+=======
+>>>>>>> Stashed changes
             }
             catch (Exception ex)
             {
