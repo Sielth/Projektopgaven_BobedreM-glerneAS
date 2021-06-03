@@ -103,7 +103,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Der opstod fejl i databasen med følgende log: " + ex.Message);
                 }
             }
             KøberUI_Load(sender, e);
