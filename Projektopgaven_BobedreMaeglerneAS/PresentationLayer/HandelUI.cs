@@ -73,13 +73,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                     if (SagBLL.SagExists(HandelSagsID()))
                         sagBLL.LukSag(sagBLL);
                 }
-<<<<<<< Updated upstream
-                else
-                {
-                    MessageBox.Show("En faktura (handel) for denne sag har allerede været oprettet.");
-                }
-=======
->>>>>>> Stashed changes
             }
             catch (Exception ex)
             {
