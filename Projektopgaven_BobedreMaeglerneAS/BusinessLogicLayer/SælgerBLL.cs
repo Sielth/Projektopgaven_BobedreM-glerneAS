@@ -18,7 +18,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public string Vej { get; set; }
         public int Postnummer { get; set; }
 
-        public SælgerBLL(int sælgerid, long cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer)
+        public SælgerBLL(int sælgerid, long cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer) //Constructor - bruger vi til opret og opdater
         {
             this.SælgerID = sælgerid;
             this.CPR = cpr;
@@ -30,19 +30,19 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Postnummer = postnummer;
         }
 
-        public SælgerBLL(int sælgerid, string fnavn, string enavn)
+        public SælgerBLL(int sælgerid, string fnavn, string enavn) //Constructor - bruges til at hente ned i comboboxen
         {
             this.SælgerID = sælgerid;
             this.Fnavn = fnavn;
             this.Enavn = enavn;
         }
 
-        public SælgerBLL(int sælgerid)
+        public SælgerBLL(int sælgerid) //Cnstructor - bruger vi når vi henter eller sletter en sælger
         {
             this.SælgerID = sælgerid;
         }
 
-        public SælgerBLL() { }
+        public SælgerBLL() { } //Difault constructor
 
         public override string ToString()
         {

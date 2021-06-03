@@ -18,7 +18,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public string Vej { get; set; }
         public int Postnummer { get; set; }
 
-        public EjendomsmæglerBLL(int mæglerID, long cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer)
+        public EjendomsmæglerBLL(int mæglerID, long cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer) //Constructor - bruger vi til opret og opdater
         {
             this.MæglerID = mæglerID;
             this.CPR = cpr;
@@ -30,7 +30,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Postnummer = postnummer;
         }
 
-        public EjendomsmæglerBLL(string fnavn, string enavn, int tlf, string email)
+        public EjendomsmæglerBLL(string fnavn, string enavn, int tlf, string email) //Constructor - bruges til at vise på hjemmeskærmen
         {
             this.Fnavn = fnavn;
             this.Enavn = enavn;
@@ -38,21 +38,14 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Email = email;
         }
 
-        public EjendomsmæglerBLL(int ID, string fnavn, string enavn)
+        public EjendomsmæglerBLL(int ID, string fnavn, string enavn) //Constructor - bruges til combobox
         {
             this.MæglerID = ID;
             this.Fnavn = fnavn;
             this.Enavn = enavn;
         }
 
-        //public string ToString(string format)
-        //{
-        //    return this.ToString(format);
-        //    //$"{MæglerID} - {Fnavn} {Enavn}";
-        //}
-
-
-        public EjendomsmæglerBLL() { }
+        public EjendomsmæglerBLL() { } //Default constructor
 
         public override string ToString()
         {

@@ -39,8 +39,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
 
             Console.WriteLine("READ COMMITTED BEGAN");
-
-            //cmd.Connection.BeginTransaction(IsolationLevel.ReadCommitted);
         }
 
         public static void BeginRepeatableReadTransaction(SqlConnection conn)
@@ -64,8 +62,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
 
             Console.WriteLine("REPEATABLE READ BEGAN");
-
-            //cmd.Connection.BeginTransaction(IsolationLevel.Serializable);
         }
 
 
