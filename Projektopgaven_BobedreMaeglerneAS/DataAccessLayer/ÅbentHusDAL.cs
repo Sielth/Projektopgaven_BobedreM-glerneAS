@@ -18,15 +18,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         private static SqlConnection conn = s1.GetConnection(); //get the SqlConnection from ConnectionSingleton method GetConnection
 
         private ListBox output; //THE BIG ListBox
-        private TextBox txt1; //THE FIRST LETTER WE FILTER THE ADRESSES WITH
-        private TextBox txt2; //THE SECOND LETTER WE FILTER THE ADDRESSES WITH
+        private TextBox bogstav1; //THE FIRST LETTER WE FILTER THE ADRESSES WITH
+        private TextBox bogstav2; //THE SECOND LETTER WE FILTER THE ADDRESSES WITH
 
         //ÅbentHusDAL constructor
         public ÅbentHusDAL(ListBox lBox, TextBox t1, TextBox t2) : base(lBox)
         {
             output = lBox;
-            txt1 = t1;
-            txt2 = t2;
+            bogstav1 = t1;
+            bogstav2 = t2;
         }
 
         private delegate void DisplayDelegateÅbent(List<BoligBLL> boliger);
@@ -38,7 +38,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             output.Items.Clear();
 
             //IF txt1 AND txt2 ARE EMPTY
-            if (string.IsNullOrEmpty(txt1.Text) && string.IsNullOrEmpty(txt2.Text))
+            if (string.IsNullOrEmpty(bogstav1.Text) && string.IsNullOrEmpty(bogstav2.Text))
             {
                 //FOREACH ITEM IN THE LIST
                 //ADD ITEM TO OUTPUT
@@ -46,10 +46,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     output.Items.Add(bolig.ToString("B"));
             }
             //IF ONLY txt2 IS EMPTY
-            else if (string.IsNullOrEmpty(txt2.Text))
+            else if (string.IsNullOrEmpty(bogstav2.Text))
             {
                 //START IS THE FIRST LETTER OF THE RANGE ADDRESSES ARE FILTERED WITH
-                char start = txt1.Text.ToUpper()[0];
+                char start = bogstav1.Text.ToUpper()[0];
 
                 foreach (BoligBLL bolig in boliger)
                 {
@@ -63,9 +63,9 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             else
             {
                 //START IS THE FIRST LETTER OF THE RANGE ADDRESSES ARE FILTERED WITH
-                char start = txt1.Text.ToUpper()[0];
+                char start = bogstav1.Text.ToUpper()[0];
                 //START IS THE LAST LETTER OF THE RANGE ADDRESSES ARE FILTERED WITH
-                char end = txt2.Text.ToUpper()[0];
+                char end = bogstav2.Text.ToUpper()[0];
 
                 foreach (BoligBLL bolig in boliger)
                 {
@@ -104,7 +104,15 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             using (var conn = new SqlConnection(s1.GetConnectionString()))
             {
                 //SQL QUERY
-                string sqlCommand = "SELECT * FROM Bolig WHERE BoligID IN (SELECT Sag.BoligID from Sag WHERE Sag.Status = 'Åben') AND Bolig.Kvadratmeter >= 145";
+                string sqlCommand = "SELECT * " +
+                    "FROM Bolig " +
+                    "WHERE BoligID " +
+                    "IN (" +
+                            "SELECT Sag.BoligID " +
+                            "FROM Sag " +
+                            "WHERE Sag.Status = 'Åben'" +
+                        ") " +
+                    "AND Bolig.Kvadratmeter >= 145";
 
                 //SQL COMMAND
                 SqlCommand cmd = new SqlCommand(sqlCommand, conn);
@@ -177,8 +185,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 {
                     //THREAD THAT CALLS FetchBolig WITH A LAMBA FUNCTION (since the method has a return argument)
                     //this will give the user a list of BoligBLL always up to date
-                    ThreadStart start = new ThreadStart(() => FetchBolig());
-                    Thread t1 = new Thread(start);
+                    //ThreadStart start = new ThreadStart(() => FetchBolig());
+                    //Thread t1 = new Thread(start);
 
                     //the list from FetchBoliger is saved in boliger
                     List<BoligBLL> boliger = FetchBolig();
@@ -189,7 +197,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                         if (!output.IsHandleCreated)
                             output.CreateControl(); //CREATES OUPUT CONTROL
 
-                        //invoking DisplayBolig
+                        //invoking DisplayBolig since Windows Form is not thread safe
                         output.Invoke(new DisplayDelegate(DisplayBolig), new object[] { boliger });
                     }
                     catch (Exception ex)

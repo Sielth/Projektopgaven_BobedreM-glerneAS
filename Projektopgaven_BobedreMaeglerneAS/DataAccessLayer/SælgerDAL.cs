@@ -316,11 +316,8 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             }
             catch (SqlException ex)
             {
-                throw ex;
-            }
-            finally
-            {
                 Transactions.Rollback(conn);
+                throw ex;
             }
 
             //CLOSE CONNECTION
