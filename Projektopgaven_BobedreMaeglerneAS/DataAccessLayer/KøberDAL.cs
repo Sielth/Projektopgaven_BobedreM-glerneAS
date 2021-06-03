@@ -184,22 +184,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             KøberBLL matchingkøber = null;
 
-            string sqlCommandKøber = "SELECT * FROM Køber WHERE KøberID = @KøberID";
+            string sqlCommandKøber = "SELECT * FROM Køber WHERE KøberID = @KøberID"; //Opretter vores SQL Query
 
-            SqlCommand commandKøber = new SqlCommand(sqlCommandKøber, conn);
+            SqlCommand commandKøber = new SqlCommand(sqlCommandKøber, conn); 
 
-            commandKøber.Parameters.AddWithValue("@KøberID", køberToFind.KøberID);
+            commandKøber.Parameters.AddWithValue("@KøberID", køberToFind.KøberID); //Henter værdien fra tekstboxen og sætter den til @KøberID
             
             try
             {
-                if (conn.State == System.Data.ConnectionState.Closed)
+                if (conn.State == System.Data.ConnectionState.Closed) //Åbner forbindelse hvis lukket
                     conn.Open();
                 
-                Transactions.BeginRepeatableReadTransaction(conn);
+                Transactions.BeginRepeatableReadTransaction(conn);  //Starter transaktion
                 
-                using (SqlDataReader reader = commandKøber.ExecuteReader())
+                using (SqlDataReader reader = commandKøber.ExecuteReader()) //Starter reader
                 {
-                    while (reader.Read())
+                    while (reader.Read()) //Kører igennem reader til vi har alle information for KøberID'et
                     {
                         matchingkøber = new KøberBLL((int)reader["KøberID"],
                             reader["Vej"].ToString(),
@@ -211,22 +211,22 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                             (int)reader["Telefon"]);
                     }
 
-                    if (reader != null)
+                    if (reader != null) //Lukker reader
                         reader.Close();
                 }
 
-                if (!Transactions.Commit(conn))
+                if (!Transactions.Commit(conn)) //Rollback hvis der er fejl i Commit
                     Transactions.Rollback(conn);
             }
-            catch (SqlException ex)
+            catch (SqlException ex) //Error catching
             {
                 Console.WriteLine(ex);
             }
 
-            if (conn.State == System.Data.ConnectionState.Open)
+            if (conn.State == System.Data.ConnectionState.Open) //Lukker forbindelse
                 conn.Close();
 
-            return matchingkøber;
+            return matchingkøber; //Returnerer reader data
         }
         #endregion
 

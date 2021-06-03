@@ -73,7 +73,6 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 {
                     MessageBox.Show("En faktura (handel) for denne sag har allerede været oprettet.");
                 }
-
             }
             catch (Exception ex)
             {

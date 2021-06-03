@@ -400,6 +400,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show("CPR skal være ti (10) tal langt");
                 return false;
             }
+            else if (KøberCPR_txt.Text.Length == 0)
+            {
+                return true;
+            }
             else
             {
                 return true;
