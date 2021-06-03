@@ -451,6 +451,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 MessageBox.Show("Telefon skal være otte (8) tal langt");
                 return false;
             }
+            else if (KøberTelefon_txt.Text.Length == 0)
+            {
+                return true;
+            }
             else
             {
                 return true;
@@ -474,6 +478,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             {
                 MessageBox.Show("Postnummer må kun indeholde tal som er fire (4) cifre langt");
                 return false;
+            }
+            else if (KøberPostnummer_txt.Text.Length == 0)
+            {
+                return true;
             }
             else
             {
