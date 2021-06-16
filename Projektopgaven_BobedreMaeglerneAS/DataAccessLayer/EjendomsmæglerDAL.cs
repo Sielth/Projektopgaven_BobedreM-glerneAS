@@ -19,7 +19,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         private ComboBox output;
 
-        public EjendomsmæglerDAL() //Bruges i EjendomsmæglerBLL
+        public EjendomsmæglerDAL() //EjendomsmæglerDAL constructor - bruges i EjendomsmæglerBLL
         {
             
         }
@@ -36,7 +36,7 @@ namespace Projektopgaven_BobedreMæglerneAS
         {
             output.Items.Clear(); //tømer comboboksen
 
-            foreach (EjendomsmæglerBLL ejendomsmægler in ejendomsmæglere)
+            foreach (EjendomsmæglerBLL ejendomsmægler in ejendomsmæglere) //For hver ejendomsmægler i listen, tilføj til comboboksen
                 output.Items.Add(ejendomsmægler.ToString()); //tilføjer ejendomsmæglerne til comboboksen
         }
 

@@ -15,7 +15,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public int SælgerID { get; private set; }
         public int MæglerID { get; private set; }
 
-        public SagBLL(int SagsID, string Status, int BoligID, int SælgerID, int MæglerID)
+        public SagBLL(int SagsID, string Status, int BoligID, int SælgerID, int MæglerID) //Constructor - bruges til hent sag og opdater sag
         {
             this.SagsID = SagsID;
             this.Status = Status;
@@ -24,7 +24,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.MæglerID = MæglerID;
         }
 
-        public SagBLL(string Status, int BoligID, int SælgerID, int MæglerID)
+        public SagBLL(string Status, int BoligID, int SælgerID, int MæglerID) //Constructor - bruges til opret sag
         {
             this.Status = Status;
             this.BoligID = BoligID;
@@ -38,7 +38,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.Status = status;
         }
 
-        public SagBLL(int SagsID)
+        public SagBLL(int SagsID) //Constructor - bruges til opret handel, opdater sag og slet sag
         {
             this.SagsID = SagsID;
         }
@@ -48,7 +48,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             return $"{SagsID} - {Status}";
         }
 
-        public static SagBLL FromString(string input)
+        public static SagBLL FromString(string input) //Bruges i DisplaySag
         {
             string[] sag = input.Split(' ');
 

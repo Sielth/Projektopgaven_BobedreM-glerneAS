@@ -459,7 +459,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 //BEGIN TRANSACTION
                 Transactions.BeginReadCommittedTransaction(conn);
 
-                userCount = (int)cmd.ExecuteScalar();
+                userCount = (int)cmd.ExecuteScalar(); //ExecuteScarlar: Returner hvor mange linjer med dette ID der ligger i databasen - gemmes i usercount. Hvis usercount er større end 0 så er der linjer i databasen med dette ID
 
                 //COMMIT OR ROLLBACK
                 if (!Transactions.Commit(conn))
@@ -474,7 +474,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
             if (conn.State == System.Data.ConnectionState.Open)
                 conn.Close();
 
-            if (userCount > 0)
+            if (userCount > 0) //Hvis userCount er større end 0 så findes ejendomsmægleren i databasen - og returnere derfor true (se evt. l. 365)
                 return true;
             else
                 return false;

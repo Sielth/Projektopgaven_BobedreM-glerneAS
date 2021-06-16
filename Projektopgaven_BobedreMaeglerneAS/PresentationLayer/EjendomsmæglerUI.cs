@@ -66,7 +66,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
                 if (TjekMægleridVærdi() && EjendomsmæglerBLL.EjendomsmæglerExists(MæglerID()))
                 {
                     EjendomsmæglerBLL matchingejendomsmægler = EjendomsmæglerBLL.HentEjendomsmægler(ejendomsmægler);
-
+                    //Vis ejendomsmæglerens oplysninger i tekstboksene
                     CPR_txt.Text = matchingejendomsmægler.CPR.ToString();
                     Telefon_txt.Text = matchingejendomsmægler.Telefon.ToString();
                     Email_txt.Text = matchingejendomsmægler.Email.ToString();

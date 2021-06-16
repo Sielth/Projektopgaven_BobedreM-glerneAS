@@ -18,7 +18,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
         public string Vej { get; set; }
         public int Postnummer { get; set; }
 
-        public EjendomsmæglerBLL(int mæglerID, long cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer) //Constructor - bruger vi til opret og opdater
+        public EjendomsmæglerBLL(int mæglerID, long cpr, int telefon, string email, string fnavn, string enavn, string vej, int postnummer) //Constructor - bruger vi til opret, hent, opdater og slet
         {
             this.MæglerID = mæglerID;
             this.CPR = cpr;

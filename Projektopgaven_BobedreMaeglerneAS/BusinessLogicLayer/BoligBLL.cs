@@ -54,14 +54,14 @@ namespace Projektopgaven_BobedreMæglerneAS
             this.RenoveringsÅr = renoveringsår;
         }
 
-        public BoligBLL(int boligid, string vej, int postnummer)
+        public BoligBLL(int boligid, string vej, int postnummer) //Bruges til comboboksen i SagsUI
         {
             this.BoligID = boligid;
             this.Vej = vej;
             this.Postnummer = postnummer;
         }
 
-        public BoligBLL(int boligid)
+        public BoligBLL(int boligid) //Bruges til hent og slet
         {
             this.BoligID = boligid;
         }
@@ -93,7 +93,7 @@ namespace Projektopgaven_BobedreMæglerneAS
         }
 
         //helper methods to ToString format
-        private string HasGarden(bool have)
+        private string HasGarden(bool have) //Tjekker om boligen har en have
         {
             if (have)
                 return $"med have";
@@ -101,7 +101,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                 return $"uden have";
         }
 
-        private string IsRenoveret(DateTime bygningsår, DateTime renoveringsår)
+        private string IsRenoveret(DateTime bygningsår, DateTime renoveringsår) //Tjekker om boligen er blevet renoveret
         {
             if (DateTime.Compare(bygningsår, renoveringsår) == 0)
                 return ", ikke blevet renoveret siden byggelsen";

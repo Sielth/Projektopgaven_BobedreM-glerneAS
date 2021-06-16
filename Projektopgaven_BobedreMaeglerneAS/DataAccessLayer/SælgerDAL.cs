@@ -17,7 +17,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         private ComboBox output;
 
-        public SælgerDAL()
+        public SælgerDAL() //SælgerDAL constructor - bruges i SælgerBLL
         {
         
         }
