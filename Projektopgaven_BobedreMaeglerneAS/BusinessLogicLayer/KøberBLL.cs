@@ -42,12 +42,12 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             this.KøberID = køberid;
         }
 
-        public override string ToString()
+        public override string ToString() //Bruges til comboboks i HandelUI
         {
             return $"{KøberID} - {Fnavn} {Enavn}";
         }
 
-        public static KøberBLL FromString(string input)
+        public static KøberBLL FromString(string input) //Bruges til tråde i KøberDAL
         {
             string[] køber = input.Split(' ');
 

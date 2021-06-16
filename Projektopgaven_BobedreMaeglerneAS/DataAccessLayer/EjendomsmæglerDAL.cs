@@ -19,7 +19,7 @@ namespace Projektopgaven_BobedreMæglerneAS
 
         private ComboBox output;
 
-        public EjendomsmæglerDAL()
+        public EjendomsmæglerDAL() //Bruges i EjendomsmæglerBLL
         {
             
         }
@@ -27,17 +27,17 @@ namespace Projektopgaven_BobedreMæglerneAS
         #region Threads
         public EjendomsmæglerDAL(ComboBox cBox)
         {
-            output = cBox;
+            output = cBox; //output - er comboboks (se linje 20)
         }
 
-        private delegate void DisplayDelegate(List<EjendomsmæglerBLL> ejendomsmæglere);
+        private delegate void DisplayDelegate(List<EjendomsmæglerBLL> ejendomsmæglere); //delegate da windows forms ikke er trådsikkert
 
         private void DisplayEjendomsmægler(List<EjendomsmæglerBLL> ejendomsmæglere)
         {
-            output.Items.Clear();
+            output.Items.Clear(); //tømer comboboksen
 
             foreach (EjendomsmæglerBLL ejendomsmægler in ejendomsmæglere)
-                output.Items.Add(ejendomsmægler.ToString());
+                output.Items.Add(ejendomsmægler.ToString()); //tilføjer ejendomsmæglerne til comboboksen
         }
 
         //method to retrieve all EjendomsmæglerID to show in the ComboBox of SagUI
@@ -47,7 +47,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             //INITIALIZE List OF EjendomsmæglerBLL ejendomsmæglere
             List<EjendomsmæglerBLL> ejendomsmægler = new List<EjendomsmæglerBLL>();
 
-            using (var conn = new SqlConnection(s1.GetConnectionString()))
+            using (var conn = new SqlConnection(s1.GetConnectionString())) //Disposenel connection - så en anden tråd kan komme ind i databasen
             {
                 //SQL QUERY
                 string sqlCommand = "SELECT * FROM Ejendomsmægler";
@@ -70,6 +70,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                         //RETRIEVE EjendomsmæglerBLL AND ADD IN ejendomsmægler
                         while (reader.Read())
                         {
+                            //Tilføjer ejendomsmæglerne til listen
                             ejendomsmægler.Add(new EjendomsmæglerBLL((int)reader["MæglerID"], reader["Fnavn"].ToString(), reader["Enavn"].ToString()));
                         }
 
@@ -99,7 +100,7 @@ namespace Projektopgaven_BobedreMæglerneAS
         {
             while (true)
             {
-                if (!output.IsDisposed)
+                if (!output.IsDisposed) //Tjekker at vi har en "output"
                 {
                     ThreadStart start = new ThreadStart(() => FetchEjendomsmægler());
                     Thread t1 = new Thread(start);
@@ -109,9 +110,10 @@ namespace Projektopgaven_BobedreMæglerneAS
                     try
                     {
                         //CHECK IF OUTPUT HANDLE HAS NOT BEEN CREATED
-                        if (!output.IsHandleCreated)
+                        if (!output.IsHandleCreated) //Tjekker om der er en comboboks og eller opretters der en på næste linje
                             output.CreateControl(); //CREATES OUPUT CONTROL
 
+                        //Delegate udfører metoden "DisplayEjendomsmægler"
                         output.Invoke(new DisplayDelegate(DisplayEjendomsmægler), new object[] { ejendomsmæglere });
                     }
                     catch (Exception ex)
@@ -119,7 +121,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                         Console.WriteLine(ex.Message);
                     }
 
-                    Thread.Sleep(6000);
+                    Thread.Sleep(6000); //Tråden som kalder "GenerateEjendomsmægler" (i SagsUI l. 43) sættes til at sove
                 }
             }
         }
@@ -253,6 +255,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             ConnectionSingleton s1 = ConnectionSingleton.Instance();
             SqlConnection conn = s1.GetConnection();
 
+            //Tjekker om tekstboksene er tomme og undlader at opdaterer informationer for dem der er tomme
             string sqlCommandEjendomsmægler = "UPDATE Ejendomsmægler SET " +
                 "CPR = IsNull(NullIf(@CPR, ''), CPR), " +
                 "Telefon = IsNull(NullIf(@Telefon, ''), Telefon), " +
@@ -289,7 +292,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             catch (SqlException ex)
             {
                 Transactions.Rollback(conn);
-                throw;
+                throw; //Sender fejlen videre til EjendomsmæglerBLL
             }
 
             if (conn != null)
@@ -359,7 +362,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                 //BEGIN TRANSACTION
                 Transactions.BeginReadCommittedTransaction(conn);
 
-                userCount = (int)cmd.ExecuteScalar();
+                userCount = (int)cmd.ExecuteScalar(); //ExecuteScarlar: Returner hvor mange linjer med dette ID der ligger i databasen - gemmes i usercount. Hvis usercount er større end 0 så er der linjer i databasen med dette ID
 
                 //COMMIT OR ROLLBACK
                 if (!Transactions.Commit(conn))

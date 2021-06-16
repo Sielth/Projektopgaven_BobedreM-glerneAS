@@ -18,7 +18,7 @@ namespace Projektopgaven_BobedreMaeglerneAS
         private EjendomsmæglerOplysninger ejendomsmæglerOplysninger1;
         private Pictures pictures;
 
-        public Homepage()
+        public Homepage() //constructor
         {
             InitializeComponent();
 

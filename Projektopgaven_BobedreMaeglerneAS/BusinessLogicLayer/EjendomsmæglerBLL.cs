@@ -52,7 +52,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             return ToString("A");
         }
 
-        public string ToString(string fmt)
+        public string ToString(string fmt) //returnere to forskellige tostring afhængigt af om det er case A eller B
         {
             if (string.IsNullOrEmpty(fmt))
                 fmt = "A";
@@ -98,7 +98,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.BusinessLogicLayer
             }
             catch (Exception ex)
             {
-                throw;
+                throw; //Sender fejlen videre til EjendomsmæglerUI.cs (knappen)
             }
         }
 

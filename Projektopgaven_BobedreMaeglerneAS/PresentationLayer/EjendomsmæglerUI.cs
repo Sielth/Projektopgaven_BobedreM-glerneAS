@@ -124,7 +124,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Der opstod en fejl i databasen. Her er loggen:" + ex.Message);
+                MessageBox.Show("Der opstod en fejl i databasen. Her er loggen:" + ex.Message); //Viser fejlen fra throw
             }
 
             //Loader data fra databasen ind i datagridview
@@ -189,45 +189,45 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Konveter Tekstbokse
         public int MæglerID()
         {
-            int.TryParse(MæglerID_txt.Text, out int mæglerid);
+            int.TryParse(MæglerID_txt.Text, out int mæglerid); //Konvetere inputtet i tekstboksen til en integer og returnere den
             return mæglerid;
         }
 
         public long MæglerCPR()
         {
-            Int64.TryParse(CPR_txt.Text, out long mæglercpr);
+            Int64.TryParse(CPR_txt.Text, out long mæglercpr); //Konvetere inputtet i tekstboksen til en integer og returnere den
             return mæglercpr;
         }
 
         public int MæglerTelefon()
         {
-            int.TryParse(Telefon_txt.Text, out int mæglertelefon);
+            int.TryParse(Telefon_txt.Text, out int mæglertelefon); //Konvetere inputtet i tekstboksen til en integer og returnere den
             return mæglertelefon;
         }
 
         public string MæglerEmail()
         {
-            return Email_txt.Text;
+            return Email_txt.Text; //Returnere tekstboksen
         }
 
         public string MæglerFnavn()
         {
-            return Fornavn_txt.Text;
+            return Fornavn_txt.Text; //Returnere tekstboksen
         }
 
         public string MæglerEnavn()
         {
-            return Efternavn_txt.Text;
+            return Efternavn_txt.Text; //Returnere tekstboksen
         }
 
         public string MæglerVej()
         {
-            return Vej_txt.Text;
+            return Vej_txt.Text; //Returnere tekstboksen
         }
 
         public int MæglerPostnummer()
         {
-            int.TryParse(Postnummer_txt.Text, out int mæglerpostnummer);
+            int.TryParse(Postnummer_txt.Text, out int mæglerpostnummer); //Konvetere inputtet i tekstboksen til en integer og returnere den
             return mæglerpostnummer;
         }
         #endregion
