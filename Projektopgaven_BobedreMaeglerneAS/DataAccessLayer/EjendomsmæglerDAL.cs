@@ -110,7 +110,7 @@ namespace Projektopgaven_BobedreMæglerneAS
                     try
                     {
                         //CHECK IF OUTPUT HANDLE HAS NOT BEEN CREATED
-                        if (!output.IsHandleCreated) //Tjekker om der er en comboboks og eller opretters der en på næste linje
+                        if (!output.IsHandleCreated) //Tjekker om der er en comboboks og ellers oprettes der en på næste linje
                             output.CreateControl(); //CREATES OUPUT CONTROL
 
                         //Delegate udfører metoden "DisplayEjendomsmægler"
@@ -377,7 +377,7 @@ namespace Projektopgaven_BobedreMæglerneAS
             if (conn.State == System.Data.ConnectionState.Open)
                 conn.Close();
 
-            if (userCount > 0)
+            if (userCount > 0) //Hvis userCount er større end 0 så findes ejendomsmægleren i databasen - og returnere derfor true (se evt. l. 365)
                 return true;
             else
                 return false;

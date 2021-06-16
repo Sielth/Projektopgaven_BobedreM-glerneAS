@@ -32,17 +32,17 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
 
         private void DisplaySælgere(List<SælgerBLL> sælgere)
         {
-            output.Items.Clear();
+            output.Items.Clear(); //tømer comboboksen
 
             foreach (SælgerBLL sælger in sælgere)
-                output.Items.Add(sælger.ToString());
+                output.Items.Add(sælger.ToString()); //tilføjer sælgere til comboboksen
         }
 
         public List<SælgerBLL> FetchSælger()
         {
             List<SælgerBLL> sælgere = new List<SælgerBLL>();
 
-            using (var conn = new SqlConnection(s1.GetConnectionString()))
+            using (var conn = new SqlConnection(s1.GetConnectionString())) //Disposenel connection - så en anden tråd kan komme ind i databasen
             {
                 string sqlCommand = "SELECT * FROM Sælger";
 
@@ -89,7 +89,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
         {
             while (true)
             { 
-                if (!output.IsDisposed)
+                if (!output.IsDisposed) //Tjekker at vi har en "output"
                 {
                     ThreadStart start = new ThreadStart(() => FetchSælger());
                     Thread t1 = new Thread(start);
@@ -99,9 +99,10 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                     try
                     {
                         //CHECK IF OUTPUT HANDLE HAS NOT BEEN CREATED
-                        if (!output.IsHandleCreated)
+                        if (!output.IsHandleCreated) //Tjekker om der er en comboboks og ellers oprettes der en på næste linje
                             output.CreateControl(); //CREATES OUPUT CONTROL
 
+                        //Delegate udfører metoden "DisplayEjendomsmægler"
                         output.Invoke(new DisplayDelegate(DisplaySælgere), new object[] { sælgere });
                     }
                     catch (Exception ex)
@@ -109,7 +110,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                         Console.WriteLine(ex.Message);
                     }
 
-                    Thread.Sleep(6000);
+                    Thread.Sleep(6000); //Tråden som kalder "GenerateEjendomsmægler" (i SagsUI l. 38) sættes til at sove
                 }
             }
         }
@@ -382,7 +383,7 @@ namespace Projektopgaven_BobedreMaeglerneAS.DataAccessLayer
                 //BEGIN TRANSACTION
                 Transactions.BeginReadCommittedTransaction(conn);
 
-                userCount = (int)cmd.ExecuteScalar();
+                userCount = (int)cmd.ExecuteScalar(); //ExecuteScarlar: Returner hvor mange linjer med dette ID der ligger i databasen - gemmes i usercount. Hvis usercount er større end 0 så er der linjer i databasen med dette ID
 
                 //COMMIT OR ROLLBACK
                 if (!Transactions.Commit(conn))

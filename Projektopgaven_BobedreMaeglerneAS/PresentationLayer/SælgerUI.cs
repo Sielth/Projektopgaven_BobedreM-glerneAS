@@ -175,45 +175,45 @@ namespace Projektopgaven_BobedreMaeglerneAS.PresentationLayer
         #region Convert Textboxes
         private int SælgerID()
         {
-            int.TryParse(sælgerID_txt.Text, out int sælgerid);
+            int.TryParse(sælgerID_txt.Text, out int sælgerid); //Konvetere inputtet i tekstboksen til en integer og returnere den
             return sælgerid;
         }
 
         private long SælgerCPR()
         {
-            Int64.TryParse(sælgerCPR_txt.Text, out long sælgercpr);
+            Int64.TryParse(sælgerCPR_txt.Text, out long sælgercpr); //Konvetere inputtet i tekstboksen til en integer og returnere den
             return sælgercpr;
         }
 
         private string SælgerFornavn()
         {
-            return sælgerFornavn_txt.Text;
+            return sælgerFornavn_txt.Text; //Returnere tekstboksen
         }
 
         private string SælgerEfternavn()
         {
-            return sælgerEfternavn_txt.Text;
+            return sælgerEfternavn_txt.Text; //Returnere tekstboksen
         }
 
         private int SælgerTelefon()
         {
-            int.TryParse(sælgerTelefon_txt.Text, out int sælgertelefon);
+            int.TryParse(sælgerTelefon_txt.Text, out int sælgertelefon); //Konvetere inputtet i tekstboksen til en integer og returnere den
             return sælgertelefon;
         }
 
         private string SælgerEmail()
         {
-            return sælgerEmail_txt.Text;
+            return sælgerEmail_txt.Text; //Returnere tekstboksen
         }
 
         private string SælgerVej()
         {
-            return sælgerVej_txt.Text;
+            return sælgerVej_txt.Text; //Returnere tekstboksen
         }
 
         private int SælgerPostnummer()
         {
-            int.TryParse(sælgerPostnummer_txt.Text, out int sælgerpostnummer);
+            int.TryParse(sælgerPostnummer_txt.Text, out int sælgerpostnummer); //Konvetere inputtet i tekstboksen til en integer og returnere den
             return sælgerpostnummer;
         }
         #endregion
